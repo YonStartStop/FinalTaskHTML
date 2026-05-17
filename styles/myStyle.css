@@ -1,0 +1,51 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&display=swap');
+
+#hero {
+    width: 100vw;
+    height: 100vh;
+    align-content: center;
+    justify-content: center;
+}
+
+#QuestionBubble {
+    display: inline-block;
+    font-family: "Playpen Sans Hebrew";
+    font-size: 72px;
+
+    padding: 6px 24px;
+    background: lightgray;
+    border-radius: 100px;
+}
+
+#bubbleTopic {
+    font-family: "Playpen Sans Hebrew";
+    color: black;
+    font-size: 108px;
+    font-weight: bold;
+}
+
+
+
+.chat {
+    display: flex;
+    flex-direction: column;
+
+    .chat-bubble {
+        display: inline-block;
+        padding: 5px 14px;
+        background: lightgray;
+        margin: 8px;
+        box-shadow: 0 2px 7px;
+        border-radius: 24px;
+        align-self: center;
+    }
+    .kid {
+        font-family: "Playpen Sans Hebrew";
+        align-self: flex-start;
+    }
+    .parent {
+        font-family: "Open Sans";
+        align-self: flex-end;
+    }
+}
