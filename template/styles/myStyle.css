@@ -1,93 +1,25 @@
-﻿/*אלמנטים מקוננים*/
-/*
-div{
-  border:1px solid black;
-}
-*/
+﻿@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@100..800&display=swap');
 
-/*
-div,p{
-    background-color:orange;
-}
-*/
-
-/*
-#first-div p{
-    color:orange;
-}
-*/
-
-/*
-#third-div{
-    background-color: orange;
-}
-*/
-
-/*
-#first-div{
-    background-color:orange;
-}
-*/
-
-/*
-div div div{
-    background-color: orange;
-}
-*/
-
-
-
-
-
-
-/* משימה 1: קינון */
-
-
-
-
-
-
-
-/*3דרכים לעימוד */
-/*משימה 2*/
-
-
-
-
-
-
-
-
-
-/*מודל הקופסה*/
-.bg{
-    background-color:bisque;
-    padding: 1px; 
-    border: 2px dashed #bdc3c7;
-    margin: 20px;
-}
-
-.box { 
-    width: 250px;
-    height: 100px;
-    margin: 40px;    
-    border: 10px solid #2c3e50;    
-    padding: 20px;
-    background-color: #3498db;
-}
-
-.content {
-    background-color: #e74c3c;
-    color: white;
-    height: 100%;
-    display: flex;
-    align-items: center;
+#hero {
+    width: 100vw;
+    height: 100vh;
+    align-content: center;
     justify-content: center;
-    font-family: Arial, sans-serif;
-    font-size: 1.2rem;
+}
+
+#QuestionBubble {
+    display: inline-block;
+    font-family: "Playpen Sans Hebrew";
+    font-size: 72px;
+
+    padding: 6px 24px;
+    background: lightgray;
+    border-radius: 100px;
+}
+
+#bubbleTopic {
+    font-family: "Playpen Sans Hebrew";
+    color: black;
+    font-size: 108px;
     font-weight: bold;
 }
-
-/*תרגיל 3 מודל הקופסה*/
-
-
