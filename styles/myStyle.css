@@ -1,51 +1,108 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&display=swap');
 
-#hero {
-    width: 100vw;
-    height: 100vh;
-    align-content: center;
-    justify-content: center;
+:root {
+    --bg-primary: #F0F0F0;
+    --bg-secondary: #FFFFFF;
+    --text-primary: #000000;
+    --text-secondary: #545454;
+    --text-tertiary: #767676;
+    --highlight-blue: #4687E2;
+    --highlight-indigo: #B369E4;
+    --highlight-yellow: #D2C517;
 }
 
-#QuestionBubble {
-    display: inline-block;
-    font-family: "Playpen Sans Hebrew";
-    font-size: 72px;
-
-    padding: 6px 24px;
-    background: lightgray;
-    border-radius: 100px;
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
 }
 
-#bubbleTopic {
-    font-family: "Playpen Sans Hebrew";
-    color: black;
-    font-size: 108px;
-    font-weight: bold;
+h1, h2, h3, p, .quote, .caption {
+    font-family: "Open Sans", sans-serif;
 }
 
+h1 {
+    font-size: 42px;
+    font-weight: 400;
+}
 
+h2 {
+    font-size: 29px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.quote {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.caption {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.card {
+    background-color: var(--bg-secondary);
+    border-radius: 6px;
+    border-right: 3px solid var(--highlight-blue);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    margin: 16px 0;
+    
+    &.indigo {
+        border-right-color: var(--highlight-indigo);
+    }
+    
+    &.yellow {
+        border-right-color: var(--highlight-yellow);
+    }
+}
 
 .chat {
     display: flex;
     flex-direction: column;
-
+    padding: 16px;
+    
     .chat-bubble {
-        display: inline-block;
-        padding: 5px 14px;
-        background: lightgray;
-        margin: 8px;
-        box-shadow: 0 2px 7px;
+        background-color: var(--bg-secondary);
         border-radius: 24px;
-        align-self: center;
-    }
-    .kid {
-        font-family: "Playpen Sans Hebrew";
-        align-self: flex-start;
-    }
-    .parent {
-        font-family: "Open Sans";
-        align-self: flex-end;
+        padding: 12px 24px;
+        margin: 8px 0;
+        display: inline-block;
+        max-width: 80%;
+
+        &.kid {
+            font-family: "Playpen Sans Hebrew", sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.4);
+            align-self: flex-start;
+
+            strong {
+                font-weight: 700;
+            }
+        }
+        
+        &.adult {
+            font-family: "Open Sans", sans-serif;
+            font-stretch: condensed;
+            font-size: 23px;
+            font-weight: 400;
+            box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.3);
+            align-self: flex-end;
+        }
     }
 }
