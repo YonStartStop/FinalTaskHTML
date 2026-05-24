@@ -433,42 +433,6 @@ h1, h2, h3, p, .quote, .caption {
     background-color: #FFFFFF;
 }
 
-/* ==========================================================================
-   VIRTUAL MOUSE CURSOR ("Irit Fish")
-   ========================================================================== */
-.virtual-cursor {
-    position: absolute;
-    left: -40px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    pointer-events: none;
-    z-index: 1000;
-    animation: bounceCursor 3.5s ease-in-out infinite;
-}
-
-@keyframes bounceCursor {
-    0%, 100% { transform: translateY(-50%) translate(0, 0); }
-    50% { transform: translateY(-50%) translate(-8px, -5px); }
-}
-
-.cursor-arrow {
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
-}
-
-.cursor-tag {
-    background-color: #5C6E87;
-    color: #FFFFFF;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;
-    font-size: 11px;
-    padding: 3px 8px;
-    border-radius: 4px;
-    white-space: nowrap;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
-}
 
 /* ==========================================================================
    VIRTUAL DIVIDER
@@ -858,10 +822,6 @@ h1, h2, h3, p, .quote, .caption {
         text-align: right;
     }
     
-    /* Hide the custom cursor on mobile touch interfaces */
-    .virtual-cursor {
-        display: none !important;
-    }
     
     /* Divider spacing adjustments */
     .virtual-divider-container {
