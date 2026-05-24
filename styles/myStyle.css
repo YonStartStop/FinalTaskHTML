@@ -903,3 +903,892 @@ h1, h2, h3, p, .quote, .caption {
         gap: 12px;
     }
 }
+
+/* ==========================================================================
+   NEW CUSTOM INTERACTIVE ELEMENTS & WIDGETS
+   ========================================================================== */
+
+/* Alternating background section */
+.bg-alt-section {
+    background-color: var(--bg-matte-grey);
+    border-radius: 30px;
+    padding: 60px 40px !important;
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.02), 0 10px 30px rgba(0,0,0,0.02);
+}
+
+/* Shared titles for sections */
+.section-title-wrapper {
+    margin-bottom: 45px;
+    text-align: center;
+    direction: rtl;
+}
+
+.section-main-title {
+    font-family: "Rubik", sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--eggplant);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+}
+
+.section-main-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
+    height: 4px;
+    background: linear-gradient(to left, var(--highlight-indigo), var(--highlight-blue));
+    border-radius: 10px;
+}
+
+.section-main-subtitle {
+    font-size: 17px;
+    color: var(--text-secondary);
+    margin-top: 12px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   1. 4 Commandments Grid & Cards
+   -------------------------------------------------------------------------- */
+.commandments-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 35px;
+    direction: rtl;
+}
+
+.commandment-card {
+    background-color: var(--bg-secondary);
+    border-radius: 18px;
+    padding: 24px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    overflow: hidden;
+}
+
+.commandment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 5px;
+}
+
+.commandment-card.border-salmon::before { background-color: var(--accent-salmon); }
+.commandment-card.border-indigo::before { background-color: var(--highlight-indigo); }
+.commandment-card.border-blue::before { background-color: var(--highlight-blue); }
+.commandment-card.border-yellow::before { background-color: var(--highlight-yellow); }
+
+.commandment-num {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.05);
+    line-height: 1;
+    font-family: "Rubik", sans-serif;
+    transition: color 0.3s ease;
+}
+
+.commandment-name {
+    font-family: "Rubik", sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--eggplant);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.commandment-desc {
+    font-size: 15.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+/* Hover effects */
+.commandment-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(54, 34, 66, 0.08);
+    border-color: rgba(54, 34, 66, 0.08);
+}
+
+.commandment-card:hover .commandment-num {
+    color: rgba(179, 105, 228, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   2. 3-Layers Rule Explorer
+   -------------------------------------------------------------------------- */
+.layers-explorer-container {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 40px;
+    align-items: stretch;
+    margin-top: 30px;
+    direction: rtl;
+}
+
+/* Layers Stack (Right side) */
+.layers-visual-stack {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+}
+
+.layer-item {
+    background-color: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.layer-badge {
+    background-color: var(--eggplant);
+    color: #FFFFFF;
+    font-family: "Rubik", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 5px 12px;
+    border-radius: 30px;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+.layer-title {
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: right;
+}
+
+/* Coloring distinct layers */
+.layer-item.layer-1::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15px;
+    bottom: 15px;
+    width: 5px;
+    background-color: var(--highlight-blue);
+    border-radius: 3px 0 0 3px;
+}
+.layer-item.layer-2::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15px;
+    bottom: 15px;
+    width: 5px;
+    background-color: var(--highlight-indigo);
+    border-radius: 3px 0 0 3px;
+}
+.layer-item.layer-3::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15px;
+    bottom: 15px;
+    width: 5px;
+    background-color: var(--accent-salmon);
+    border-radius: 3px 0 0 3px;
+}
+
+/* Layer item interactive states */
+.layer-item:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    background-color: #FAFCFD;
+}
+
+.layer-item.active {
+    background-color: var(--eggplant);
+    border-color: var(--eggplant);
+    box-shadow: 0 8px 24px rgba(54, 34, 66, 0.18);
+    transform: translateX(-8px) scale(1.02);
+}
+
+.layer-item.active .layer-title {
+    color: #FFFFFF;
+}
+
+.layer-item.active.layer-1 .layer-badge { background-color: var(--highlight-blue); }
+.layer-item.active.layer-2 .layer-badge { background-color: var(--highlight-indigo); }
+.layer-item.active.layer-3 .layer-badge { background-color: var(--accent-salmon); }
+
+/* Layer Content display (Left side) */
+.layer-info-display {
+    flex: 1.2;
+    background-color: var(--bg-secondary);
+    border-radius: 24px;
+    padding: 35px;
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.layer-panel {
+    animation: fadeSlidePanel 0.4s ease;
+}
+
+@keyframes fadeSlidePanel {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.layer-display-title {
+    font-family: "Rubik", sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--eggplant);
+    margin-bottom: 12px;
+}
+
+.layer-display-intro {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.layer-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.meta-card {
+    background-color: var(--bg-primary);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.meta-label {
+    font-family: "Rubik", sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--eggplant);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.meta-text {
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.layer-example-box {
+    border-top: 1px dashed rgba(0,0,0,0.1);
+    padding-top: 20px;
+}
+
+.example-label {
+    font-family: "Rubik", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text-tertiary);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.example-bubble-wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* --------------------------------------------------------------------------
+   3. Parenting Tools Grid
+   -------------------------------------------------------------------------- */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+    direction: rtl;
+}
+
+.tool-card {
+    background-color: var(--bg-secondary);
+    border-radius: 20px;
+    padding: 30px 25px;
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(70, 135, 226, 0.08);
+    border-color: rgba(70, 135, 226, 0.1);
+}
+
+.tool-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.tool-title {
+    font-family: "Rubik", sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--eggplant);
+    margin-bottom: 12px;
+}
+
+.tool-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.tool-how-to {
+    background-color: #F8F9FB;
+    border-right: 3px solid var(--highlight-blue);
+    padding: 12px 15px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: #4A5568;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    margin-top: auto;
+}
+
+.tool-how-to strong, .tool-why strong {
+    color: var(--eggplant);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.tool-why {
+    background-color: #FFF5F9;
+    border-right: 3px solid var(--highlight-indigo);
+    padding: 12px 15px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: #4A5568;
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   4. Book Recommendations Carousel
+   -------------------------------------------------------------------------- */
+.carousel-wrapper {
+    position: relative;
+    max-width: 1040px;
+    margin: 30px auto 0;
+    padding: 0 50px;
+    direction: rtl;
+}
+
+.carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    padding: 15px 0 25px;
+}
+
+.carousel-slider {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    width: max-content;
+}
+
+/* Book Card */
+.book-card {
+    background-color: var(--bg-secondary);
+    border-radius: 20px;
+    width: 440px;
+    padding: 25px;
+    display: flex;
+    gap: 22px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.04);
+    align-items: stretch;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.06);
+}
+
+/* CSS Mock Book Cover (Premium physical look) */
+.book-cover-mock {
+    width: 130px;
+    height: 190px;
+    border-radius: 4px 12px 12px 4px;
+    position: relative;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 5px 8px 18px rgba(0,0,0,0.18), inset -2px 0 5px rgba(255,255,255,0.2);
+    flex-shrink: 0;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    transform-origin: left center;
+}
+
+.book-card:hover .book-cover-mock {
+    transform: rotateY(-12deg);
+}
+
+/* Book Spine shade */
+.book-spine {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 10px;
+    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow: inset -1px 0 2px rgba(255,255,255,0.15);
+    z-index: 10;
+}
+
+.book-title-inside {
+    font-family: "Playpen Sans Hebrew", cursive, sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.3;
+    text-align: right;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.book-author-inside {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: left;
+    margin-top: auto;
+    font-weight: bold;
+}
+
+/* Book text details */
+.book-details {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    flex: 1;
+}
+
+.book-title {
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--eggplant);
+    margin-bottom: 2px;
+}
+
+.book-author {
+    font-size: 12.5px;
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.book-summary {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 12px;
+}
+
+.book-why-read {
+    font-size: 12.5px;
+    color: #4A5568;
+    background-color: #F7FAFC;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border-right: 2px solid var(--highlight-indigo);
+    line-height: 1.45;
+    margin-bottom: 15px;
+    margin-top: auto;
+}
+
+.book-why-read strong {
+    color: var(--eggplant);
+    display: block;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.book-buy-link {
+    display: inline-block;
+    background-color: var(--eggplant);
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: "Rubik", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(54, 34, 66, 0.15);
+}
+
+.book-buy-link:hover {
+    background-color: var(--highlight-indigo);
+    box-shadow: 0 6px 14px rgba(179, 105, 228, 0.25);
+    transform: translateY(-1px);
+}
+
+/* Control Buttons styling */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background-color: var(--bg-secondary);
+    color: var(--eggplant);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.25s ease;
+    z-index: 100;
+}
+
+.carousel-btn:hover {
+    background-color: var(--eggplant);
+    color: #FFFFFF;
+    box-shadow: 0 6px 18px rgba(54, 34, 66, 0.25);
+}
+
+.carousel-btn:focus {
+    outline: none;
+}
+
+.carousel-btn.prev-btn {
+    left: 10px;
+}
+
+.carousel-btn.next-btn {
+    right: 10px;
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background-color: var(--bg-matte-grey);
+    color: var(--text-tertiary);
+    box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   5. Premium Glassmorphic Modal Popup
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000; /* Ensure overlay floats on top of the entire website frame */
+    padding: 20px;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(54, 34, 66, 0.4);
+    backdrop-filter: blur(12px); /* Beautiful glassmorphic blurred bg */
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--bg-primary);
+    border-radius: 28px;
+    width: 100%;
+    max-width: 680px;
+    max-height: 85vh;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(54, 34, 66, 0.25), inset 0 2px 4px rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.3);
+    z-index: 10;
+    overflow-y: auto;
+    direction: rtl;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+/* Opened state */
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background-color: rgba(0,0,0,0.05);
+    color: var(--eggplant);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    text-align: right;
+}
+
+/* Modal Inner Components */
+.modal-question-header {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.modal-question-header .chat-bubble.kid {
+    display: inline-block;
+    max-width: 90%;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    margin: 0;
+}
+
+.modal-parent-guide {
+    background-color: #FFEBF5; /* Matches adult bubble light blush pink tone */
+    border-right: 4px solid var(--highlight-indigo);
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 14.5px;
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.modal-parent-guide strong {
+    color: var(--eggplant);
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* 3 Layers display inside modal */
+.modal-layers-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-layer-row {
+    background-color: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid rgba(0,0,0,0.03);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+}
+
+.modal-layer-label {
+    display: inline-block;
+    font-family: "Rubik", sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: #FFFFFF;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.modal-layer-label.bg-blue { background-color: var(--highlight-blue); }
+.modal-layer-label.bg-indigo { background-color: var(--highlight-indigo); }
+.modal-layer-label.bg-salmon { background-color: var(--accent-salmon); }
+
+.modal-layer-text {
+    font-size: 16px;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.modal-layer-row .example-bubble-wrapper {
+    margin-top: 15px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Footer Enhancements
+   -------------------------------------------------------------------------- */
+.footer-quote {
+    font-family: "Rubik", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--eggplant);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.footer-copyright {
+    font-size: 13.5px;
+    color: var(--text-tertiary);
+}
+
+/* ==========================================================================
+   NEW RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 991px) {
+    .bg-alt-section {
+        padding: 40px 20px !important;
+        margin-top: 30px !important;
+        margin-bottom: 30px !important;
+    }
+    
+    .section-main-title {
+        font-size: 27px;
+    }
+
+    .commandments-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    
+    .layers-explorer-container {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .layers-visual-stack {
+        width: 100%;
+    }
+    
+    .layer-item.active {
+        transform: translateY(-3px);
+    }
+    
+    .layer-info-display {
+        width: 100%;
+        padding: 25px;
+    }
+    
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .carousel-wrapper {
+        padding: 0 10px;
+    }
+    
+    .carousel-btn {
+        display: none; /* Hide arrow controls on touch screens, support scroll */
+    }
+    
+    .carousel-viewport {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .carousel-slider {
+        gap: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .book-card {
+        width: calc(100vw - 60px);
+        min-width: 280px;
+        max-width: 440px;
+        scroll-snap-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .book-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+        width: calc(100vw - 40px);
+    }
+    
+    .book-cover-mock {
+        width: 120px;
+        height: 170px;
+    }
+    
+    .book-details {
+        text-align: center;
+    }
+    
+    .book-why-read {
+        border-right: none;
+        border-top: 2px solid var(--highlight-indigo);
+        border-radius: 0 0 8px 8px;
+    }
+    
+    .modal-content {
+        padding: 30px 20px;
+    }
+    
+    .modal-close-btn {
+        top: 10px;
+        left: 10px;
+    }
+    
+    .layer-meta-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -29,67 +29,150 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // DASHBOARD SEARCH & FILTER LOGIC
+    // INTERACTIVE 3-LAYERS EXPLORER LOGIC
     // ==========================================
-    const searchInput = document.getElementById('search-input');
-    const categoryPills = document.querySelectorAll('.filter-pill');
-    const cards = document.querySelectorAll('.dashboard-card');
+    const layerItems = document.querySelectorAll('.layer-item');
+    const displayTitle = document.getElementById('layer-display-title');
+    const displayIntro = document.getElementById('layer-display-intro');
+    const displayGoal = document.getElementById('layer-display-goal');
+    const displayRule = document.getElementById('layer-display-rule');
+    const displayExample = document.getElementById('layer-display-example');
+    const contentPanel = document.getElementById('layer-content-panel');
 
-    if (cards.length > 0) {
-        let activeCategory = 'all';
-        let searchQuery = '';
+    const layersData = {
+        '1': {
+            title: 'שכבה 1: העובדה היבשה (התשובה ל"מה קרה?")',
+            intro: 'זו השכבה הבסיסית ביותר – כאן אתם מספקים את המידע המדויק ביותר, ללא פרשנות אישית, ללא דרמה ובשפה פשוטה.',
+            goal: 'לענות על הסקרנות האינטלקטואלית הישירה של הילד.',
+            rule: 'אם הילד מפסיק לשאול או חוזר לעיסוקיו - עצרתם בזמן! זה אומר שהשכבה הזו סיפקה אותו לחלוטין כרגע.',
+            example: '"אמא ואבא החליטו שיהיה לנו יותר נעים וטוב לחיות בשני בתים נפרדים."'
+        },
+        '2': {
+            title: 'שכבה 2: הרגש והנורמליזציה (התשובה ל"איך מרגישים?")',
+            intro: 'כאן אתם מעניקים לגיטימציה מלאה לרגשות. אתם לא רק עונים על "מה קרה", אלא מסבירים את התחושות סביב זה ומנרמלים אותן.',
+            goal: 'לבנות אינטימיות ולקשר את המידע לחוויה אנושית מקרבת.',
+            rule: 'השתמשו תמיד במשפטי "אני" ו"אנחנו" כדי שהילד לא ירגיש לבד במערכה.',
+            example: '"זה שינוי גדול, ולפעמים זה מעציב או מבלבל גם אותנו וגם אותך. זה טבעי לגמרי להרגיש ככה."'
+        },
+        '3': {
+            title: 'שכבה 3: העוגן והביטחון (התשובה ל"מה איתי?")',
+            intro: 'זו השכבה החשובה ביותר, הנועד להרגיע את החרדה הקיומית של הילד. בכל שאלה קשה, הילד שואל בתת-מודע: "האם אני בטוח ומוגן?". כאן אנו עונים על זה במפורש.',
+            goal: 'לספק יציבות אבסולוטית ולהזכיר לילד שהקשר ביניכם לא השתנה ולא ישתנה.',
+            rule: 'הבטחה לביטחון וליציבות נוכחית ועתידית בשגרה שלו.',
+            example: '"למרות שאנחנו גרים בבתים נפרדים, אנחנו עדיין משפחה אחת גדולה, ושנינו אוהבים אותך באותה מידה ונדאג לכל מה שאתה צריך תמיד."'
+        }
+    };
 
-        const filterCards = () => {
-            cards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                const cardText = card.textContent.toLowerCase();
-                
-                const matchesCategory = (activeCategory === 'all' || cardCategory === activeCategory);
-                const matchesSearch = cardText.includes(searchQuery.toLowerCase());
+    if (layerItems.length > 0 && displayTitle) {
+        layerItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Active classes toggling
+                layerItems.forEach(li => li.classList.remove('active'));
+                item.classList.add('active');
 
-                if (matchesCategory && matchesSearch) {
-                    card.style.display = 'block';
-                    // Trigger tiny delay for fade-in transition
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0) scale(1)';
-                    }, 20);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(15px) scale(0.95)';
-                    // Hide completely after transition finishes (300ms)
-                    setTimeout(() => {
-                        if (card.style.opacity === '0') {
-                            card.style.display = 'none';
-                        }
-                    }, 300);
+                const layerId = item.getAttribute('data-layer');
+                const data = layersData[layerId];
+
+                if (data) {
+                    // Temporarily remove and trigger reflow for panel animation
+                    if (contentPanel) {
+                        contentPanel.style.animation = 'none';
+                        contentPanel.offsetHeight; // Reflow
+                        contentPanel.style.animation = '';
+                    }
+
+                    // Update contents
+                    displayTitle.textContent = data.title;
+                    displayIntro.textContent = data.intro;
+                    displayGoal.textContent = data.goal;
+                    displayRule.textContent = data.rule;
+                    displayExample.textContent = data.example;
+                }
+            });
+        });
+    }
+
+    // ==========================================
+    // BOOK RECOMMENDATIONS CAROUSEL LOGIC
+    // ==========================================
+    const carouselViewport = document.getElementById('books-carousel-viewport');
+    const carouselPrev = document.getElementById('carousel-prev');
+    const carouselNext = document.getElementById('carousel-next');
+    const scrollAmount = 470; // Width of card (440px) + gap (30px)
+
+    if (carouselViewport && carouselPrev && carouselNext) {
+        // Next button (in RTL, points left, scrolls negative left direction)
+        carouselNext.addEventListener('click', () => {
+            carouselViewport.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+
+        // Prev button (in RTL, points right, scrolls positive right direction)
+        carouselPrev.addEventListener('click', () => {
+            carouselViewport.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+
+        // Update button disabled/enabled states based on current scroll position
+        const updateCarouselButtons = () => {
+            // Native scrollLeft in RTL is usually negative, take absolute value
+            const scrollLeft = Math.abs(carouselViewport.scrollLeft);
+            const maxScroll = carouselViewport.scrollWidth - carouselViewport.clientWidth;
+
+            // Simple checks with small tolerance
+            carouselPrev.disabled = scrollLeft <= 15;
+            carouselNext.disabled = scrollLeft >= maxScroll - 15;
+        };
+
+        // Scroll listener for dynamic buttons
+        carouselViewport.addEventListener('scroll', updateCarouselButtons);
+        window.addEventListener('resize', updateCarouselButtons);
+        
+        // Initial delay setup to allow fonts/layout to settle
+        setTimeout(updateCarouselButtons, 300);
+    }
+
+    // ==========================================
+    // MULTI-PAGE ACTIVE NAV HIGHLIGHTING LOGIC
+    // ==========================================
+    const navLinks = document.querySelectorAll('.nav-link');
+    const menuLinks = document.querySelectorAll('.menu-link');
+
+    const updateActiveNav = () => {
+        const path = window.location.pathname;
+        const hash = window.location.hash;
+        
+        let currentPage = 'home';
+        
+        if (path.includes('layers.html')) {
+            currentPage = 'layers';
+        } else if (path.includes('tools.html')) {
+            if (hash === '#books-carousel') {
+                currentPage = 'books';
+            } else {
+                currentPage = 'tools';
+            }
+        } else {
+            // index.html or root "/"
+            if (hash === '#commandments') {
+                currentPage = 'home-commandments';
+            } else {
+                currentPage = 'home';
+            }
+        }
+
+        const applyActive = (links) => {
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-page') === currentPage) {
+                    link.classList.add('active');
                 }
             });
         };
 
-        // Search Input Listener
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                searchQuery = e.target.value;
-                filterCards();
-            });
-        }
+        applyActive(navLinks);
+        applyActive(menuLinks);
+    };
 
-        // Category Pills Listener
-        categoryPills.forEach(pill => {
-            pill.addEventListener('click', () => {
-                categoryPills.forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
-                activeCategory = pill.getAttribute('data-filter');
-                filterCards();
-            });
-        });
-
-        // Initialize cards with opacity & transitions
-        cards.forEach(card => {
-            card.style.transition = 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0) scale(1)';
-        });
-    }
+    // Update active highlight on hash changes (e.g. clicking on anchor sub-links)
+    window.addEventListener('hashchange', updateActiveNav);
+    updateActiveNav();
 });

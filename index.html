@@ -53,10 +53,11 @@
                 <!-- Desktop Navigation Links (Left aligned in RTL) -->
                 <nav class="desktop-nav" aria-label="ניווט ראשי">
                     <ul class="nav-list">
-                        <li><a href="#" class="nav-link active">דף הבית</a></li>
-                        <li><a href="#" class="nav-link">איך עונים נכון?</a></li>
-                        <li><a href="#" class="nav-link">כלים לשגרה</a></li>
-                        <li><a href="#" class="nav-link">אודות</a></li>
+                        <li><a href="index.html" class="nav-link active" data-page="home">ראשי</a></li>
+                        <li><a href="index.html#commandments" class="nav-link" data-page="home-commandments">עקרונות הזהב</a></li>
+                        <li><a href="layers.html" class="nav-link" data-page="layers">חוק 3 השכבות</a></li>
+                        <li><a href="tools.html" class="nav-link" data-page="tools">כלים להורים</a></li>
+                        <li><a href="tools.html#books-carousel" class="nav-link" data-page="books">צומת ספרים</a></li>
                     </ul>
                 </nav>
 
@@ -80,10 +81,11 @@
                     <button id="close-menu-btn" class="close-menu-btn" aria-label="סגור תפריט">&times;</button>
                 </div>
                 <ul class="mobile-nav-list">
-                    <li><a href="#" class="menu-link active">דף הבית</a></li>
-                    <li><a href="#" class="menu-link">איך עונים נכון?</a></li>
-                    <li><a href="#" class="menu-link">כלים לשגרה</a></li>
-                    <li><a href="#" class="menu-link">אודות</a></li>
+                    <li><a href="index.html" class="menu-link active" data-page="home">ראשי</a></li>
+                    <li><a href="index.html#commandments" class="menu-link" data-page="home-commandments">עקרונות הזהב</a></li>
+                    <li><a href="layers.html" class="menu-link" data-page="layers">חוק 3 השכבות</a></li>
+                    <li><a href="tools.html" class="menu-link" data-page="tools">כלים להורים</a></li>
+                    <li><a href="tools.html#books-carousel" class="menu-link" data-page="books">צומת ספרים</a></li>
                 </ul>
             </div>
         </div>
@@ -92,38 +94,38 @@
     <section class="above-the-fold-section">
         <main id="bubble-field" class="bubble-field-container">
             <div id="bubble-cluster" class="bubble-cluster-grid">
-                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-bottom-right">
+                <a href="javascript:void(0)" class="chat-bubble kid interactive-bubble tail-bottom-right" data-question-id="two-dads">
                     למה לנועה יש <strong>שני אבאים</strong>?
                 </a>
-                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-bottom-left">
+                <a href="javascript:void(0)" class="chat-bubble kid interactive-bubble tail-bottom-left" data-question-id="grandma-driving">
                     למה סבתא <strong>כבר לא נוהגת</strong>?
                 </a>
-                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-top-right">
+                <a href="javascript:void(0)" class="chat-bubble kid interactive-bubble tail-top-right" data-question-id="skin-color">
                     למה האיש הזה <strong>שחור</strong>?
                 </a>
-                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-bottom-right">
+                <a href="javascript:void(0)" class="chat-bubble kid interactive-bubble tail-bottom-right" data-question-id="wheelchair">
                     למה האישה הזאת <strong>בכיסא</strong>?
                 </a>
-                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-top-left">
+                <a href="javascript:void(0)" class="chat-bubble kid interactive-bubble tail-top-left" data-question-id="sign-language">
                     למה אנשים מדברים <strong>עם הידיים</strong>?
                 </a>
-                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-bottom-left">
+                <a href="javascript:void(0)" class="chat-bubble kid interactive-bubble tail-bottom-left" data-question-id="holocaust">
                     מה זה <strong>השואה</strong>?
                 </a>
-                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-top-right">
+                <a href="javascript:void(0)" class="chat-bubble kid interactive-bubble tail-top-right" data-question-id="death">
                     אמא, מה זה <strong>מוות</strong>?
                 </a>
-                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-bottom-right">
+                <a href="javascript:void(0)" class="chat-bubble kid interactive-bubble tail-bottom-right" data-question-id="danny-room">
                     למה לדני יש <strong>מיטה וחדר משלו</strong>?
                 </a>
-                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-top-left">
+                <a href="javascript:void(0)" class="chat-bubble kid interactive-bubble tail-top-left" data-question-id="god-answering">
                     למה אלוהים <strong>לא עונה לי</strong>?
                 </a>
-                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-bottom-left" id="bubble-lesbian">
+                <a href="javascript:void(0)" class="chat-bubble kid interactive-bubble tail-bottom-left" id="bubble-lesbian" data-question-id="lesbian">
                     מה זה אומר שמישהי <strong>לסבית</strong>?
                 </a>
                 <!-- The rightmost bubble on top layouts. We put the simulated cursor here -->
-                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-top-right" id="bubble-ashkenazi">
+                <a href="javascript:void(0)" class="chat-bubble kid interactive-bubble tail-top-right" id="bubble-ashkenazi" data-question-id="ashkenazi">
                     מה זה אומר שאני <strong>אשכנזי</strong>?
                 </a>
             </div>
@@ -133,51 +135,72 @@
     <!-- ==========================================
          BELOW THE FOLD
          ========================================== -->
-    <section class="below-the-fold-section">
-        <!-- First Section -->
+    
+    <!-- סקשן 1: אודות ו-4 הדיברות -->
+    <section id="commandments" class="below-the-fold-section">
         <div class="content-layout-container">
-            
-            <div class="dashboard-container text-content-container" style="display: flex; flex-direction: column; justify-content: center;">
+            <div class="dashboard-container text-content-container">
                 <div class="dashboard-header">
-                    <h2 class="dashboard-title">מי אנחנו ומה אנו מציעים?</h2>
-                    <p class="dashboard-subtitle" style="line-height: 1.6; font-size: 18px; margin-top: 15px;">
-                        לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית. סת אלמנקום ניסי נון ניבאה. דס איאקוליס וולופטה דיאם. המורקוח נודימוס קוסמאקו. אנו מספקים להורים כלים ומידע להתמודדות עם שאלות מורכבות שילדים שואלים.
+                    <h2 class="dashboard-title">להפוך כל "למה" להזדמנות לקשר</h2>
+                    <p class="dashboard-subtitle" style="line-height: 1.7; font-size: 18px; margin-top: 15px;">
+                        ילדים שואלים שאלות על הכל – מהמבנה המשפחתי ועד לשאלות על מלחמה, מוות או גוף האדם. 
+                        לפעמים השאלות האלו תופסות אותנו לא מוכנים, מעוררות בנו מבוכה, או סתם גורמות לנו לחשוש שמא נגיד את "הדבר הלא נכון".
                         <br><br>
-                        קולורס מונפרד אדנדום סילקוף, מרגשי ומרגשק. עמחליף הועניב היושבב שערש שמחויט - שלושק. תצטנפל בלינדו למרקל אס לכימפו, דול, צוט ומעיוט - לפתיעם ברשג - ולתיעם דלהוק.
+                        אנחנו כאן כדי לעשות סדר ולעזור לכם להפוך כל שאלת "למה" להזדמנות לקרבה, ולדעת שתמיד יש לכם תשובה ששומרת על הילד שלכם ועל הקשר שלכם איתו. 
+                        לפניכם עקרונות הזהב – <strong>4 הדיברות של ההורות הקשובה</strong> – שילוו אתכם מהרגע שהשאלה נשאלת ועד שהילד מרגיש מוגן ורגוע:
                     </p>
+                </div>
+
+                <!-- 4 הדיברות כרטיסיות אינטראקטיביות -->
+                <div class="commandments-grid">
+                    <div class="commandment-card border-salmon">
+                        <div class="commandment-num">1</div>
+                        <h3 class="commandment-name">עצירה ונשימה</h3>
+                        <p class="commandment-desc">כשילד שואל שאלה מפתיעה, התגובה הראשונה שלנו היא לעיתים בהלה. עצרו רגע. נשימה עמוקה משדרת לילד שהנושא בטוח לדיון ושאתם רגועים ויכולים להכיל אותו.</p>
+                    </div>
+                    <div class="commandment-card border-indigo">
+                        <div class="commandment-num">2</div>
+                        <h3 class="commandment-name">שיקוף והבהרה</h3>
+                        <p class="commandment-desc">לפני שעונים, חשוב להבין מה עומד מאחורי השאלה ("למה אתה שואל?"). לעיתים הילד ראה משהו בטלוויזיה, שמע בגן או חווה פחד פנימי שחשוב להציף ("שאלה מעניינת. מה גרם לך לחשוב על זה דווקא עכשיו?").</p>
+                    </div>
+                    <div class="commandment-card border-blue">
+                        <div class="commandment-num">3</div>
+                        <h3 class="commandment-name">דיוק התשובה (3 השכבות)</h3>
+                        <p class="commandment-desc">אל תתנו הרצאה רפואית או היסטורית ארוכה. תנו תשובה פשוטה, אמיתית, רכה ומותאמת לגיל הילד (קראו עוד בסקשן הבא על חוק 3 השכבות המדויק).</p>
+                    </div>
+                    <div class="commandment-card border-yellow">
+                        <div class="commandment-num">4</div>
+                        <h3 class="commandment-name">בדיקת תחושת הילד</h3>
+                        <p class="commandment-desc">סיימו את התשובה שלכם תמיד בשאלה רגשית ומקרבת, כדי לוודא שהילד עיבד את המידע בצורה טובה: "איך זה גורם לך להרגיש?" או "זה נשמע לך הגיוני?".</p>
+                    </div>
                 </div>
             </div>
 
             <div class="character-container">
-                <img src="images/girl in red.png" alt="איור של ילדה" class="girl-illustration" />
+                <img src="images/girl in red.png" alt="איור של ילדה קשובה" class="girl-illustration" />
             </div>
-            
-        </div>
-
-        <!-- Second Section for Variance -->
-        <div class="content-layout-container reverse-layout" style="margin-top: 60px;">
-            
-            <div class="dashboard-container text-content-container" style="display: flex; flex-direction: column; justify-content: center;">
-                <div class="dashboard-header">
-                    <h2 class="dashboard-title">לורם איפסום כותרת נוספת</h2>
-                    <p class="dashboard-subtitle" style="line-height: 1.6; font-size: 18px; margin-top: 15px;">
-                        ליבם סולגק. בראיט ולחת צורק מונחף, בגורמי מגמש. תרבנך מתיפנה נשואת מנעם תחת קולורס מונפרד אדנדום סילקוף, מרגשי ומרגשק. עמחליף הועניב היושבב שערש שמחויט - שלושק.
-                        <br><br>
-                        נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר, בנפת נתיגק ארשחק לתכי מורגם בורק? לתיג ישבעס.
-                    </p>
-                </div>
-            </div>
-
-            <div class="character-container">
-                <img src="images/girl in red.png" alt="איור של ילדה" class="girl-illustration" style="transform: scaleX(-1);" />
-            </div>
-            
         </div>
     </section>
 
+
+    
+    <!-- ==========================================
+         MODAL POPUP FOR QUESTIONS & ANSWERS
+         ========================================== -->
+    <div id="question-modal" class="modal-overlay" aria-hidden="true" style="display: none;">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button id="modal-close-btn" class="modal-close-btn" aria-label="סגור חלון">&times;</button>
+            <div id="modal-body" class="modal-body">
+                <!-- Dynamically injected Q&A details -->
+            </div>
+        </div>
+    </div>
+
     <!-- Footer Area -->
     <footer class="main-footer">
-        <p>© 2026 ...אמא, למה? - כל הזכויות שמורות. נבנה באהבה להורות מקשיבה ומכילה.</p>
+        <p class="footer-quote">זכרו - אין הורים מושלמים, יש רק הורים קשובים. הקשר שלכם עם הילד הוא התשובה הכי חשובה.</p>
+        <p class="footer-copyright" style="margin-top: 15px;">© 2026 ...אמא, למה? - כל הזכויות שמורות. נבנה באהבה להורות מקשיבה ומכילה.</p>
     </footer>
 
     <!-- JavaScripts -->
