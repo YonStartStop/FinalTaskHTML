@@ -1792,3 +1792,117 @@ h1, h2, h3, p, .quote, .caption {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================================
+   7. CONTACT FORM & DETAILS STYLES (PREMIUM GLASSMORPHISM)
+   ========================================================================== */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    direction: rtl;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: right;
+}
+
+.form-label {
+    font-family: "Rubik", sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--eggplant);
+}
+
+.form-control {
+    background-color: var(--bg-secondary);
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    direction: rtl;
+    color: var(--text-primary);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.01);
+}
+
+.form-control::placeholder {
+    color: var(--text-tertiary);
+    opacity: 0.6;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--highlight-blue);
+    box-shadow: 0 4px 15px rgba(70, 135, 226, 0.15);
+    background-color: #FFFFFF;
+}
+
+.form-submit-btn {
+    background-color: var(--eggplant);
+    color: #FFFFFF;
+    border: none;
+    font-family: "Rubik", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(54, 34, 66, 0.18);
+    margin-top: 10px;
+    text-align: center;
+}
+
+.form-submit-btn:hover {
+    background-color: var(--highlight-indigo);
+    box-shadow: 0 6px 18px rgba(179, 105, 228, 0.28);
+    transform: translateY(-2px);
+}
+
+.form-submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Contact Info list */
+.contact-info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    direction: rtl;
+    padding: 10px 0;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: right;
+}
+
+.contact-info-icon {
+    font-size: 22px;
+    width: 46px;
+    height: 46px;
+    background-color: var(--bg-primary);
+    border: 1px solid rgba(0,0,0,0.02);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--highlight-indigo);
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.contact-info-details {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}

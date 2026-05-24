@@ -145,6 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
             currentPage = 'layers';
         } else if (path.includes('tools.html')) {
             currentPage = 'tools';
+        } else if (path.includes('about.html')) {
+            currentPage = 'about';
+        } else if (path.includes('contact.html')) {
+            currentPage = 'contact';
         } else {
             currentPage = 'home';
         }
