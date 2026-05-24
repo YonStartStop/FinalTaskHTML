@@ -138,25 +138,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateActiveNav = () => {
         const path = window.location.pathname;
-        const hash = window.location.hash;
         
         let currentPage = 'home';
         
         if (path.includes('layers.html')) {
             currentPage = 'layers';
         } else if (path.includes('tools.html')) {
-            if (hash === '#books-carousel') {
-                currentPage = 'books';
-            } else {
-                currentPage = 'tools';
-            }
+            currentPage = 'tools';
         } else {
-            // index.html or root "/"
-            if (hash === '#commandments') {
-                currentPage = 'home-commandments';
-            } else {
-                currentPage = 'home';
-            }
+            currentPage = 'home';
         }
 
         const applyActive = (links) => {
