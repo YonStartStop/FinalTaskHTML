@@ -1,42 +1,368 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 
 <head>
     <meta charset="utf-8" />
-    <title>איך מדברים על..?</title>
+    <title>...אמא, למה? | כלים פרקטיים לשאלות של ילדים</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description" content="אתר המעניק כלים מעשיים ותשובות מותאמות לשאלות מורכבות שילדים שואלים על החיים, משפחה, חברה ונושאים רגישים.">
 
-    <!-- CSS -->
+    <!-- CSS Links -->
     <link href="styles/reset.css" rel="stylesheet" />
     <link href="styles/myStyle.css" rel="stylesheet" />
 </head>
 
 <body>
-    <main id="bubble-field">
-        <div id="bubble-cluster">
-            <a href="topicPage.html" class="chat-bubble kid interactive-bubble">למה לנועה יש <strong>שני
-                    אבאים</strong>?</a>
-            <a href="topicPage.html" class="chat-bubble kid interactive-bubble">למה סבתא <strong>כבר לא
-                    נוהגת</strong>?</a>
-            <a href="topicPage.html" class="chat-bubble kid interactive-bubble">למה האיש הזה <strong>שחור</strong>?</a>
-            <a href="topicPage.html" class="chat-bubble kid interactive-bubble">למה האישה הזאת
-                <strong>בכיסא</strong>?</a>
-            <a href="topicPage.html" class="chat-bubble kid interactive-bubble">למה אנשים מדברים <strong>עם
-                    הידיים</strong>?</a>
-            <a href="topicPage.html" class="chat-bubble kid interactive-bubble">מה זה <strong>השואה</strong>?</a>
-            <a href="topicPage.html" class="chat-bubble kid interactive-bubble">אמא, מה זה <strong>מוות</strong>?</a>
-            <a href="topicPage.html" class="chat-bubble kid interactive-bubble">למה לדני יש <strong>מיטה וחדר
-                    משלו</strong>?</a>
-            <a href="topicPage.html" class="chat-bubble kid interactive-bubble">למה אלוהים <strong>לא עונה
-                    לי</strong>?</a>
-            <a href="topicPage.html" class="chat-bubble kid interactive-bubble">מה זה אומר שמישהי
-                <strong>לסבית</strong>?</a>
-            <a href="topicPage.html" class="chat-bubble kid interactive-bubble">מה זה אומר שאני
-                <strong>אשכנזי</strong>?</a>
-        </div>
-    </main>
+    <!-- Thin Frame Border for Visual Focus -->
+    <div class="global-frame"></div>
 
+    <!-- Soft Pastel Amorphous Background Graphic on Left -->
+    <div class="bg-flower-decor" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 15C125 15 130 50 155 60C180 70 190 95 180 120C170 145 140 155 120 175C100 195 70 185 50 175C30 165 15 140 15 115C15 90 35 75 55 60C75 45 75 15 100 15Z" fill="#FF8A71" opacity="0.08"/>
+            <circle cx="95" cy="95" r="12" fill="#8B5CF6" opacity="0.06"/>
+            <path d="M45 40C55 45 50 60 40 65C30 70 20 60 25 50C30 40 35 35 45 40Z" fill="#4687E2" opacity="0.06"/>
+        </svg>
+    </div>
+
+    <!-- ==========================================
+         ABOVE THE FOLD
+         ========================================== -->
+    <section class="above-the-fold-section">
+        <!-- Eggplant Wavy Header / Navbar -->
+        <header class="main-header">
+            <div class="header-container">
+                <!-- Logo & Slogan (Right aligned in RTL) -->
+                <div class="logo-area">
+                    <h1 class="logo-title">...אמא, למה?</h1>
+                    <span class="logo-slogan">כלים פרקטיים לשאלות שילדים אוהבים לשאול</span>
+                </div>
+
+                <!-- Desktop Navigation Links (Left aligned in RTL) -->
+                <nav class="desktop-nav" aria-label="ניווט ראשי">
+                    <ul class="nav-list">
+                        <li><a href="#" class="nav-link active">דף הבית</a></li>
+                        <li><a href="#" class="nav-link">איך עונים נכון?</a></li>
+                        <li><a href="#" class="nav-link">כלים לשגרה</a></li>
+                        <li><a href="#" class="nav-link">אודות</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="hamburger-btn" class="hamburger-btn" aria-label="פתח תפריט ניווט" aria-expanded="false">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+
+            <!-- Wave Wavy Curve SVG Bottom Border -->
+            <div class="header-wave-container">
+                <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0 H1440 V50 C1080 95, 360 5, 0 45 Z" fill="#362242"/>
+                </svg>
+            </div>
+        </header>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="mobile-menu-drawer">
+            <div class="mobile-menu-overlay"></div>
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-header">
+                    <span class="mobile-menu-title">...אמא, למה?</span>
+                    <button id="close-menu-btn" class="close-menu-btn" aria-label="סגור תפריט">&times;</button>
+                </div>
+                <ul class="mobile-nav-list">
+                    <li><a href="#" class="menu-link active">דף הבית</a></li>
+                    <li><a href="#" class="menu-link">איך עונים נכון?</a></li>
+                    <li><a href="#" class="menu-link">כלים לשגרה</a></li>
+                    <li><a href="#" class="menu-link">אודות</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Speech Bubble Question Cloud -->
+        <main id="bubble-field" class="bubble-field-container">
+            <div id="bubble-cluster" class="bubble-cluster-grid">
+                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-bottom-right">
+                    למה לנועה יש <strong>שני אבאים</strong>?
+                </a>
+                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-bottom-left">
+                    למה סבתא <strong>כבר לא נוהגת</strong>?
+                </a>
+                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-top-right">
+                    למה האיש הזה <strong>שחור</strong>?
+                </a>
+                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-bottom-right">
+                    למה האישה הזאת <strong>בכיסא</strong>?
+                </a>
+                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-top-left">
+                    למה אנשים מדברים <strong>עם הידיים</strong>?
+                </a>
+                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-bottom-left">
+                    מה זה <strong>השואה</strong>?
+                </a>
+                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-top-right">
+                    אמא, מה זה <strong>מוות</strong>?
+                </a>
+                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-bottom-right">
+                    למה לדני יש <strong>מיטה וחדר משלו</strong>?
+                </a>
+                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-top-left">
+                    למה אלוהים <strong>לא עונה לי</strong>?
+                </a>
+                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-bottom-left" id="bubble-lesbian">
+                    מה זה אומר שמישהי <strong>לסבית</strong>?
+                </a>
+                <!-- The rightmost bubble on top layouts. We put the simulated cursor here -->
+                <a href="topicPage.html" class="chat-bubble kid interactive-bubble tail-top-right" id="bubble-ashkenazi">
+                    מה זה אומר שאני <strong>אשכנזי</strong>?
+                    
+                    <!-- Simulated Cursor & Name Tag (Irit Fish) -->
+                    <div class="virtual-cursor" id="virtual-cursor-irit">
+                        <svg class="cursor-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.5 3V21L10 15.5H18L4.5 3Z" fill="#4687E2" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="cursor-tag">Irit Fish</span>
+                    </div>
+                </a>
+            </div>
+        </main>
+    </section>
+
+    <!-- ==========================================
+         VIRTUAL DIVIDER
+         ========================================== -->
+    <div class="virtual-divider-container">
+        <!-- Dash lines made of red and orange speed bumps alternatively -->
+        <div class="decorative-dash-line">
+            <span class="dash red"></span>
+            <span class="dash orange"></span>
+            <span class="dash red"></span>
+            <span class="dash orange"></span>
+            <span class="dash red"></span>
+            <span class="dash orange"></span>
+            <span class="dash red"></span>
+            <span class="dash orange"></span>
+            <span class="dash red"></span>
+            <span class="dash orange"></span>
+            <span class="dash red"></span>
+            <span class="dash orange"></span>
+            <span class="dash red"></span>
+            <span class="dash orange"></span>
+            <span class="dash red"></span>
+            <span class="dash orange"></span>
+        </div>
+        <!-- Navy Blue Capsule Shape -->
+        <div class="navy-capsule-divider" id="fold-line">
+            <span class="capsule-core"></span>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         BELOW THE FOLD
+         ========================================== -->
+    <section class="below-the-fold-section">
+        <div class="content-layout-container">
+            
+            <!-- Matte Grey Content Dashboard Container (Left/Center) -->
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <h2 class="dashboard-title">מאגר השאלות והכלים</h2>
+                    <p class="dashboard-subtitle">חיפוש וסינון מהיר של שאלות מורכבות והכלים להתמודדות עמן</p>
+                </div>
+
+                <!-- Interactive Filters & Search -->
+                <div class="dashboard-search-bar-row">
+                    <div class="search-input-wrapper">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="8" stroke="#767676" stroke-width="2.5"/>
+                            <path d="M16.5 16.5L21 21" stroke="#767676" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <input type="text" id="search-input" placeholder="חיפוש שאלה או מילת מפתח..." aria-label="חיפוש שאלה">
+                    </div>
+                </div>
+
+                <div class="dashboard-filter-pills" role="tablist" aria-label="סינון לפי נושאים">
+                    <button class="filter-pill active" data-filter="all" role="tab" aria-selected="true">הכל</button>
+                    <button class="filter-pill" data-filter="family" role="tab" aria-selected="false">משפחה וסביבה</button>
+                    <button class="filter-pill" data-filter="society" role="tab" aria-selected="false">חברה ושונות</button>
+                    <button class="filter-pill" data-filter="existential" role="tab" aria-selected="false">שאלות קיומיות</button>
+                </div>
+
+                <!-- Interactive Cards Grid -->
+                <div class="dashboard-cards-grid">
+                    <!-- Family Category (Indigo Accents) -->
+                    <a href="topicPage.html" class="dashboard-card" data-category="family">
+                        <div class="card-inner-accent border-indigo"></div>
+                        <span class="card-category-label text-indigo">משפחה וסביבה</span>
+                        <h3 class="card-question-title">למה לנועה יש שני אבאים?</h3>
+                    </a>
+
+                    <a href="topicPage.html" class="dashboard-card" data-category="family">
+                        <div class="card-inner-accent border-indigo"></div>
+                        <span class="card-category-label text-indigo">משפחה וסביבה</span>
+                        <h3 class="card-question-title">למה סבתא כבר לא נוהגת?</h3>
+                    </a>
+
+                    <a href="topicPage.html" class="dashboard-card" data-category="family">
+                        <div class="card-inner-accent border-indigo"></div>
+                        <span class="card-category-label text-indigo">משפחה וסביבה</span>
+                        <h3 class="card-question-title">למה לדני יש מיטה וחדר משלו?</h3>
+                    </a>
+
+                    <a href="topicPage.html" class="dashboard-card" data-category="family">
+                        <div class="card-inner-accent border-indigo"></div>
+                        <span class="card-category-label text-indigo">משפחה וסביבה</span>
+                        <h3 class="card-question-title">מה זה אומר שמישהי לסבית?</h3>
+                    </a>
+
+                    <!-- Society Category (Blue Accents) -->
+                    <a href="topicPage.html" class="dashboard-card" data-category="society">
+                        <div class="card-inner-accent border-blue"></div>
+                        <span class="card-category-label text-blue">חברה ושונות</span>
+                        <h3 class="card-question-title">למה האיש הזה שחור?</h3>
+                    </a>
+
+                    <a href="topicPage.html" class="dashboard-card" data-category="society">
+                        <div class="card-inner-accent border-blue"></div>
+                        <span class="card-category-label text-blue">חברה ושונות</span>
+                        <h3 class="card-question-title">למה האישה הזאת בכיסא?</h3>
+                    </a>
+
+                    <a href="topicPage.html" class="dashboard-card" data-category="society">
+                        <div class="card-inner-accent border-blue"></div>
+                        <span class="card-category-label text-blue">חברה ושונות</span>
+                        <h3 class="card-question-title">למה אנשים מדברים עם הידיים?</h3>
+                    </a>
+
+                    <a href="topicPage.html" class="dashboard-card" data-category="society">
+                        <div class="card-inner-accent border-blue"></div>
+                        <span class="card-category-label text-blue">חברה ושונות</span>
+                        <h3 class="card-question-title">מה זה אומר שאני אשכנזי?</h3>
+                    </a>
+
+                    <!-- Existential Category (Yellow Accents) -->
+                    <a href="topicPage.html" class="dashboard-card" data-category="existential">
+                        <div class="card-inner-accent border-yellow"></div>
+                        <span class="card-category-label text-yellow">שאלות קיומיות</span>
+                        <h3 class="card-question-title">מה זה השואה?</h3>
+                    </a>
+
+                    <a href="topicPage.html" class="dashboard-card" data-category="existential">
+                        <div class="card-inner-accent border-yellow"></div>
+                        <span class="card-category-label text-yellow">שאלות קיומיות</span>
+                        <h3 class="card-question-title">אמא, מה זה מוות?</h3>
+                    </a>
+
+                    <a href="topicPage.html" class="dashboard-card" data-category="existential">
+                        <div class="card-inner-accent border-yellow"></div>
+                        <span class="card-category-label text-yellow">שאלות קיומיות</span>
+                        <h3 class="card-question-title">למה אלוהים לא עונה לי?</h3>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SVG Illustration of the Character (Right column, standing on divider/bottom) -->
+            <div class="character-container">
+                <svg class="girl-illustration" viewBox="0 0 320 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="איור של ילדה סקרנית עם זכוכית מגדלת">
+                    <!-- Shadow / Base -->
+                    <ellipse cx="160" cy="405" rx="70" ry="10" fill="#000000" opacity="0.1"/>
+
+                    <!-- Legs and Feet -->
+                    <!-- Dark shoes -->
+                    <rect x="110" y="380" width="32" height="20" rx="10" fill="#1F2937"/>
+                    <rect x="178" y="380" width="32" height="20" rx="10" fill="#1F2937"/>
+                    <!-- Purple socks -->
+                    <rect x="116" y="335" width="20" height="48" fill="#8B5CF6" rx="4"/>
+                    <rect x="184" y="335" width="20" height="48" fill="#8B5CF6" rx="4"/>
+                    <!-- Sock stripes (details) -->
+                    <line x1="116" y1="345" x2="136" y2="345" stroke="#FFFFFF" stroke-width="3"/>
+                    <line x1="116" y1="355" x2="136" y2="355" stroke="#FFFFFF" stroke-width="3"/>
+                    <line x1="184" y1="345" x2="204" y2="345" stroke="#FFFFFF" stroke-width="3"/>
+                    <line x1="184" y1="355" x2="204" y2="355" stroke="#FFFFFF" stroke-width="3"/>
+
+                    <!-- Hair back -->
+                    <path d="M90 140C90 140 70 170 70 210C70 250 100 280 100 280H220C220 280 250 250 250 210C250 170 230 140 230 140Z" fill="#1A2F4C"/>
+
+                    <!-- Body / Peach Salmon Dress -->
+                    <path d="M100 230L70 340H250L220 230H100Z" fill="#FF8A71"/>
+                    <!-- White Dress Collar -->
+                    <path d="M130 230C130 230 145 245 160 245C175 245 190 230 190 230" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+
+                    <!-- Neck -->
+                    <rect x="145" y="210" width="30" height="25" fill="#FFE0D3" rx="5"/>
+
+                    <!-- Head & Cute Face -->
+                    <circle cx="160" cy="165" r="55" fill="#FFE0D3"/>
+                    
+                    <!-- Cheeks (Blush) -->
+                    <circle cx="125" cy="180" r="10" fill="#FFAAA6" opacity="0.7"/>
+                    <circle cx="195" cy="180" r="10" fill="#FFAAA6" opacity="0.7"/>
+
+                    <!-- Eyes -->
+                    <circle cx="135" cy="165" r="6" fill="#1F2937"/>
+                    <circle cx="185" cy="165" r="6" fill="#1F2937"/>
+                    <!-- Eye shine highlights -->
+                    <circle cx="133" cy="163" r="2" fill="#FFFFFF"/>
+                    <circle cx="183" cy="163" r="2" fill="#FFFFFF"/>
+
+                    <!-- Nose -->
+                    <path d="M157 172C157 172 160 176 163 172" stroke="#D1A392" stroke-width="3" stroke-linecap="round"/>
+
+                    <!-- Cute Smile -->
+                    <path d="M150 185C155 192 165 192 170 185" stroke="#E26F6B" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+
+                    <!-- Front Hair / Dark Blue Bangs & Wavy Locks -->
+                    <!-- Top skull cover -->
+                    <path d="M105 165C105 110 120 110 160 110C200 110 215 110 215 165C215 170 225 195 220 220C215 245 200 250 200 250H120C120 250 105 245 100 220C95 195 105 170 105 165Z" fill="#1A2F4C"/>
+                    <!-- Wavy Hair lock details on sides -->
+                    <path d="M95 170C85 185 85 210 90 230C95 250 105 260 105 260" stroke="#1A2F4C" stroke-width="12" stroke-linecap="round"/>
+                    <path d="M225 170C235 185 235 210 230 230C225 250 215 260 215 260" stroke="#1A2F4C" stroke-width="12" stroke-linecap="round"/>
+                    
+                    <!-- Cute Hair Bows (Yellow Accents) -->
+                    <circle cx="108" cy="130" r="10" fill="#D2C517"/>
+                    <path d="M98 130L118 130" stroke="#D2C517" stroke-width="4"/>
+                    <circle cx="212" cy="130" r="10" fill="#D2C517"/>
+                    <path d="M202 130L222 130" stroke="#D2C517" stroke-width="4"/>
+
+                    <!-- Left Arm Holding Magnifying Glass -->
+                    <!-- Sleeve -->
+                    <path d="M95 240C85 248 70 260 65 270" stroke="#FF8A71" stroke-width="18" stroke-linecap="round"/>
+                    <!-- Hand -->
+                    <circle cx="55" cy="280" r="10" fill="#FFE0D3"/>
+
+                    <!-- Giant Magnifying Glass pointing Left (X-direction scale, glass focus) -->
+                    <!-- Handle -->
+                    <path d="M50 285L20 310" stroke="#4B5563" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M50 285L20 310" stroke="#1F2937" stroke-width="4" stroke-linecap="round"/>
+                    <!-- Silver Frame -->
+                    <circle cx="35" cy="270" r="28" fill="#4B5563"/>
+                    <circle cx="35" cy="270" r="24" fill="#93C5FD" opacity="0.6"/>
+                    <!-- Inner lens glint highlight -->
+                    <path d="M20 258C25 252 35 250 45 255" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                    <!-- Golden frame outer ring for a high-end feel -->
+                    <circle cx="35" cy="270" r="27" stroke="#D2C517" stroke-width="2" fill="none"/>
+
+                    <!-- Right Arm resting in a cute angle -->
+                    <path d="M225 240C238 248 245 260 240 275" stroke="#FF8A71" stroke-width="18" stroke-linecap="round"/>
+                    <circle cx="238" cy="285" r="10" fill="#FFE0D3"/>
+                </svg>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer Area -->
+    <footer class="main-footer">
+        <p>© 2026 ...אמא, למה? - כל הזכויות שמורות. נבנה באהבה להורות מקשיבה ומכילה.</p>
+    </footer>
+
+    <!-- JavaScripts -->
     <script src="scripts/bubbles.js"></script>
+    <script src="scripts/dashboard.js"></script>
 </body>
 
 </html>

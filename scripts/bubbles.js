@@ -115,6 +115,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function render() {
+        if (window.innerWidth < 768) {
+            bubbles.forEach(b => {
+                b.el.style.transform = '';
+                b.el.style.zIndex = '';
+            });
+            requestAnimationFrame(render);
+            return;
+        }
+
         bubbles.forEach(b => {
             let targetScale = minScale;
             let currentMouseX = mouseX;
