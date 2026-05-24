@@ -508,10 +508,16 @@ h1, h2, h3, p, .quote, .caption {
 
 .content-layout-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     gap: 40px;
     align-items: stretch;
     direction: rtl;
+}
+
+@media (min-width: 992px) {
+    .content-layout-container.reverse-layout {
+        flex-direction: row;
+    }
 }
 
 /* ==========================================================================

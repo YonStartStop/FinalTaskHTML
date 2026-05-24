@@ -125,223 +125,45 @@
     </section>
 
     <!-- ==========================================
-         VIRTUAL DIVIDER
-         ========================================== -->
-    <div class="virtual-divider-container">
-        <!-- Dash lines made of red and orange speed bumps alternatively -->
-        <div class="decorative-dash-line">
-            <span class="dash red"></span>
-            <span class="dash orange"></span>
-            <span class="dash red"></span>
-            <span class="dash orange"></span>
-            <span class="dash red"></span>
-            <span class="dash orange"></span>
-            <span class="dash red"></span>
-            <span class="dash orange"></span>
-            <span class="dash red"></span>
-            <span class="dash orange"></span>
-            <span class="dash red"></span>
-            <span class="dash orange"></span>
-            <span class="dash red"></span>
-            <span class="dash orange"></span>
-            <span class="dash red"></span>
-            <span class="dash orange"></span>
-        </div>
-        <!-- Navy Blue Capsule Shape -->
-        <div class="navy-capsule-divider" id="fold-line">
-            <span class="capsule-core"></span>
-        </div>
-    </div>
-
-    <!-- ==========================================
          BELOW THE FOLD
          ========================================== -->
     <section class="below-the-fold-section">
+        <!-- First Section -->
         <div class="content-layout-container">
             
-            <!-- Matte Grey Content Dashboard Container (Left/Center) -->
-            <div class="dashboard-container">
+            <div class="dashboard-container text-content-container" style="display: flex; flex-direction: column; justify-content: center;">
                 <div class="dashboard-header">
-                    <h2 class="dashboard-title">מאגר השאלות והכלים</h2>
-                    <p class="dashboard-subtitle">חיפוש וסינון מהיר של שאלות מורכבות והכלים להתמודדות עמן</p>
-                </div>
-
-                <!-- Interactive Filters & Search -->
-                <div class="dashboard-search-bar-row">
-                    <div class="search-input-wrapper">
-                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="11" cy="11" r="8" stroke="#767676" stroke-width="2.5"/>
-                            <path d="M16.5 16.5L21 21" stroke="#767676" stroke-width="2.5" stroke-linecap="round"/>
-                        </svg>
-                        <input type="text" id="search-input" placeholder="חיפוש שאלה או מילת מפתח..." aria-label="חיפוש שאלה">
-                    </div>
-                </div>
-
-                <div class="dashboard-filter-pills" role="tablist" aria-label="סינון לפי נושאים">
-                    <button class="filter-pill active" data-filter="all" role="tab" aria-selected="true">הכל</button>
-                    <button class="filter-pill" data-filter="family" role="tab" aria-selected="false">משפחה וסביבה</button>
-                    <button class="filter-pill" data-filter="society" role="tab" aria-selected="false">חברה ושונות</button>
-                    <button class="filter-pill" data-filter="existential" role="tab" aria-selected="false">שאלות קיומיות</button>
-                </div>
-
-                <!-- Interactive Cards Grid -->
-                <div class="dashboard-cards-grid">
-                    <!-- Family Category (Indigo Accents) -->
-                    <a href="topicPage.html" class="dashboard-card" data-category="family">
-                        <div class="card-inner-accent border-indigo"></div>
-                        <span class="card-category-label text-indigo">משפחה וסביבה</span>
-                        <h3 class="card-question-title">למה לנועה יש שני אבאים?</h3>
-                    </a>
-
-                    <a href="topicPage.html" class="dashboard-card" data-category="family">
-                        <div class="card-inner-accent border-indigo"></div>
-                        <span class="card-category-label text-indigo">משפחה וסביבה</span>
-                        <h3 class="card-question-title">למה סבתא כבר לא נוהגת?</h3>
-                    </a>
-
-                    <a href="topicPage.html" class="dashboard-card" data-category="family">
-                        <div class="card-inner-accent border-indigo"></div>
-                        <span class="card-category-label text-indigo">משפחה וסביבה</span>
-                        <h3 class="card-question-title">למה לדני יש מיטה וחדר משלו?</h3>
-                    </a>
-
-                    <a href="topicPage.html" class="dashboard-card" data-category="family">
-                        <div class="card-inner-accent border-indigo"></div>
-                        <span class="card-category-label text-indigo">משפחה וסביבה</span>
-                        <h3 class="card-question-title">מה זה אומר שמישהי לסבית?</h3>
-                    </a>
-
-                    <!-- Society Category (Blue Accents) -->
-                    <a href="topicPage.html" class="dashboard-card" data-category="society">
-                        <div class="card-inner-accent border-blue"></div>
-                        <span class="card-category-label text-blue">חברה ושונות</span>
-                        <h3 class="card-question-title">למה האיש הזה שחור?</h3>
-                    </a>
-
-                    <a href="topicPage.html" class="dashboard-card" data-category="society">
-                        <div class="card-inner-accent border-blue"></div>
-                        <span class="card-category-label text-blue">חברה ושונות</span>
-                        <h3 class="card-question-title">למה האישה הזאת בכיסא?</h3>
-                    </a>
-
-                    <a href="topicPage.html" class="dashboard-card" data-category="society">
-                        <div class="card-inner-accent border-blue"></div>
-                        <span class="card-category-label text-blue">חברה ושונות</span>
-                        <h3 class="card-question-title">למה אנשים מדברים עם הידיים?</h3>
-                    </a>
-
-                    <a href="topicPage.html" class="dashboard-card" data-category="society">
-                        <div class="card-inner-accent border-blue"></div>
-                        <span class="card-category-label text-blue">חברה ושונות</span>
-                        <h3 class="card-question-title">מה זה אומר שאני אשכנזי?</h3>
-                    </a>
-
-                    <!-- Existential Category (Yellow Accents) -->
-                    <a href="topicPage.html" class="dashboard-card" data-category="existential">
-                        <div class="card-inner-accent border-yellow"></div>
-                        <span class="card-category-label text-yellow">שאלות קיומיות</span>
-                        <h3 class="card-question-title">מה זה השואה?</h3>
-                    </a>
-
-                    <a href="topicPage.html" class="dashboard-card" data-category="existential">
-                        <div class="card-inner-accent border-yellow"></div>
-                        <span class="card-category-label text-yellow">שאלות קיומיות</span>
-                        <h3 class="card-question-title">אמא, מה זה מוות?</h3>
-                    </a>
-
-                    <a href="topicPage.html" class="dashboard-card" data-category="existential">
-                        <div class="card-inner-accent border-yellow"></div>
-                        <span class="card-category-label text-yellow">שאלות קיומיות</span>
-                        <h3 class="card-question-title">למה אלוהים לא עונה לי?</h3>
-                    </a>
+                    <h2 class="dashboard-title">מי אנחנו ומה אנו מציעים?</h2>
+                    <p class="dashboard-subtitle" style="line-height: 1.6; font-size: 18px; margin-top: 15px;">
+                        לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית. סת אלמנקום ניסי נון ניבאה. דס איאקוליס וולופטה דיאם. המורקוח נודימוס קוסמאקו. אנו מספקים להורים כלים ומידע להתמודדות עם שאלות מורכבות שילדים שואלים.
+                        <br><br>
+                        קולורס מונפרד אדנדום סילקוף, מרגשי ומרגשק. עמחליף הועניב היושבב שערש שמחויט - שלושק. תצטנפל בלינדו למרקל אס לכימפו, דול, צוט ומעיוט - לפתיעם ברשג - ולתיעם דלהוק.
+                    </p>
                 </div>
             </div>
 
-            <!-- SVG Illustration of the Character (Right column, standing on divider/bottom) -->
             <div class="character-container">
-                <svg class="girl-illustration" viewBox="0 0 320 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="איור של ילדה סקרנית עם זכוכית מגדלת">
-                    <!-- Shadow / Base -->
-                    <ellipse cx="160" cy="405" rx="70" ry="10" fill="#000000" opacity="0.1"/>
+                <img src="images/girl in red.png" alt="איור של ילדה" class="girl-illustration" />
+            </div>
+            
+        </div>
 
-                    <!-- Legs and Feet -->
-                    <!-- Dark shoes -->
-                    <rect x="110" y="380" width="32" height="20" rx="10" fill="#1F2937"/>
-                    <rect x="178" y="380" width="32" height="20" rx="10" fill="#1F2937"/>
-                    <!-- Purple socks -->
-                    <rect x="116" y="335" width="20" height="48" fill="#8B5CF6" rx="4"/>
-                    <rect x="184" y="335" width="20" height="48" fill="#8B5CF6" rx="4"/>
-                    <!-- Sock stripes (details) -->
-                    <line x1="116" y1="345" x2="136" y2="345" stroke="#FFFFFF" stroke-width="3"/>
-                    <line x1="116" y1="355" x2="136" y2="355" stroke="#FFFFFF" stroke-width="3"/>
-                    <line x1="184" y1="345" x2="204" y2="345" stroke="#FFFFFF" stroke-width="3"/>
-                    <line x1="184" y1="355" x2="204" y2="355" stroke="#FFFFFF" stroke-width="3"/>
+        <!-- Second Section for Variance -->
+        <div class="content-layout-container reverse-layout" style="margin-top: 60px;">
+            
+            <div class="dashboard-container text-content-container" style="display: flex; flex-direction: column; justify-content: center;">
+                <div class="dashboard-header">
+                    <h2 class="dashboard-title">לורם איפסום כותרת נוספת</h2>
+                    <p class="dashboard-subtitle" style="line-height: 1.6; font-size: 18px; margin-top: 15px;">
+                        ליבם סולגק. בראיט ולחת צורק מונחף, בגורמי מגמש. תרבנך מתיפנה נשואת מנעם תחת קולורס מונפרד אדנדום סילקוף, מרגשי ומרגשק. עמחליף הועניב היושבב שערש שמחויט - שלושק.
+                        <br><br>
+                        נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר, בנפת נתיגק ארשחק לתכי מורגם בורק? לתיג ישבעס.
+                    </p>
+                </div>
+            </div>
 
-                    <!-- Hair back -->
-                    <path d="M90 140C90 140 70 170 70 210C70 250 100 280 100 280H220C220 280 250 250 250 210C250 170 230 140 230 140Z" fill="#1A2F4C"/>
-
-                    <!-- Body / Peach Salmon Dress -->
-                    <path d="M100 230L70 340H250L220 230H100Z" fill="#FF8A71"/>
-                    <!-- White Dress Collar -->
-                    <path d="M130 230C130 230 145 245 160 245C175 245 190 230 190 230" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
-
-                    <!-- Neck -->
-                    <rect x="145" y="210" width="30" height="25" fill="#FFE0D3" rx="5"/>
-
-                    <!-- Head & Cute Face -->
-                    <circle cx="160" cy="165" r="55" fill="#FFE0D3"/>
-                    
-                    <!-- Cheeks (Blush) -->
-                    <circle cx="125" cy="180" r="10" fill="#FFAAA6" opacity="0.7"/>
-                    <circle cx="195" cy="180" r="10" fill="#FFAAA6" opacity="0.7"/>
-
-                    <!-- Eyes -->
-                    <circle cx="135" cy="165" r="6" fill="#1F2937"/>
-                    <circle cx="185" cy="165" r="6" fill="#1F2937"/>
-                    <!-- Eye shine highlights -->
-                    <circle cx="133" cy="163" r="2" fill="#FFFFFF"/>
-                    <circle cx="183" cy="163" r="2" fill="#FFFFFF"/>
-
-                    <!-- Nose -->
-                    <path d="M157 172C157 172 160 176 163 172" stroke="#D1A392" stroke-width="3" stroke-linecap="round"/>
-
-                    <!-- Cute Smile -->
-                    <path d="M150 185C155 192 165 192 170 185" stroke="#E26F6B" stroke-width="4.5" stroke-linecap="round" fill="none"/>
-
-                    <!-- Front Hair / Dark Blue Bangs & Wavy Locks -->
-                    <!-- Top skull cover -->
-                    <path d="M105 165C105 110 120 110 160 110C200 110 215 110 215 165C215 170 225 195 220 220C215 245 200 250 200 250H120C120 250 105 245 100 220C95 195 105 170 105 165Z" fill="#1A2F4C"/>
-                    <!-- Wavy Hair lock details on sides -->
-                    <path d="M95 170C85 185 85 210 90 230C95 250 105 260 105 260" stroke="#1A2F4C" stroke-width="12" stroke-linecap="round"/>
-                    <path d="M225 170C235 185 235 210 230 230C225 250 215 260 215 260" stroke="#1A2F4C" stroke-width="12" stroke-linecap="round"/>
-                    
-                    <!-- Cute Hair Bows (Yellow Accents) -->
-                    <circle cx="108" cy="130" r="10" fill="#D2C517"/>
-                    <path d="M98 130L118 130" stroke="#D2C517" stroke-width="4"/>
-                    <circle cx="212" cy="130" r="10" fill="#D2C517"/>
-                    <path d="M202 130L222 130" stroke="#D2C517" stroke-width="4"/>
-
-                    <!-- Left Arm Holding Magnifying Glass -->
-                    <!-- Sleeve -->
-                    <path d="M95 240C85 248 70 260 65 270" stroke="#FF8A71" stroke-width="18" stroke-linecap="round"/>
-                    <!-- Hand -->
-                    <circle cx="55" cy="280" r="10" fill="#FFE0D3"/>
-
-                    <!-- Giant Magnifying Glass pointing Left (X-direction scale, glass focus) -->
-                    <!-- Handle -->
-                    <path d="M50 285L20 310" stroke="#4B5563" stroke-width="8" stroke-linecap="round"/>
-                    <path d="M50 285L20 310" stroke="#1F2937" stroke-width="4" stroke-linecap="round"/>
-                    <!-- Silver Frame -->
-                    <circle cx="35" cy="270" r="28" fill="#4B5563"/>
-                    <circle cx="35" cy="270" r="24" fill="#93C5FD" opacity="0.6"/>
-                    <!-- Inner lens glint highlight -->
-                    <path d="M20 258C25 252 35 250 45 255" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
-                    <!-- Golden frame outer ring for a high-end feel -->
-                    <circle cx="35" cy="270" r="27" stroke="#D2C517" stroke-width="2" fill="none"/>
-
-                    <!-- Right Arm resting in a cute angle -->
-                    <path d="M225 240C238 248 245 260 240 275" stroke="#FF8A71" stroke-width="18" stroke-linecap="round"/>
-                    <circle cx="238" cy="285" r="10" fill="#FFE0D3"/>
-                </svg>
+            <div class="character-container">
+                <img src="images/girl in red.png" alt="איור של ילדה" class="girl-illustration" style="transform: scaleX(-1);" />
             </div>
             
         </div>
