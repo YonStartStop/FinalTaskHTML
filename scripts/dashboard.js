@@ -93,41 +93,107 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // BOOK RECOMMENDATIONS CAROUSEL LOGIC
+    // BOOK RECOMMENDATIONS BOOKSHELF INTERACTIVITY
     // ==========================================
-    const carouselViewport = document.getElementById('books-carousel-viewport');
-    const carouselPrev = document.getElementById('carousel-prev');
-    const carouselNext = document.getElementById('carousel-next');
-    const scrollAmount = 470; // Width of card (440px) + gap (30px)
+    const spineWrappers = document.querySelectorAll('.spine-wrapper');
+    const showcaseBook = document.getElementById('showcase-book');
+    const showcaseFallback = document.getElementById('showcase-fallback');
+    const showcaseEmoji = document.getElementById('showcase-emoji');
+    const showcaseCoverTitle = document.getElementById('showcase-cover-title');
+    const showcaseCoverAuthor = document.getElementById('showcase-cover-author');
+    const showcaseImg = document.getElementById('showcase-img');
 
-    if (carouselViewport && carouselPrev && carouselNext) {
-        // Next button (in RTL, points left, scrolls negative left direction)
-        carouselNext.addEventListener('click', () => {
-            carouselViewport.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    const detailsTitle = document.getElementById('details-title');
+    const detailsAuthor = document.getElementById('details-author');
+    const detailsSummary = document.getElementById('details-summary');
+    const detailsWhyText = document.getElementById('details-why-text');
+    const detailsWhyContainer = document.getElementById('details-why-container');
+    const detailsBuyLink = document.getElementById('details-buy-link');
+    const detailsWrapper = document.querySelector('.details-content-wrapper');
+
+    if (spineWrappers.length > 0 && showcaseBook) {
+        // Image error fallback
+        if (showcaseImg) {
+            showcaseImg.onerror = () => {
+                showcaseImg.style.display = 'none';
+                if (showcaseFallback) showcaseFallback.style.display = 'flex';
+            };
+        }
+
+        spineWrappers.forEach(spine => {
+            spine.addEventListener('click', () => {
+                if (spine.classList.contains('active')) return;
+
+                // 1. Toggle active states on spines
+                spineWrappers.forEach(sw => sw.classList.remove('active'));
+                spine.classList.add('active');
+
+                // 2. Read attributes
+                const title = spine.getAttribute('data-title');
+                const author = spine.getAttribute('data-author');
+                const summary = spine.getAttribute('data-summary');
+                const why = spine.getAttribute('data-why');
+                const buyUrl = spine.getAttribute('data-buy-url');
+                const emoji = spine.getAttribute('data-emoji');
+                const coverImg = spine.getAttribute('data-cover-img');
+                const themeColor = spine.getAttribute('data-theme-color');
+                const accentColor = spine.getAttribute('data-accent-color');
+
+                // 3. Animate book showcase (3D flip effect)
+                showcaseBook.style.transform = 'rotateY(90deg) scale(0.9)';
+
+                setTimeout(() => {
+                    // Update showcase cover styling & content
+                    showcaseBook.style.background = themeColor;
+                    if (showcaseEmoji) showcaseEmoji.textContent = emoji;
+                    if (showcaseCoverTitle) showcaseCoverTitle.textContent = title;
+                    
+                    // Simple regex/cleanup to extract author name without "מאת:" for the cover
+                    if (showcaseCoverAuthor) {
+                        showcaseCoverAuthor.textContent = author.replace('מאת:', '').trim();
+                    }
+
+                    if (coverImg && coverImg.trim() !== '') {
+                        if (showcaseImg) {
+                            showcaseImg.src = coverImg;
+                            showcaseImg.style.display = 'block';
+                        }
+                        if (showcaseFallback) showcaseFallback.style.display = 'none';
+                    } else {
+                        if (showcaseImg) {
+                            showcaseImg.src = '';
+                            showcaseImg.style.display = 'none';
+                        }
+                        if (showcaseFallback) showcaseFallback.style.display = 'flex';
+                    }
+
+                    // Rotate showcase back
+                    showcaseBook.style.transform = '';
+                }, 300);
+
+                // 4. Animate & update book details panel
+                if (detailsWrapper) {
+                    detailsWrapper.style.opacity = '0';
+                    detailsWrapper.style.transform = 'translateY(10px)';
+                    detailsWrapper.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+
+                    setTimeout(() => {
+                        if (detailsTitle) detailsTitle.textContent = title;
+                        if (detailsAuthor) detailsAuthor.textContent = author;
+                        if (detailsSummary) detailsSummary.textContent = summary;
+                        if (detailsWhyText) detailsWhyText.textContent = why;
+                        if (detailsBuyLink) detailsBuyLink.href = buyUrl;
+
+                        if (detailsWhyContainer) {
+                            detailsWhyContainer.style.borderRightColor = accentColor;
+                        }
+
+                        detailsWrapper.style.opacity = '1';
+                        detailsWrapper.style.transform = 'translateY(0)';
+                    }, 250);
+                }
+            });
         });
-
-        // Prev button (in RTL, points right, scrolls positive right direction)
-        carouselPrev.addEventListener('click', () => {
-            carouselViewport.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        });
-
-        // Update button disabled/enabled states based on current scroll position
-        const updateCarouselButtons = () => {
-            // Native scrollLeft in RTL is usually negative, take absolute value
-            const scrollLeft = Math.abs(carouselViewport.scrollLeft);
-            const maxScroll = carouselViewport.scrollWidth - carouselViewport.clientWidth;
-
-            // Simple checks with small tolerance
-            carouselPrev.disabled = scrollLeft <= 15;
-            carouselNext.disabled = scrollLeft >= maxScroll - 15;
-        };
-
-        // Scroll listener for dynamic buttons
-        carouselViewport.addEventListener('scroll', updateCarouselButtons);
-        window.addEventListener('resize', updateCarouselButtons);
-        
-        // Initial delay setup to allow fonts/layout to settle
-        setTimeout(updateCarouselButtons, 300);
     }
 
     // ==========================================

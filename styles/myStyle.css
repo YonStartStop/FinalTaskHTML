@@ -1308,213 +1308,324 @@ h1, h2, h3, p, .quote, .caption {
 /* --------------------------------------------------------------------------
    4. Book Recommendations Carousel
    -------------------------------------------------------------------------- */
-.carousel-wrapper {
-    position: relative;
-    max-width: 1040px;
-    margin: 30px auto 0;
-    padding: 0 50px;
+/* --------------------------------------------------------------------------
+   4. Book Recommendations Bookshelf
+   -------------------------------------------------------------------------- */
+.bookshelf-workspace {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
     direction: rtl;
 }
 
-.carousel-viewport {
+.bookshelf-container {
     width: 100%;
+    max-width: 800px;
+    position: relative;
+    padding-bottom: 20px;
+    perspective: 1000px;
+}
+
+.bookshelf-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: 250px;
+    padding: 0 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.books-group {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    height: 100%;
+    padding-bottom: 4px;
+}
+
+.spine-wrapper {
+    cursor: pointer;
+    position: relative;
+    height: 200px;
+    width: 44px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), z-index 0.3s ease;
+    transform-origin: bottom center;
+}
+
+/* Leaning effect */
+.spine-wrapper.lean-left {
+    transform: rotate(-8deg) translateY(4px);
+}
+
+.spine-wrapper.lean-right {
+    transform: rotate(8deg) translateY(4px);
+}
+
+/* Interactive hover state */
+.spine-wrapper:hover {
+    transform: rotate(0deg) translateY(-10px) scale(1.05);
+    z-index: 10;
+}
+
+/* Active spine styling */
+.spine-wrapper.active {
+    transform: rotate(0deg) translateY(-20px) scale(1.08);
+    z-index: 12;
+}
+
+.book-spine-item {
+    width: 100%;
+    height: 100%;
+    background-color: var(--spine-color);
+    border-radius: 6px 6px 0 0;
+    position: relative;
+    box-shadow: 
+        inset -4px 0 6px rgba(0, 0, 0, 0.15),
+        inset 4px 0 6px rgba(255, 255, 255, 0.25),
+        -5px 5px 10px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 15px;
     overflow: hidden;
-    padding: 15px 0 25px;
-}
-
-.carousel-slider {
-    display: flex;
-    gap: 30px;
-    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-    width: max-content;
-}
-
-/* Book Card */
-.book-card {
-    background-color: var(--bg-secondary);
-    border-radius: 20px;
-    width: 440px;
-    padding: 25px;
-    display: flex;
-    gap: 22px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.03);
-    border: 1px solid rgba(0,0,0,0.04);
-    align-items: stretch;
-    flex-shrink: 0;
     transition: all 0.3s ease;
 }
 
-.book-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    border-color: rgba(0,0,0,0.06);
+.spine-wrapper.active .book-spine-item {
+    border: 2px solid var(--accent-color);
+    box-shadow: 
+        0 0 15px rgba(54, 34, 66, 0.22),
+        inset -4px 0 6px rgba(0, 0, 0, 0.1),
+        inset 4px 0 6px rgba(255, 255, 255, 0.3);
 }
 
-/* CSS Mock Book Cover (Premium physical look) */
-.book-cover-mock {
-    width: 130px;
-    height: 190px;
+/* Spine texture stripe */
+.spine-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+}
+
+.spine-text {
+    font-family: "Rubik", sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--eggplant);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    margin-top: 5px;
+}
+
+/* Active showcase in the center */
+.bookshelf-showcase-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    padding-bottom: 4px;
+    perspective: 800px;
+    z-index: 3;
+}
+
+.book-perspective {
+    width: 145px;
+    height: 215px;
+    perspective: 1000px;
+}
+
+.showcase-book-card {
+    width: 100%;
+    height: 100%;
     border-radius: 4px 12px 12px 4px;
     position: relative;
-    padding: 16px 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 5px 8px 18px rgba(0,0,0,0.18), inset -2px 0 5px rgba(255,255,255,0.2);
-    flex-shrink: 0;
+    box-shadow: 
+        8px 14px 28px rgba(0, 0, 0, 0.22), 
+        inset -3px 0 6px rgba(255, 255, 255, 0.2),
+        inset 3px 0 6px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    transform: rotateY(-15deg);
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.5s ease;
     overflow: hidden;
-    transition: transform 0.3s ease;
-    transform-origin: left center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.book-card:hover .book-cover-mock {
-    transform: rotateY(-12deg);
+.showcase-book-card:hover {
+    transform: rotateY(-5deg) translateY(-5px) scale(1.02);
 }
 
-/* Book Spine shade */
-.book-spine {
+.book-spine-edge {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     width: 10px;
-    background-color: rgba(0, 0, 0, 0.15);
-    box-shadow: inset -1px 0 2px rgba(255,255,255,0.15);
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: inset -1px 0 2px rgba(255, 255, 255, 0.15);
     z-index: 10;
 }
 
-.book-title-inside {
+.cover-content-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 22px 15px;
+    direction: rtl;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+.cover-emoji {
+    font-size: 32px;
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+.cover-title {
     font-family: "Playpen Sans Hebrew", cursive, sans-serif;
     font-size: 15px;
     font-weight: 800;
     color: #FFFFFF;
     line-height: 1.3;
     text-align: right;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    margin-bottom: auto;
 }
 
-.book-author-inside {
+.cover-author {
     font-size: 11px;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 700;
     text-align: left;
-    margin-top: auto;
-    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Book text details */
-.book-details {
-    display: flex;
-    flex-direction: column;
+.cover-image-real {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    border-radius: 4px 12px 12px 4px;
+}
+
+/* 3D Wood Shelf Board */
+.shelf-wood-board {
+    position: relative;
+    width: 100%;
+    height: 16px;
+    background: #c5b8cf;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 24px rgba(54, 34, 66, 0.15);
+    z-index: 5;
+}
+
+.shelf-wood-board .shelf-top {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: #dbcee5;
+    transform: perspective(100px) rotateX(15deg);
+    transform-origin: bottom center;
+    border-radius: 4px 4px 0 0;
+}
+
+.shelf-wood-board .shelf-front {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(0,0,0,0.15));
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Book Details Card */
+.book-details-card {
+    background-color: var(--bg-secondary);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 680px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(54, 34, 66, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.04);
     text-align: right;
-    flex: 1;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.book-title {
+.details-content-wrapper {
+    animation: fadeSlidePanel 0.4s ease;
+}
+
+.details-title {
     font-family: "Rubik", sans-serif;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 800;
     color: var(--eggplant);
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
-.book-author {
-    font-size: 12.5px;
+.details-author {
+    font-size: 14px;
     color: var(--text-tertiary);
-    margin-bottom: 10px;
-    display: block;
-}
-
-.book-summary {
-    font-size: 13.5px;
-    color: var(--text-secondary);
-    line-height: 1.55;
-    margin-bottom: 12px;
-}
-
-.book-why-read {
-    font-size: 12.5px;
-    color: #4A5568;
-    background-color: #F7FAFC;
-    padding: 8px 12px;
-    border-radius: 8px;
-    border-right: 2px solid var(--highlight-indigo);
-    line-height: 1.45;
     margin-bottom: 15px;
-    margin-top: auto;
+    display: block;
 }
 
-.book-why-read strong {
+.details-summary {
+    font-size: 15.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.details-why-read {
+    font-size: 14.5px;
+    color: #4A5568;
+    background-color: #F8FAFC;
+    padding: 12px 18px;
+    border-radius: 12px;
+    border-right: 4px solid var(--highlight-indigo);
+    line-height: 1.55;
+    margin-bottom: 20px;
+}
+
+.details-why-read strong {
     color: var(--eggplant);
     display: block;
-    font-size: 12px;
-    margin-bottom: 2px;
-}
-
-.book-buy-link {
-    display: inline-block;
-    background-color: var(--eggplant);
-    color: #FFFFFF;
-    text-decoration: none;
-    font-family: "Rubik", sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    padding: 8px 16px;
-    border-radius: 10px;
-    text-align: center;
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 10px rgba(54, 34, 66, 0.15);
-}
-
-.book-buy-link:hover {
-    background-color: var(--highlight-indigo);
-    box-shadow: 0 6px 14px rgba(179, 105, 228, 0.25);
-    transform: translateY(-1px);
-}
-
-/* Control Buttons styling */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    background-color: var(--bg-secondary);
-    color: var(--eggplant);
-    border: 1px solid rgba(0,0,0,0.06);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: all 0.25s ease;
-    z-index: 100;
-}
-
-.carousel-btn:hover {
-    background-color: var(--eggplant);
-    color: #FFFFFF;
-    box-shadow: 0 6px 18px rgba(54, 34, 66, 0.25);
-}
-
-.carousel-btn:focus {
-    outline: none;
-}
-
-.carousel-btn.prev-btn {
-    left: 10px;
-}
-
-.carousel-btn.next-btn {
-    right: 10px;
-}
-
-.carousel-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    background-color: var(--bg-matte-grey);
-    color: var(--text-tertiary);
-    box-shadow: none;
+    font-size: 13.5px;
+    margin-bottom: 4px;
 }
 
 /* --------------------------------------------------------------------------
@@ -1727,57 +1838,107 @@ h1, h2, h3, p, .quote, .caption {
         gap: 20px;
     }
     
-    .carousel-wrapper {
-        padding: 0 10px;
+    .bookshelf-workspace {
+        gap: 30px;
     }
     
-    .carousel-btn {
-        display: none; /* Hide arrow controls on touch screens, support scroll */
+    .bookshelf-container {
+        max-width: 100%;
     }
     
-    .carousel-viewport {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
+    .bookshelf-row {
+        height: 220px;
+        padding: 0 20px;
     }
     
-    .carousel-slider {
-        gap: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
+    .books-group {
+        gap: 8px;
     }
     
-    .book-card {
-        width: calc(100vw - 60px);
-        min-width: 280px;
-        max-width: 440px;
-        scroll-snap-align: center;
+    .spine-wrapper {
+        height: 170px;
+        width: 38px;
+    }
+    
+    .book-spine-item {
+        padding-top: 12px;
+    }
+    
+    .spine-text {
+        font-size: 11.5px;
+    }
+    
+    .book-perspective {
+        width: 115px;
+        height: 175px;
+    }
+    
+    .shelf-wood-board {
+        height: 12px;
+    }
+    
+    .shelf-wood-board .shelf-top {
+        top: -8px;
+        height: 8px;
+    }
+    
+    .book-details-card {
+        padding: 20px;
+    }
+    
+    .details-title {
+        font-size: 20px;
     }
 }
 
 @media (max-width: 576px) {
-    .book-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 15px;
-        width: calc(100vw - 40px);
+    .bookshelf-row {
+        height: 190px;
+        padding: 0 10px;
     }
     
-    .book-cover-mock {
-        width: 120px;
-        height: 170px;
+    .books-group {
+        gap: 6px;
     }
     
-    .book-details {
-        text-align: center;
+    .spine-wrapper {
+        height: 140px;
+        width: 32px;
     }
     
-    .book-why-read {
+    .spine-text {
+        font-size: 10px;
+    }
+    
+    .book-perspective {
+        width: 95px;
+        height: 145px;
+    }
+    
+    .cover-content-fallback {
+        padding: 12px 8px;
+    }
+    
+    .cover-title {
+        font-size: 11px;
+    }
+    
+    .cover-emoji {
+        font-size: 20px;
+    }
+    
+    .book-details-card {
+        padding: 15px;
+        border-radius: 16px;
+    }
+
+    .details-why-read {
+        padding: 10px 14px;
         border-right: none;
-        border-top: 2px solid var(--highlight-indigo);
-        border-radius: 0 0 8px 8px;
+        border-top: 4px solid var(--highlight-indigo);
+        border-radius: 0 0 12px 12px;
     }
+
     
     .modal-content {
         padding: 30px 20px;

@@ -146,104 +146,131 @@
             </div>
         </section>
 
-        <!-- סקשן 4: צומת ספרים (קרוסלה) -->
-        <section id="books-carousel" class="below-the-fold-section bg-alt-section" style="box-shadow: none;">
+        <!-- סקשן 4: צומת ספרים (מדף ספרים אינטראקטיבי) -->
+        <section id="bookshelf-section" class="below-the-fold-section bg-alt-section" style="box-shadow: none;">
             <div class="section-title-wrapper text-center">
                 <h2 class="section-main-title">צומת ספרים להורות קשובה</h2>
                 <p class="section-main-subtitle">המלצות לספרים נבחרים שיהפכו נושאים רגישים לחלק מהעולם המוכר, החם והבטוח של ילדכם</p>
             </div>
 
-            <div class="carousel-wrapper">
-                <!-- Carousel Control Buttons -->
-                <button class="carousel-btn prev-btn" id="carousel-prev" aria-label="לספר הקודם">
-                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="3" fill="none"><path d="M15 19l-7-7 7-7"/></svg>
-                </button>
-                <button class="carousel-btn next-btn" id="carousel-next" aria-label="לספר הבא">
-                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="3" fill="none"><path d="M9 5l7 7-7 7"/></svg>
-                </button>
-
-                <!-- Carousel Viewport -->
-                <div class="carousel-viewport" id="books-carousel-viewport">
-                    <div class="carousel-slider" id="books-carousel-slider">
-                        
-                        <!-- Book Card 1 -->
-                        <div class="book-card">
-                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #FF8A71, #B369E4);">
-                                <div class="book-spine"></div>
-                                <span class="book-title-inside">הספר הגדול של המשפחות</span>
-                                <span class="book-author-inside">מרי הופמן</span>
-                            </div>
-                            <div class="book-details">
-                                <h3 class="book-title">הספר הגדול של המשפחות</h3>
-                                <span class="book-author">מאת: מרי הופמן ורוז אסקווית'</span>
-                                <p class="book-summary">ספר מרהיב ומלא הומור המציג את המגוון העצום של משפחות כיום: משפחות עם שני אבות, אמהות יחידניות, משפחות מאמצות, ועוד.</p>
-                                <div class="book-why-read">
-                                    <strong>למה מומלץ להקריא?</strong>
-                                    הוא מנרמל לילד את העובדה שאין "משפחה נכונה אחת" ומחזק את ההבנה שאהבה ודאגה הן מה שמגדיר משפחה.
+            <div class="bookshelf-workspace">
+                <!-- Interactive Bookshelf -->
+                <div class="bookshelf-container">
+                    <div class="bookshelf-row">
+                        <!-- Left books (leaning left) -->
+                        <div class="books-group group-left">
+                            <!-- Book 1 -->
+                            <div class="spine-wrapper lean-left active" data-book-index="0"
+                                 data-title="הספר הגדול של המשפחות"
+                                 data-author="מאת: מרי הופמן ורוז אסקווית'"
+                                 data-summary="ספר מרהיב ומלא הומור המציג את המגוון העצום של משפחות כיום: משפחות עם שני אבות, אמהות יחידניות, משפחות מאמצות, ועוד."
+                                 data-why="הוא מנרמל לילד את העובדה שאין &quot;משפחה נכונה אחת&quot; ומחזק את ההבנה שאהבה ודאגה הן מה שמגדיר משפחה."
+                                 data-buy-url="https://www.tzomet-sfarim.co.il/"
+                                 data-emoji="🏡"
+                                 data-cover-img=""
+                                 data-theme-color="linear-gradient(135deg, #FF8A71, #B369E4)"
+                                 data-spine-color="#FFD5CC"
+                                 data-accent-color="#FF8A71">
+                                <div class="book-spine-item" style="--spine-color: #FFD5CC; --accent-color: #FF8A71;">
+                                    <div class="spine-line"></div>
+                                    <span class="spine-text">הספר הגדול של המשפחות</span>
                                 </div>
-                                <a href="https://www.tzomet-sfarim.co.il/" target="_blank" class="book-buy-link">לפרטים ורכישה בצומת ספרים</a>
+                            </div>
+                            <!-- Book 2 -->
+                            <div class="spine-wrapper lean-left" data-book-index="1"
+                                 data-title="הספר הגדול של הרגשות"
+                                 data-author="מאת: מרי הופמן ורוז אסקווית'"
+                                 data-summary="מדריך רגיש וחכם המזמין ילדים לחקור, לזהות ולתת מילים לרגשות שהם חווים – משמחה והתרגשות ועד פחד, בדידות וכעס."
+                                 data-why="מעניק לילדים לגיטימציה מלאה לכל רגש שעולה בהם (&quot;נורמליזציה&quot;) ומאפשר שיחה פתוחה על תחושות פנימיות."
+                                 data-buy-url="https://www.tzomet-sfarim.co.il/"
+                                 data-emoji="😊"
+                                 data-cover-img=""
+                                 data-theme-color="linear-gradient(135deg, #4687E2, #B369E4)"
+                                 data-spine-color="#D0E1FD"
+                                 data-accent-color="#4687E2">
+                                <div class="book-spine-item" style="--spine-color: #D0E1FD; --accent-color: #4687E2;">
+                                    <div class="spine-line"></div>
+                                    <span class="spine-text">הספר הגדול של הרגשות</span>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Book Card 2 -->
-                        <div class="book-card">
-                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #4687E2, #B369E4);">
-                                <div class="book-spine"></div>
-                                <span class="book-title-inside">הספר הגדול של הרגשות</span>
-                                <span class="book-author-inside">מרי הופמן</span>
-                            </div>
-                            <div class="book-details">
-                                <h3 class="book-title">הספר הגדול של הרגשות</h3>
-                                <span class="book-author">מאת: מרי הופמן ורוז אסקווית'</span>
-                                <p class="book-summary">מדריך רגיש וחכם המזמין ילדים לחקור, לזהות ולתת מילים לרגשות שהם חווים – משמחה והתרגשות ועד פחד, בדידות וכעס.</p>
-                                <div class="book-why-read">
-                                    <strong>למה מומלץ להקריא?</strong>
-                                    מעניק לילדים לגיטימציה מלאה לכל רגש שעולה בהם ("נורמליזציה") ומאפשר שיחה פתוחה על תחושות פנימיות.
+                        <!-- Center Showcase Area -->
+                        <div class="bookshelf-showcase-center">
+                            <div class="book-perspective">
+                                <div class="showcase-book-card" id="showcase-book" style="background: linear-gradient(135deg, #FF8A71, #B369E4);">
+                                    <div class="book-spine-edge"></div>
+                                    <div class="cover-content-fallback" id="showcase-fallback">
+                                        <div class="cover-emoji" id="showcase-emoji">🏡</div>
+                                        <span class="cover-title" id="showcase-cover-title">הספר הגדול של המשפחות</span>
+                                        <span class="cover-author" id="showcase-cover-author">מרי הופמן</span>
+                                    </div>
+                                    <!-- Dynamic real image cover -->
+                                    <img src="" alt="עטיפת ספר" class="cover-image-real" id="showcase-img" style="display: none;" />
                                 </div>
-                                <a href="https://www.tzomet-sfarim.co.il/" target="_blank" class="book-buy-link">לפרטים ורכישה בצומת ספרים</a>
                             </div>
                         </div>
 
-                        <!-- Book Card 3 -->
-                        <div class="book-card">
-                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #FFEBF5, #B369E4);">
-                                <div class="book-spine" style="background: rgba(0,0,0,0.1);"></div>
-                                <span class="book-title-inside" style="color: #362242;">סבא של ברק היה אריה</span>
-                                <span class="book-author-inside" style="color: #545454;">תמר אדר</span>
-                            </div>
-                            <div class="book-details">
-                                <h3 class="book-title">סבא של ברק היה אריה</h3>
-                                <span class="book-author">מאת: תמר אדר</span>
-                                <p class="book-summary">סיפור עדין ונוגע ללב המתאר את הקשר המיוחד בין ברק לסבו שהלך לעולמו, ואת הדרך שבה ברק משמר את זכרו החי והאוהב.</p>
-                                <div class="book-why-read">
-                                    <strong>למה מומלץ להקריא?</strong>
-                                    זהו כלי מדהים לעיבוד נושא האובדן והמוות בצורה רכה, המעניק לילד "עוגן וביטחון" שהקשר והאהבה לא נעלמים לעולם.
+                        <!-- Right books (leaning right) -->
+                        <div class="books-group group-right">
+                            <!-- Book 3 -->
+                            <div class="spine-wrapper lean-right" data-book-index="2"
+                                 data-title="סבא של ברק היה אריה"
+                                 data-author="מאת: תמר אדר"
+                                 data-summary="סיפור עדין ונוגע ללב המתאר את הקשר המיוחד בין ברק לסבו שהלך לעולמו, ואת הדרך שבה ברק משמר את זכרו החי והאוהב."
+                                 data-why="זהו כלי מדהים לעיבוד נושא האובדן והמוות בצורה רכה, המעניק לילד &quot;עוגן וביטחון&quot; שהקשר והאהבה לא נעלמים לעולם."
+                                 data-buy-url="https://www.tzomet-sfarim.co.il/"
+                                 data-emoji="🦁"
+                                 data-cover-img=""
+                                 data-theme-color="linear-gradient(135deg, #FFEBF5, #B369E4)"
+                                 data-spine-color="#FADAE2"
+                                 data-accent-color="#B369E4">
+                                <div class="book-spine-item" style="--spine-color: #FADAE2; --accent-color: #B369E4;">
+                                    <div class="spine-line"></div>
+                                    <span class="spine-text">סבא של ברק היה אריה</span>
                                 </div>
-                                <a href="https://www.tzomet-sfarim.co.il/" target="_blank" class="book-buy-link">לפרטים ורכישה בצומת ספרים</a>
+                            </div>
+                            <!-- Book 4 -->
+                            <div class="spine-wrapper lean-right" data-book-index="3"
+                                 data-title="הכעס הוא כמו ענן"
+                                 data-author="מאת: שרה גורביץ'"
+                                 data-summary="סיפור קסום שמדמה את הכעס הגדול לענן סערה כהה שמגיע, ממטיר גשם, אך בסופו של דבר מתפזר ומאפשר לשמש להתגלות מחדש."
+                                 data-why="עוזר לילדים להבין שכעס וסערת רגשות הם זמניים וחולפים, ומציע טכניקות נשימה והרגעה עצמית מוחשיות מאוד."
+                                 data-buy-url="https://www.tzomet-sfarim.co.il/"
+                                 data-emoji="☁️"
+                                 data-cover-img=""
+                                 data-theme-color="linear-gradient(135deg, #D2C517, #FF8A71)"
+                                 data-spine-color="#FFF6CC"
+                                 data-accent-color="#D2C517">
+                                <div class="book-spine-item" style="--spine-color: #FFF6CC; --accent-color: #D2C517;">
+                                    <div class="spine-line"></div>
+                                    <span class="spine-text">הכעס הוא כמו ענן</span>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Book Card 4 -->
-                        <div class="book-card">
-                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #D2C517, #FF8A71);">
-                                <div class="book-spine"></div>
-                                <span class="book-title-inside">הכעס הוא כמו ענן</span>
-                                <span class="book-author-inside">שרה גורביץ'</span>
-                            </div>
-                            <div class="book-details">
-                                <h3 class="book-title">הכעס הוא כמו ענן</h3>
-                                <span class="book-author">מאת: שרה גורביץ'</span>
-                                <p class="book-summary">סיפור קסום שמדמה את הכעס הגדול לענן סערה כהה שמגיע, ממטיר גשם, אך בסופו של דבר מתפזר ומאפשר לשמש להתגלות מחדש.</p>
-                                <div class="book-why-read">
-                                    <strong>למה מומלץ להקריא?</strong>
-                                    עוזר לילדים להבין שכעס וסערת רגשות הם זמניים וחולפים, ומציע טכניקות נשימה והרגעה עצמית מוחשיות מאוד.
-                                </div>
-                                <a href="https://www.tzomet-sfarim.co.il/" target="_blank" class="book-buy-link">לפרטים ורכישה בצומת ספרים</a>
-                            </div>
-                        </div>
-
+                    <!-- 3D Shelf Board -->
+                    <div class="shelf-wood-board">
+                        <div class="shelf-top"></div>
+                        <div class="shelf-front"></div>
                     </div>
                 </div>
+
+                <!-- Book Details Card -->
+                <div class="book-details-card" id="book-details-card">
+                    <div class="details-content-wrapper">
+                        <h3 class="details-title" id="details-title">הספר הגדול של המשפחות</h3>
+                        <span class="details-author" id="details-author">מאת: מרי הופמן ורוז אסקווית'</span>
+                        <p class="details-summary" id="details-summary">ספר מרהיב ומלא הומור המציג את המגוון העצום של משפחות כיום: משפחות עם שני אבות, אמהות יחידניות, משפחות מאמצות, ועוד.</p>
+                        <div class="details-why-read" id="details-why-container">
+                            <strong>למה מומלץ להקריא?</strong>
+                            <span id="details-why-text">הוא מנרמל לילד את העובדה שאין "משפחה נכונה אחת" ומחזק את ההבנה שאהבה ודאגה הן מה שמגדיר משפחה.</span>
+                        </div>
+                        <a href="https://www.tzomet-sfarim.co.il/" target="_blank" class="book-buy-link" id="details-buy-link">לפרטים ורכישה בצומת ספרים</a>
+                    </div>
+                </div>
+            </div>
             </div>
         </section>
 
