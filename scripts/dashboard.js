@@ -103,7 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const detailsSummary = document.getElementById('details-summary');
     const detailsWhyText = document.getElementById('details-why-text');
     const detailsWhyContainer = document.getElementById('details-why-container');
-    const detailsBuyLink = document.getElementById('details-buy-link');
+    const detailsAmazonLink = document.getElementById('details-amazon-link');
+    const detailsSteimatzkyLink = document.getElementById('details-steimatzky-link');
+    const detailsTzometLink = document.getElementById('details-tzomet-link');
+    const detailsTextBox = document.getElementById('details-text-box');
     const detailsWrapper = document.querySelector('.details-content-wrapper');
 
     // Function to calculate and apply translate transform to center the active book
@@ -188,7 +191,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const author = book.getAttribute('data-author');
                 const summary = book.getAttribute('data-summary');
                 const why = book.getAttribute('data-why');
-                const buyUrl = book.getAttribute('data-buy-url');
+                const amazonUrl = book.getAttribute('data-amazon-url');
+                const steimatzkyUrl = book.getAttribute('data-steimatzky-url');
+                const tzometUrl = book.getAttribute('data-tzomet-url');
+                const price = book.getAttribute('data-price') || '59.90₪';
                 const accentColor = book.getAttribute('data-accent-color');
 
                 if (detailsWrapper) {
@@ -201,8 +207,23 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (detailsAuthor) detailsAuthor.textContent = author;
                         if (detailsSummary) detailsSummary.textContent = summary;
                         if (detailsWhyText) detailsWhyText.textContent = why;
-                        if (detailsBuyLink) detailsBuyLink.href = buyUrl;
+                        
+                        if (detailsAmazonLink) detailsAmazonLink.href = amazonUrl;
+                        if (detailsSteimatzkyLink) detailsSteimatzkyLink.href = steimatzkyUrl;
+                        if (detailsTzometLink) detailsTzometLink.href = tzometUrl;
 
+                        // Update price text inside buy buttons
+                        const amazonPriceEl = detailsAmazonLink ? detailsAmazonLink.querySelector('.buy-button-price') : null;
+                        const steimatzkyPriceEl = detailsSteimatzkyLink ? detailsSteimatzkyLink.querySelector('.buy-button-price') : null;
+                        const tzometPriceEl = detailsTzometLink ? detailsTzometLink.querySelector('.buy-button-price') : null;
+
+                        if (amazonPriceEl) amazonPriceEl.textContent = price;
+                        if (steimatzkyPriceEl) steimatzkyPriceEl.textContent = price;
+                        if (tzometPriceEl) tzometPriceEl.textContent = price;
+
+                        if (detailsTextBox) {
+                            detailsTextBox.style.borderRightColor = accentColor;
+                        }
                         if (detailsWhyContainer) {
                             detailsWhyContainer.style.borderRightColor = accentColor;
                         }
