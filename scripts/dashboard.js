@@ -93,15 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // BOOK RECOMMENDATIONS BOOKSHELF INTERACTIVITY
+    // BOOK RECOMMENDATIONS BOOKSHELF INTERACTIVITY (FLYING BOOKS)
     // ==========================================
-    const spineWrappers = document.querySelectorAll('.spine-wrapper');
-    const showcaseBook = document.getElementById('showcase-book');
-    const showcaseFallback = document.getElementById('showcase-fallback');
-    const showcaseEmoji = document.getElementById('showcase-emoji');
-    const showcaseCoverTitle = document.getElementById('showcase-cover-title');
-    const showcaseCoverAuthor = document.getElementById('showcase-cover-author');
-    const showcaseImg = document.getElementById('showcase-img');
+    const bookshelfBooks = document.querySelectorAll('.bookshelf-book');
+    const showcaseSpot = document.getElementById('showcase-spot');
 
     const detailsTitle = document.getElementById('details-title');
     const detailsAuthor = document.getElementById('details-author');
@@ -111,67 +106,91 @@ document.addEventListener('DOMContentLoaded', () => {
     const detailsBuyLink = document.getElementById('details-buy-link');
     const detailsWrapper = document.querySelector('.details-content-wrapper');
 
-    if (spineWrappers.length > 0 && showcaseBook) {
-        // Image error fallback
-        if (showcaseImg) {
-            showcaseImg.onerror = () => {
-                showcaseImg.style.display = 'none';
-                if (showcaseFallback) showcaseFallback.style.display = 'flex';
-            };
+    // Function to calculate and apply translate transform to center the active book
+    const positionActiveBook = (immediate = false) => {
+        const activeBook = document.querySelector('.bookshelf-book.active');
+        if (!activeBook || !showcaseSpot) return;
+
+        bookshelfBooks.forEach(book => {
+            if (book !== activeBook) {
+                book.style.transform = '';
+            }
+        });
+
+        if (immediate) {
+            activeBook.style.transition = 'none';
         }
 
-        spineWrappers.forEach(spine => {
-            spine.addEventListener('click', () => {
-                if (spine.classList.contains('active')) return;
+        // 1. Temporarily clear transform to get clean slot position
+        activeBook.style.transform = '';
 
-                // 1. Toggle active states on spines
-                spineWrappers.forEach(sw => sw.classList.remove('active'));
-                spine.classList.add('active');
+        // 2. Measure bounding rects
+        const bookRect = activeBook.getBoundingClientRect();
+        const spotRect = showcaseSpot.getBoundingClientRect();
 
-                // 2. Read attributes
-                const title = spine.getAttribute('data-title');
-                const author = spine.getAttribute('data-author');
-                const summary = spine.getAttribute('data-summary');
-                const why = spine.getAttribute('data-why');
-                const buyUrl = spine.getAttribute('data-buy-url');
-                const emoji = spine.getAttribute('data-emoji');
-                const coverImg = spine.getAttribute('data-cover-img');
-                const themeColor = spine.getAttribute('data-theme-color');
-                const accentColor = spine.getAttribute('data-accent-color');
+        // 3. Center alignment math
+        const bookCenterX = bookRect.left + bookRect.width / 2;
+        const bookCenterY = bookRect.top + bookRect.height / 2;
+        const spotCenterX = spotRect.left + spotRect.width / 2;
+        const spotCenterY = spotRect.top + spotRect.height / 2;
 
-                // 3. Animate book showcase (3D flip effect)
-                showcaseBook.style.transform = 'rotateY(90deg) scale(0.9)';
+        const deltaX = spotCenterX - bookCenterX;
+        const deltaY = spotCenterY - bookCenterY;
 
-                setTimeout(() => {
-                    // Update showcase cover styling & content
-                    showcaseBook.style.background = themeColor;
-                    if (showcaseEmoji) showcaseEmoji.textContent = emoji;
-                    if (showcaseCoverTitle) showcaseCoverTitle.textContent = title;
-                    
-                    // Simple regex/cleanup to extract author name without "מאת:" for the cover
-                    if (showcaseCoverAuthor) {
-                        showcaseCoverAuthor.textContent = author.replace('מאת:', '').trim();
-                    }
+        // 4. Apply translate & scale (selected book is scaled by 1.15)
+        activeBook.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(1.15)`;
 
-                    if (coverImg && coverImg.trim() !== '') {
-                        if (showcaseImg) {
-                            showcaseImg.src = coverImg;
-                            showcaseImg.style.display = 'block';
-                        }
-                        if (showcaseFallback) showcaseFallback.style.display = 'none';
-                    } else {
-                        if (showcaseImg) {
-                            showcaseImg.src = '';
-                            showcaseImg.style.display = 'none';
-                        }
-                        if (showcaseFallback) showcaseFallback.style.display = 'flex';
-                    }
+        if (immediate) {
+            // Restore transitions after paint
+            activeBook.offsetHeight; // force reflow
+            activeBook.style.transition = '';
+        }
+    };
 
-                    // Rotate showcase back
-                    showcaseBook.style.transform = '';
-                }, 300);
+    if (bookshelfBooks.length > 0 && showcaseSpot) {
+        // Setup image fallbacks and initial cover image sources for each book
+        bookshelfBooks.forEach(book => {
+            const img = book.querySelector('.cover-image-real');
+            const fallback = book.querySelector('.cover-content-fallback');
+            const coverImgUrl = book.getAttribute('data-cover-img');
 
-                // 4. Animate & update book details panel
+            if (img) {
+                img.onerror = () => {
+                    img.style.display = 'none';
+                    if (fallback) fallback.style.display = 'flex';
+                };
+
+                if (coverImgUrl && coverImgUrl.trim() !== '') {
+                    img.src = coverImgUrl;
+                    img.style.display = 'block';
+                    if (fallback) fallback.style.display = 'none';
+                } else {
+                    img.style.display = 'none';
+                    if (fallback) fallback.style.display = 'flex';
+                }
+            }
+        });
+
+        // Click listeners on bookshelf books
+        bookshelfBooks.forEach(book => {
+            book.addEventListener('click', () => {
+                if (book.classList.contains('active')) return;
+
+                // 1. Toggle active state
+                bookshelfBooks.forEach(b => b.classList.remove('active'));
+                book.classList.add('active');
+
+                // 2. Calculate and trigger flying translate
+                positionActiveBook();
+
+                // 3. Read attributes and update details panel
+                const title = book.getAttribute('data-title');
+                const author = book.getAttribute('data-author');
+                const summary = book.getAttribute('data-summary');
+                const why = book.getAttribute('data-why');
+                const buyUrl = book.getAttribute('data-buy-url');
+                const accentColor = book.getAttribute('data-accent-color');
+
                 if (detailsWrapper) {
                     detailsWrapper.style.opacity = '0';
                     detailsWrapper.style.transform = 'translateY(10px)';
@@ -193,6 +212,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     }, 250);
                 }
             });
+        });
+
+        // Initial setup on load (Book 1 is already marked active, make it fly to center)
+        setTimeout(() => {
+            positionActiveBook(true);
+        }, 150);
+
+        // Keep active book centered on resize
+        window.addEventListener('resize', () => {
+            positionActiveBook(true);
         });
     }
 

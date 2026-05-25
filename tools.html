@@ -160,7 +160,7 @@
                         <!-- Left books (leaning left) -->
                         <div class="books-group group-left">
                             <!-- Book 1 -->
-                            <div class="spine-wrapper lean-left active" data-book-index="0"
+                            <div class="bookshelf-book lean-left active" data-book-index="0"
                                  data-title="הספר הגדול של המשפחות"
                                  data-author="מאת: מרי הופמן ורוז אסקווית'"
                                  data-summary="ספר מרהיב ומלא הומור המציג את המגוון העצום של משפחות כיום: משפחות עם שני אבות, אמהות יחידניות, משפחות מאמצות, ועוד."
@@ -171,13 +171,26 @@
                                  data-theme-color="linear-gradient(135deg, #FF8A71, #B369E4)"
                                  data-spine-color="#FFD5CC"
                                  data-accent-color="#FF8A71">
-                                <div class="book-spine-item" style="--spine-color: #FFD5CC; --accent-color: #FF8A71;">
-                                    <div class="spine-line"></div>
-                                    <span class="spine-text">הספר הגדול של המשפחות</span>
+                                <div class="book-3d-model">
+                                    <!-- Spine View -->
+                                    <div class="book-spine-view" style="--spine-color: #FFD5CC; --accent-color: #FF8A71;">
+                                        <div class="spine-line"></div>
+                                        <span class="spine-text">הספר הגדול של המשפחות</span>
+                                    </div>
+                                    <!-- Cover View -->
+                                    <div class="book-cover-view" style="background: linear-gradient(135deg, #FF8A71, #B369E4);">
+                                        <div class="book-spine-edge"></div>
+                                        <div class="cover-content-fallback">
+                                            <div class="cover-emoji">🏡</div>
+                                            <span class="cover-title">הספר הגדול של המשפחות</span>
+                                            <span class="cover-author">מרי הופמן</span>
+                                        </div>
+                                        <img src="" alt="עטיפת ספר" class="cover-image-real" style="display: none;" />
+                                    </div>
                                 </div>
                             </div>
                             <!-- Book 2 -->
-                            <div class="spine-wrapper lean-left" data-book-index="1"
+                            <div class="bookshelf-book lean-left" data-book-index="1"
                                  data-title="הספר הגדול של הרגשות"
                                  data-author="מאת: מרי הופמן ורוז אסקווית'"
                                  data-summary="מדריך רגיש וחכם המזמין ילדים לחקור, לזהות ולתת מילים לרגשות שהם חווים – משמחה והתרגשות ועד פחד, בדידות וכעס."
@@ -188,33 +201,33 @@
                                  data-theme-color="linear-gradient(135deg, #4687E2, #B369E4)"
                                  data-spine-color="#D0E1FD"
                                  data-accent-color="#4687E2">
-                                <div class="book-spine-item" style="--spine-color: #D0E1FD; --accent-color: #4687E2;">
-                                    <div class="spine-line"></div>
-                                    <span class="spine-text">הספר הגדול של הרגשות</span>
+                                <div class="book-3d-model">
+                                    <!-- Spine View -->
+                                    <div class="book-spine-view" style="--spine-color: #D0E1FD; --accent-color: #4687E2;">
+                                        <div class="spine-line"></div>
+                                        <span class="spine-text">הספר הגדול של הרגשות</span>
+                                    </div>
+                                    <!-- Cover View -->
+                                    <div class="book-cover-view" style="background: linear-gradient(135deg, #4687E2, #B369E4);">
+                                        <div class="book-spine-edge"></div>
+                                        <div class="cover-content-fallback">
+                                            <div class="cover-emoji">😊</div>
+                                            <span class="cover-title">הספר הגדול של הרגשות</span>
+                                            <span class="cover-author">מרי הופמן</span>
+                                        </div>
+                                        <img src="" alt="עטיפת ספר" class="cover-image-real" style="display: none;" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Center Showcase Area -->
-                        <div class="bookshelf-showcase-center">
-                            <div class="book-perspective">
-                                <div class="showcase-book-card" id="showcase-book" style="background: linear-gradient(135deg, #FF8A71, #B369E4);">
-                                    <div class="book-spine-edge"></div>
-                                    <div class="cover-content-fallback" id="showcase-fallback">
-                                        <div class="cover-emoji" id="showcase-emoji">🏡</div>
-                                        <span class="cover-title" id="showcase-cover-title">הספר הגדול של המשפחות</span>
-                                        <span class="cover-author" id="showcase-cover-author">מרי הופמן</span>
-                                    </div>
-                                    <!-- Dynamic real image cover -->
-                                    <img src="" alt="עטיפת ספר" class="cover-image-real" id="showcase-img" style="display: none;" />
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Center Layout Placeholder Spot -->
+                        <div class="bookshelf-showcase-spot" id="showcase-spot"></div>
 
                         <!-- Right books (leaning right) -->
                         <div class="books-group group-right">
                             <!-- Book 3 -->
-                            <div class="spine-wrapper lean-right" data-book-index="2"
+                            <div class="bookshelf-book lean-right" data-book-index="2"
                                  data-title="סבא של ברק היה אריה"
                                  data-author="מאת: תמר אדר"
                                  data-summary="סיפור עדין ונוגע ללב המתאר את הקשר המיוחד בין ברק לסבו שהלך לעולמו, ואת הדרך שבה ברק משמר את זכרו החי והאוהב."
@@ -225,13 +238,26 @@
                                  data-theme-color="linear-gradient(135deg, #FFEBF5, #B369E4)"
                                  data-spine-color="#FADAE2"
                                  data-accent-color="#B369E4">
-                                <div class="book-spine-item" style="--spine-color: #FADAE2; --accent-color: #B369E4;">
-                                    <div class="spine-line"></div>
-                                    <span class="spine-text">סבא של ברק היה אריה</span>
+                                <div class="book-3d-model">
+                                    <!-- Spine View -->
+                                    <div class="book-spine-view" style="--spine-color: #FADAE2; --accent-color: #B369E4;">
+                                        <div class="spine-line"></div>
+                                        <span class="spine-text">סבא של ברק היה אריה</span>
+                                    </div>
+                                    <!-- Cover View -->
+                                    <div class="book-cover-view" style="background: linear-gradient(135deg, #FFEBF5, #B369E4);">
+                                        <div class="book-spine-edge"></div>
+                                        <div class="cover-content-fallback">
+                                            <div class="cover-emoji">🦁</div>
+                                            <span class="cover-title">סבא של ברק היה אריה</span>
+                                            <span class="cover-author">תמר אדר</span>
+                                        </div>
+                                        <img src="" alt="עטיפת ספר" class="cover-image-real" style="display: none;" />
+                                    </div>
                                 </div>
                             </div>
                             <!-- Book 4 -->
-                            <div class="spine-wrapper lean-right" data-book-index="3"
+                            <div class="bookshelf-book lean-right" data-book-index="3"
                                  data-title="הכעס הוא כמו ענן"
                                  data-author="מאת: שרה גורביץ'"
                                  data-summary="סיפור קסום שמדמה את הכעס הגדול לענן סערה כהה שמגיע, ממטיר גשם, אך בסופו של דבר מתפזר ומאפשר לשמש להתגלות מחדש."
@@ -242,9 +268,22 @@
                                  data-theme-color="linear-gradient(135deg, #D2C517, #FF8A71)"
                                  data-spine-color="#FFF6CC"
                                  data-accent-color="#D2C517">
-                                <div class="book-spine-item" style="--spine-color: #FFF6CC; --accent-color: #D2C517;">
-                                    <div class="spine-line"></div>
-                                    <span class="spine-text">הכעס הוא כמו ענן</span>
+                                <div class="book-3d-model">
+                                    <!-- Spine View -->
+                                    <div class="book-spine-view" style="--spine-color: #FFF6CC; --accent-color: #D2C517;">
+                                        <div class="spine-line"></div>
+                                        <span class="spine-text">הכעס הוא כמו ענן</span>
+                                    </div>
+                                    <!-- Cover View -->
+                                    <div class="book-cover-view" style="background: linear-gradient(135deg, #D2C517, #FF8A71);">
+                                        <div class="book-spine-edge"></div>
+                                        <div class="cover-content-fallback">
+                                            <div class="cover-emoji">☁️</div>
+                                            <span class="cover-title">הכעס הוא כמו ענן</span>
+                                            <span class="cover-author">שרה גורביץ'</span>
+                                        </div>
+                                        <img src="" alt="עטיפת ספר" class="cover-image-real" style="display: none;" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
