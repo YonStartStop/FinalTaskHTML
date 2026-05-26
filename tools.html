@@ -30,6 +30,15 @@
     <!-- Eggplant Wavy Header / Navbar -->
     <header class="main-header">
         <div class="header-svgs-bg">
+            <!-- SVG Gooey Filter Definition to merge overlapping SVGs organically -->
+            <svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                    </filter>
+                </defs>
+            </svg>
             <svg class="header-bg-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0,0 H1440 V60 C1100,100 700,50 300,70 C150,75 50,60 0,50 Z" fill="#362242"/>
             </svg>
@@ -39,15 +48,15 @@
         </div>
         <div class="header-container">
             <!-- Logo & Slogan (Right aligned in RTL) -->
-            <div class="logo-area">
+            <a href="index.html" class="logo-area">
                 <span class="logo-title">...אמא, למה?</span>
                 <span class="logo-slogan">כלים פרקטיים לשאלות שילדים אוהבים לשאול</span>
-            </div>
+            </a>
 
             <!-- Desktop Navigation Links (Left aligned in RTL) -->
             <nav class="desktop-nav" aria-label="ניווט ראשי">
                 <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link" data-page="home">ראשי ועקרונות הזהב</a></li>
+                    <li><a href="index.html" class="nav-link" data-page="home">עקרונות הזהב</a></li>
                     <li><a href="layers.html" class="nav-link" data-page="layers">חוק 3 השכבות</a></li>
                     <li><a href="tools.html" class="nav-link active" data-page="tools">כלים וספרים מומלצים</a></li>
                     <li><a href="about.html" class="nav-link" data-page="about">אודות</a></li>
@@ -73,7 +82,7 @@
                 <button id="close-menu-btn" class="close-menu-btn" aria-label="סגור תפריט">&times;</button>
             </div>
             <ul class="mobile-nav-list">
-                <li><a href="index.html" class="menu-link" data-page="home">ראשי ועקרונות הזהב</a></li>
+                <li><a href="index.html" class="menu-link" data-page="home">עקרונות הזהב</a></li>
                 <li><a href="layers.html" class="menu-link" data-page="layers">חוק 3 השכבות</a></li>
                 <li><a href="tools.html" class="menu-link active" data-page="tools">כלים וספרים מומלצים</a></li>
                 <li><a href="about.html" class="menu-link" data-page="about">אודות</a></li>

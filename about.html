@@ -30,6 +30,15 @@
     <!-- Eggplant Wavy Header / Navbar -->
     <header class="main-header">
         <div class="header-svgs-bg">
+            <!-- SVG Gooey Filter Definition to merge overlapping SVGs organically -->
+            <svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                    </filter>
+                </defs>
+            </svg>
             <svg class="header-bg-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0,0 H1440 V60 C1100,100 700,50 300,70 C150,75 50,60 0,50 Z" fill="#362242"/>
             </svg>
@@ -39,15 +48,15 @@
         </div>
         <div class="header-container">
             <!-- Logo & Slogan (Right aligned in RTL) -->
-            <div class="logo-area">
+            <a href="index.html" class="logo-area">
                 <span class="logo-title">...אמא, למה?</span>
                 <span class="logo-slogan">כלים פרקטיים לשאלות שילדים אוהבים לשאול</span>
-            </div>
+            </a>
 
             <!-- Desktop Navigation Links (Left aligned in RTL) -->
             <nav class="desktop-nav" aria-label="ניווט ראשי">
                 <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link" data-page="home">ראשי ועקרונות הזהב</a></li>
+                    <li><a href="index.html" class="nav-link" data-page="home">עקרונות הזהב</a></li>
                     <li><a href="layers.html" class="nav-link" data-page="layers">חוק 3 השכבות</a></li>
                     <li><a href="tools.html" class="nav-link" data-page="tools">כלים וספרים מומלצים</a></li>
                     <li><a href="about.html" class="nav-link active" data-page="about">אודות</a></li>
@@ -73,7 +82,7 @@
                 <button id="close-menu-btn" class="close-menu-btn" aria-label="סגור תפריט">&times;</button>
             </div>
             <ul class="mobile-nav-list">
-                <li><a href="index.html" class="menu-link" data-page="home">ראשי ועקרונות הזהב</a></li>
+                <li><a href="index.html" class="menu-link" data-page="home">עקרונות הזהב</a></li>
                 <li><a href="layers.html" class="menu-link" data-page="layers">חוק 3 השכבות</a></li>
                 <li><a href="tools.html" class="menu-link" data-page="tools">כלים וספרים מומלצים</a></li>
                 <li><a href="about.html" class="menu-link active" data-page="about">אודות</a></li>
@@ -107,17 +116,24 @@
                             </p>
                         </div>
 
+                        <div class="commandment-card border-blue" style="padding: 20px;">
+                            <h3 class="commandment-name" style="font-size: 18px;">על מה המידע מבוסס?</h3>
+                            <p class="commandment-desc" style="font-size: 14.5px; line-height: 1.6;">
+                                כל התשובות, הכלים והמתודולוגיות באתר (כולל חוק 3 השכבות) מבוססים על תיאוריות פסיכולוגיות מובילות בתחום התפתחות הילד, תקשורת מקרבת והדרכת הורים, ונכתבו בשיתוף פעולה עם פסיכולוגים חינוכיים ומומחים לגיל הרך.
+                            </p>
+                        </div>
+
                         <div class="commandment-card border-indigo" style="padding: 20px;">
                             <h3 class="commandment-name" style="font-size: 18px;">הצוות שלנו</h3>
                             <p class="commandment-desc" style="font-size: 14.5px; line-height: 1.6;">
-                                האתר נבנה בשיתוף פעולה עם פסיכולוגים חינוכיים ומומחים לגיל הרך, במטרה להנגיש תיאוריות תקשורת מורכבות למדריכים קלילים, שימושיים ונגישים מכל סמארטפון או מחשב, בכל רגע ביום.
+                                האתר נבנה על ידי – <strong>קרן רותם, יעל אבנר, אירית פישמן ויונתן שניידר</strong>, במסגרת קורס פיתוח אתרי אינטרנט (תשפ״ו, 13304) במכון הטכנולוגי חולון (HIT).
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="character-container">
-                    <img src="images/girl in red.png" alt="איור של ילדה" class="girl-illustration" />
+                <div class="character-container team-container">
+                    <img src="images/team.png" alt="איור של צוות הפרויקט - קרן, יעל, אירית ויונתן" class="girl-illustration team-illustration" />
                 </div>
             </div>
         </section>
