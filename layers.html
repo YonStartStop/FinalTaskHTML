@@ -18,6 +18,22 @@
     <!-- Thin Frame Border for Visual Focus -->
     <div class="global-frame"></div>
 
+    <!-- מעגל קונצנטרי מעופף דביק (Copy B - מופעל בגלילה) -->
+    <div class="floating-concentric-nav" aria-hidden="true">
+        <!-- שכבה 1 - חיצונית -->
+        <button class="concentric-circle layer-1-circle" aria-label="מעבר לשכבה 1 בסליידר" title="שכבה 1: העובדה היבשה">
+            <span class="circle-name">עובדה</span>
+        </button>
+        <!-- שכבה 2 - אמצעית -->
+        <button class="concentric-circle layer-2-circle" aria-label="מעבר לשכבה 2 בסליידר" title="שכבה 2: רגש ונורמליזציה">
+            <span class="circle-name">רגש</span>
+        </button>
+        <!-- שכבה 3 - פנימית -->
+        <button class="concentric-circle layer-3-circle" aria-label="מעבר לשכבה 3 בסליידר" title="שכבה 3: עוגן וביטחון">
+            <span class="circle-name">עוגן</span>
+        </button>
+    </div>
+
     <!-- Soft Pastel Amorphous Background Graphic on Left -->
     <div class="bg-flower-decor" aria-hidden="true">
         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,71 +108,185 @@
     </div>
 
     <!-- main content container for Content Page 1 -->
-    <main class="main-page-content" style="padding-top: 130px; min-height: calc(100vh - 120px);">
-        <!-- סקשן 2: חוק ה-3 שכבות -->
-        <section id="three-layers" class="below-the-fold-section bg-alt-section" style="margin-top: 0 !important; box-shadow: none;">
+    <main class="main-page-content" style="padding-top: 90px; min-height: calc(100vh - 120px);">
+        
+        <!-- סקשן מבוא עם העיגולים הקונצנטריים -->
+        <section id="layers-intro-section" class="below-the-fold-section" style="margin-top: 0 !important;">
+            <div class="layers-intro-layout">
+                <!-- טקסט מקדים מימין (RTL) -->
+                <div class="layers-intro-text">
+                    <h1 class="section-main-title" style="font-size: 38px;">חוק 3 השכבות</h1>
+                    <p class="intro-paragraph-highlight">
+                        הילד שאל שאלה שהשאירה אתכם ללא מילים? כדי ליישם את הדיברה השלישית ולדייק את התשובה שלכם, פיתחנו כלי תקשורתי פשוט ויעיל: חוק 3 השכבות.
+                    </p>
+                    <p class="intro-paragraph">
+                        חוק זה נועד למנוע מכם "להתפזר", להילחץ או להעמיס על הילד מידע רגשי וקוגניטיבי שמעבר ליכולת העיבוד שלו. הוא מאפשר לכם לענות בדיוק במידה הנכונה – ולא חייבים לעבור את כל 3 השכבות.
+                    </p>
+
+                    <p class="intro-instruction" style="margin-bottom: 15px;">
+                        <span class="sparkle-icon" aria-hidden="true">✨</span> לחצו על אחת השכבות כדי להבין איפה אתם נמצאים עם הילד שלכם:
+                    </p>
+
+                    <!-- כרטיס הסבר מקדים דינמי שמופיע בלחיצה -->
+                    <div id="intro-preview-card" class="intro-preview-card" style="display: none;">
+                        <h3 id="preview-card-title" class="preview-card-title"></h3>
+                        <p id="preview-card-text" class="preview-card-text"></p>
+                        <button id="preview-card-scroll-btn" class="preview-card-scroll-btn">
+                            המשך להסבר המלא והמפורט בסליידר ↙
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- שלושה עיגולים קונצנטריים משמאל (RTL) -->
+                <div class="layers-circles-container">
+                    <div class="concentric-circles-wrapper" role="region" aria-label="איור אינטראקטיבי של 3 השכבות">
+                        <!-- שכבה 1 - חיצונית (הכי בסיסית) -->
+                        <button class="concentric-circle layer-1-circle" aria-label="שכבה 1: העובדה היבשה (התשובה למה)" title="שכבה 1: העובדה היבשה – מענה לשאלה 'מה קרה' בשפה פשוטה, ללא דרמה ובדיוק במידה שהילד ביקש.">
+                            <span class="circle-name">עובדה יבשה</span>
+                        </button>
+                        <!-- שכבה 2 - אמצעית -->
+                        <button class="concentric-circle layer-2-circle" aria-label="שכבה 2: הרגש והנורמליזציה (התשובה לאיך מרגישים)" title="שכבה 2: רגש ונורמליזציה – מענה לשאלה 'איך מרגישים'. נותנים לגיטימציה לרגש ומנרמלים אותו (למשל: 'זה באמת קצת מפחיד').">
+                            <span class="circle-name">רגש ונורמליזציה</span>
+                        </button>
+                        <!-- שכבה 3 - פנימית -->
+                        <button class="concentric-circle layer-3-circle" aria-label="שכבה 3: העוגן והביטחון (התשובה למה איתי)" title="שכבה 3: עוגן וביטחון – מענה לשאלה 'מה איתי' והחזרת הביטחון (למשל: 'אנחנו כאן איתך ושומרים עליך').">
+                            <span class="circle-name">עוגן וביטחון</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- סקשן סליידר שכבות - רקע מלא וללא מסגרות -->
+        <section id="layers-slider-container" class="layers-slider-container">
+            <!-- חצי ניווט בצידי הסליידר -->
+            <button class="slider-arrow arrow-right" aria-label="לשכבה הקודמת" aria-controls="layers-slider-wrapper">&gt;</button>
+            <button class="slider-arrow arrow-left" aria-label="לשכבה הבאה" aria-controls="layers-slider-wrapper">&lt;</button>
+            
+            <div class="slider-wrapper" id="layers-slider-wrapper">
+                <!-- שקף 1: שכבה 1 -->
+                <div class="slider-slide slide-layer-1" role="group" aria-label="שכבה 1 מתוך 3">
+                    <div class="slide-content-width">
+                        <div class="slide-badge-title-row">
+                            <span class="slide-layer-badge">שכבה 1</span>
+                            <h2 class="slide-title">שכבה 1: העובדה היבשה – מענה לשאלה ״מה קרה״</h2>
+                        </div>
+                        <p class="slide-description">
+                            זוהי השכבה הבסיסית ביותר שבה אתם מספקים את המידע המדויק, ללא פרשנות אישית, ללא דרמה ובשפה פשוטה.
+                        </p>
+                        <div class="slide-details-grid">
+                            <div class="slide-detail-column">
+                                <span class="slide-detail-label">המטרה:</span>
+                                <p class="slide-detail-text">לענות על הסקרנות האינטלקטואלית של הילד.</p>
+                            </div>
+                            <div class="slide-detail-column">
+                                <span class="slide-detail-label">הכלל המוביל:</span>
+                                <p class="slide-detail-text">אם הילד הפסיק לשאול או חזר לעיסוקיו – עצרתם בזמן. זה הסימן שהשכבה הזו סיפקה אותו כרגע.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- שקף 2: שכבה 2 -->
+                <div class="slider-slide slide-layer-2" role="group" aria-label="שכבה 2 מתוך 3">
+                    <div class="slide-content-width">
+                        <div class="slide-badge-title-row">
+                            <span class="slide-layer-badge">שכבה 2</span>
+                            <h2 class="slide-title">שכבה 2: הרגש והנורמליזציה – מענה לשאלה ״איך מרגישים״</h2>
+                        </div>
+                        <p class="slide-description">
+                            אם הילד ממשיך לשאול או נראה מוטרד, עוברים לשכבה הבאה. כאן אתם מעניקים לגיטימציה לרגשות, מנרמלים את החוויה של הילד ומסבירים את התחושות סביב הנושא.
+                        </p>
+                        <div class="slide-details-grid">
+                            <div class="slide-detail-column">
+                                <span class="slide-detail-label">המטרה:</span>
+                                <p class="slide-detail-text">לבנות אינטימיות ולקשר את המידע לחוויה אנושית ומקרבת.</p>
+                            </div>
+                            <div class="slide-detail-column">
+                                <span class="slide-detail-label">הכלל המוביל:</span>
+                                <p class="slide-detail-text">השתמשו במשפטי ״אני״ ו-״אנחנו״.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- שקף 3: שכבה 3 -->
+                <div class="slider-slide slide-layer-3" role="group" aria-label="שכבה 3 מתוך 3">
+                    <div class="slide-content-width">
+                        <div class="slide-badge-title-row">
+                            <span class="slide-layer-badge">שכבה 3</span>
+                            <h2 class="slide-title">שכבה 3: העוגן והביטחון – מענה לשאלה ״מה איתי״</h2>
+                        </div>
+                        <p class="slide-description">
+                            זוהי השכבה החשובה ביותר, הנועדת להרגיע את החרדה הקיומית של הילד. מאחורי כל שאלה קשה, הילד שואל את עצמו בתת-מודע: ״האם אני בטוח? מה זה אומר עלי?״. בשכבה הזו אנחנו עונים על כך במפורש.
+                        </p>
+                        <div class="slide-details-grid">
+                            <div class="slide-detail-column">
+                                <span class="slide-detail-label">המטרה:</span>
+                                <p class="slide-detail-text">לספק יציבות וודאות, ולהזכיר לילד שהקשר שלכם איתו יציב ואיתן.</p>
+                            </div>
+                            <div class="slide-detail-column">
+                                <span class="slide-detail-label">הכלל המוביל:</span>
+                                <p class="slide-detail-text">הבטחה לביטחון נוכחי ועתידי.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- סקשן שאלון מסכם - נקי ומובנה -->
+        <section id="summary-quiz-section" class="summary-quiz-section">
             <div class="section-title-wrapper text-center">
-                <h1 class="section-main-title" style="font-size: 38px;">חוק ה-3 שכבות</h1>
-                <p class="section-main-subtitle">הכלי התקשורתי והמעשי שנועד למנוע מכם "להתפזר", להילחץ או להעמיס מידע רגשי וקוגניטיבי שמעבר ליכולת העיבוד של הילד</p>
+                <h2 class="section-main-title">שאלון מסכם: בחנו את עצמכם</h2>
+                <p class="section-main-subtitle">בואו נראה אם למדתם כיצד ליישם את חוק 3 השכבות מול הילדים:</p>
             </div>
-
-            <!-- Immersive Layers Explorer widget -->
-            <div class="layers-explorer-container">
-                <!-- Layers stack visualization (Right side) -->
-                <div class="layers-visual-stack">
-                    <div class="layer-item layer-3" data-layer="3">
-                        <span class="layer-badge">שכבה 3</span>
-                        <span class="layer-title">העוגן והביטחון (התשובה ל"מה איתי?")</span>
+            
+            <div class="quiz-container-flat" id="quiz-widget-inner">
+                <!-- גוף השאלון -->
+                <div id="quiz-body-container">
+                    <div class="quiz-header">
+                        <span class="quiz-step-indicator" id="quiz-step">שאלת תרגול</span>
+                        <h3 class="quiz-question-title" id="quiz-title">טוען שאלה...</h3>
                     </div>
-                    <div class="layer-item layer-2" data-layer="2">
-                        <span class="layer-badge">שכבה 2</span>
-                        <span class="layer-title">הרגש והנורמליזציה (התשובה ל"איך מרגישים?")</span>
+                    <div class="quiz-question-scenario" id="quiz-scenario">טוען תיאור מצב...</div>
+                    <div class="quiz-options-list" id="quiz-options-container">
+                        <!-- אפשרויות בחירה דינמיות -->
                     </div>
-                    <div class="layer-item layer-1 active" data-layer="1">
-                        <span class="layer-badge">שכבה 1</span>
-                        <span class="layer-title">העובדה היבשה (התשובה ל"מה קרה?")</span>
+                    
+                    <div id="quiz-feedback" class="quiz-feedback-box" style="display: none;"></div>
+                    
+                    <div class="quiz-action-btn-row">
+                        <button id="quiz-submit-btn" class="quiz-submit-next-btn" disabled>בדוק תשובה</button>
                     </div>
                 </div>
 
-                <!-- Dynamic layer info box (Left side) -->
-                <div class="layer-info-display">
-                    <div id="layer-content-panel" class="layer-panel">
-                        <h3 id="layer-display-title" class="layer-display-title">שכבה 1: העובדה היבשה</h3>
-                        <p id="layer-display-intro" class="layer-display-intro">זו השכבה הבסיסית ביותר – כאן אתם מספקים את המידע המדויק ביותר, ללא פרשנות אישית, ללא דרמה ובשפה פשוטה.</p>
-                        
-                        <div class="layer-meta-grid">
-                            <div class="meta-card">
-                                <span class="meta-label">המטרה:</span>
-                                <p id="layer-display-goal" class="meta-text">לענות על הסקרנות האינטלקטואלית הישירה של הילד.</p>
-                            </div>
-                            <div class="meta-card">
-                                <span class="meta-label">הכלל של הזהב:</span>
-                                <p id="layer-display-rule" class="meta-text">אם הילד מפסיק לשאול או חוזר לעיסוקיו - עצרתם בזמן! זה אומר שהשכבה הזו סיפקה אותו לחלוטין כרגע.</p>
-                            </div>
-                        </div>
-
-                        <div class="layer-example-box">
-                            <span class="example-label">דוגמה מעשית (למה אמא ואבא לא גרים יחד?):</span>
-                            <div class="example-bubble-wrapper">
-                                <div class="chat-bubble adult" id="layer-display-example" style="font-family: 'Open Sans', sans-serif; font-size: 20px;">
-                                    "אמא ואבא החליטו שיהיה לנו יותר נעים וטוב לחיות בשני בתים נפרדים."
-                                </div>
-                            </div>
-                        </div>
+                <!-- תצוגת תוצאות סופיות - מוסתרת כברירת מחדל -->
+                <div class="quiz-result-view" id="quiz-result-container" style="display: none;">
+                    <span class="quiz-result-icon" id="quiz-result-icon">🏆</span>
+                    <h3 class="quiz-result-title">סיימת את השאלון המסכם!</h3>
+                    <p class="quiz-result-score">
+                        ענית נכון על <strong id="quiz-result-score-count">0</strong> מתוך <strong>3</strong> שאלות.
+                    </p>
+                    <div class="filter-feedback" id="quiz-result-badge-container" style="background-color: #E6F6ED; border-right: 4px solid #2ECC71; color: #1E6B3F; padding: 15px 25px; border-radius: 12px; margin-top: 10px;">
+                        תג נרכש: <strong id="quiz-result-badge">הורה קשוב ומדויק! ⚓</strong>
                     </div>
+                    <button id="quiz-restart-btn" class="quiz-restart-btn">התחל מחדש 🔄</button>
                 </div>
             </div>
-        </main>
+        </section>
 
-        <!-- Footer Area -->
-        <footer class="main-footer" style="margin-top: 40px;">
-            <p class="footer-quote">זכרו - אין הורים מושלמים, יש רק הורים קשובים. הקשר שלכם עם הילד הוא התשובה הכי חשובה.</p>
-            <p class="footer-copyright" style="margin-top: 15px;">© 2026 ...אמא, למה? - כל הזכויות שמורות. נבנה באהבה להורות מקשיבה ומכילה.</p>
-        </footer>
     </main>
+
+    <!-- Footer Area -->
+    <footer class="main-footer" style="margin-top: 40px;">
+        <p class="footer-quote">זכרו - אין הורים מושלמים, יש רק הורים קשובים. הקשר שלכם עם הילד הוא התשובה הכי חשובה.</p>
+        <p class="footer-copyright" style="margin-top: 15px;">© 2026 ...אמא, למה? - כל הזכויות שמורות. נבנה באהבה להורות מקשיבה ומכילה.</p>
+    </footer>
 
     <!-- JavaScripts -->
     <script src="scripts/dashboard.js"></script>
+    <script src="scripts/layersPage.js"></script>
 </body>
 
 </html>
