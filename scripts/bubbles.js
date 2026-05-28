@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
 
     // Size Parameters
-    const maxScale = 1.3;     // The size of the bubble right under the cursor
-    const minScale = 0.7;    // The size of bubbles far away from the cursor
+    const maxScale = 1.35;    // The size of the bubble right under the cursor
+    const minScale = 0.85;   // The size of bubbles far away from the cursor
 
     // Interaction Parameters
     const radius = 250;       // Distance (in pixels) the mouse affects the bubbles
