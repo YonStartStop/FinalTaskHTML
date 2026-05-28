@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
 
     // Size Parameters
-    const maxScale = 1.3;     // The size of the bubble right under the cursor
-    const minScale = 0.5;    // The size of bubbles far away from the cursor
+    const maxScale = 1.35;    // The size of the bubble right under the cursor
+    const minScale = 0.85;   // The size of bubbles far away from the cursor
 
     // Interaction Parameters
     const radius = 250;       // Distance (in pixels) the mouse affects the bubbles
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Organic Layout Parameters
     const pushStrength = 30;  // How strongly to push bubbles outward to form a ball/circle shape
-    const randomVariance = 35; // Amount of random X/Y offset to break the rigid grid look
+    const randomVariance = 8;  // Reduced offset to prevent speech bubbles from overlapping randomly
 
     // Interactive Globe Effect Parameters
     const hoverPushStrength = 30; // How strongly the mouse pushes surrounding bubbles away to create a 3D sphere effect
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bubbles = Array.from(bubbleElements).map(el => {
         return {
             el,
-            scale: minScale,
+            scale: 0,
             baseOffsetX: 0,
             baseOffsetY: 0,
             offsetX: 0,
@@ -48,7 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
             baseRight: 0,
             baseTop: 0,
             baseBottom: 0,
-            initialized: false
+            initialized: false,
+            revealed: false
         };
     });
 
@@ -125,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         bubbles.forEach(b => {
-            let targetScale = minScale;
+            let targetScale = 0; // Default target scale is 0 when not revealed
             let currentMouseX = mouseX;
             let currentMouseY = mouseY;
 
@@ -148,23 +149,26 @@ document.addEventListener('DOMContentLoaded', () => {
             let targetOffsetX = b.baseOffsetX;
             let targetOffsetY = b.baseOffsetY;
 
-            if (distanceToBox < radius) {
-                // Scale uses distanceToBox so it maxes out across the entire bubble area
-                const factor = 1 - (distanceToBox / radius);
-                const easeFactor = Math.pow(factor, curvePower);
-                targetScale = minScale + (maxScale - minScale) * easeFactor;
+            if (b.revealed) {
+                targetScale = minScale;
+                if (distanceToBox < radius) {
+                    // Scale uses distanceToBox so it maxes out across the entire bubble area
+                    const factor = 1 - (distanceToBox / radius);
+                    const easeFactor = Math.pow(factor, curvePower);
+                    targetScale = minScale + (maxScale - minScale) * easeFactor;
 
-                // Push uses distanceToBox for magnitude (so actively hovered bubbles stay still)
-                const pushFactor = Math.sin((distanceToBox / radius) * Math.PI);
-                const pushMagnitude = pushFactor * hoverPushStrength;
+                    // Push uses distanceToBox for magnitude (so actively hovered bubbles stay still)
+                    const pushFactor = Math.sin((distanceToBox / radius) * Math.PI);
+                    const pushMagnitude = pushFactor * hoverPushStrength;
 
-                // Direction uses distanceToCenter to ensure bubbles always push away radially
-                const nx = dxCenter / distanceToCenter;
-                const ny = dyCenter / distanceToCenter;
+                    // Direction uses distanceToCenter to ensure bubbles always push away radially
+                    const nx = dxCenter / distanceToCenter;
+                    const ny = dyCenter / distanceToCenter;
 
-                // Subtract to push AWAY from the mouse
-                targetOffsetX -= nx * pushMagnitude;
-                targetOffsetY -= ny * pushMagnitude;
+                    // Subtract to push AWAY from the mouse
+                    targetOffsetX -= nx * pushMagnitude;
+                    targetOffsetY -= ny * pushMagnitude;
+                }
             }
 
             // Smooth interpolation for scale and offsets
@@ -359,5 +363,55 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
+
+    // ==========================================
+    // ORGANIC STAGGERED ENTRANCE ANIMATION FOR HERO
+    // ==========================================
+    function startEntranceAnimation() {
+        const leftBubbles = bubbles.filter(b => b.el.closest('.left-column'));
+        const rightBubbles = bubbles.filter(b => b.el.closest('.right-column'));
+
+        // Shuffling helper function
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Shuffle both sides independently
+        const shuffledLeft = shuffle([...leftBubbles]);
+        const shuffledRight = shuffle([...rightBubbles]);
+
+        // Combine left and right alternately to maintain visual balance during reveal
+        const revealSequence = [];
+        const maxLength = Math.max(shuffledLeft.length, shuffledRight.length);
+        for (let i = 0; i < maxLength; i++) {
+            if (i < shuffledLeft.length) revealSequence.push(shuffledLeft[i]);
+            if (i < shuffledRight.length) revealSequence.push(shuffledRight[i]);
+        }
+
+        // After 1.2s delay, start revealing bubbles sequentially with 0.2s intervals
+        setTimeout(() => {
+            revealSequence.forEach((bubbleObj, index) => {
+                setTimeout(() => {
+                    bubbleObj.revealed = true;
+                    bubbleObj.el.classList.add('visible');
+                }, index * 200);
+            });
+
+            // Reveal the CTA button after all 10 bubbles start showing
+            const ctaDelay = revealSequence.length * 200;
+            setTimeout(() => {
+                const ctaWrapper = document.querySelector('.hero-cta-wrapper');
+                if (ctaWrapper) {
+                    ctaWrapper.classList.add('visible');
+                }
+            }, ctaDelay);
+        }, 1200);
+    }
+
+    startEntranceAnimation();
 });
 

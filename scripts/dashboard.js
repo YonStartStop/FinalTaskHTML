@@ -326,4 +326,248 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update active highlight on hash changes (e.g. clicking on anchor sub-links)
     window.addEventListener('hashchange', updateActiveNav);
     updateActiveNav();
+
+    // ==========================================
+    // RELOAD & HASH SCROLL MANAGEMENT
+    // ==========================================
+    const isReload = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0] && performance.getEntriesByType('navigation')[0].type === 'reload') || (performance.navigation && performance.navigation.type === 1);
+    
+    if (isReload) {
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+        if (window.location.hash) {
+            history.replaceState(null, document.title, window.location.pathname + window.location.search);
+        }
+    } else if (window.location.hash === '#lego-principles') {
+        const targetElement = document.getElementById('lego-principles');
+        if (targetElement) {
+            // Smoothly scroll to the principles section after a short delay to allow page layout to settle
+            setTimeout(() => {
+                const offset = 130; // accounts for the sticky header
+                const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - offset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }, 100);
+        }
+    }
+
+    // ==========================================
+    // GOLDEN PRINCIPLES NAV CLICK HANDLING
+    // ==========================================
+    const goldenPrinciplesLinks = document.querySelectorAll('.nav-link[data-page="home"], .menu-link[data-page="home"]');
+    goldenPrinciplesLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const isHomePage = !!document.getElementById('lego-principles');
+            if (isHomePage) {
+                const legoSection = document.getElementById('lego-principles');
+                if (legoSection) {
+                    e.preventDefault();
+                    
+                    // Close mobile navigation drawer if active
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+
+                    const offset = 130; // accounts for the sticky header
+                    const elementPosition = legoSection.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - offset;
+                    
+                    const startPosition = window.scrollY;
+                    const distance = offsetPosition - startPosition;
+                    const duration = 700; // 0.7s maximum duration
+                    let startTimestamp = null;
+                    
+                    document.documentElement.style.scrollBehavior = 'auto';
+                    
+                    const easeInOutSine = (t) => {
+                        return -(Math.cos(Math.PI * t) - 1) / 2;
+                    };
+                    
+                    const step = (timestamp) => {
+                        if (!startTimestamp) startTimestamp = timestamp;
+                        const elapsed = timestamp - startTimestamp;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const easeProgress = easeInOutSine(progress);
+                        
+                        window.scrollTo(0, startPosition + distance * easeProgress);
+                        
+                        if (progress < 1) {
+                            window.requestAnimationFrame(step);
+                        } else {
+                            document.documentElement.style.scrollBehavior = '';
+                        }
+                    };
+                    window.requestAnimationFrame(step);
+                }
+            }
+        });
+    });
+
+    // ==========================================
+    // LOGO CLICK SMOOTH SCROLL TO TOP ON HOMEPAGE
+    // ==========================================
+    const logoLink = document.querySelector('.logo-area');
+    if (logoLink) {
+        logoLink.addEventListener('click', (e) => {
+            const isHomePage = !!document.getElementById('lego-principles');
+            if (isHomePage) {
+                e.preventDefault();
+                
+                const startPosition = window.scrollY;
+                const distance = -startPosition;
+                const duration = 700; // 0.7s maximum duration
+                let startTimestamp = null;
+                
+                document.documentElement.style.scrollBehavior = 'auto';
+                
+                const easeInOutSine = (t) => {
+                    return -(Math.cos(Math.PI * t) - 1) / 2;
+                };
+                
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const elapsed = timestamp - startTimestamp;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeProgress = easeInOutSine(progress);
+                    
+                    window.scrollTo(0, startPosition + distance * easeProgress);
+                    
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        document.documentElement.style.scrollBehavior = '';
+                        if (window.location.hash) {
+                            history.replaceState(null, document.title, window.location.pathname + window.location.search);
+                        }
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+        });
+    }
+
+
+
+    // ==========================================
+    // CUSTOM GENTLE SMOOTH SCROLL FOR CTA BUTTON
+    // ==========================================
+    const heroCtaBtn = document.querySelector('.hero-cta-btn');
+    if (heroCtaBtn) {
+        heroCtaBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = heroCtaBtn.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const offset = 130; // accounts for the sticky header
+                const elementPosition = targetElement.getBoundingClientRect().top + (window.scrollY || window.pageYOffset);
+                const offsetPosition = elementPosition - offset;
+                
+                const startPosition = window.scrollY || window.pageYOffset;
+                const distance = offsetPosition - startPosition;
+                const duration = 700; // exactly 0.7 seconds maximum duration
+                let startTimestamp = null;
+                
+                // Temporarily disable global CSS smooth scroll to prevent rendering conflicts and stutter
+                document.documentElement.style.scrollBehavior = 'auto';
+                
+                // Sinusoidal ease-in-out for an extremely organic, calm acceleration and deceleration (no abrupt braking)
+                const easeInOutSine = (t) => {
+                    return -(Math.cos(Math.PI * t) - 1) / 2;
+                };
+                
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const elapsed = timestamp - startTimestamp;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeProgress = easeInOutSine(progress);
+                    
+                    window.scrollTo(0, startPosition + distance * easeProgress);
+                    
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        // Restore original CSS scroll behavior
+                        document.documentElement.style.scrollBehavior = '';
+                        
+                        // After scroll completes, update location hash without triggering jump scroll
+                        history.pushState(null, null, targetId);
+                        updateActiveNav();
+                    }
+                };
+                
+                window.requestAnimationFrame(step);
+            }
+        });
+    }
+
+    // ==========================================
+    // INTERACTIVE LEGO TOWER LOGIC
+    // ==========================================
+    const legoBricks = document.querySelectorAll('.lego-brick');
+    const legoTower = document.getElementById('lego-tower');
+    const legoSection = document.getElementById('lego-principles');
+    const legoTextContainer = document.getElementById('lego-text-container');
+    const legoTextTitle = document.getElementById('lego-text-title');
+    const legoTextDesc = document.getElementById('lego-text-desc');
+
+    const legoData = {
+        '1': {
+            title: 'עצירה ונשימה:',
+            desc: 'כשילד שואל שאלה מפתיעה התגובה הראשונה שלנו היא לעיתים בהלה. עצרו רגע. נשימה עמוקה משדרת לילד שהנושא בטוח לדיון ושאתם רגועים.'
+        },
+        '2': {
+            title: 'שיקוף והבהרה:',
+            desc: 'לפני שעונים, חשוב להבין מה עומד מאחורי השאלה. לעיתים הילד ראה משהו בטלוויזיה, שמע משהו בגן/בביה"ס, או סתם חווה פחד פנימי. לדוגמה: "שאלה מעניינת. מה גרם לך לחשוב על זה דווקא עכשיו?"'
+        },
+        '3': {
+            title: 'דיוק התשובה:',
+            desc: 'אל תתנו הרצאה. תנו תשובה פשוטה, אמיתית, ומותאמת לגיל (עוד בנושא, עבור לסקשן <a href="layers.html#layers-intro-section" class="lego-text-link">חוק 3 השכבות</a>).'
+        },
+        '4': {
+            title: 'בדיקת תחושת הילד:',
+            desc: 'סיימו את התשובה בשאלה רגשית: "איך זה גורם לך להרגיש?" או "זה נשמע לך הגיוני?".'
+        }
+    };
+
+    if (legoBricks.length > 0 && legoTower && legoTextContainer) {
+        legoBricks.forEach(brick => {
+            brick.addEventListener('click', () => {
+                const brickId = brick.getAttribute('data-brick');
+                const data = legoData[brickId];
+
+                if (brick.classList.contains('active')) return;
+
+                // 1. Update brick active classes
+                legoBricks.forEach(b => b.classList.remove('active'));
+                brick.classList.add('active');
+
+                // 2. Update tower and section active states (for spacing and header color transitions)
+                for (let i = 1; i <= 4; i++) {
+                    legoTower.classList.remove(`active-${i}`);
+                    if (legoSection) legoSection.classList.remove(`active-${i}`);
+                }
+                legoTower.classList.add(`active-${brickId}`);
+                if (legoSection) legoSection.classList.add(`active-${brickId}`);
+
+                // 3. Fade out text, update contents, and fade in
+                legoTextContainer.style.opacity = '0';
+                legoTextContainer.style.transform = 'translateY(8px)';
+
+                setTimeout(() => {
+                    if (legoTextTitle) legoTextTitle.innerHTML = data.title;
+                    if (legoTextDesc) legoTextDesc.innerHTML = data.desc;
+
+                    legoTextContainer.style.opacity = '1';
+                    legoTextContainer.style.transform = 'translateY(0)';
+                }, 250);
+            });
+        });
+    }
 });
