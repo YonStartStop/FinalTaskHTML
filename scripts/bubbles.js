@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Organic Layout Parameters
     const pushStrength = 30;  // How strongly to push bubbles outward to form a ball/circle shape
-    const randomVariance = 35; // Amount of random X/Y offset to break the rigid grid look
+    const randomVariance = 8;  // Reduced offset to prevent speech bubbles from overlapping randomly
 
     // Interactive Globe Effect Parameters
     const hoverPushStrength = 30; // How strongly the mouse pushes surrounding bubbles away to create a 3D sphere effect
