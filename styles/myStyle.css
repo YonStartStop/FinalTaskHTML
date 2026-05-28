@@ -112,6 +112,179 @@ body {
     }
 }
 
+/* Background floating organic graphic (Right) */
+.bg-flower-decor-right {
+    position: absolute;
+    top: 65%;
+    right: -40px;
+    width: 250px;
+    height: 250px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorRight 9s ease-in-out infinite;
+}
+
+@keyframes floatDecorRight {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(10px) rotate(-4deg);
+    }
+}
+
+/* Background floating organic graphic (Right, High) */
+.bg-flower-decor-right-high {
+    position: absolute;
+    top: 15%;
+    right: -30px;
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorRightHigh 7s ease-in-out infinite;
+}
+
+@keyframes floatDecorRightHigh {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translateY(-8px) rotate(4deg) scale(1.02);
+    }
+}
+
+/* Background floating organic graphic (Left, Low) */
+.bg-flower-decor-left-low {
+    position: absolute;
+    top: 85%;
+    left: -35px;
+    width: 180px;
+    height: 180px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorLeftLow 10s ease-in-out infinite;
+}
+
+@keyframes floatDecorLeftLow {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translateY(12px) rotate(-3deg) scale(0.98);
+    }
+}
+
+/* Background floating organic graphic (Left, High) */
+.bg-flower-decor-left-high {
+    position: absolute;
+    top: 5%;
+    left: -30px;
+    width: 130px;
+    height: 130px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorLeftHigh 8.5s ease-in-out infinite;
+}
+
+@keyframes floatDecorLeftHigh {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-6px) rotate(-3deg);
+    }
+}
+
+/* Background floating organic graphic (Left, Mid-Low) */
+.bg-flower-decor-left-mid-low {
+    position: absolute;
+    top: 55%;
+    left: -40px;
+    width: 170px;
+    height: 170px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorLeftMidLow 9.5s ease-in-out infinite;
+}
+
+@keyframes floatDecorLeftMidLow {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(8px) rotate(3deg);
+    }
+}
+
+/* Background floating organic graphic (Right, Mid-High) */
+.bg-flower-decor-right-mid-high {
+    position: absolute;
+    top: 30%;
+    right: -35px;
+    width: 200px;
+    height: 200px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorRightMidHigh 8.2s ease-in-out infinite;
+}
+
+@keyframes floatDecorRightMidHigh {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(4deg);
+    }
+}
+
+/* Background floating organic graphic (Right, Low) */
+.bg-flower-decor-right-low {
+    position: absolute;
+    top: 92%;
+    right: -30px;
+    width: 140px;
+    height: 140px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorRightLow 7.8s ease-in-out infinite;
+}
+
+@keyframes floatDecorRightLow {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(7px) rotate(-4deg);
+    }
+}
+
+/* Background floating organic graphic (Bottom Right) */
+.bg-flower-decor-bottom-right {
+    position: absolute;
+    top: 96%;
+    right: -40px;
+    width: 220px;
+    height: 220px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorBottomRight 11s ease-in-out infinite;
+}
+
+@keyframes floatDecorBottomRight {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(4deg);
+    }
+}
+
 /* Headings */
 h1,
 h2,
