@@ -285,4 +285,57 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update active highlight on hash changes (e.g. clicking on anchor sub-links)
     window.addEventListener('hashchange', updateActiveNav);
     updateActiveNav();
+
+    // ==========================================
+    // CUSTOM GENTLE SMOOTH SCROLL FOR CTA BUTTON
+    // ==========================================
+    const heroCtaBtn = document.querySelector('.hero-cta-btn');
+    if (heroCtaBtn) {
+        heroCtaBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = heroCtaBtn.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const offset = 130; // accounts for the sticky header
+                const elementPosition = targetElement.getBoundingClientRect().top + (window.scrollY || window.pageYOffset);
+                const offsetPosition = elementPosition - offset;
+                
+                const startPosition = window.scrollY || window.pageYOffset;
+                const distance = offsetPosition - startPosition;
+                const duration = 700; // exactly 0.7 seconds maximum duration
+                let startTimestamp = null;
+                
+                // Temporarily disable global CSS smooth scroll to prevent rendering conflicts and stutter
+                document.documentElement.style.scrollBehavior = 'auto';
+                
+                // Sinusoidal ease-in-out for an extremely organic, calm acceleration and deceleration (no abrupt braking)
+                const easeInOutSine = (t) => {
+                    return -(Math.cos(Math.PI * t) - 1) / 2;
+                };
+                
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const elapsed = timestamp - startTimestamp;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeProgress = easeInOutSine(progress);
+                    
+                    window.scrollTo(0, startPosition + distance * easeProgress);
+                    
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        // Restore original CSS scroll behavior
+                        document.documentElement.style.scrollBehavior = '';
+                        
+                        // After scroll completes, update location hash without triggering jump scroll
+                        history.pushState(null, null, targetId);
+                        updateActiveNav();
+                    }
+                };
+                
+                window.requestAnimationFrame(step);
+            }
+        });
+    }
 });
