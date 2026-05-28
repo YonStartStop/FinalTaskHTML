@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: center;
     overflow: visible;
-    padding: 0 40px;
+    padding: 0 85px;
 }
 
 /* Hero Title styling */
@@ -23,8 +23,8 @@
     font-weight: 900;
     color: var(--eggplant);
     text-align: center;
-    margin-top: 130px;
-    margin-bottom: 90px;
+    margin-top: 65px;
+    margin-bottom: 45px;
     position: relative;
     z-index: 10;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -66,15 +66,15 @@
 
 /* Staggered positioning of bubbles inside columns to create an organic scattered feel */
 .left-column .interactive-bubble:nth-child(1) { align-self: flex-end; margin-right: 10px; }
-.left-column .interactive-bubble:nth-child(2) { align-self: flex-start; margin-left: 20px; }
+.left-column .interactive-bubble:nth-child(2) { align-self: flex-start; margin-right: 25px; } /* Pushes inwards from the right edge */
 .left-column .interactive-bubble:nth-child(3) { align-self: flex-end; margin-right: 30px; }
-.left-column .interactive-bubble:nth-child(4) { align-self: flex-start; margin-left: 15px; }
+.left-column .interactive-bubble:nth-child(4) { align-self: flex-start; margin-right: 20px; } /* Pushes inwards from the right edge */
 .left-column .interactive-bubble:nth-child(5) { align-self: flex-end; margin-right: 5px; }
 
 .right-column .interactive-bubble:nth-child(1) { align-self: flex-start; margin-left: 10px; }
-.right-column .interactive-bubble:nth-child(2) { align-self: flex-end; margin-right: 25px; }
+.right-column .interactive-bubble:nth-child(2) { align-self: flex-end; margin-left: 30px; } /* Pushes inwards from the left edge */
 .right-column .interactive-bubble:nth-child(3) { align-self: flex-start; margin-left: 30px; }
-.right-column .interactive-bubble:nth-child(4) { align-self: flex-end; margin-right: 15px; }
+.right-column .interactive-bubble:nth-child(4) { align-self: flex-end; margin-left: 20px; } /* Pushes inwards from the left edge */
 .right-column .interactive-bubble:nth-child(5) { align-self: flex-start; margin-left: 5px; }
 
 /* Center Column Parents styling */
@@ -132,21 +132,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 75px; /* Spec: 75px vertical spacing between parents and CTA button */
+    margin-top: 30px; /* Reduced to bring CTA button above the fold */
     margin-bottom: 40px;
     position: relative;
     z-index: 15;
     width: 100%;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(15px);
-    transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.hero-cta-wrapper.visible {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
 }
 
 .hero-cta-btn {
@@ -244,13 +234,21 @@
     transform-origin: center center;
     white-space: nowrap;
     will-change: transform;
-    cursor: pointer;
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     z-index: 1;
     margin: 4px -22px;
     border: 2.5px solid transparent;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.interactive-bubble::after {
+    display: none !important;
 }
 
 .interactive-bubble.visible {
@@ -678,6 +676,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    margin-top: 55px; /* Lower the drawing so it does not get covered by the navbar wave on scroll */
 }
 
 /* Responsive styling for explanation section */

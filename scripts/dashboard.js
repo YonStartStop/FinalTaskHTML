@@ -357,54 +357,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // GOLDEN PRINCIPLES NAV CLICK HANDLING
+    // GOLDEN PRINCIPLES NAV CLICK HANDLING (SMOOTH SCROLL TO TOP ON HOMEPAGE)
     // ==========================================
     const goldenPrinciplesLinks = document.querySelectorAll('.nav-link[data-page="home"], .menu-link[data-page="home"]');
     goldenPrinciplesLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const isHomePage = !!document.getElementById('lego-principles');
             if (isHomePage) {
-                const legoSection = document.getElementById('lego-principles');
-                if (legoSection) {
-                    e.preventDefault();
-                    
-                    // Close mobile navigation drawer if active
-                    if (mobileMenu && mobileMenu.classList.contains('active')) {
-                        mobileMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-
-                    const offset = 130; // accounts for the sticky header
-                    const elementPosition = legoSection.getBoundingClientRect().top + window.scrollY;
-                    const offsetPosition = elementPosition - offset;
-                    
-                    const startPosition = window.scrollY;
-                    const distance = offsetPosition - startPosition;
-                    const duration = 700; // 0.7s maximum duration
-                    let startTimestamp = null;
-                    
-                    document.documentElement.style.scrollBehavior = 'auto';
-                    
-                    const easeInOutSine = (t) => {
-                        return -(Math.cos(Math.PI * t) - 1) / 2;
-                    };
-                    
-                    const step = (timestamp) => {
-                        if (!startTimestamp) startTimestamp = timestamp;
-                        const elapsed = timestamp - startTimestamp;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const easeProgress = easeInOutSine(progress);
-                        
-                        window.scrollTo(0, startPosition + distance * easeProgress);
-                        
-                        if (progress < 1) {
-                            window.requestAnimationFrame(step);
-                        } else {
-                            document.documentElement.style.scrollBehavior = '';
-                        }
-                    };
-                    window.requestAnimationFrame(step);
+                e.preventDefault();
+                
+                // Close mobile navigation drawer if active
+                if (mobileMenu && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
                 }
+
+                const startPosition = window.scrollY;
+                const distance = -startPosition; // Scroll to top (0)
+                const duration = 700; // 0.7s maximum duration
+                let startTimestamp = null;
+                
+                document.documentElement.style.scrollBehavior = 'auto';
+                
+                const easeInOutSine = (t) => {
+                    return -(Math.cos(Math.PI * t) - 1) / 2;
+                };
+                
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const elapsed = timestamp - startTimestamp;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeProgress = easeInOutSine(progress);
+                    
+                    window.scrollTo(0, startPosition + distance * easeProgress);
+                    
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        document.documentElement.style.scrollBehavior = '';
+                        if (window.location.hash) {
+                            history.replaceState(null, document.title, window.location.pathname + window.location.search);
+                        }
+                    }
+                };
+                window.requestAnimationFrame(step);
             }
         });
     });
@@ -465,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                const offset = 130; // accounts for the sticky header
+                const offset = 40; // Reduced from 130 to scroll further down
                 const elementPosition = targetElement.getBoundingClientRect().top + (window.scrollY || window.pageYOffset);
                 const offsetPosition = elementPosition - offset;
                 

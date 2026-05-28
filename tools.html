@@ -5,9 +5,10 @@
     <meta charset="utf-8" />
     <title>כלים להורים וספרים מומלצים | ...אמא, למה?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    
+
     <!-- Meta Descriptions for SEO -->
-    <meta name="description" content="טכניקות מעשיות, משחקי תפקידים והמלצות לספרים שיהפכו כל נושא מורכב לשיחה זורמת ומקרבת בגובה העיניים.">
+    <meta name="description"
+        content="טכניקות מעשיות, משחקי תפקידים והמלצות לספרים שיהפכו כל נושא מורכב לשיחה זורמת ומקרבת בגובה העיניים.">
 
     <!-- CSS Links -->
     <link href="styles/reset.css" rel="stylesheet" />
@@ -19,104 +20,137 @@
     <!-- Thin Frame Border for Visual Focus -->
     <div class="global-frame"></div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Left (Mid) -->
-    <div class="bg-flower-decor" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 15C125 15 130 50 155 60C180 70 190 95 180 120C170 145 140 155 120 175C100 195 70 185 50 175C30 165 15 140 15 115C15 90 35 75 55 60C75 45 75 15 100 15Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="95" cy="95" r="12" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M45 40C55 45 50 60 40 65C30 70 20 60 25 50C30 40 35 35 45 40Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+    <!-- Soft Pastel Amorphous Background Graphics inside wrapper to prevent bottom overflow -->
+    <div class="bg-decorations-container" aria-hidden="true">
+        <!-- Soft Pastel Amorphous Background Graphic on Left (Mid) -->
+        <div class="bg-flower-decor">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 15C125 15 130 50 155 60C180 70 190 95 180 120C170 145 140 155 120 175C100 195 70 185 50 175C30 165 15 140 15 115C15 90 35 75 55 60C75 45 75 15 100 15Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="95" cy="95" r="12" fill="#8B5CF6" opacity="0.06" />
+                <path d="M45 40C55 45 50 60 40 65C30 70 20 60 25 50C30 40 35 35 45 40Z" fill="#4687E2" opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Right (Mid-Low) -->
-    <div class="bg-flower-decor-right" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 20C135 20 140 45 160 60C180 75 175 110 165 135C155 160 125 180 100 175C75 170 60 155 45 135C30 115 25 85 35 60C45 35 65 20 100 20Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="110" cy="85" r="10" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M145 120C155 125 150 140 140 145C130 150 120 140 125 130C130 120 135 115 145 120Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+        <!-- Soft Pastel Amorphous Background Graphic on Right (Mid-Low) -->
+        <div class="bg-flower-decor-right">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 20C135 20 140 45 160 60C180 75 175 110 165 135C155 160 125 180 100 175C75 170 60 155 45 135C30 115 25 85 35 60C45 35 65 20 100 20Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="110" cy="85" r="10" fill="#8B5CF6" opacity="0.06" />
+                <path d="M145 120C155 125 150 140 140 145C130 150 120 140 125 130C130 120 135 115 145 120Z"
+                    fill="#4687E2" opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Left (High) -->
-    <div class="bg-flower-decor-left-high" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 15C115 15 120 35 135 40C150 45 170 40 175 55C180 70 165 85 170 100C175 115 180 135 165 145C150 155 140 145 125 155C110 165 105 185 90 185C75 185 70 165 55 155C40 145 25 155 15 140C5 125 15 105 15 90C15 75 5 55 15 45C25 35 45 40 55 30C65 20 70 15 90 15Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="105" cy="100" r="11" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M50 130C60 135 55 150 45 155C35 160 25 150 30 140C35 130 40 125 50 130Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+        <!-- Soft Pastel Amorphous Background Graphic on Left (High) -->
+        <div class="bg-flower-decor-left-high">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 15C115 15 120 35 135 40C150 45 170 40 175 55C180 70 165 85 170 100C175 115 180 135 165 145C150 155 140 145 125 155C110 165 105 185 90 185C75 185 70 165 55 155C40 145 25 155 15 140C5 125 15 105 15 90C15 75 5 55 15 45C25 35 45 40 55 30C65 20 70 15 90 15Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="105" cy="100" r="11" fill="#8B5CF6" opacity="0.06" />
+                <path d="M50 130C60 135 55 150 45 155C35 160 25 150 30 140C35 130 40 125 50 130Z" fill="#4687E2"
+                    opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Left (Mid-Low) -->
-    <div class="bg-flower-decor-left-mid-low" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 20C135 20 140 45 160 60C180 75 175 110 165 135C155 160 125 180 100 175C75 170 60 155 45 135C30 115 25 85 35 60C45 35 65 20 100 20Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="110" cy="85" r="10" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M145 120C155 125 150 140 140 145C130 150 120 140 125 130C130 120 135 115 145 120Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+        <!-- Soft Pastel Amorphous Background Graphic on Left (Mid-Low) -->
+        <div class="bg-flower-decor-left-mid-low">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 20C135 20 140 45 160 60C180 75 175 110 165 135C155 160 125 180 100 175C75 170 60 155 45 135C30 115 25 85 35 60C45 35 65 20 100 20Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="110" cy="85" r="10" fill="#8B5CF6" opacity="0.06" />
+                <path d="M145 120C155 125 150 140 140 145C130 150 120 140 125 130C130 120 135 115 145 120Z"
+                    fill="#4687E2" opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Right (Mid-High) -->
-    <div class="bg-flower-decor-right-mid-high" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 30C130 30 160 40 170 65C180 90 165 115 155 135C145 155 125 160 100 165C75 170 50 165 35 145C20 125 15 95 25 70C35 45 65 30 100 30Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="80" cy="120" r="10" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M135 110C142 113 140 122 133 125C126 128 120 122 123 115C126 109 130 107 135 110Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+        <!-- Soft Pastel Amorphous Background Graphic on Right (Mid-High) -->
+        <div class="bg-flower-decor-right-mid-high">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 30C130 30 160 40 170 65C180 90 165 115 155 135C145 155 125 160 100 165C75 170 50 165 35 145C20 125 15 95 25 70C35 45 65 30 100 30Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="80" cy="120" r="10" fill="#8B5CF6" opacity="0.06" />
+                <path d="M135 110C142 113 140 122 133 125C126 128 120 122 123 115C126 109 130 107 135 110Z"
+                    fill="#4687E2" opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Right (Low) -->
-    <div class="bg-flower-decor-right-low" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 20C120 20 135 40 145 60C155 80 160 110 150 135C140 160 115 170 95 175C75 180 55 175 40 155C25 135 20 105 25 80C30 55 55 35 75 25C85 20 85 20 100 20Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="85" cy="80" r="8" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M130 55C138 58 135 68 128 70C120 72 115 65 118 58C121 52 125 50 130 55Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+        <!-- Soft Pastel Amorphous Background Graphic on Right (Low) -->
+        <div class="bg-flower-decor-right-low">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 20C120 20 135 40 145 60C155 80 160 110 150 135C140 160 115 170 95 175C75 180 55 175 40 155C25 135 20 105 25 80C30 55 55 35 75 25C85 20 85 20 100 20Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="85" cy="80" r="8" fill="#8B5CF6" opacity="0.06" />
+                <path d="M130 55C138 58 135 68 128 70C120 72 115 65 118 58C121 52 125 50 130 55Z" fill="#4687E2"
+                    opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Right (High) -->
-    <div class="bg-flower-decor-right-high" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 20C120 20 135 40 145 60C155 80 160 110 150 135C140 160 115 170 95 175C75 180 55 175 40 155C25 135 20 105 25 80C30 55 55 35 75 25C85 20 85 20 100 20Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="85" cy="80" r="8" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M130 55C138 58 135 68 128 70C120 72 115 65 118 58C121 52 125 50 130 55Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+        <!-- Soft Pastel Amorphous Background Graphic on Right (High) -->
+        <div class="bg-flower-decor-right-high">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 20C120 20 135 40 145 60C155 80 160 110 150 135C140 160 115 170 95 175C75 180 55 175 40 155C25 135 20 105 25 80C30 55 55 35 75 25C85 20 85 20 100 20Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="85" cy="80" r="8" fill="#8B5CF6" opacity="0.06" />
+                <path d="M130 55C138 58 135 68 128 70C120 72 115 65 118 58C121 52 125 50 130 55Z" fill="#4687E2"
+                    opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Left (Low) -->
-    <div class="bg-flower-decor-left-low" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 30C130 30 160 40 170 65C180 90 165 115 155 135C145 155 125 160 100 165C75 170 50 165 35 145C20 125 15 95 25 70C35 45 65 30 100 30Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="80" cy="120" r="10" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M135 110C142 113 140 122 133 125C126 128 120 122 123 115C126 109 130 107 135 110Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+        <!-- Soft Pastel Amorphous Background Graphic on Left (Low) -->
+        <div class="bg-flower-decor-left-low">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 30C130 30 160 40 170 65C180 90 165 115 155 135C145 155 125 160 100 165C75 170 50 165 35 145C20 125 15 95 25 70C35 45 65 30 100 30Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="80" cy="120" r="10" fill="#8B5CF6" opacity="0.06" />
+                <path d="M135 110C142 113 140 122 133 125C126 128 120 122 123 115C126 109 130 107 135 110Z"
+                    fill="#4687E2" opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Bottom Right -->
-    <div class="bg-flower-decor-bottom-right" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 40C120 40 140 50 150 70C160 90 150 110 140 120C130 130 110 135 90 130C70 125 60 110 50 90C40 70 60 50 80 40C90 35 90 40 100 40Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="110" cy="90" r="8" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M120 70C125 72 122 78 118 80C114 82 110 78 112 74C114 70 116 68 120 70Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
+        <!-- Soft Pastel Amorphous Background Graphic on Bottom Right -->
+        <div class="bg-flower-decor-bottom-right">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 40C120 40 140 50 150 70C160 90 150 110 140 120C130 130 110 135 90 130C70 125 60 110 50 90C40 70 60 50 80 40C90 35 90 40 100 40Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="110" cy="90" r="8" fill="#8B5CF6" opacity="0.06" />
+                <path d="M120 70C125 72 122 78 118 80C114 82 110 78 112 74C114 70 116 68 120 70Z" fill="#4687E2"
+                    opacity="0.06" />
+            </svg>
+        </div>
     </div>
 
     <!-- Eggplant Wavy Header / Navbar -->
     <header class="main-header">
         <div class="header-svgs-bg">
             <!-- SVG Gooey Filter Definition to merge overlapping SVGs organically -->
-            <svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+            <svg style="visibility: hidden; position: absolute;" width="0" height="0"
+                xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <filter id="goo">
                         <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
-                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                            result="goo" />
                     </filter>
                 </defs>
             </svg>
-            <svg class="header-bg-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,0 H1440 V60 C1100,100 700,50 300,70 C150,75 50,60 0,50 Z" fill="#362242"/>
+            <svg class="header-bg-wave" viewBox="0 0 1440 120" preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,0 H1440 V60 C1100,100 700,50 300,70 C150,75 50,60 0,50 Z" fill="#362242" />
             </svg>
-            <svg class="header-logo-blob" viewBox="0 0 400 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M400,0 V100 C250,140 100,120 20,80 C10,60 0,40 0,0 Z" fill="#362242"/>
+            <svg class="header-logo-blob" viewBox="0 0 400 140" preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M400,0 V100 C250,140 100,120 20,80 C10,60 0,40 0,0 Z" fill="#362242" />
             </svg>
         </div>
         <div class="header-container">
@@ -129,7 +163,7 @@
             <!-- Desktop Navigation Links (Left aligned in RTL) -->
             <nav class="desktop-nav" aria-label="ניווט ראשי">
                 <ul class="nav-list">
-                    <li><a href="index.html#lego-principles" class="nav-link" data-page="home">עקרונות הזהב</a></li>
+                    <li><a href="index.html" class="nav-link" data-page="home">עקרונות הזהב</a></li>
                     <li><a href="layers.html" class="nav-link" data-page="layers">חוק 3 השכבות</a></li>
                     <li><a href="tools.html" class="nav-link active" data-page="tools">כלים וספרים מומלצים</a></li>
                     <li><a href="about.html" class="nav-link" data-page="about">אודות</a></li>
@@ -155,7 +189,7 @@
                 <button id="close-menu-btn" class="close-menu-btn" aria-label="סגור תפריט">&times;</button>
             </div>
             <ul class="mobile-nav-list">
-                <li><a href="index.html#lego-principles" class="menu-link" data-page="home">עקרונות הזהב</a></li>
+                <li><a href="index.html" class="menu-link" data-page="home">עקרונות הזהב</a></li>
                 <li><a href="layers.html" class="menu-link" data-page="layers">חוק 3 השכבות</a></li>
                 <li><a href="tools.html" class="menu-link active" data-page="tools">כלים וספרים מומלצים</a></li>
                 <li><a href="about.html" class="menu-link" data-page="about">אודות</a></li>
@@ -165,13 +199,15 @@
     </div>
 
     <!-- main content container for Content Page 2 -->
-    <main class="main-page-content" style="padding-top: 130px; min-height: calc(100vh - 120px);">
-        
+    <main class="main-page-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+
         <!-- סקשן 3: כלים להורים -->
-        <section id="parent-tools" class="below-the-fold-section" style="padding-top: 0 !important; margin-top: 0 !important;">
+        <section id="parent-tools" class="below-the-fold-section"
+            style="padding-top: 0 !important; margin-top: 0 !important;">
             <div class="section-title-wrapper text-center">
                 <h1 class="section-main-title" style="font-size: 38px;">כלים מעשיים להורים לשגרה</h1>
-                <p class="section-main-subtitle">טכניקות מוחשיות ומשחקי תפקידים שיהפכו כל נושא מופשט לשיחה נגישה ונעימה בגובה העיניים של ילדכם</p>
+                <p class="section-main-subtitle">טכניקות מוחשיות ומשחקי תפקידים שיהפכו כל נושא מופשט לשיחה נגישה ונעימה
+                    בגובה העיניים של ילדכם</p>
             </div>
 
             <div class="tools-grid">
@@ -180,15 +216,18 @@
                     <div class="tool-icon">🎨</div>
                     <h3 class="tool-title">ציור השאלה והתשובה</h3>
                     <p class="tool-desc">
-                        ילדים חושבים בתמונות. כשהם שואלים שאלה מורכבת, הם לעיתים מנסים לעבד "תמונה" שהם ראו במציאות או במסך. במקום רק להסביר במילים – ציירו את התשובה ביחד.
+                        ילדים חושבים בתמונות. כשהם שואלים שאלה מורכבת, הם לעיתים מנסים לעבד "תמונה" שהם ראו במציאות או
+                        במסך. במקום רק להסביר במילים – ציירו את התשובה ביחד.
                     </p>
                     <div class="tool-how-to">
                         <strong>איך זה עובד?</strong>
-                        קחו דף ועט וציירו סקיצה פשוטה. אם הילד שאל על "שני אבות", ציירו משפחה עם 2 דמויות אב. אם הוא שאל על "מלחמה", ציירו בית בטוח בתוך עיגול שמגן עליו בתור ממ"ד.
+                        קחו דף ועט וציירו סקיצה פשוטה. אם הילד שאל על "שני אבות", ציירו משפחה עם 2 דמויות אב. אם הוא שאל
+                        על "מלחמה", ציירו בית בטוח בתוך עיגול שמגן עליו בתור ממ"ד.
                     </div>
                     <div class="tool-why">
                         <strong>למה זה עובד?</strong>
-                        הציור מוריד את רמת החרדה באופן מיידי, הופך את המושג המופשט למשהו מוחשי, ומעניק לילד מוקד ויזואלי נוח בזמן שהוא מעבד את המידע.
+                        הציור מוריד את רמת החרדה באופן מיידי, הופך את המושג המופשט למשהו מוחשי, ומעניק לילד מוקד ויזואלי
+                        נוח בזמן שהוא מעבד את המידע.
                     </div>
                 </div>
 
@@ -197,15 +236,18 @@
                     <div class="tool-icon">📦</div>
                     <h3 class="tool-title">"קופסת השאלות" המשפחתית</h3>
                     <p class="tool-desc">
-                        כלי נפלא לילדים שמתביישים לשאול פנים אל פנים, או עבור שאלות שצצות ברגעים לחוצים שבהם אין לנו פנאי נפשי להעניק את תשומת הלב הראויה.
+                        כלי נפלא לילדים שמתביישים לשאול פנים אל פנים, או עבור שאלות שצצות ברגעים לחוצים שבהם אין לנו
+                        פנאי נפשי להעניק את תשומת הלב הראויה.
                     </p>
                     <div class="tool-how-to">
                         <strong>איך זה עובד?</strong>
-                        קשטו יחד קופסת קרטון פשוטה והניחו אותה במקום מרכזי ונגיש בבית לצד פתקים וכלי כתיבה. הילד יכול לכתוב (או לצייר) שאלה ולהכניס לקופסה. פעם בשבוע, בזמן קבוע ורגוע, פתחו אותה יחד.
+                        קשטו יחד קופסת קרטון פשוטה והניחו אותה במקום מרכזי ונגיש בבית לצד פתקים וכלי כתיבה. הילד יכול
+                        לכתוב (או לצייר) שאלה ולהכניס לקופסה. פעם בשבוע, בזמן קבוע ורגוע, פתחו אותה יחד.
                     </div>
                     <div class="tool-why">
                         <strong>למה זה עובד?</strong>
-                        זה מוריד את הלחץ של "שיחה פנים אל פנים" באותו הרגע, נותן לכם זמן לחשוב ולהתכונן, ומייצר טקס שבועי של קרבה והקשבה משפחתית.
+                        זה מוריד את הלחץ של "שיחה פנים אל פנים" באותו הרגע, נותן לכם זמן לחשוב ולהתכונן, ומייצר טקס
+                        שבועי של קרבה והקשבה משפחתית.
                     </div>
                 </div>
 
@@ -214,15 +256,18 @@
                     <div class="tool-icon">🎭</div>
                     <h3 class="tool-title">משחק "מה אם?" האינטראקטיבי</h3>
                     <p class="tool-desc">
-                        משחק תפקידים מהנה וקליל שנועד להכין את הילדים מראש למגוון סיטואציות חברתיות או רגשיות מורכבות, מבלי להכניס אותם ללחץ של מקרה אמיתי.
+                        משחק תפקידים מהנה וקליל שנועד להכין את הילדים מראש למגוון סיטואציות חברתיות או רגשיות מורכבות,
+                        מבלי להכניס אותם ללחץ של מקרה אמיתי.
                     </p>
                     <div class="tool-how-to">
                         <strong>איך זה עובד?</strong>
-                        בזמן נסיעה או סביב השולחן, הציעו סיטואציה דמיונית קלילה: "מה היית עושה אם היית רואה ילד שמתנהג קצת מוזר בגן?" או "מה היית עושה אם מישהו היה שואל אותך משהו שהביך אותך?".
+                        בזמן נסיעה או סביב השולחן, הציעו סיטואציה דמיונית קלילה: "מה היית עושה אם היית רואה ילד שמתנהג
+                        קצת מוזר בגן?" או "מה היית עושה אם מישהו היה שואל אותך משהו שהביך אותך?".
                     </div>
                     <div class="tool-why">
                         <strong>למה זה עובד?</strong>
-                        הסימולציה מאפשרת לילד לתרגל תגובות רגשיות וחברתיות "על יבש", ומעניקה לו ארגז כלים מוכן לשימוש ברגע האמת מתוך תחושת משחק ובטיחות.
+                        הסימולציה מאפשרת לילד לתרגל תגובות רגשיות וחברתיות "על יבש", ומעניקה לו ארגז כלים מוכן לשימוש
+                        ברגע האמת מתוך תחושת משחק ובטיחות.
                     </div>
                 </div>
             </div>
@@ -232,7 +277,8 @@
         <section id="bookshelf-section" class="below-the-fold-section bg-alt-section" style="box-shadow: none;">
             <div class="section-title-wrapper text-center">
                 <h2 class="section-main-title">צומת ספרים להורות קשובה</h2>
-                <p class="section-main-subtitle">המלצות לספרים נבחרים שיהפכו נושאים רגישים לחלק מהעולם המוכר, החם והבטוח של ילדכם</p>
+                <p class="section-main-subtitle">המלצות לספרים נבחרים שיהפכו נושאים רגישים לחלק מהעולם המוכר, החם והבטוח
+                    של ילדכם</p>
             </div>
 
             <div class="bookshelf-workspace">
@@ -243,31 +289,26 @@
                         <div class="books-group group-left">
                             <!-- Book 1 -->
                             <div class="bookshelf-book lean-left active" data-book-index="0"
-                                 data-title="מידע אמין על מין - איך לדבר עם ילדים ומתבגרים על מין בעידן המסכים"
-                                 data-author="ספטמבר 2019, מאת שלומית הברון וסנדי בשרטי"
-                                 data-summary="ספר הדרכה מקיף וייחודי המעניק להורים כלים מעשיים, שפה פתוחה וגישה בריאה לשיח על מיניות ומגדר עם ילדים ומתבגרים בעידן הדיגיטלי."
-                                 data-why="הוא עוזר להפיג את המבוכה הטבעית של ההורים ומציע תשובות ישירות, מותאמות גיל ובטוחות לשאלות הסקרניות של הילדים."
-                                 data-emoji="📱"
-                                 data-cover-img="images/bookCovers/reliableInformation.jpg"
-                                 data-theme-color="linear-gradient(135deg, #FF8A71, #B369E4)"
-                                 data-spine-color="#1B365D"
-                                 data-accent-color="#FF8A71"
-                                 data-btn1-url="https://www.steimatzky.co.il/011415280"
-                                 data-btn1-label="לרכישה בסטימצקי"
-                                 data-btn1-price="50 ₪"
-                                 data-btn1-class="bg-steimatzky"
-                                 data-btn2-url="https://www.e-vrit.co.il/Product/15672/%D7%9E%D7%99%D7%93%D7%A2_%D7%90%D7%9E%D7%99%D7%9F_%D7%A2%D7%9C_%D7%9E%D7%99%D7%9F"
-                                 data-btn2-label="לרכישה בעברית"
-                                 data-btn2-price="78 ₪"
-                                 data-btn2-class="bg-evrit">
+                                data-title="מידע אמין על מין - איך לדבר עם ילדים ומתבגרים על מין בעידן המסכים"
+                                data-author="ספטמבר 2019, מאת שלומית הברון וסנדי בשרטי"
+                                data-summary="ספר הדרכה מקיף וייחודי המעניק להורים כלים מעשיים, שפה פתוחה וגישה בריאה לשיח על מיניות ומגדר עם ילדים ומתבגרים בעידן הדיגיטלי."
+                                data-why="הוא עוזר להפיג את המבוכה הטבעית של ההורים ומציע תשובות ישירות, מותאמות גיל ובטוחות לשאלות הסקרניות של הילדים."
+                                data-emoji="📱" data-cover-img="images/bookCovers/reliableInformation.jpg"
+                                data-theme-color="linear-gradient(135deg, #FF8A71, #B369E4)" data-spine-color="#1B365D"
+                                data-accent-color="#FF8A71" data-btn1-url="https://www.steimatzky.co.il/011415280"
+                                data-btn1-label="לרכישה בסטימצקי" data-btn1-price="50 ₪" data-btn1-class="bg-steimatzky"
+                                data-btn2-url="https://www.e-vrit.co.il/Product/15672/%D7%9E%D7%99%D7%93%D7%A2_%D7%90%D7%9E%D7%99%D7%9F_%D7%A2%D7%9C_%D7%9E%D7%99%D7%9F"
+                                data-btn2-label="לרכישה בעברית" data-btn2-price="78 ₪" data-btn2-class="bg-evrit">
                                 <div class="book-3d-model">
                                     <!-- Spine View -->
-                                    <div class="book-spine-view" style="--spine-color: #1B365D; --accent-color: #FF8A71; --eggplant: #FFFFFF;">
+                                    <div class="book-spine-view"
+                                        style="--spine-color: #1B365D; --accent-color: #FF8A71; --eggplant: #FFFFFF;">
                                         <div class="spine-line"></div>
                                         <span class="spine-text">מידע אמין על מין</span>
                                     </div>
                                     <!-- Cover View -->
-                                    <div class="book-cover-view" style="background: linear-gradient(135deg, #FF8A71, #B369E4);">
+                                    <div class="book-cover-view"
+                                        style="background: linear-gradient(135deg, #FF8A71, #B369E4);">
                                         <div class="book-spine-edge"></div>
                                         <div class="cover-content-fallback">
                                             <div class="cover-emoji">📱</div>
@@ -280,35 +321,28 @@
                             </div>
                             <!-- Book 2 -->
                             <div class="bookshelf-book lean-left" data-book-index="1"
-                                 data-title="חיימשלי - ילדים סיפור אהבה"
-                                 data-author="מרץ 2018, מאת עינת נתן"
-                                 data-summary="ספר הורות מרגש ומעורר מחשבה שהפך לרב-מכר, המציע להורים להביט לתוך עצמם, להשתחרר מהלחץ להציג &quot;הורות מושלמת&quot; ולהתמקד בבניית קשר אמיתי וקרוב."
-                                 data-why="הוא מעניק נחמה רבה להורים, ומזכיר שהתפקיד שלנו הוא לא לפתור לילדים כל קושי, אלא להיות עבורם עוגן רגשי בטוח ויציב."
-                                 data-emoji="❤️"
-                                 data-cover-img="images/bookCovers/aLoveStory.jpeg"
-                                 data-theme-color="linear-gradient(135deg, #4687E2, #B369E4)"
-                                 data-spine-color="#D0E1FD"
-                                 data-accent-color="#4687E2"
-                                 data-btn1-url="https://www.booknet.co.il/%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D/%D7%97%D7%99%D7%99%D7%9E%D7%A9%D7%9C%D7%99-62512014012"
-                                 data-btn1-label="לרכישה בצומת ספרים"
-                                 data-btn1-price="126 ₪"
-                                 data-btn1-class="bg-tzomet"
-                                 data-btn2-url="https://www.steimatzky.co.il/011374157"
-                                 data-btn2-label="לרכישה בסטימצקי"
-                                 data-btn2-price="70 ₪"
-                                 data-btn2-class="bg-steimatzky"
-                                 data-btn3-url="https://www.e-vrit.co.il/Product/8050/%D7%97%D7%99%D7%99%D7%9E%D7%A9%D7%9C%D7%99"
-                                 data-btn3-label="לרכישה בעברית"
-                                 data-btn3-price="100 ₪"
-                                 data-btn3-class="bg-evrit">
+                                data-title="חיימשלי - ילדים סיפור אהבה" data-author="מרץ 2018, מאת עינת נתן"
+                                data-summary="ספר הורות מרגש ומעורר מחשבה שהפך לרב-מכר, המציע להורים להביט לתוך עצמם, להשתחרר מהלחץ להציג &quot;הורות מושלמת&quot; ולהתמקד בבניית קשר אמיתי וקרוב."
+                                data-why="הוא מעניק נחמה רבה להורים, ומזכיר שהתפקיד שלנו הוא לא לפתור לילדים כל קושי, אלא להיות עבורם עוגן רגשי בטוח ויציב."
+                                data-emoji="❤️" data-cover-img="images/bookCovers/aLoveStory.jpeg"
+                                data-theme-color="linear-gradient(135deg, #4687E2, #B369E4)" data-spine-color="#D0E1FD"
+                                data-accent-color="#4687E2"
+                                data-btn1-url="https://www.booknet.co.il/%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D/%D7%97%D7%99%D7%99%D7%9E%D7%A9%D7%9C%D7%99-62512014012"
+                                data-btn1-label="לרכישה בצומת ספרים" data-btn1-price="126 ₪" data-btn1-class="bg-tzomet"
+                                data-btn2-url="https://www.steimatzky.co.il/011374157" data-btn2-label="לרכישה בסטימצקי"
+                                data-btn2-price="70 ₪" data-btn2-class="bg-steimatzky"
+                                data-btn3-url="https://www.e-vrit.co.il/Product/8050/%D7%97%D7%99%D7%99%D7%9E%D7%A9%D7%9C%D7%99"
+                                data-btn3-label="לרכישה בעברית" data-btn3-price="100 ₪" data-btn3-class="bg-evrit">
                                 <div class="book-3d-model">
                                     <!-- Spine View -->
-                                    <div class="book-spine-view" style="--spine-color: #D0E1FD; --accent-color: #4687E2;">
+                                    <div class="book-spine-view"
+                                        style="--spine-color: #D0E1FD; --accent-color: #4687E2;">
                                         <div class="spine-line"></div>
                                         <span class="spine-text">חיימשלי</span>
                                     </div>
                                     <!-- Cover View -->
-                                    <div class="book-cover-view" style="background: linear-gradient(135deg, #4687E2, #B369E4);">
+                                    <div class="book-cover-view"
+                                        style="background: linear-gradient(135deg, #4687E2, #B369E4);">
                                         <div class="book-spine-edge"></div>
                                         <div class="cover-content-fallback">
                                             <div class="cover-emoji">❤️</div>
@@ -321,35 +355,34 @@
                             </div>
                             <!-- Book 3 -->
                             <div class="bookshelf-book lean-left" data-book-index="2"
-                                 data-title="איך לדבר כך שהילדים יקשיבו ולהקשיב כך שהילדים ידברו"
-                                 data-author="ינואר 2011, מאת אדל פייבר ואליין מייזליש"
-                                 data-summary="התנ&quot;ך של ההורות המודרנית. מדריך פרקטי ומאויר המציע שיטות תקשורת מוכחות ומכבדות לפתרון קונפליקטים יומיומיים ולחיזוק שיתוף הפעולה."
-                                 data-why="הוא נותן ארגז כלים מילולי מיידי – מה בדיוק להגיד במקום לצעוק או להעניש, ומלמד הקשבה אמפתית שממיסה כעסים."
-                                 data-emoji="🗣️"
-                                 data-cover-img="images/bookCovers/howToTalkSoKidsListen.jpg"
-                                 data-theme-color="linear-gradient(135deg, #FFEBF5, #B369E4)"
-                                 data-spine-color="#FADAE2"
-                                 data-accent-color="#B369E4"
-                                 data-btn1-url="https://www.booknet.co.il/%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D/%D7%90%D7%99%D7%9A-%D7%9C%D7%93%D7%91%D7%A8-%D7%9B%D7%9A-%D7%A9%D7%94%D7%99%D7%9C%D7%93%D7%99%D7%9D-%D7%99%D7%A7%D7%A9%D7%99%D7%91%D7%95-%D7%95%D7%9C%D7%94%D7%A7%D7%A9%D7%99%D7%91-41700011101"
-                                 data-btn1-label="לרכישה בצומת ספרים"
-                                 data-btn1-price="אין מחיר כרגע"
-                                 data-btn1-class="bg-tzomet"
-                                 data-btn2-url="https://www.hamigdalor.co.il/item/417-1110/%D7%90%D7%99%D7%9A-%D7%9C%D7%93%D7%91%D7%A8-%D7%9B%D7%9A-%D7%A9%D7%94%D7%99%D7%9C%D7%93%D7%99%D7%9D-%D7%99%D7%A7%D7%A9%D7%99%D7%91%D7%95-%D7%95%D7%9C%D7%94%D7%A7%D7%A9%D7%99%D7%91-%D7%9B%D7%9A-%D7%A9%D7%94%D7%99%D7%9C%D7%93%D7%99%D7%9D-%D7%99%D7%93%D7%91%D7%A8%D7%95/"
-                                 data-btn2-label="לרכישה במגדלור"
-                                 data-btn2-price="אין מחיר כרגע"
-                                 data-btn2-class="bg-mighdalor">
+                                data-title="איך לדבר כך שהילדים יקשיבו ולהקשיב כך שהילדים ידברו"
+                                data-author="ינואר 2011, מאת אדל פייבר ואליין מייזליש"
+                                data-summary="התנ&quot;ך של ההורות המודרנית. מדריך פרקטי ומאויר המציע שיטות תקשורת מוכחות ומכבדות לפתרון קונפליקטים יומיומיים ולחיזוק שיתוף הפעולה."
+                                data-why="הוא נותן ארגז כלים מילולי מיידי – מה בדיוק להגיד במקום לצעוק או להעניש, ומלמד הקשבה אמפתית שממיסה כעסים."
+                                data-emoji="🗣️" data-cover-img="images/bookCovers/howToTalkSoKidsListen.jpg"
+                                data-theme-color="linear-gradient(135deg, #FFEBF5, #B369E4)" data-spine-color="#FADAE2"
+                                data-accent-color="#B369E4"
+                                data-btn1-url="https://www.booknet.co.il/%D7%9E%D7%95%D7%A6%D7%A8%D7%99%D7%9D/%D7%90%D7%99%D7%9A-%D7%9C%D7%93%D7%91%D7%A8-%D7%9B%D7%9A-%D7%A9%D7%94%D7%99%D7%9C%D7%93%D7%99%D7%9D-%D7%99%D7%A7%D7%A9%D7%99%D7%91%D7%95-%D7%95%D7%9C%D7%94%D7%A7%D7%A9%D7%99%D7%91-41700011101"
+                                data-btn1-label="לרכישה בצומת ספרים" data-btn1-price="אין מחיר כרגע"
+                                data-btn1-class="bg-tzomet"
+                                data-btn2-url="https://www.hamigdalor.co.il/item/417-1110/%D7%90%D7%99%D7%9A-%D7%9C%D7%93%D7%91%D7%A8-%D7%9B%D7%9A-%D7%A9%D7%94%D7%99%D7%9C%D7%93%D7%99%D7%9D-%D7%99%D7%A7%D7%A9%D7%99%D7%91%D7%95-%D7%95%D7%9C%D7%94%D7%A7%D7%A9%D7%99%D7%91-%D7%9B%D7%9A-%D7%A9%D7%94%D7%99%D7%9C%D7%93%D7%99%D7%9D-%D7%99%D7%93%D7%91%D7%A8%D7%95/"
+                                data-btn2-label="לרכישה במגדלור" data-btn2-price="אין מחיר כרגע"
+                                data-btn2-class="bg-mighdalor">
                                 <div class="book-3d-model">
                                     <!-- Spine View -->
-                                    <div class="book-spine-view" style="--spine-color: #FADAE2; --accent-color: #B369E4;">
+                                    <div class="book-spine-view"
+                                        style="--spine-color: #FADAE2; --accent-color: #B369E4;">
                                         <div class="spine-line"></div>
                                         <span class="spine-text">איך לדבר שהילדים יקשיבו</span>
                                     </div>
                                     <!-- Cover View -->
-                                    <div class="book-cover-view" style="background: linear-gradient(135deg, #FFEBF5, #B369E4);">
+                                    <div class="book-cover-view"
+                                        style="background: linear-gradient(135deg, #FFEBF5, #B369E4);">
                                         <div class="book-spine-edge"></div>
                                         <div class="cover-content-fallback">
                                             <div class="cover-emoji">🗣️</div>
-                                            <span class="cover-title" style="font-size: 13px;">איך לדבר כך שהילדים יקשיבו...</span>
+                                            <span class="cover-title" style="font-size: 13px;">איך לדבר כך שהילדים
+                                                יקשיבו...</span>
                                             <span class="cover-author">אדל פייבר</span>
                                         </div>
                                         <img src="" alt="עטיפת ספר" class="cover-image-real" style="display: none;" />
@@ -357,28 +390,26 @@
                                 </div>
                             </div>
                             <!-- Book 4 -->
-                            <div class="bookshelf-book lean-left" data-book-index="3"
-                                 data-title="ספר המשפחות הגדול"
-                                 data-author="יוני 2013, מאת מרי הופמן"
-                                 data-summary="ספר ילדים מאויר ומרהיב המציג ברגישות ובהומור את המגוון הרחב של מבני משפחה כיום, סגנונות חיים, מגורים, רגשות וחגיגות."
-                                 data-why="מצוין לנרמול השונות המשפחתית ולחיזוק התחושה שלכל ילד יש מקום בטוח ואהוב בתוך המשפחה הייחודית שלו."
-                                 data-emoji="👨‍👩‍👧‍👦"
-                                 data-cover-img="images/bookCovers/BigBookOfFamilies.jpg"
-                                 data-theme-color="linear-gradient(135deg, #D2C517, #FF8A71)"
-                                 data-spine-color="#FFF6CC"
-                                 data-accent-color="#D2C517"
-                                 data-btn1-url="https://www.hamigdalor.co.il/item/42-5000129/%D7%A1%D7%A4%D7%A8-%D7%94%D7%9E%D7%A9%D7%A4%D7%97%D7%95%D7%AA-%D7%94%D7%92%D7%93%D7%95%D7%9C/"
-                                 data-btn1-label="לרכישה במגדלור"
-                                 data-btn1-price="אין מחיר כרגע"
-                                 data-btn1-class="bg-mighdalor">
+                            <div class="bookshelf-book lean-left" data-book-index="3" data-title="ספר המשפחות הגדול"
+                                data-author="יוני 2013, מאת מרי הופמן"
+                                data-summary="ספר ילדים מאויר ומרהיב המציג ברגישות ובהומור את המגוון הרחב של מבני משפחה כיום, סגנונות חיים, מגורים, רגשות וחגיגות."
+                                data-why="מצוין לנרמול השונות המשפחתית ולחיזוק התחושה שלכל ילד יש מקום בטוח ואהוב בתוך המשפחה הייחודית שלו."
+                                data-emoji="👨‍👩‍👧‍👦" data-cover-img="images/bookCovers/BigBookOfFamilies.jpg"
+                                data-theme-color="linear-gradient(135deg, #D2C517, #FF8A71)" data-spine-color="#FFF6CC"
+                                data-accent-color="#D2C517"
+                                data-btn1-url="https://www.hamigdalor.co.il/item/42-5000129/%D7%A1%D7%A4%D7%A8-%D7%94%D7%9E%D7%A9%D7%A4%D7%97%D7%95%D7%AA-%D7%94%D7%92%D7%93%D7%95%D7%9C/"
+                                data-btn1-label="לרכישה במגדלור" data-btn1-price="אין מחיר כרגע"
+                                data-btn1-class="bg-mighdalor">
                                 <div class="book-3d-model">
                                     <!-- Spine View -->
-                                    <div class="book-spine-view" style="--spine-color: #FFF6CC; --accent-color: #D2C517;">
+                                    <div class="book-spine-view"
+                                        style="--spine-color: #FFF6CC; --accent-color: #D2C517;">
                                         <div class="spine-line"></div>
                                         <span class="spine-text">ספר המשפחות הגדול</span>
                                     </div>
                                     <!-- Cover View -->
-                                    <div class="book-cover-view" style="background: linear-gradient(135deg, #D2C517, #FF8A71);">
+                                    <div class="book-cover-view"
+                                        style="background: linear-gradient(135deg, #D2C517, #FF8A71);">
                                         <div class="book-spine-edge"></div>
                                         <div class="cover-content-fallback">
                                             <div class="cover-emoji">👨‍👩‍👧‍👦</div>
@@ -398,35 +429,33 @@
                         <div class="books-group group-right">
                             <!-- Book 5 -->
                             <div class="bookshelf-book lean-right" data-book-index="4"
-                                 data-title="How to Talk to Kids about Anything: Answering Kids' Hard Questions with Confidence"
-                                 data-author="אוקטובר 2023, מאת Dr. Robyn Silverman"
-                                 data-summary="מדריך רב-ערך באנגלית המציע תסריטי שיחה מוכנים ותשובות מבוססות מחקר לשאלות הקשות ביותר של ילדים בנושאי מוות, גירושין, גוף וידידות."
-                                 data-why="הוא מקנה להורים ביטחון להתמודד עם שאלות בלתי צפויות ברגע האמת, ומספק מילים פשוטות ורגישות שמרגיעות את הילד."
-                                 data-emoji="💬"
-                                 data-cover-img="images/bookCovers/How to Talk to Kids about Anything.jpg"
-                                 data-theme-color="linear-gradient(135deg, #8B5CF6, #EC4899)"
-                                 data-spine-color="#FF7A6E"
-                                 data-accent-color="#8B5CF6"
-                                 data-btn1-url="https://www.amazon.com/dp/1728246989"
-                                 data-btn1-label="לרכישה ב-Amazon"
-                                 data-btn1-price="$16.99"
-                                 data-btn1-class="bg-amazon"
-                                 data-btn2-url="https://www.goodreads.com/book/show/89468464-how-to-talk-to-kids-about-anything"
-                                 data-btn2-label="ב-Goodreads"
-                                 data-btn2-price="למידע נוסף"
-                                 data-btn2-class="bg-goodreads">
+                                data-title="How to Talk to Kids about Anything: Answering Kids' Hard Questions with Confidence"
+                                data-author="אוקטובר 2023, מאת Dr. Robyn Silverman"
+                                data-summary="מדריך רב-ערך באנגלית המציע תסריטי שיחה מוכנים ותשובות מבוססות מחקר לשאלות הקשות ביותר של ילדים בנושאי מוות, גירושין, גוף וידידות."
+                                data-why="הוא מקנה להורים ביטחון להתמודד עם שאלות בלתי צפויות ברגע האמת, ומספק מילים פשוטות ורגישות שמרגיעות את הילד."
+                                data-emoji="💬"
+                                data-cover-img="images/bookCovers/How to Talk to Kids about Anything.jpg"
+                                data-theme-color="linear-gradient(135deg, #8B5CF6, #EC4899)" data-spine-color="#FF7A6E"
+                                data-accent-color="#8B5CF6" data-btn1-url="https://www.amazon.com/dp/1728246989"
+                                data-btn1-label="לרכישה ב-Amazon" data-btn1-price="$16.99" data-btn1-class="bg-amazon"
+                                data-btn2-url="https://www.goodreads.com/book/show/89468464-how-to-talk-to-kids-about-anything"
+                                data-btn2-label="ב-Goodreads" data-btn2-price="למידע נוסף"
+                                data-btn2-class="bg-goodreads">
                                 <div class="book-3d-model">
                                     <!-- Spine View -->
-                                    <div class="book-spine-view" style="--spine-color: #FF7A6E; --accent-color: #8B5CF6;">
+                                    <div class="book-spine-view"
+                                        style="--spine-color: #FF7A6E; --accent-color: #8B5CF6;">
                                         <div class="spine-line"></div>
                                         <span class="spine-text">How to Talk to Kids</span>
                                     </div>
                                     <!-- Cover View -->
-                                    <div class="book-cover-view" style="background: linear-gradient(135deg, #8B5CF6, #EC4899);">
+                                    <div class="book-cover-view"
+                                        style="background: linear-gradient(135deg, #8B5CF6, #EC4899);">
                                         <div class="book-spine-edge"></div>
                                         <div class="cover-content-fallback">
                                             <div class="cover-emoji">💬</div>
-                                            <span class="cover-title" style="font-size: 13px;">How to Talk to Kids about Anything</span>
+                                            <span class="cover-title" style="font-size: 13px;">How to Talk to Kids about
+                                                Anything</span>
                                             <span class="cover-author">Dr. Robyn Silverman</span>
                                         </div>
                                         <img src="" alt="עטיפת ספר" class="cover-image-real" style="display: none;" />
@@ -435,35 +464,32 @@
                             </div>
                             <!-- Book 6 -->
                             <div class="bookshelf-book lean-right" data-book-index="5"
-                                 data-title="Fourteen Talks by Age Fourteen: The Essential Conversations You Need to Have with Your Kids Before They Start High School"
-                                 data-author="פברואר 2021, מאת Michelle Icard"
-                                 data-summary="ספר חובה להורי מתבגרים צעירים המפרט 14 שיחות קריטיות בנושאים כמו רשתות חברתיות, לחץ חברתי, כסף ודימוי גוף לפני המעבר לתיכון."
-                                 data-why="הוא מפרק שיחות גדולות ומאיימות לצעדים קטנים וברורים, ומלמד איך לשוחח איתם בלי שהם יגלגלו עיניים או ייסגרו."
-                                 data-emoji="🔢"
-                                 data-cover-img="images/bookCovers/FourteenTalks.jpg"
-                                 data-theme-color="linear-gradient(135deg, #10B981, #3B82F6)"
-                                 data-spine-color="#D1FAE5"
-                                 data-accent-color="#10B981"
-                                 data-btn1-url="https://www.amazon.com/dp/0593137515"
-                                 data-btn1-label="לרכישה ב-Amazon"
-                                 data-btn1-price="$15.99"
-                                 data-btn1-class="bg-amazon"
-                                 data-btn2-url="https://www.goodreads.com/book/show/54075298-fourteen-talks-by-age-fourteen"
-                                 data-btn2-label="ב-Goodreads"
-                                 data-btn2-price="למידע נוסף"
-                                 data-btn2-class="bg-goodreads">
+                                data-title="Fourteen Talks by Age Fourteen: The Essential Conversations You Need to Have with Your Kids Before They Start High School"
+                                data-author="פברואר 2021, מאת Michelle Icard"
+                                data-summary="ספר חובה להורי מתבגרים צעירים המפרט 14 שיחות קריטיות בנושאים כמו רשתות חברתיות, לחץ חברתי, כסף ודימוי גוף לפני המעבר לתיכון."
+                                data-why="הוא מפרק שיחות גדולות ומאיימות לצעדים קטנים וברורים, ומלמד איך לשוחח איתם בלי שהם יגלגלו עיניים או ייסגרו."
+                                data-emoji="🔢" data-cover-img="images/bookCovers/FourteenTalks.jpg"
+                                data-theme-color="linear-gradient(135deg, #10B981, #3B82F6)" data-spine-color="#D1FAE5"
+                                data-accent-color="#10B981" data-btn1-url="https://www.amazon.com/dp/0593137515"
+                                data-btn1-label="לרכישה ב-Amazon" data-btn1-price="$15.99" data-btn1-class="bg-amazon"
+                                data-btn2-url="https://www.goodreads.com/book/show/54075298-fourteen-talks-by-age-fourteen"
+                                data-btn2-label="ב-Goodreads" data-btn2-price="למידע נוסף"
+                                data-btn2-class="bg-goodreads">
                                 <div class="book-3d-model">
                                     <!-- Spine View -->
-                                    <div class="book-spine-view" style="--spine-color: #D1FAE5; --accent-color: #10B981;">
+                                    <div class="book-spine-view"
+                                        style="--spine-color: #D1FAE5; --accent-color: #10B981;">
                                         <div class="spine-line"></div>
                                         <span class="spine-text">Fourteen Talks</span>
                                     </div>
                                     <!-- Cover View -->
-                                    <div class="book-cover-view" style="background: linear-gradient(135deg, #10B981, #3B82F6);">
+                                    <div class="book-cover-view"
+                                        style="background: linear-gradient(135deg, #10B981, #3B82F6);">
                                         <div class="book-spine-edge"></div>
                                         <div class="cover-content-fallback">
                                             <div class="cover-emoji">🔢</div>
-                                            <span class="cover-title" style="font-size: 13px;">Fourteen Talks by Age Fourteen</span>
+                                            <span class="cover-title" style="font-size: 13px;">Fourteen Talks by Age
+                                                Fourteen</span>
                                             <span class="cover-author">Michelle Icard</span>
                                         </div>
                                         <img src="" alt="עטיפת ספר" class="cover-image-real" style="display: none;" />
@@ -472,31 +498,27 @@
                             </div>
                             <!-- Book 7 -->
                             <div class="bookshelf-book lean-right" data-book-index="6"
-                                 data-title="Good Inside: A Guide to Becoming the Parent You Want to Be"
-                                 data-author="ספטמבר 2022, מאת Dr. Becky Kennedy"
-                                 data-summary="גישת ההורות המהפכנית של ד&quot;ר בקי קנדי (המכונה &quot;הלוחשת להורים&quot;). הספר מדגיש שכולנו &quot;טובים מבפנים&quot; ומציע דרכים לחיבור רגשי לצד גבולות ברורים."
-                                 data-why="הוא משנה לחלוטין את הדרך שבה אנו מפרשים התנהגות קשה של ילדים (כמו התקפי זעם) ומעניק דרכים לבניית חוסן רגשי ארוך טווח."
-                                 data-emoji="🌟"
-                                 data-cover-img="images/bookCovers/goodInside.jpg"
-                                 data-theme-color="linear-gradient(135deg, #F59E0B, #EF4444)"
-                                 data-spine-color="#FCD34D"
-                                 data-accent-color="#F59E0B"
-                                 data-btn1-url="https://www.amazon.com/dp/0063159481"
-                                 data-btn1-label="לרכישה ב-Amazon"
-                                 data-btn1-price="$20.49"
-                                 data-btn1-class="bg-amazon"
-                                 data-btn2-url="https://www.goodreads.com/book/show/61377464-good-inside"
-                                 data-btn2-label="ב-Goodreads"
-                                 data-btn2-price="למידע נוסף"
-                                 data-btn2-class="bg-goodreads">
+                                data-title="Good Inside: A Guide to Becoming the Parent You Want to Be"
+                                data-author="ספטמבר 2022, מאת Dr. Becky Kennedy"
+                                data-summary="גישת ההורות המהפכנית של ד&quot;ר בקי קנדי (המכונה &quot;הלוחשת להורים&quot;). הספר מדגיש שכולנו &quot;טובים מבפנים&quot; ומציע דרכים לחיבור רגשי לצד גבולות ברורים."
+                                data-why="הוא משנה לחלוטין את הדרך שבה אנו מפרשים התנהגות קשה של ילדים (כמו התקפי זעם) ומעניק דרכים לבניית חוסן רגשי ארוך טווח."
+                                data-emoji="🌟" data-cover-img="images/bookCovers/goodInside.jpg"
+                                data-theme-color="linear-gradient(135deg, #F59E0B, #EF4444)" data-spine-color="#FCD34D"
+                                data-accent-color="#F59E0B" data-btn1-url="https://www.amazon.com/dp/0063159481"
+                                data-btn1-label="לרכישה ב-Amazon" data-btn1-price="$20.49" data-btn1-class="bg-amazon"
+                                data-btn2-url="https://www.goodreads.com/book/show/61377464-good-inside"
+                                data-btn2-label="ב-Goodreads" data-btn2-price="למידע נוסף"
+                                data-btn2-class="bg-goodreads">
                                 <div class="book-3d-model">
                                     <!-- Spine View -->
-                                    <div class="book-spine-view" style="--spine-color: #FCD34D; --accent-color: #F59E0B;">
+                                    <div class="book-spine-view"
+                                        style="--spine-color: #FCD34D; --accent-color: #F59E0B;">
                                         <div class="spine-line"></div>
                                         <span class="spine-text">Good Inside</span>
                                     </div>
                                     <!-- Cover View -->
-                                    <div class="book-cover-view" style="background: linear-gradient(135deg, #F59E0B, #EF4444);">
+                                    <div class="book-cover-view"
+                                        style="background: linear-gradient(135deg, #F59E0B, #EF4444);">
                                         <div class="book-spine-edge"></div>
                                         <div class="cover-content-fallback">
                                             <div class="cover-emoji">🌟</div>
@@ -522,29 +544,34 @@
                     <div class="details-content-wrapper">
                         <!-- Plaque Header -->
                         <div class="plaque-header text-center">
-                            <h3 class="details-title" id="details-title">מידע אמין על מין - איך לדבר עם ילדים ומתבגרים על מין בעידן המסכים</h3>
-                            <span class="details-author" id="details-author">ספטמבר 2019, מאת שלומית הברון וסנדי בשרטי</span>
+                            <h3 class="details-title" id="details-title">מידע אמין על מין - איך לדבר עם ילדים ומתבגרים
+                                על מין בעידן המסכים</h3>
+                            <span class="details-author" id="details-author">ספטמבר 2019, מאת שלומית הברון וסנדי
+                                בשרטי</span>
                         </div>
 
                         <!-- Plaque Body -->
                         <div class="plaque-body">
                             <!-- Left: Store Buttons Stack -->
                             <div class="plaque-buttons-stack">
-                                <a href="https://www.steimatzky.co.il/011415280" target="_blank" class="buy-button-item bg-steimatzky" id="details-btn-1">
+                                <a href="https://www.steimatzky.co.il/011415280" target="_blank"
+                                    class="buy-button-item bg-steimatzky" id="details-btn-1">
                                     <div class="buy-button-text-group">
                                         <span class="buy-button-price" id="details-btn-1-price">50 ₪</span>
                                         <span class="buy-button-label" id="details-btn-1-label">לרכישה בסטימצקי</span>
                                     </div>
                                     <span class="buy-button-arrow">↖</span>
                                 </a>
-                                <a href="https://www.e-vrit.co.il/Product/15672/%D7%9E%D7%99%D7%93%D7%A2_%D7%90%D7%9E%D7%99%D7%9F_%D7%A2%D7%9C_%D7%9E%D7%99%D7%9F" target="_blank" class="buy-button-item bg-evrit" id="details-btn-2">
+                                <a href="https://www.e-vrit.co.il/Product/15672/%D7%9E%D7%99%D7%93%D7%A2_%D7%90%D7%9E%D7%99%D7%9F_%D7%A2%D7%9C_%D7%9E%D7%99%D7%9F"
+                                    target="_blank" class="buy-button-item bg-evrit" id="details-btn-2">
                                     <div class="buy-button-text-group">
                                         <span class="buy-button-price" id="details-btn-2-price">78 ₪</span>
                                         <span class="buy-button-label" id="details-btn-2-label">לרכישה בעברית</span>
                                     </div>
                                     <span class="buy-button-arrow">↖</span>
                                 </a>
-                                <a href="" target="_blank" class="buy-button-item" id="details-btn-3" style="display: none;">
+                                <a href="" target="_blank" class="buy-button-item" id="details-btn-3"
+                                    style="display: none;">
                                     <div class="buy-button-text-group">
                                         <span class="buy-button-price" id="details-btn-3-price"></span>
                                         <span class="buy-button-label" id="details-btn-3-label"></span>
@@ -555,10 +582,14 @@
 
                             <!-- Right: Grey Text Box with Accent Border -->
                             <div class="plaque-text-box" id="details-text-box" style="border-right-color: #FF8A71;">
-                                <p class="details-summary" id="details-summary">ספר הדרכה מקיף וייחודי המעניק להורים כלים מעשיים, שפה פתוחה וגישה בריאה לשיח על מיניות ומגדר עם ילדים ומתבגרים בעידן הדיגיטלי.</p>
-                                <div class="details-why-read" id="details-why-container" style="border-right-color: #FF8A71;">
+                                <p class="details-summary" id="details-summary">ספר הדרכה מקיף וייחודי המעניק להורים
+                                    כלים מעשיים, שפה פתוחה וגישה בריאה לשיח על מיניות ומגדר עם ילדים ומתבגרים בעידן
+                                    הדיגיטלי.</p>
+                                <div class="details-why-read" id="details-why-container"
+                                    style="border-right-color: #FF8A71;">
                                     <strong>למה מומלץ להקריא?</strong>
-                                    <span id="details-why-text">הוא עוזר להפיג את המבוכה הטבעית של ההורים ומציע תשובות ישירות, מותאמות גיל ובטוחות לשאלות הסקרניות של הילדים.</span>
+                                    <span id="details-why-text">הוא עוזר להפיג את המבוכה הטבעית של ההורים ומציע תשובות
+                                        ישירות, מותאמות גיל ובטוחות לשאלות הסקרניות של הילדים.</span>
                                 </div>
                             </div>
                         </div>
@@ -568,12 +599,15 @@
             </div>
         </section>
 
-        <!-- Footer Area -->
-        <footer class="main-footer" style="margin-top: 40px;">
-            <p class="footer-quote">זכרו - אין הורים מושלמים, יש רק הורים קשובים. הקשר שלכם עם הילד הוא התשובה הכי חשובה.</p>
-            <p class="footer-copyright" style="margin-top: 15px;">© 2026 ...אמא, למה? - כל הזכויות שמורות. נבנה באהבה להורות מקשיבה ומכילה.</p>
-        </footer>
     </main>
+
+    <!-- Footer Area -->
+    <footer class="main-footer" style="margin-top: 40px;">
+        <p class="footer-quote">זכרו - אין הורים מושלמים, יש רק הורים קשובים. הקשר שלכם עם הילד הוא התשובה הכי חשובה.
+        </p>
+        <p class="footer-copyright" style="margin-top: 15px;">© 2026 ...אמא, למה? - כל הזכויות שמורות. נבנה באהבה להורות
+            מקשיבה ומכילה.</p>
+    </footer>
 
     <!-- JavaScripts -->
     <script src="scripts/dashboard.js"></script>

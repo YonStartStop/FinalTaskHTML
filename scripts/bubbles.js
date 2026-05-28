@@ -11,12 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
 
     // Size Parameters
-    const maxScale = 1.35;    // The size of the bubble right under the cursor
+    const maxScale = 1.45;    // The size of the bubble right under the cursor
     const minScale = 0.85;   // The size of bubbles far away from the cursor
 
     // Interaction Parameters
-    const radius = 250;       // Distance (in pixels) the mouse affects the bubbles
-    const curvePower = 4;     // Higher = steeper curve (bubbles not directly under cursor grow much less)
+    const radius = 220;       // Distance (in pixels) the mouse affects the bubbles
+    const curvePower = 2.5;   // Smoother curve for gradual zoom response as mouse approaches
     // 1 = linear, 2 = gentle curve, 3-4 = sharp peak at cursor
 
     // Organic Layout Parameters
@@ -54,19 +54,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function calculateOffsets() {
+        const scrollX = window.scrollX || window.pageXOffset || 0;
+        const scrollY = window.scrollY || window.pageYOffset || 0;
+
         const clusterRect = cluster.getBoundingClientRect();
-        clusterCenterX = clusterRect.left + clusterRect.width / 2;
-        clusterCenterY = clusterRect.top + clusterRect.height / 2;
+        clusterCenterX = clusterRect.left + clusterRect.width / 2 + scrollX;
+        clusterCenterY = clusterRect.top + clusterRect.height / 2 + scrollY;
 
         // Temporarily clear transforms to read true layout grid positions
         bubbles.forEach(b => { b.el.style.transform = 'none'; });
 
         bubbles.forEach(b => {
             const rect = b.el.getBoundingClientRect();
-            const elCenterX = rect.left + rect.width / 2;
-            const elCenterY = rect.top + rect.height / 2;
+            const elCenterX = rect.left + rect.width / 2 + scrollX;
+            const elCenterY = rect.top + rect.height / 2 + scrollY;
 
-            // Calculate vector outward from the center of the grid
+            // Calculate vector outward from the center of the grid (document-relative)
             const dx = elCenterX - clusterCenterX;
             const dy = elCenterY - clusterCenterY;
             const dist = Math.sqrt(dx * dx + dy * dy) || 1;
@@ -86,13 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 b.initialized = true;
             }
 
-            // Store base center and rect boundaries for precise box-distance calculations
+            // Store base center and rect boundaries for precise box-distance calculations (document-relative)
             b.baseCenterX = elCenterX;
             b.baseCenterY = elCenterY;
-            b.baseLeft = rect.left;
-            b.baseRight = rect.right;
-            b.baseTop = rect.top;
-            b.baseBottom = rect.bottom;
+            b.baseLeft = rect.left + scrollX;
+            b.baseRight = rect.right + scrollX;
+            b.baseTop = rect.top + scrollY;
+            b.baseBottom = rect.bottom + scrollY;
         });
     }
 
@@ -125,25 +128,32 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        const scrollX = window.scrollX || window.pageXOffset || 0;
+        const scrollY = window.scrollY || window.pageYOffset || 0;
+
         bubbles.forEach(b => {
             let targetScale = 0; // Default target scale is 0 when not revealed
             let currentMouseX = mouseX;
             let currentMouseY = mouseY;
 
-            // If the mouse is off-screen, simulate mouse at the center of the cluster
+            // If the mouse is off-screen, simulate mouse at the center of the cluster (viewport-relative)
             if (!isMouseInField) {
-                currentMouseX = clusterCenterX;
-                currentMouseY = clusterCenterY;
+                currentMouseX = clusterCenterX - scrollX;
+                currentMouseY = clusterCenterY - scrollY;
             }
 
-            // Vector from mouse to center for directional pushing
-            const dxCenter = currentMouseX - b.baseCenterX;
-            const dyCenter = currentMouseY - b.baseCenterY;
+            // Convert viewport-relative mouse to document-relative coordinates
+            const mouseDocX = currentMouseX + scrollX;
+            const mouseDocY = currentMouseY + scrollY;
+
+            // Vector from mouse to center for directional pushing (document-relative)
+            const dxCenter = mouseDocX - b.baseCenterX;
+            const dyCenter = mouseDocY - b.baseCenterY;
             const distanceToCenter = Math.sqrt(dxCenter * dxCenter + dyCenter * dyCenter) || 1;
 
-            // Distance to the bounding box for precise hovering scale
-            const dxBox = Math.max(b.baseLeft - currentMouseX, 0, currentMouseX - b.baseRight);
-            const dyBox = Math.max(b.baseTop - currentMouseY, 0, currentMouseY - b.baseBottom);
+            // Distance to the bounding box for precise hovering scale (document-relative)
+            const dxBox = Math.max(b.baseLeft - mouseDocX, 0, mouseDocX - b.baseRight);
+            const dyBox = Math.max(b.baseTop - mouseDocY, 0, mouseDocY - b.baseBottom);
             const distanceToBox = Math.sqrt(dxBox * dxBox + dyBox * dyBox);
 
             let targetOffsetX = b.baseOffsetX;
@@ -171,10 +181,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // Smooth interpolation for scale and offsets
-            b.scale += (targetScale - b.scale) * 0.15;
-            b.offsetX += (targetOffsetX - b.offsetX) * 0.15;
-            b.offsetY += (targetOffsetY - b.offsetY) * 0.15;
+            // Smooth responsive interpolation for scale and offsets
+            b.scale += (targetScale - b.scale) * 0.22;
+            b.offsetX += (targetOffsetX - b.offsetX) * 0.20;
+            b.offsetY += (targetOffsetY - b.offsetY) * 0.20;
 
             // Apply organic offset along with the dynamic scale
             b.el.style.transform = `translate(${b.offsetX}px, ${b.offsetY}px) scale(${b.scale})`;
@@ -334,7 +344,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
-    // Attach click listeners to interactive bubbles
+    // Speech bubbles are no longer clickable as per user request (hover effects only)
+    /*
     bubbles.forEach(b => {
         const questionId = b.el.getAttribute('data-question-id');
         if (questionId) {
@@ -344,6 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+    */
 
     // Close listeners
     if (modalCloseBtn) {
@@ -401,14 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, index * 200);
             });
 
-            // Reveal the CTA button after all 10 bubbles start showing
-            const ctaDelay = revealSequence.length * 200;
-            setTimeout(() => {
-                const ctaWrapper = document.querySelector('.hero-cta-wrapper');
-                if (ctaWrapper) {
-                    ctaWrapper.classList.add('visible');
-                }
-            }, ctaDelay);
+            // The CTA button is now always visible immediately, so no delay is needed here
         }, 1200);
     }
 

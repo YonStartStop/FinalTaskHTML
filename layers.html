@@ -5,9 +5,10 @@
     <meta charset="utf-8" />
     <title>חוק ה-3 שכבות | ...אמא, למה?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    
+
     <!-- Meta Descriptions for SEO -->
-    <meta name="description" content="הכלי המעשי שיעזור לכם לדייק את התשובות לשאלות הילדים בצורה רכה, יציבה ומותאמת גיל.">
+    <meta name="description"
+        content="הכלי המעשי שיעזור לכם לדייק את התשובות לשאלות הילדים בצורה רכה, יציבה ומותאמת גיל.">
 
     <!-- CSS Links -->
     <link href="styles/reset.css" rel="stylesheet" />
@@ -26,7 +27,8 @@
             <span class="circle-name">עובדה</span>
         </button>
         <!-- שכבה 2 - אמצעית -->
-        <button class="concentric-circle layer-2-circle" aria-label="מעבר לשכבה 2 בסליידר" title="שכבה 2: רגש ונורמליזציה">
+        <button class="concentric-circle layer-2-circle" aria-label="מעבר לשכבה 2 בסליידר"
+            title="שכבה 2: רגש ונורמליזציה">
             <span class="circle-name">רגש</span>
         </button>
         <!-- שכבה 3 - פנימית -->
@@ -35,104 +37,137 @@
         </button>
     </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Left (Mid) -->
-    <div class="bg-flower-decor" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 15C125 15 130 50 155 60C180 70 190 95 180 120C170 145 140 155 120 175C100 195 70 185 50 175C30 165 15 140 15 115C15 90 35 75 55 60C75 45 75 15 100 15Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="95" cy="95" r="12" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M45 40C55 45 50 60 40 65C30 70 20 60 25 50C30 40 35 35 45 40Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+    <!-- Soft Pastel Amorphous Background Graphics inside wrapper to prevent bottom overflow -->
+    <div class="bg-decorations-container" aria-hidden="true">
+        <!-- Soft Pastel Amorphous Background Graphic on Left (Mid) -->
+        <div class="bg-flower-decor">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 15C125 15 130 50 155 60C180 70 190 95 180 120C170 145 140 155 120 175C100 195 70 185 50 175C30 165 15 140 15 115C15 90 35 75 55 60C75 45 75 15 100 15Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="95" cy="95" r="12" fill="#8B5CF6" opacity="0.06" />
+                <path d="M45 40C55 45 50 60 40 65C30 70 20 60 25 50C30 40 35 35 45 40Z" fill="#4687E2" opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Right (Mid-Low) -->
-    <div class="bg-flower-decor-right" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 20C135 20 140 45 160 60C180 75 175 110 165 135C155 160 125 180 100 175C75 170 60 155 45 135C30 115 25 85 35 60C45 35 65 20 100 20Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="110" cy="85" r="10" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M145 120C155 125 150 140 140 145C130 150 120 140 125 130C130 120 135 115 145 120Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+        <!-- Soft Pastel Amorphous Background Graphic on Right (Mid-Low) -->
+        <div class="bg-flower-decor-right">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 20C135 20 140 45 160 60C180 75 175 110 165 135C155 160 125 180 100 175C75 170 60 155 45 135C30 115 25 85 35 60C45 35 65 20 100 20Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="110" cy="85" r="10" fill="#8B5CF6" opacity="0.06" />
+                <path d="M145 120C155 125 150 140 140 145C130 150 120 140 125 130C130 120 135 115 145 120Z"
+                    fill="#4687E2" opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Left (High) -->
-    <div class="bg-flower-decor-left-high" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 15C115 15 120 35 135 40C150 45 170 40 175 55C180 70 165 85 170 100C175 115 180 135 165 145C150 155 140 145 125 155C110 165 105 185 90 185C75 185 70 165 55 155C40 145 25 155 15 140C5 125 15 105 15 90C15 75 5 55 15 45C25 35 45 40 55 30C65 20 70 15 90 15Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="105" cy="100" r="11" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M50 130C60 135 55 150 45 155C35 160 25 150 30 140C35 130 40 125 50 130Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+        <!-- Soft Pastel Amorphous Background Graphic on Left (High) -->
+        <div class="bg-flower-decor-left-high">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 15C115 15 120 35 135 40C150 45 170 40 175 55C180 70 165 85 170 100C175 115 180 135 165 145C150 155 140 145 125 155C110 165 105 185 90 185C75 185 70 165 55 155C40 145 25 155 15 140C5 125 15 105 15 90C15 75 5 55 15 45C25 35 45 40 55 30C65 20 70 15 90 15Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="105" cy="100" r="11" fill="#8B5CF6" opacity="0.06" />
+                <path d="M50 130C60 135 55 150 45 155C35 160 25 150 30 140C35 130 40 125 50 130Z" fill="#4687E2"
+                    opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Left (Mid-Low) -->
-    <div class="bg-flower-decor-left-mid-low" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 20C135 20 140 45 160 60C180 75 175 110 165 135C155 160 125 180 100 175C75 170 60 155 45 135C30 115 25 85 35 60C45 35 65 20 100 20Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="110" cy="85" r="10" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M145 120C155 125 150 140 140 145C130 150 120 140 125 130C130 120 135 115 145 120Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+        <!-- Soft Pastel Amorphous Background Graphic on Left (Mid-Low) -->
+        <div class="bg-flower-decor-left-mid-low">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 20C135 20 140 45 160 60C180 75 175 110 165 135C155 160 125 180 100 175C75 170 60 155 45 135C30 115 25 85 35 60C45 35 65 20 100 20Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="110" cy="85" r="10" fill="#8B5CF6" opacity="0.06" />
+                <path d="M145 120C155 125 150 140 140 145C130 150 120 140 125 130C130 120 135 115 145 120Z"
+                    fill="#4687E2" opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Right (Mid-High) -->
-    <div class="bg-flower-decor-right-mid-high" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 30C130 30 160 40 170 65C180 90 165 115 155 135C145 155 125 160 100 165C75 170 50 165 35 145C20 125 15 95 25 70C35 45 65 30 100 30Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="80" cy="120" r="10" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M135 110C142 113 140 122 133 125C126 128 120 122 123 115C126 109 130 107 135 110Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+        <!-- Soft Pastel Amorphous Background Graphic on Right (Mid-High) -->
+        <div class="bg-flower-decor-right-mid-high">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 30C130 30 160 40 170 65C180 90 165 115 155 135C145 155 125 160 100 165C75 170 50 165 35 145C20 125 15 95 25 70C35 45 65 30 100 30Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="80" cy="120" r="10" fill="#8B5CF6" opacity="0.06" />
+                <path d="M135 110C142 113 140 122 133 125C126 128 120 122 123 115C126 109 130 107 135 110Z"
+                    fill="#4687E2" opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Right (Low) -->
-    <div class="bg-flower-decor-right-low" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 20C120 20 135 40 145 60C155 80 160 110 150 135C140 160 115 170 95 175C75 180 55 175 40 155C25 135 20 105 25 80C30 55 55 35 75 25C85 20 85 20 100 20Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="85" cy="80" r="8" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M130 55C138 58 135 68 128 70C120 72 115 65 118 58C121 52 125 50 130 55Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+        <!-- Soft Pastel Amorphous Background Graphic on Right (Low) -->
+        <div class="bg-flower-decor-right-low">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 20C120 20 135 40 145 60C155 80 160 110 150 135C140 160 115 170 95 175C75 180 55 175 40 155C25 135 20 105 25 80C30 55 55 35 75 25C85 20 85 20 100 20Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="85" cy="80" r="8" fill="#8B5CF6" opacity="0.06" />
+                <path d="M130 55C138 58 135 68 128 70C120 72 115 65 118 58C121 52 125 50 130 55Z" fill="#4687E2"
+                    opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Right (High) -->
-    <div class="bg-flower-decor-right-high" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 20C120 20 135 40 145 60C155 80 160 110 150 135C140 160 115 170 95 175C75 180 55 175 40 155C25 135 20 105 25 80C30 55 55 35 75 25C85 20 85 20 100 20Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="85" cy="80" r="8" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M130 55C138 58 135 68 128 70C120 72 115 65 118 58C121 52 125 50 130 55Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+        <!-- Soft Pastel Amorphous Background Graphic on Right (High) -->
+        <div class="bg-flower-decor-right-high">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 20C120 20 135 40 145 60C155 80 160 110 150 135C140 160 115 170 95 175C75 180 55 175 40 155C25 135 20 105 25 80C30 55 55 35 75 25C85 20 85 20 100 20Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="85" cy="80" r="8" fill="#8B5CF6" opacity="0.06" />
+                <path d="M130 55C138 58 135 68 128 70C120 72 115 65 118 58C121 52 125 50 130 55Z" fill="#4687E2"
+                    opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Left (Low) -->
-    <div class="bg-flower-decor-left-low" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 30C130 30 160 40 170 65C180 90 165 115 155 135C145 155 125 160 100 165C75 170 50 165 35 145C20 125 15 95 25 70C35 45 65 30 100 30Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="80" cy="120" r="10" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M135 110C142 113 140 122 133 125C126 128 120 122 123 115C126 109 130 107 135 110Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
-    </div>
+        <!-- Soft Pastel Amorphous Background Graphic on Left (Low) -->
+        <div class="bg-flower-decor-left-low">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 30C130 30 160 40 170 65C180 90 165 115 155 135C145 155 125 160 100 165C75 170 50 165 35 145C20 125 15 95 25 70C35 45 65 30 100 30Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="80" cy="120" r="10" fill="#8B5CF6" opacity="0.06" />
+                <path d="M135 110C142 113 140 122 133 125C126 128 120 122 123 115C126 109 130 107 135 110Z"
+                    fill="#4687E2" opacity="0.06" />
+            </svg>
+        </div>
 
-    <!-- Soft Pastel Amorphous Background Graphic on Bottom Right -->
-    <div class="bg-flower-decor-bottom-right" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 40C120 40 140 50 150 70C160 90 150 110 140 120C130 130 110 135 90 130C70 125 60 110 50 90C40 70 60 50 80 40C90 35 90 40 100 40Z" fill="#FF8A71" opacity="0.08"/>
-            <circle cx="110" cy="90" r="8" fill="#8B5CF6" opacity="0.06"/>
-            <path d="M120 70C125 72 122 78 118 80C114 82 110 78 112 74C114 70 116 68 120 70Z" fill="#4687E2" opacity="0.06"/>
-        </svg>
+        <!-- Soft Pastel Amorphous Background Graphic on Bottom Right -->
+        <div class="bg-flower-decor-bottom-right">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 40C120 40 140 50 150 70C160 90 150 110 140 120C130 130 110 135 90 130C70 125 60 110 50 90C40 70 60 50 80 40C90 35 90 40 100 40Z"
+                    fill="#FF8A71" opacity="0.08" />
+                <circle cx="110" cy="90" r="8" fill="#8B5CF6" opacity="0.06" />
+                <path d="M120 70C125 72 122 78 118 80C114 82 110 78 112 74C114 70 116 68 120 70Z" fill="#4687E2"
+                    opacity="0.06" />
+            </svg>
+        </div>
     </div>
 
     <!-- Eggplant Wavy Header / Navbar -->
     <header class="main-header">
         <div class="header-svgs-bg">
             <!-- SVG Gooey Filter Definition to merge overlapping SVGs organically -->
-            <svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+            <svg style="visibility: hidden; position: absolute;" width="0" height="0"
+                xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <filter id="goo">
                         <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
-                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                            result="goo" />
                     </filter>
                 </defs>
             </svg>
-            <svg class="header-bg-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,0 H1440 V60 C1100,100 700,50 300,70 C150,75 50,60 0,50 Z" fill="#362242"/>
+            <svg class="header-bg-wave" viewBox="0 0 1440 120" preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,0 H1440 V60 C1100,100 700,50 300,70 C150,75 50,60 0,50 Z" fill="#362242" />
             </svg>
-            <svg class="header-logo-blob" viewBox="0 0 400 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M400,0 V100 C250,140 100,120 20,80 C10,60 0,40 0,0 Z" fill="#362242"/>
+            <svg class="header-logo-blob" viewBox="0 0 400 140" preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M400,0 V100 C250,140 100,120 20,80 C10,60 0,40 0,0 Z" fill="#362242" />
             </svg>
         </div>
         <div class="header-container">
@@ -145,7 +180,7 @@
             <!-- Desktop Navigation Links (Left aligned in RTL) -->
             <nav class="desktop-nav" aria-label="ניווט ראשי">
                 <ul class="nav-list">
-                    <li><a href="index.html#lego-principles" class="nav-link" data-page="home">עקרונות הזהב</a></li>
+                    <li><a href="index.html" class="nav-link" data-page="home">עקרונות הזהב</a></li>
                     <li><a href="layers.html" class="nav-link active" data-page="layers">חוק 3 השכבות</a></li>
                     <li><a href="tools.html" class="nav-link" data-page="tools">כלים וספרים מומלצים</a></li>
                     <li><a href="about.html" class="nav-link" data-page="about">אודות</a></li>
@@ -171,7 +206,7 @@
                 <button id="close-menu-btn" class="close-menu-btn" aria-label="סגור תפריט">&times;</button>
             </div>
             <ul class="mobile-nav-list">
-                <li><a href="index.html#lego-principles" class="menu-link" data-page="home">עקרונות הזהב</a></li>
+                <li><a href="index.html" class="menu-link" data-page="home">עקרונות הזהב</a></li>
                 <li><a href="layers.html" class="menu-link active" data-page="layers">חוק 3 השכבות</a></li>
                 <li><a href="tools.html" class="menu-link" data-page="tools">כלים וספרים מומלצים</a></li>
                 <li><a href="about.html" class="menu-link" data-page="about">אודות</a></li>
@@ -181,8 +216,8 @@
     </div>
 
     <!-- main content container for Content Page 1 -->
-    <main class="main-page-content" style="padding-top: 90px; min-height: calc(100vh - 120px);">
-        
+    <main class="main-page-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
+
         <!-- סקשן מבוא עם העיגולים הקונצנטריים -->
         <section id="layers-intro-section" class="below-the-fold-section" style="margin-top: 0 !important;">
             <div class="layers-intro-layout">
@@ -190,14 +225,17 @@
                 <div class="layers-intro-text">
                     <h1 class="section-main-title" style="font-size: 38px;">חוק 3 השכבות</h1>
                     <p class="intro-paragraph-highlight">
-                        הילד שאל שאלה שהשאירה אתכם ללא מילים? כדי ליישם את הדיברה השלישית ולדייק את התשובה שלכם, פיתחנו כלי תקשורתי פשוט ויעיל: חוק 3 השכבות.
+                        הילד שאל שאלה שהשאירה אתכם ללא מילים? כדי ליישם את הדיברה השלישית ולדייק את התשובה שלכם, פיתחנו
+                        כלי תקשורתי פשוט ויעיל: חוק 3 השכבות.
                     </p>
                     <p class="intro-paragraph">
-                        חוק זה נועד למנוע מכם "להתפזר", להילחץ או להעמיס על הילד מידע רגשי וקוגניטיבי שמעבר ליכולת העיבוד שלו. הוא מאפשר לכם לענות בדיוק במידה הנכונה – ולא חייבים לעבור את כל 3 השכבות.
+                        חוק זה נועד למנוע מכם "להתפזר", להילחץ או להעמיס על הילד מידע רגשי וקוגניטיבי שמעבר ליכולת
+                        העיבוד שלו. הוא מאפשר לכם לענות בדיוק במידה הנכונה – ולא חייבים לעבור את כל 3 השכבות.
                     </p>
 
                     <p class="intro-instruction" style="margin-bottom: 15px;">
-                        <span class="sparkle-icon" aria-hidden="true">✨</span> לחצו על אחת השכבות כדי להבין איפה אתם נמצאים עם הילד שלכם:
+                        <span class="sparkle-icon" aria-hidden="true">✨</span> לחצו על אחת השכבות כדי להבין איפה אתם
+                        נמצאים עם הילד שלכם:
                     </p>
 
                     <!-- כרטיס הסבר מקדים דינמי שמופיע בלחיצה -->
@@ -209,20 +247,25 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <!-- שלושה עיגולים קונצנטריים משמאל (RTL) -->
                 <div class="layers-circles-container">
                     <div class="concentric-circles-wrapper" role="region" aria-label="איור אינטראקטיבי של 3 השכבות">
                         <!-- שכבה 1 - חיצונית (הכי בסיסית) -->
-                        <button class="concentric-circle layer-1-circle" aria-label="שכבה 1: העובדה היבשה (התשובה למה)" title="שכבה 1: העובדה היבשה – מענה לשאלה 'מה קרה' בשפה פשוטה, ללא דרמה ובדיוק במידה שהילד ביקש.">
+                        <button class="concentric-circle layer-1-circle" aria-label="שכבה 1: העובדה היבשה (התשובה למה)"
+                            title="שכבה 1: העובדה היבשה – מענה לשאלה 'מה קרה' בשפה פשוטה, ללא דרמה ובדיוק במידה שהילד ביקש.">
                             <span class="circle-name">עובדה יבשה</span>
                         </button>
                         <!-- שכבה 2 - אמצעית -->
-                        <button class="concentric-circle layer-2-circle" aria-label="שכבה 2: הרגש והנורמליזציה (התשובה לאיך מרגישים)" title="שכבה 2: רגש ונורמליזציה – מענה לשאלה 'איך מרגישים'. נותנים לגיטימציה לרגש ומנרמלים אותו (למשל: 'זה באמת קצת מפחיד').">
+                        <button class="concentric-circle layer-2-circle"
+                            aria-label="שכבה 2: הרגש והנורמליזציה (התשובה לאיך מרגישים)"
+                            title="שכבה 2: רגש ונורמליזציה – מענה לשאלה 'איך מרגישים'. נותנים לגיטימציה לרגש ומנרמלים אותו (למשל: 'זה באמת קצת מפחיד').">
                             <span class="circle-name">רגש ונורמליזציה</span>
                         </button>
                         <!-- שכבה 3 - פנימית -->
-                        <button class="concentric-circle layer-3-circle" aria-label="שכבה 3: העוגן והביטחון (התשובה למה איתי)" title="שכבה 3: עוגן וביטחון – מענה לשאלה 'מה איתי' והחזרת הביטחון (למשל: 'אנחנו כאן איתך ושומרים עליך').">
+                        <button class="concentric-circle layer-3-circle"
+                            aria-label="שכבה 3: העוגן והביטחון (התשובה למה איתי)"
+                            title="שכבה 3: עוגן וביטחון – מענה לשאלה 'מה איתי' והחזרת הביטחון (למשל: 'אנחנו כאן איתך ושומרים עליך').">
                             <span class="circle-name">עוגן וביטחון</span>
                         </button>
                     </div>
@@ -233,9 +276,11 @@
         <!-- סקשן סליידר שכבות - רקע מלא וללא מסגרות -->
         <section id="layers-slider-container" class="layers-slider-container">
             <!-- חצי ניווט בצידי הסליידר -->
-            <button class="slider-arrow arrow-right" aria-label="לשכבה הקודמת" aria-controls="layers-slider-wrapper">&gt;</button>
-            <button class="slider-arrow arrow-left" aria-label="לשכבה הבאה" aria-controls="layers-slider-wrapper">&lt;</button>
-            
+            <button class="slider-arrow arrow-right" aria-label="לשכבה הקודמת"
+                aria-controls="layers-slider-wrapper">&gt;</button>
+            <button class="slider-arrow arrow-left" aria-label="לשכבה הבאה"
+                aria-controls="layers-slider-wrapper">&lt;</button>
+
             <div class="slider-wrapper" id="layers-slider-wrapper">
                 <!-- שקף 1: שכבה 1 -->
                 <div class="slider-slide slide-layer-1" role="group" aria-label="שכבה 1 מתוך 3">
@@ -245,7 +290,8 @@
                             <h2 class="slide-title">שכבה 1: העובדה היבשה – מענה לשאלה ״מה קרה״</h2>
                         </div>
                         <p class="slide-description">
-                            זוהי השכבה הבסיסית ביותר שבה אתם מספקים את המידע המדויק, ללא פרשנות אישית, ללא דרמה ובשפה פשוטה.
+                            זוהי השכבה הבסיסית ביותר שבה אתם מספקים את המידע המדויק, ללא פרשנות אישית, ללא דרמה ובשפה
+                            פשוטה.
                         </p>
                         <div class="slide-details-grid">
                             <div class="slide-detail-column">
@@ -254,7 +300,8 @@
                             </div>
                             <div class="slide-detail-column">
                                 <span class="slide-detail-label">הכלל המוביל:</span>
-                                <p class="slide-detail-text">אם הילד הפסיק לשאול או חזר לעיסוקיו – עצרתם בזמן. זה הסימן שהשכבה הזו סיפקה אותו כרגע.</p>
+                                <p class="slide-detail-text">אם הילד הפסיק לשאול או חזר לעיסוקיו – עצרתם בזמן. זה הסימן
+                                    שהשכבה הזו סיפקה אותו כרגע.</p>
                             </div>
                         </div>
                     </div>
@@ -268,7 +315,8 @@
                             <h2 class="slide-title">שכבה 2: הרגש והנורמליזציה – מענה לשאלה ״איך מרגישים״</h2>
                         </div>
                         <p class="slide-description">
-                            אם הילד ממשיך לשאול או נראה מוטרד, עוברים לשכבה הבאה. כאן אתם מעניקים לגיטימציה לרגשות, מנרמלים את החוויה של הילד ומסבירים את התחושות סביב הנושא.
+                            אם הילד ממשיך לשאול או נראה מוטרד, עוברים לשכבה הבאה. כאן אתם מעניקים לגיטימציה לרגשות,
+                            מנרמלים את החוויה של הילד ומסבירים את התחושות סביב הנושא.
                         </p>
                         <div class="slide-details-grid">
                             <div class="slide-detail-column">
@@ -291,12 +339,14 @@
                             <h2 class="slide-title">שכבה 3: העוגן והביטחון – מענה לשאלה ״מה איתי״</h2>
                         </div>
                         <p class="slide-description">
-                            זוהי השכבה החשובה ביותר, הנועדת להרגיע את החרדה הקיומית של הילד. מאחורי כל שאלה קשה, הילד שואל את עצמו בתת-מודע: ״האם אני בטוח? מה זה אומר עלי?״. בשכבה הזו אנחנו עונים על כך במפורש.
+                            זוהי השכבה החשובה ביותר, הנועדת להרגיע את החרדה הקיומית של הילד. מאחורי כל שאלה קשה, הילד
+                            שואל את עצמו בתת-מודע: ״האם אני בטוח? מה זה אומר עלי?״. בשכבה הזו אנחנו עונים על כך במפורש.
                         </p>
                         <div class="slide-details-grid">
                             <div class="slide-detail-column">
                                 <span class="slide-detail-label">המטרה:</span>
-                                <p class="slide-detail-text">לספק יציבות וודאות, ולהזכיר לילד שהקשר שלכם איתו יציב ואיתן.</p>
+                                <p class="slide-detail-text">לספק יציבות וודאות, ולהזכיר לילד שהקשר שלכם איתו יציב
+                                    ואיתן.</p>
                             </div>
                             <div class="slide-detail-column">
                                 <span class="slide-detail-label">הכלל המוביל:</span>
@@ -314,7 +364,7 @@
                 <h2 class="section-main-title">שאלון מסכם: בחנו את עצמכם</h2>
                 <p class="section-main-subtitle">בואו נראה אם למדתם כיצד ליישם את חוק 3 השכבות מול הילדים:</p>
             </div>
-            
+
             <div class="quiz-container-flat" id="quiz-widget-inner">
                 <!-- גוף השאלון -->
                 <div id="quiz-body-container">
@@ -326,9 +376,9 @@
                     <div class="quiz-options-list" id="quiz-options-container">
                         <!-- אפשרויות בחירה דינמיות -->
                     </div>
-                    
+
                     <div id="quiz-feedback" class="quiz-feedback-box" style="display: none;"></div>
-                    
+
                     <div class="quiz-action-btn-row">
                         <button id="quiz-submit-btn" class="quiz-submit-next-btn" disabled>בדוק תשובה</button>
                     </div>
@@ -341,7 +391,8 @@
                     <p class="quiz-result-score">
                         ענית נכון על <strong id="quiz-result-score-count">0</strong> מתוך <strong>3</strong> שאלות.
                     </p>
-                    <div class="filter-feedback" id="quiz-result-badge-container" style="background-color: #E6F6ED; border-right: 4px solid #2ECC71; color: #1E6B3F; padding: 15px 25px; border-radius: 12px; margin-top: 10px;">
+                    <div class="filter-feedback" id="quiz-result-badge-container"
+                        style="background-color: #E6F6ED; border-right: 4px solid #2ECC71; color: #1E6B3F; padding: 15px 25px; border-radius: 12px; margin-top: 10px;">
                         תג נרכש: <strong id="quiz-result-badge">הורה קשוב ומדויק! ⚓</strong>
                     </div>
                     <button id="quiz-restart-btn" class="quiz-restart-btn">התחל מחדש 🔄</button>
@@ -353,8 +404,10 @@
 
     <!-- Footer Area -->
     <footer class="main-footer" style="margin-top: 40px;">
-        <p class="footer-quote">זכרו - אין הורים מושלמים, יש רק הורים קשובים. הקשר שלכם עם הילד הוא התשובה הכי חשובה.</p>
-        <p class="footer-copyright" style="margin-top: 15px;">© 2026 ...אמא, למה? - כל הזכויות שמורות. נבנה באהבה להורות מקשיבה ומכילה.</p>
+        <p class="footer-quote">זכרו - אין הורים מושלמים, יש רק הורים קשובים. הקשר שלכם עם הילד הוא התשובה הכי חשובה.
+        </p>
+        <p class="footer-copyright" style="margin-top: 15px;">© 2026 ...אמא, למה? - כל הזכויות שמורות. נבנה באהבה להורות
+            מקשיבה ומכילה.</p>
     </footer>
 
     <!-- JavaScripts -->

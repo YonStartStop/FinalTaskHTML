@@ -67,6 +67,14 @@
 
 html {
     scroll-behavior: smooth;
+    /* Hide scrollbar for Firefox and IE/Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar {
+    display: none;
 }
 
 body {
@@ -78,7 +86,35 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    /* Hide scrollbar for Firefox and IE/Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Container to clip background decorations so they never overflow below the footer */
+.bg-decorations-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Let main content grow to push footer to the very bottom on short pages */
+.main-page-content {
+    flex: 1 0 auto;
+}
+
 
 /* Thin focus border around the entire body */
 .global-frame {
