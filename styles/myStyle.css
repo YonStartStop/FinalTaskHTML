@@ -473,7 +473,7 @@ p,
     align-items: center;
     justify-content: center;
     overflow: visible;
-    padding: 15px 40px;
+    padding: 0 40px;
 }
 
 /* Hero Title styling */
@@ -483,8 +483,8 @@ p,
     font-weight: 900;
     color: var(--eggplant);
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 5px;
+    margin-top: 130px;
+    margin-bottom: 130px;
     position: relative;
     z-index: 10;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -593,7 +593,7 @@ p,
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 0px; /* Reduced vertical spacing between parents and CTA button */
+    margin-top: 130px; /* Spec: 130px vertical spacing between parents and CTA button */
     margin-bottom: 40px;
     position: relative;
     z-index: 15;
@@ -1134,7 +1134,7 @@ p,
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 15px;
+        margin-top: 130px; /* Spec: 130px gap from title to parents image on mobile */
         margin-bottom: 10px;
     }
 
@@ -1143,6 +1143,10 @@ p,
         max-width: 320px;
         height: auto;
         filter: drop-shadow(0 10px 20px rgba(54, 82, 122, 0.12));
+    }
+
+    .hero-title {
+        margin-bottom: 0px; /* Override desktop 130px margin-bottom on mobile */
     }
 
     /* Disable gravity field, enable swipeable carousel for bubbles on mobile */
