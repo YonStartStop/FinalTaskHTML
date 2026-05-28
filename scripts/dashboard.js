@@ -338,4 +338,68 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ==========================================
+    // INTERACTIVE LEGO TOWER LOGIC
+    // ==========================================
+    const legoBricks = document.querySelectorAll('.lego-brick');
+    const legoTower = document.getElementById('lego-tower');
+    const legoSection = document.getElementById('lego-principles');
+    const legoTextContainer = document.getElementById('lego-text-container');
+    const legoTextTitle = document.getElementById('lego-text-title');
+    const legoTextDesc = document.getElementById('lego-text-desc');
+
+    const legoData = {
+        '1': {
+            title: 'עצירה ונשימה:',
+            desc: 'כשילד שואל שאלה מפתיעה התגובה הראשונה שלנו היא לעיתים בהלה. עצרו רגע. נשימה עמוקה משדרת לילד שהנושא בטוח לדיון ושאתם רגועים.'
+        },
+        '2': {
+            title: 'שיקוף והבהרה:',
+            desc: 'לפני שעונים, חשוב להבין מה עומד מאחורי השאלה. לעיתים הילד ראה משהו בטלוויזיה, שמע משהו בגן/בביה"ס, או סתם חווה פחד פנימי. לדוגמה: "שאלה מעניינת. מה גרם לך לחשוב על זה דווקא עכשיו?"'
+        },
+        '3': {
+            title: 'דיוק התשובה:',
+            desc: 'אל תתנו הרצאה. תנו תשובה פשוטה, אמיתית, ומותאמת לגיל (עוד בנושא, עבור לסקשן <a href="layers.html#layers-intro-section" class="lego-text-link">חוק 3 השכבות</a>).'
+        },
+        '4': {
+            title: 'בדיקת תחושת הילד:',
+            desc: 'סיימו את התשובה בשאלה רגשית: "איך זה גורם לך להרגיש?" או "זה נשמע לך הגיוני?".'
+        }
+    };
+
+    if (legoBricks.length > 0 && legoTower && legoTextContainer) {
+        legoBricks.forEach(brick => {
+            brick.addEventListener('click', () => {
+                const brickId = brick.getAttribute('data-brick');
+                const data = legoData[brickId];
+
+                if (brick.classList.contains('active')) return;
+
+                // 1. Update brick active classes
+                legoBricks.forEach(b => b.classList.remove('active'));
+                brick.classList.add('active');
+
+                // 2. Update tower and section active states (for spacing and header color transitions)
+                for (let i = 1; i <= 4; i++) {
+                    legoTower.classList.remove(`active-${i}`);
+                    if (legoSection) legoSection.classList.remove(`active-${i}`);
+                }
+                legoTower.classList.add(`active-${brickId}`);
+                if (legoSection) legoSection.classList.add(`active-${brickId}`);
+
+                // 3. Fade out text, update contents, and fade in
+                legoTextContainer.style.opacity = '0';
+                legoTextContainer.style.transform = 'translateY(8px)';
+
+                setTimeout(() => {
+                    if (legoTextTitle) legoTextTitle.innerHTML = data.title;
+                    if (legoTextDesc) legoTextDesc.innerHTML = data.desc;
+
+                    legoTextContainer.style.opacity = '1';
+                    legoTextContainer.style.transform = 'translateY(0)';
+                }, 250);
+            });
+        });
+    }
 });
