@@ -103,9 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const detailsSummary = document.getElementById('details-summary');
     const detailsWhyText = document.getElementById('details-why-text');
     const detailsWhyContainer = document.getElementById('details-why-container');
-    const detailsAmazonLink = document.getElementById('details-amazon-link');
-    const detailsSteimatzkyLink = document.getElementById('details-steimatzky-link');
-    const detailsTzometLink = document.getElementById('details-tzomet-link');
+    const detailsBtn1 = document.getElementById('details-btn-1');
+    const detailsBtn2 = document.getElementById('details-btn-2');
+    const detailsBtn3 = document.getElementById('details-btn-3');
     const detailsTextBox = document.getElementById('details-text-box');
     const detailsWrapper = document.querySelector('.details-content-wrapper');
 
@@ -191,10 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const author = book.getAttribute('data-author');
                 const summary = book.getAttribute('data-summary');
                 const why = book.getAttribute('data-why');
-                const amazonUrl = book.getAttribute('data-amazon-url');
-                const steimatzkyUrl = book.getAttribute('data-steimatzky-url');
-                const tzometUrl = book.getAttribute('data-tzomet-url');
-                const price = book.getAttribute('data-price') || '59.90₪';
                 const accentColor = book.getAttribute('data-accent-color');
 
                 if (detailsWrapper) {
@@ -208,18 +204,63 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (detailsSummary) detailsSummary.textContent = summary;
                         if (detailsWhyText) detailsWhyText.textContent = why;
                         
-                        if (detailsAmazonLink) detailsAmazonLink.href = amazonUrl;
-                        if (detailsSteimatzkyLink) detailsSteimatzkyLink.href = steimatzkyUrl;
-                        if (detailsTzometLink) detailsTzometLink.href = tzometUrl;
+                        const buttons = [
+                            { el: detailsBtn1, prefix: 'btn1' },
+                            { el: detailsBtn2, prefix: 'btn2' },
+                            { el: detailsBtn3, prefix: 'btn3' }
+                        ];
 
-                        // Update price text inside buy buttons
-                        const amazonPriceEl = detailsAmazonLink ? detailsAmazonLink.querySelector('.buy-button-price') : null;
-                        const steimatzkyPriceEl = detailsSteimatzkyLink ? detailsSteimatzkyLink.querySelector('.buy-button-price') : null;
-                        const tzometPriceEl = detailsTzometLink ? detailsTzometLink.querySelector('.buy-button-price') : null;
+                        buttons.forEach(btnInfo => {
+                            const btn = btnInfo.el;
+                            if (!btn) return;
 
-                        if (amazonPriceEl) amazonPriceEl.textContent = price;
-                        if (steimatzkyPriceEl) steimatzkyPriceEl.textContent = price;
-                        if (tzometPriceEl) tzometPriceEl.textContent = price;
+                            const url = book.getAttribute(`data-${btnInfo.prefix}-url`);
+                            if (url && url.trim() !== '') {
+                                btn.style.display = 'block';
+                                btn.href = url;
+
+                                const label = book.getAttribute(`data-${btnInfo.prefix}-label`) || '';
+                                const priceVal = book.getAttribute(`data-${btnInfo.prefix}-price`) || '';
+                                const bgClass = book.getAttribute(`data-${btnInfo.prefix}-class`) || '';
+
+                                const priceEl = btn.querySelector('.buy-button-price');
+                                const labelEl = btn.querySelector('.buy-button-label');
+
+                                if (priceEl) {
+                                    if (priceVal && priceVal.trim() !== '' && priceVal !== 'אין מחיר' && priceVal !== 'אין מחיר כרגע') {
+                                        priceEl.style.display = 'block';
+                                        priceEl.textContent = priceVal;
+                                        if (priceVal.length > 5) {
+                                            priceEl.style.fontSize = '13px';
+                                            priceEl.style.top = '4px';
+                                        } else {
+                                            priceEl.style.fontSize = '';
+                                            priceEl.style.top = '';
+                                        }
+                                        if (labelEl) labelEl.style.top = '24px';
+                                    } else {
+                                        priceEl.style.display = 'none';
+                                        if (labelEl) labelEl.style.top = '15px';
+                                    }
+                                }
+
+                                if (labelEl) {
+                                    labelEl.textContent = label;
+                                }
+
+                                // Remove any existing bg- classes and add the correct one
+                                btn.className.split(' ').forEach(className => {
+                                    if (className.startsWith('bg-')) {
+                                        btn.classList.remove(className);
+                                    }
+                                });
+                                if (bgClass) {
+                                    btn.classList.add(bgClass);
+                                }
+                            } else {
+                                btn.style.display = 'none';
+                            }
+                        });
 
                         if (detailsTextBox) {
                             detailsTextBox.style.borderRightColor = accentColor;

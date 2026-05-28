@@ -1844,6 +1844,18 @@ p,
     background-color: #ffe500;
 }
 
+.buy-button-item.bg-evrit {
+    background-color: #ffd0a5;
+}
+
+.buy-button-item.bg-mighdalor {
+    background-color: #e5b2ff;
+}
+
+.buy-button-item.bg-goodreads {
+    background-color: #e6dfc6;
+}
+
 .buy-button-text-group {
     display: block;
 }
