@@ -372,35 +372,41 @@ document.addEventListener('DOMContentLoaded', () => {
                     document.body.style.overflow = '';
                 }
 
-                const startPosition = window.scrollY;
-                const distance = -startPosition; // Scroll to top (0)
-                const duration = 700; // 0.7s maximum duration
-                let startTimestamp = null;
-                
-                document.documentElement.style.scrollBehavior = 'auto';
-                
-                const easeInOutSine = (t) => {
-                    return -(Math.cos(Math.PI * t) - 1) / 2;
-                };
-                
-                const step = (timestamp) => {
-                    if (!startTimestamp) startTimestamp = timestamp;
-                    const elapsed = timestamp - startTimestamp;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const easeProgress = easeInOutSine(progress);
+                const targetElement = document.getElementById('lego-principles');
+                if (targetElement) {
+                    const offset = 130; // accounts for the sticky header
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - offset;
                     
-                    window.scrollTo(0, startPosition + distance * easeProgress);
+                    const startPosition = window.scrollY;
+                    const distance = offsetPosition - startPosition;
+                    const duration = 700; // 0.7s maximum duration
+                    let startTimestamp = null;
                     
-                    if (progress < 1) {
-                        window.requestAnimationFrame(step);
-                    } else {
-                        document.documentElement.style.scrollBehavior = '';
-                        if (window.location.hash) {
-                            history.replaceState(null, document.title, window.location.pathname + window.location.search);
+                    document.documentElement.style.scrollBehavior = 'auto';
+                    
+                    const easeInOutSine = (t) => {
+                        return -(Math.cos(Math.PI * t) - 1) / 2;
+                    };
+                    
+                    const step = (timestamp) => {
+                        if (!startTimestamp) startTimestamp = timestamp;
+                        const elapsed = timestamp - startTimestamp;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const easeProgress = easeInOutSine(progress);
+                        
+                        window.scrollTo(0, startPosition + distance * easeProgress);
+                        
+                        if (progress < 1) {
+                            window.requestAnimationFrame(step);
+                        } else {
+                            document.documentElement.style.scrollBehavior = '';
+                            history.pushState(null, null, '#lego-principles');
+                            updateActiveNav();
                         }
-                    }
-                };
-                window.requestAnimationFrame(step);
+                    };
+                    window.requestAnimationFrame(step);
+                }
             }
         });
     });
