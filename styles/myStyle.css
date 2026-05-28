@@ -468,23 +468,159 @@ p,
 .bubble-field-container {
     position: relative;
     width: 100%;
-    min-height: 480px;
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: visible;
-    padding: 30px 40px;
+    padding: 15px 40px;
 }
 
+/* Hero Title styling */
+.hero-title {
+    font-family: "Rubik", sans-serif;
+    font-size: 34px;
+    font-weight: 900;
+    color: var(--eggplant);
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    position: relative;
+    z-index: 10;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile parents container (hidden on desktop) */
+.mobile-parents-container {
+    display: none;
+}
+
+/* Updated Bubble Cluster Grid to Grid layout on Desktop */
 .bubble-cluster-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 15px;
     align-items: center;
     width: 100%;
-    max-width: 980px;
-    gap: 15px;
+    max-width: 1380px;
     margin: 0 auto;
+}
+
+/* Bubbles side columns */
+.hero-bubbles-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px; /* Squeezed spacing between speech bubbles in column */
+    height: auto;
+    min-height: auto;
+    padding: 10px 0;
+}
+
+/* Set vertical spacing for bubbles in column */
+.hero-bubbles-column .interactive-bubble {
+    margin: 0; /* Reset margins since spacing is controlled by flex gap */
+    left: auto;
+    right: auto;
+}
+
+/* Staggered positioning of bubbles inside columns to create an organic scattered feel */
+.left-column .interactive-bubble:nth-child(1) { align-self: flex-end; margin-right: -10px; }
+.left-column .interactive-bubble:nth-child(2) { align-self: flex-start; margin-left: 20px; }
+.left-column .interactive-bubble:nth-child(3) { align-self: flex-end; margin-right: 15px; }
+.left-column .interactive-bubble:nth-child(4) { align-self: flex-start; margin-left: 10px; }
+.left-column .interactive-bubble:nth-child(5) { align-self: flex-end; margin-right: -25px; }
+
+.right-column .interactive-bubble:nth-child(1) { align-self: flex-start; margin-left: -15px; }
+.right-column .interactive-bubble:nth-child(2) { align-self: flex-end; margin-right: 25px; }
+.right-column .interactive-bubble:nth-child(3) { align-self: flex-start; margin-left: 10px; }
+.right-column .interactive-bubble:nth-child(4) { align-self: flex-end; margin-right: 15px; }
+.right-column .interactive-bubble:nth-child(5) { align-self: flex-start; margin-left: 0px; }
+.right-column .interactive-bubble:nth-child(6) { align-self: flex-end; margin-right: -20px; }
+
+/* Center Column Parents styling */
+.hero-parents-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.hero-parents-img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 580px; /* Enlarged parents illustration but constrained height so it stays compact */
+    height: auto;
+    filter: drop-shadow(0 15px 25px rgba(54, 82, 122, 0.15));
+    animation: floatParents 6s ease-in-out infinite;
+}
+
+@keyframes floatParents {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Chat bubble font size modifiers to match hero_1.png */
+.chat-bubble.size-small {
+    font-size: 14px !important;
+    padding: 8px 16px;
+}
+
+.chat-bubble.size-medium {
+    font-size: 18px !important;
+    padding: 10px 20px;
+}
+
+.chat-bubble.size-medium-large {
+    font-size: 21px !important;
+    padding: 12px 24px;
+}
+
+.chat-bubble.size-large {
+    font-size: 25px !important;
+    padding: 14px 28px;
+}
+
+/* CTA Button at bottom of fold styling */
+.hero-cta-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px; /* Reduced vertical spacing between parents and CTA button */
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 15;
+    width: 100%;
+}
+
+.hero-cta-btn {
+    font-family: "Rubik", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: var(--eggplant);
+    padding: 12px 42px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(54, 34, 66, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.hero-cta-btn:hover {
+    background-color: #FFFFFF;
+    color: var(--eggplant);
+    border-color: var(--eggplant);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(54, 34, 66, 0.2);
 }
 
 /* Chat bubble designs */
@@ -977,6 +1113,22 @@ p,
         transform: translateY(-50%);
     }
 
+    /* Mobile parents container styling */
+    .mobile-parents-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    .mobile-parents-img {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        filter: drop-shadow(0 10px 20px rgba(54, 82, 122, 0.12));
+    }
+
     /* Disable gravity field, enable swipeable carousel for bubbles on mobile */
     .bubble-field-container {
         padding: 20px 0;
@@ -995,6 +1147,23 @@ p,
         padding: 10px 20px 30px;
         width: max-content;
         margin: 0;
+    }
+
+    /* Unset the column behavior for bubbles on mobile so they act as direct children of the flex row */
+    .hero-bubbles-column {
+        display: contents;
+    }
+
+    /* Hide the parents image inside the scroll container on mobile */
+    .hero-parents-center {
+        display: none;
+    }
+
+    /* Reset staggered margins on mobile */
+    .left-column .interactive-bubble,
+    .right-column .interactive-bubble {
+        align-self: auto !important;
+        margin: 0 !important;
     }
 
     .chat-bubble {
