@@ -1,0 +1,873 @@
+/* ==========================================================================
+   TOOLS & RECOMMENDATIONS PAGE SPECIFIC STYLES
+   ========================================================================== */
+
+/* ==========================================================================
+   MATTE GREY CONTENT DASHBOARD
+   ========================================================================== */
+.dashboard-container {
+    flex: 1;
+    background-color: var(--bg-matte-grey);
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 12px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-header {
+    text-align: right;
+    margin-bottom: 24px;
+    direction: rtl;
+}
+
+.dashboard-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--eggplant);
+}
+
+.dashboard-subtitle {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+/* Search bar design */
+.dashboard-search-bar-row {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.search-input-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    right: 18px;
+    pointer-events: none;
+}
+
+#search-input {
+    width: 100%;
+    background-color: var(--bg-secondary);
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    padding: 14px 50px 14px 20px;
+    font-size: 16px;
+    font-family: inherit;
+    direction: rtl;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: var(--highlight-blue);
+    box-shadow: 0 4px 14px rgba(70, 135, 226, 0.15);
+}
+
+/* Category Filter Pills */
+.dashboard-filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 28px;
+    direction: rtl;
+}
+
+.filter-pill {
+    background-color: var(--bg-secondary);
+    border: 2px solid rgba(0, 0, 0, 0.04);
+    color: var(--text-secondary);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.filter-pill:hover {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+.filter-pill.active {
+    background-color: var(--eggplant);
+    color: #FFFFFF;
+    border-color: var(--eggplant);
+    box-shadow: 0 4px 10px rgba(54, 34, 66, 0.25);
+}
+
+/* Question Cards Grid */
+.dashboard-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+/* Accent Card design (Figma standard specs) */
+.dashboard-card {
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    /* Border radius: 6px originally, tweaked to 8px for modern rounded feel */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.03);
+    padding: 20px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* Thick colored border accent on trailing edge only (Right side for RTL) */
+.card-inner-accent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 5px;
+    /* Border: 3px highlight in figma, upgraded to 5px for crisp aesthetics */
+}
+
+.card-inner-accent.border-indigo {
+    background-color: var(--highlight-indigo);
+}
+
+.card-inner-accent.border-blue {
+    background-color: var(--highlight-blue);
+}
+
+.card-inner-accent.border-yellow {
+    background-color: var(--highlight-yellow);
+}
+
+.card-category-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.card-category-label.text-indigo {
+    color: var(--highlight-indigo);
+}
+
+.card-category-label.text-blue {
+    color: var(--highlight-blue);
+}
+
+.card-category-label.text-yellow {
+    color: var(--highlight-yellow);
+}
+
+.card-question-title {
+    font-family: "Open Sans", sans-serif;
+    font-stretch: condensed;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+    text-align: right;
+    margin-top: auto;
+}
+
+/* Card lift hover animations */
+.dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+
+
+   3. Parenting Tools Grid
+   -------------------------------------------------------------------------- */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+    direction: rtl;
+}
+
+.tool-card {
+    background-color: var(--bg-secondary);
+    border-radius: 20px;
+    padding: 30px 25px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(70, 135, 226, 0.08);
+    border-color: rgba(70, 135, 226, 0.1);
+}
+
+.tool-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.tool-title {
+    font-family: "Rubik", sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--eggplant);
+    margin-bottom: 12px;
+}
+
+.tool-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.tool-how-to {
+    background-color: #F8F9FB;
+    border-right: 3px solid var(--highlight-blue);
+    padding: 12px 15px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: #4A5568;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    margin-top: auto;
+}
+
+.tool-how-to strong,
+.tool-why strong {
+    color: var(--eggplant);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.tool-why {
+    background-color: #FFF5F9;
+    border-right: 3px solid var(--highlight-indigo);
+    padding: 12px 15px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: #4A5568;
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   4. Book Recommendations Carousel
+   -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+
+
+   4. Book Recommendations Bookshelf
+   -------------------------------------------------------------------------- */
+.bookshelf-workspace {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    direction: rtl;
+}
+
+.bookshelf-container {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    padding-bottom: 20px;
+    perspective: 1000px;
+}
+
+.bookshelf-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: 250px;
+    padding: 0 50px;
+    position: relative;
+    z-index: 6;
+    /* Display in front of the wood shelf board */
+}
+
+.books-group {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    height: 100%;
+    padding-bottom: 4px;
+}
+
+/* Center layout placeholder spot */
+.bookshelf-showcase-spot {
+    width: 145px;
+    height: 215px;
+    visibility: hidden;
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+/* Flying book item container */
+.bookshelf-book {
+    cursor: pointer;
+    position: relative;
+    height: 200px;
+    width: 44px;
+    flex-shrink: 0;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1), z-index 0.3s ease;
+    transform-origin: bottom center;
+}
+
+/* Leaning effect on shelf */
+.bookshelf-book.lean-left {
+    transform: rotate(-8deg) translateY(4px);
+}
+
+.bookshelf-book.lean-right {
+    transform: rotate(8deg) translateY(4px);
+}
+
+/* Interactive hover state on shelf (non-active only) */
+.bookshelf-book:not(.active):hover {
+    transform: rotate(0deg) translateY(-10px) scale(1.05);
+    z-index: 10;
+}
+
+/* Active flying book state (transform set via JS) */
+.bookshelf-book.active {
+    z-index: 100;
+}
+
+.book-3d-model {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.bookshelf-book.active .book-3d-model {
+    transform: rotateY(-15deg);
+}
+
+/* Spine view face */
+.book-spine-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--spine-color);
+    border-radius: 6px 6px 0 0;
+    box-shadow:
+        inset -4px 0 6px rgba(0, 0, 0, 0.15),
+        inset 4px 0 6px rgba(255, 255, 255, 0.25),
+        -5px 5px 10px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 15px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    opacity: 1;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+.bookshelf-book.active .book-spine-view {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Spine stripe */
+.spine-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+}
+
+.spine-text {
+    font-family: "Rubik", sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--eggplant);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    margin-top: 5px;
+}
+
+/* Cover view face */
+.book-cover-view {
+    position: absolute;
+    width: 145px;
+    height: 215px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px 12px 12px 4px;
+    box-shadow:
+        8px 14px 28px rgba(0, 0, 0, 0.22),
+        inset -3px 0 6px rgba(255, 255, 255, 0.2),
+        inset 3px 0 6px rgba(0, 0, 0, 0.1);
+    background: var(--theme-color);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    backface-visibility: hidden;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.bookshelf-book.active .book-cover-view {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.book-spine-edge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 10px;
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: inset -1px 0 2px rgba(255, 255, 255, 0.15);
+    z-index: 10;
+}
+
+.cover-content-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 22px 15px;
+    direction: rtl;
+    z-index: 2;
+}
+
+.cover-emoji {
+    font-size: 32px;
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+.cover-title {
+    font-family: "Playpen Sans Hebrew", cursive, sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.3;
+    text-align: right;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    margin-bottom: auto;
+}
+
+.cover-author {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 700;
+    text-align: left;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.cover-image-real {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    border-radius: 4px 12px 12px 4px;
+}
+
+/* 3D Wood Shelf Board */
+.shelf-wood-board {
+    position: relative;
+    width: 100%;
+    height: 16px;
+    background: #c5b8cf;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 12px 24px rgba(54, 34, 66, 0.15);
+    z-index: 4;
+    /* Rendered behind the bookshelf row books */
+}
+
+.shelf-wood-board .shelf-top {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: #dbcee5;
+    transform: perspective(100px) rotateX(15deg);
+    transform-origin: bottom center;
+    border-radius: 4px 4px 0 0;
+}
+
+.shelf-wood-board .shelf-front {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.15));
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Book Details Card (Plaque hanging style) */
+.book-details-card {
+    background-color: #ffffff;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 720px;
+    padding: 30px;
+    box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
+    text-align: right;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top: -32px;
+    /* Hangs overlapping the shelf front */
+    z-index: 5;
+    /* Under flying active book (100) but on top of shelf board (4) */
+}
+
+.details-content-wrapper {
+    animation: fadeSlidePanel 0.4s ease;
+}
+
+.details-title {
+    font-family: "Rubik", sans-serif;
+    font-size: 27px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.details-author {
+    font-family: "Rubik", sans-serif;
+    font-size: 24px;
+    color: #6b6b6b;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+}
+
+/* Plaque Layout columns */
+.plaque-body {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    align-items: stretch;
+}
+
+.plaque-buttons-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* Buy buttons */
+.buy-button-item {
+    display: block;
+    width: 144px;
+    height: 43px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #000000;
+    font-family: "Rubik", sans-serif;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.buy-button-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.buy-button-item.bg-amazon {
+    background-color: #b2d3ff;
+}
+
+.buy-button-item.bg-steimatzky {
+    background-color: #72d454;
+}
+
+.buy-button-item.bg-tzomet {
+    background-color: #ffe500;
+}
+
+.buy-button-item.bg-evrit {
+    background-color: #ffd0a5;
+}
+
+.buy-button-item.bg-mighdalor {
+    background-color: #e5b2ff;
+}
+
+.buy-button-item.bg-goodreads {
+    background-color: #e6dfc6;
+}
+
+.buy-button-text-group {
+    display: block;
+}
+
+.buy-button-price {
+    font-family: "Rubik", sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: #000000;
+    line-height: 1.1;
+    position: absolute;
+    right: 6px;
+    top: 0px;
+}
+
+.buy-button-label {
+    font-family: "Rubik", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000000;
+    line-height: 1.1;
+    white-space: nowrap;
+    position: absolute;
+    right: 6px;
+    top: 24px;
+}
+
+.buy-button-arrow {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000000;
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    transition: transform 0.2s ease;
+}
+
+.buy-button-item:hover .buy-button-arrow {
+    transform: translate(-2px, -2px);
+}
+
+/* Plaque Text Container (Right Column) */
+.plaque-text-box {
+    flex: 1;
+    background-color: #f3f3f3;
+    border-right: 4px solid var(--highlight-indigo);
+    padding: 16px 20px;
+    border-radius: 4px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+}
+
+.plaque-text-box .details-summary {
+    font-size: 20px;
+    color: #000000;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.plaque-text-box .details-why-read {
+    font-size: 15px;
+    color: #4A5568;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* translucent white backdrop */
+    padding: 10px 14px;
+    border-radius: 8px;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.plaque-text-box .details-why-read strong {
+    color: var(--eggplant);
+    display: block;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+/* Responsive layout adjustments for plaque body */
+@media (max-width: 768px) {
+    .plaque-body {
+        flex-direction: column-reverse;
+        gap: 16px;
+    }
+
+    .plaque-buttons-stack {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .buy-button-item {
+        width: 144px;
+        height: 43px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+
+
+@media (max-width: 991px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .bookshelf-workspace {
+        gap: 30px;
+    }
+
+    .bookshelf-container {
+        max-width: 100%;
+    }
+
+    .bookshelf-row {
+        height: 220px;
+        padding: 0 20px;
+    }
+
+    .books-group {
+        gap: 8px;
+    }
+
+    .bookshelf-book {
+        height: 170px;
+        width: 38px;
+    }
+
+    .book-spine-view {
+        padding-top: 12px;
+    }
+
+    .spine-text {
+        font-size: 11.5px;
+    }
+
+    .bookshelf-showcase-spot {
+        width: 115px;
+        height: 175px;
+    }
+
+    .book-cover-view {
+        width: 115px;
+        height: 175px;
+    }
+
+    .shelf-wood-board {
+        height: 12px;
+    }
+
+    .shelf-wood-board .shelf-top {
+        top: -8px;
+        height: 8px;
+    }
+
+    .book-details-card {
+        padding: 20px;
+    }
+
+    .details-title {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 576px) {
+    .bookshelf-row {
+        height: 190px;
+        padding: 0 10px;
+    }
+
+    .books-group {
+        gap: 6px;
+    }
+
+    .bookshelf-book {
+        height: 140px;
+        width: 32px;
+    }
+
+    .spine-text {
+        font-size: 10px;
+    }
+
+    .bookshelf-showcase-spot {
+        width: 95px;
+        height: 145px;
+    }
+
+    .book-cover-view {
+        width: 95px;
+        height: 145px;
+    }
+
+    .cover-content-fallback {
+        padding: 12px 8px;
+    }
+
+    .cover-title {
+        font-size: 11px;
+    }
+
+    .cover-emoji {
+        font-size: 20px;
+    }
+
+    .book-details-card {
+        padding: 15px;
+        border-radius: 16px;
+    }
+
+    .details-why-read {
+        padding: 10px 14px;
+        border-right: none;
+        border-top: 4px solid var(--highlight-indigo);
+        border-radius: 0 0 12px 12px;
+    }
+
+
+}

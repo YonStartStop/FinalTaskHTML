@@ -1,0 +1,1081 @@
+/* ==========================================================================
+   INDEX / HOME PAGE SPECIFIC STYLES
+   ========================================================================== */
+
+/* ==========================================================================
+   SPEECH BUBBLE CLOUD
+   ========================================================================== */
+.bubble-field-container {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    padding: 0 40px;
+}
+
+/* Hero Title styling */
+.hero-title {
+    font-family: "Rubik", sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--eggplant);
+    text-align: center;
+    margin-top: 130px;
+    margin-bottom: 90px;
+    position: relative;
+    z-index: 10;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile parents container (hidden on desktop) */
+.mobile-parents-container {
+    display: none;
+}
+
+/* Updated Bubble Cluster Grid to Grid layout on Desktop */
+.bubble-cluster-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+}
+
+/* Bubbles side columns */
+.hero-bubbles-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 45px; /* Increased vertical spacing to prevent overlapping */
+    height: auto;
+    min-height: auto;
+    padding: 10px 0;
+}
+
+/* Set vertical spacing for bubbles in column */
+.hero-bubbles-column .interactive-bubble {
+    margin: 0; /* Reset margins since spacing is controlled by flex gap */
+    left: auto;
+    right: auto;
+}
+
+/* Staggered positioning of bubbles inside columns to create an organic scattered feel */
+.left-column .interactive-bubble:nth-child(1) { align-self: flex-end; margin-right: 10px; }
+.left-column .interactive-bubble:nth-child(2) { align-self: flex-start; margin-left: 20px; }
+.left-column .interactive-bubble:nth-child(3) { align-self: flex-end; margin-right: 30px; }
+.left-column .interactive-bubble:nth-child(4) { align-self: flex-start; margin-left: 15px; }
+.left-column .interactive-bubble:nth-child(5) { align-self: flex-end; margin-right: 5px; }
+
+.right-column .interactive-bubble:nth-child(1) { align-self: flex-start; margin-left: 10px; }
+.right-column .interactive-bubble:nth-child(2) { align-self: flex-end; margin-right: 25px; }
+.right-column .interactive-bubble:nth-child(3) { align-self: flex-start; margin-left: 30px; }
+.right-column .interactive-bubble:nth-child(4) { align-self: flex-end; margin-right: 15px; }
+.right-column .interactive-bubble:nth-child(5) { align-self: flex-start; margin-left: 5px; }
+
+/* Center Column Parents styling */
+.hero-parents-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.hero-parents-img {
+    display: block;
+    margin: 0 auto;
+    width: 440px; /* Enlarged parents illustration for prominent desktop focus */
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 15px 25px rgba(54, 82, 122, 0.15));
+    animation: floatParents 6s ease-in-out infinite;
+}
+
+@keyframes floatParents {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Chat bubble font size modifiers to match hero_1.png */
+.chat-bubble.size-small {
+    font-size: 14px !important;
+    padding: 8px 16px;
+}
+
+.chat-bubble.size-medium {
+    font-size: 18px !important;
+    padding: 10px 20px;
+}
+
+.chat-bubble.size-medium-large {
+    font-size: 21px !important;
+    padding: 12px 24px;
+}
+
+.chat-bubble.size-large {
+    font-size: 25px !important;
+    padding: 14px 28px;
+}
+
+/* CTA Button at bottom of fold styling */
+.hero-cta-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 75px; /* Spec: 75px vertical spacing between parents and CTA button */
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 15;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(15px);
+    transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero-cta-wrapper.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.hero-cta-btn {
+    font-family: "Rubik", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: var(--eggplant);
+    padding: 12px 42px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(54, 34, 66, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.hero-cta-btn:hover {
+    background-color: #FFFFFF;
+    color: var(--eggplant);
+    border-color: var(--eggplant);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(54, 34, 66, 0.2);
+}
+
+/* Chat bubble designs */
+.chat-bubble {
+    background-color: var(--bubble-azure);
+    border-radius: 26px;
+    padding: 12px 22px;
+    display: inline-block;
+    color: #1A2F4C;
+    text-decoration: none;
+    position: relative;
+    box-shadow: 0 6px 14px rgba(54, 82, 122, 0.08);
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* speech bubble tails (pointing different directions organically) */
+.chat-bubble::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: var(--bubble-azure);
+    transform: rotate(45deg);
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+/* Bottom Right Tail */
+.chat-bubble.tail-bottom-right::after {
+    bottom: -6px;
+    right: 28px;
+}
+
+/* Bottom Left Tail */
+.chat-bubble.tail-bottom-left::after {
+    bottom: -6px;
+    left: 28px;
+}
+
+/* Top Right Tail */
+.chat-bubble.tail-top-right::after {
+    top: -6px;
+    right: 28px;
+}
+
+/* Top Left Tail */
+.chat-bubble.tail-top-left::after {
+    top: -6px;
+    left: 28px;
+}
+
+/* Text Stylings in Bubbles (RTL Conversational) */
+.chat-bubble.kid {
+    font-family: "Playpen Sans Hebrew", cursive, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--eggplant);
+    /* Soft purplish-eggplant background phrase */
+}
+
+/* Modern bold blocky highlights */
+.chat-bubble.kid strong {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+    color: #000000;
+    padding: 0 3px;
+}
+
+/* Interactive gravity bubble scaling details */
+.interactive-bubble {
+    position: relative;
+    transform: scale(0.85);
+    transform-origin: center center;
+    white-space: nowrap;
+    will-change: transform;
+    cursor: pointer;
+    z-index: 1;
+    margin: 4px -22px;
+    border: 2.5px solid transparent;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.interactive-bubble.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.interactive-bubble:hover {
+    z-index: 999 !important;
+    border-color: var(--highlight-blue);
+    background-color: #FFFFFF;
+}
+
+.interactive-bubble:hover::after {
+    background-color: #FFFFFF;
+}
+
+
+
+
+/* ==========================================================================
+   VIRTUAL DIVIDER
+   ========================================================================== */
+.virtual-divider-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto 40px;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+/* Speed Bump alternating ribbon */
+.decorative-dash-line {
+    display: flex;
+    width: 90%;
+    max-width: 820px;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dash {
+    flex: 1;
+    height: 100%;
+}
+
+.dash.red {
+    background-color: var(--accent-red);
+}
+
+.dash.orange {
+    background-color: var(--accent-orange);
+}
+
+/* Navy Capsule block */
+.navy-capsule-divider {
+    width: 95%;
+    max-width: 880px;
+    height: 20px;
+    background-color: var(--navy-blue);
+    border-radius: 50px;
+    margin-top: 5px;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+    position: relative;
+}
+
+.capsule-core {
+    display: block;
+    width: calc(100% - 10px);
+    height: 8px;
+    margin: 3px auto;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+}
+
+
+
+@media (max-width: 767px) {
+    /* Mobile parents container styling */
+    .mobile-parents-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 90px; /* Spec: 90px gap from title to parents image on mobile */
+        margin-bottom: 10px;
+    }
+
+    .mobile-parents-img {
+        width: 100%;
+        max-width: 440px; /* Enlarged mobile parents illustration */
+        height: auto;
+        filter: drop-shadow(0 10px 20px rgba(54, 82, 122, 0.12));
+    }
+
+    .hero-title {
+        margin-bottom: 0px; /* Override desktop 130px margin-bottom on mobile */
+        font-size: 28px;
+    }
+
+    /* Disable gravity field, enable swipeable carousel for bubbles on mobile */
+    .bubble-field-container {
+        padding: 20px 0;
+        min-height: auto;
+        overflow-x: auto;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        /* Carousel horizontal scroll snap */
+        scroll-snap-type: x mandatory;
+    }
+
+    .bubble-cluster-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 15px;
+        padding: 10px 20px 30px;
+        width: max-content;
+        margin: 0;
+    }
+
+    /* Unset the column behavior for bubbles on mobile so they act as direct children of the flex row */
+    .hero-bubbles-column {
+        display: contents;
+    }
+
+    /* Hide the parents image inside the scroll container on mobile */
+    .hero-parents-center {
+        display: none;
+    }
+
+    /* Reset staggered margins on mobile */
+    .left-column .interactive-bubble,
+    .right-column .interactive-bubble {
+        align-self: auto !important;
+        margin: 0 !important;
+    }
+
+    .chat-bubble {
+        scroll-snap-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .interactive-bubble {
+        transform: scale(0) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        margin: 0;
+        white-space: normal;
+        min-width: 240px;
+        max-width: 280px;
+        text-align: right;
+        transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.25s ease, background-color 0.25s ease !important;
+    }
+
+    .interactive-bubble.visible {
+        transform: scale(1) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+
+    /* Divider spacing adjustments */
+    .virtual-divider-container {
+        margin: 25px auto;
+        padding: 0 20px;
+    }
+
+
+}
+
+   5. Premium Glassmorphic Modal Popup
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000;
+    /* Ensure overlay floats on top of the entire website frame */
+    padding: 20px;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(54, 34, 66, 0.4);
+    backdrop-filter: blur(12px);
+    /* Beautiful glassmorphic blurred bg */
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--bg-primary);
+    border-radius: 28px;
+    width: 100%;
+    max-width: 680px;
+    max-height: 85vh;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(54, 34, 66, 0.25), inset 0 2px 4px rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 10;
+    overflow-y: auto;
+    direction: rtl;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+/* Opened state */
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--eggplant);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    text-align: right;
+}
+
+/* Modal Inner Components */
+.modal-question-header {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.modal-question-header .chat-bubble.kid {
+    display: inline-block;
+    max-width: 90%;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    margin: 0;
+}
+
+.modal-parent-guide {
+    background-color: #FFEBF5;
+    /* Matches adult bubble light blush pink tone */
+    border-right: 4px solid var(--highlight-indigo);
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 14.5px;
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.modal-parent-guide strong {
+    color: var(--eggplant);
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* 3 Layers display inside modal */
+.modal-layers-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-layer-row {
+    background-color: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
+}
+
+.modal-layer-label {
+    display: inline-block;
+    font-family: "Rubik", sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: #FFFFFF;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.modal-layer-label.bg-blue {
+    background-color: var(--highlight-blue);
+}
+
+.modal-layer-label.bg-indigo {
+    background-color: var(--highlight-indigo);
+}
+
+.modal-layer-label.bg-salmon {
+    background-color: var(--accent-salmon);
+}
+
+.modal-layer-text {
+    font-size: 16px;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.modal-layer-row .example-bubble-wrapper {
+    margin-top: 15px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Footer Enhancements
+   -------------------------------------------------------------------------- */
+.footer-quote {
+    font-family: "Rubik", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--eggplant);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.footer-copyright {
+    font-size: 13.5px;
+    color: var(--text-tertiary);
+}
+
+
+
+@media (max-width: 576px) {
+    .modal-content {
+        padding: 30px 20px;
+    }
+
+    .modal-close-btn {
+        top: 10px;
+        left: 10px;
+    }
+
+}
+
+/* ==========================================================================
+   EXPLANATION SECTION REDESIGN (Matches hero_2.png)
+   ========================================================================== */
+#commandments {
+    scroll-margin-top: 130px; /* Offset to prevent sticky navbar overlap */
+}
+
+.explanation-section {
+    position: relative;
+    width: 100%;
+    padding-bottom: 0 !important;
+}
+
+.explanation-header-container {
+    display: flex;
+    flex-direction: row-reverse; /* RTL layout: girl in red on the right, text content on the left */
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+.explanation-text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centered relative to the column as in hero_2.png */
+    text-align: center;
+}
+
+.explanation-title {
+    font-family: "Rubik", sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--eggplant);
+    margin-bottom: 24px;
+    line-height: 1.3;
+}
+
+.explanation-paragraphs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.explanation-paragraphs p {
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.explanation-character-container {
+    width: 300px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* Responsive styling for explanation section */
+@media (max-width: 991px) {
+    .explanation-header-container {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 0;
+    }
+
+    .explanation-character-container {
+        width: 240px;
+        order: 2; /* Put illustration below text on mobile */
+    }
+}
+
+
+
+/* ==========================================================================
+   INTERACTIVE LEGO "4 GOLDEN PRINCIPLES" SECTION
+   ========================================================================== */
+.lego-principles-section {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    position: relative;
+    width: 100%;
+    padding-top: 0 !important;
+}
+
+.lego-principles-container {
+    display: flex;
+    flex-direction: row; /* RTL: Lego on the left (first in HTML order, or styled row-reverse) */
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* We want the Lego tower on the left, and text column on the right in RTL.
+   In RTL, flex-direction: row means the first item is on the right, and the second is on the left.
+   So:
+   - First HTML element: text column (appears on the right)
+   - Second HTML element: Lego tower column (appears on the left)
+*/
+.lego-text-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    box-sizing: border-box;
+}
+
+.lego-section-title {
+    font-family: "Rubik", sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--eggplant);
+    margin-bottom: 14px;
+}
+
+.lego-section-subtitle {
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 35px;
+}
+
+/* The actual text container displaying the selected principle details.
+   "ללא קווי מתאר בתיבה עצמה" - no borders or box outlines.
+*/
+.lego-text-container {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02); /* soft premium shadow, no borders */
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.lego-text-title {
+    font-family: "Rubik", sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.lego-text-desc {
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.lego-text-link {
+    color: var(--highlight-blue);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.lego-text-link:hover {
+    color: var(--eggplant);
+    text-decoration: underline;
+}
+
+/* Dynamic title colors matching active LEGO brick */
+.lego-principles-section.active-1 .lego-text-title {
+    color: var(--accent-salmon);
+}
+.lego-principles-section.active-2 .lego-text-title {
+    color: var(--highlight-indigo);
+}
+.lego-principles-section.active-3 .lego-text-title {
+    color: var(--highlight-blue);
+}
+.lego-principles-section.active-4 .lego-text-title {
+    color: #b0a400; /* Darker yellow/gold for high-contrast readability */
+}
+
+/* LEGO Tower Column (Left side in RTL) */
+.lego-tower-column {
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.lego-tower {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -35px; /* Pull the tower slightly up to visually cross into the explanation section */
+    padding-top: 15px; /* space for the top studs */
+    width: 260px;
+    height: 320px; /* height wraps the brick tower nicely */
+}
+
+/* LEGO Brick Base Styling */
+.lego-brick {
+    position: relative;
+    width: 250px;
+    height: 80px;
+    border: 3.5px solid var(--eggplant); /* Outlined cartoon border matching lego.png */
+    border-radius: 6px; /* Slightly rounded edges matching lego.png */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    outline: none;
+    box-sizing: border-box;
+    
+    /* Cartoon 2D shadow: flat, clean dark stripe at the bottom, no white highlights */
+    box-shadow: 
+        inset 0 -6px 0 rgba(0, 0, 0, 0.15),
+        0 6px 12px rgba(54, 34, 66, 0.08);
+
+    /* Inactive style: slightly desaturated and translucent */
+    filter: saturate(0.65) brightness(0.95);
+    opacity: 0.85;
+}
+
+/* Plastic sheen gradient overlay - simplified to be less shiny/white */
+.lego-brick::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 4px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0.06) 100%);
+    pointer-events: none;
+}
+
+/* Brick colors */
+.lego-brick.brick-1 {
+    background-color: var(--accent-salmon);
+    z-index: 4;
+}
+.lego-brick.brick-2 {
+    background-color: var(--highlight-indigo);
+    z-index: 3;
+    margin-top: -12px; /* overlap studs of brick below */
+}
+.lego-brick.brick-3 {
+    background-color: var(--highlight-blue);
+    z-index: 2;
+    margin-top: -12px;
+}
+.lego-brick.brick-4 {
+    background-color: var(--highlight-yellow);
+    z-index: 1;
+    margin-top: -12px;
+}
+
+/* LEGO Studs (protruding cylinders on top) */
+.brick-studs {
+    position: absolute;
+    top: -14px; /* pop out from top edge to overlap top border */
+    left: 18px;
+    right: 18px;
+    display: flex;
+    justify-content: space-around;
+    pointer-events: none;
+}
+
+.brick-studs span {
+    position: relative;
+    width: 34px;
+    height: 14px;
+    border: 3.5px solid var(--eggplant); /* Cartoon outline border */
+    border-bottom: none; /* Merges into the brick top face */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: inherit; /* matches the parent brick color */
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2); /* Very soft top highlight, no white caps */
+}
+
+/* Embossed number print on the brick face */
+.brick-label {
+    font-family: "Rubik", sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 -1.5px 0 var(--eggplant), 0 1.5px 0 var(--eggplant), -1.5px 0 0 var(--eggplant), 1.5px 0 0 var(--eggplant); /* Clean outline look for the text */
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Hover effects */
+.lego-brick:hover {
+    filter: saturate(0.9) brightness(1.02);
+    opacity: 0.95;
+    transform: scale(1.03);
+}
+
+/* Focus outline for keyboard navigation */
+.lego-brick:focus-visible {
+    outline: 3px solid var(--eggplant);
+    outline-offset: 4px;
+}
+
+/* ACTIVE STATE BRICK:
+   - 15% expansion
+   - vivid/saturated colors
+   - high contrast shadow
+   - sits in front
+*/
+.lego-brick.active {
+    filter: saturate(1.2) brightness(1.02);
+    opacity: 1;
+    transform: scale(1.15) !important;
+    z-index: 10 !important;
+    box-shadow: 
+        inset 0 -6px 0 rgba(0, 0, 0, 0.22),
+        0 12px 24px rgba(54, 34, 66, 0.18);
+}
+
+/* TOWER PHYSICS ANIMATIONS:
+   Depending on which brick is active, the other bricks "move away"
+   by translating vertically, opening up gaps that reveal the studs below.
+*/
+
+/* Active 1 (Top active): Bricks 2, 3, 4 move down */
+.lego-tower.active-1 .lego-brick.brick-2 {
+    transform: translateY(34px);
+}
+.lego-tower.active-1 .lego-brick.brick-3 {
+    transform: translateY(34px);
+}
+.lego-tower.active-1 .lego-brick.brick-4 {
+    transform: translateY(34px);
+}
+
+/* Active 2: Brick 1 moves up; Bricks 3, 4 move down */
+.lego-tower.active-2 .lego-brick.brick-1 {
+    transform: translateY(-34px);
+}
+.lego-tower.active-2 .lego-brick.brick-3 {
+    transform: translateY(34px);
+}
+.lego-tower.active-2 .lego-brick.brick-4 {
+    transform: translateY(34px);
+}
+
+/* Active 3: Bricks 1, 2 move up; Brick 4 moves down */
+.lego-tower.active-3 .lego-brick.brick-1 {
+    transform: translateY(-34px);
+}
+.lego-tower.active-3 .lego-brick.brick-2 {
+    transform: translateY(-34px);
+}
+.lego-tower.active-3 .lego-brick.brick-4 {
+    transform: translateY(34px);
+}
+
+/* Active 4 (Bottom active): Bricks 1, 2, 3 move up */
+.lego-tower.active-4 .lego-brick.brick-1 {
+    transform: translateY(-34px);
+}
+.lego-tower.active-4 .lego-brick.brick-2 {
+    transform: translateY(-34px);
+}
+.lego-tower.active-4 .lego-brick.brick-3 {
+    transform: translateY(-34px);
+}
+
+
+/* Responsive Layout Media Queries */
+@media (max-width: 991px) {
+    .lego-principles-container {
+        flex-direction: column-reverse; /* Stacks Lego tower on top, text box below */
+        gap: 40px;
+        margin-top: 0;
+    }
+
+    .lego-tower-column {
+        width: 100%;
+    }
+
+    .lego-text-column {
+        width: 100%;
+        text-align: center;
+    }
+
+    .lego-section-title {
+        font-size: 28px;
+    }
+
+    .lego-section-subtitle {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .lego-text-container {
+        padding: 25px;
+        min-height: auto;
+    }
+
+    .lego-text-title {
+        font-size: 22px;
+    }
+
+    .lego-text-desc {
+        font-size: 16.5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lego-brick {
+        width: 160px;
+        height: 52px;
+    }
+    
+    .lego-tower {
+        height: 230px;
+        width: 170px;
+    }
+
+    .brick-studs span {
+        width: 22px;
+        height: 6px;
+        border-width: 2px; /* Thinner outline for small scale on mobile */
+    }
+
+    .brick-studs {
+        top: -6px;
+    }
+
+    .brick-label {
+        font-size: 22px;
+    }
+
+    /* Adjust translations for smaller bricks to avoid huge gaps on mobile */
+    .lego-tower.active-1 .lego-brick.brick-2,
+    .lego-tower.active-1 .lego-brick.brick-3,
+    .lego-tower.active-1 .lego-brick.brick-4,
+    .lego-tower.active-2 .lego-brick.brick-3,
+    .lego-tower.active-2 .lego-brick.brick-4,
+    .lego-tower.active-3 .lego-brick.brick-4 {
+        transform: translateY(16px);
+    }
+
+    .lego-tower.active-2 .lego-brick.brick-1,
+    .lego-tower.active-3 .lego-brick.brick-1,
+    .lego-tower.active-3 .lego-brick.brick-2,
+    .lego-tower.active-4 .lego-brick.brick-1,
+    .lego-tower.active-4 .lego-brick.brick-2,
+    .lego-tower.active-4 .lego-brick.brick-3 {
+        transform: translateY(-16px);
+    }
+}
+
+

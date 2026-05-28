@@ -1,0 +1,845 @@
+/* ==========================================================================
+   COMMON SHARED STYLES
+   ========================================================================== */
+
+/* ==========================================================================
+   DESIGN LANGUAGE & SYSTEM VARIABLES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap');
+
+:root {
+    /* Backgrounds */
+    --bg-primary: #F4F7F9;
+    /* Bluish-grey soft and soft (#F4F7F9) */
+    --bg-secondary: #FFFFFF;
+    /* Pure White */
+    --bg-matte-grey: #EFF1F3;
+    /* Premium Matte Grey for container */
+
+    /* Brand Colors */
+    --eggplant: #362242;
+    /* Dark purple eggplant */
+    --navy-blue: #1B2A4A;
+    /* Navy Blue capsule divider */
+    --bubble-azure: #E6EEF8;
+    /* Speech bubble background */
+
+    /* Text */
+    --text-primary: #000000;
+    --text-secondary: #545454;
+    --text-tertiary: #767676;
+
+    /* Highlights (Figma Spec) */
+    --highlight-blue: #4687E2;
+    --highlight-indigo: #B369E4;
+    --highlight-yellow: #D2C517;
+
+    /* Accent & Decorative Colors */
+    --accent-salmon: #FF8A71;
+    --accent-red: #E63946;
+    --accent-orange: #F77F00;
+
+    /* 3 Layers Variables - Gentle Pastels for high contrast dark text */
+    --layer-1-color: #DCE9FD;
+    /* Soft sky blue */
+    --layer-1-hover: #C7DEFD;
+    --layer-1-text: #1E3A8A;
+    --layer-2-color: #F1E4FC;
+    /* Soft purple */
+    --layer-2-hover: #E6CEFC;
+    --layer-2-text: #5B21B6;
+    --layer-3-color: #FFEBE6;
+    /* Soft peach */
+    --layer-3-hover: #FFD7CE;
+    --layer-3-text: #9A3412;
+}
+
+/* ==========================================================================
+   GLOBAL RESET & DECORATIONS
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Thin focus border around the entire body */
+.global-frame {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid #000000;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Background floating organic graphic (Left) */
+.bg-flower-decor {
+    position: absolute;
+    top: 40%;
+    left: -40px;
+    width: 250px;
+    height: 250px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecor 8s ease-in-out infinite;
+}
+
+@keyframes floatDecor {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(3deg);
+    }
+}
+
+/* Background floating organic graphic (Right) */
+.bg-flower-decor-right {
+    position: absolute;
+    top: 65%;
+    right: -40px;
+    width: 250px;
+    height: 250px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorRight 9s ease-in-out infinite;
+}
+
+@keyframes floatDecorRight {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(10px) rotate(-4deg);
+    }
+}
+
+/* Background floating organic graphic (Right, High) */
+.bg-flower-decor-right-high {
+    position: absolute;
+    top: 15%;
+    right: -30px;
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorRightHigh 7s ease-in-out infinite;
+}
+
+@keyframes floatDecorRightHigh {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translateY(-8px) rotate(4deg) scale(1.02);
+    }
+}
+
+/* Background floating organic graphic (Left, Low) */
+.bg-flower-decor-left-low {
+    position: absolute;
+    top: 85%;
+    left: -35px;
+    width: 180px;
+    height: 180px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorLeftLow 10s ease-in-out infinite;
+}
+
+@keyframes floatDecorLeftLow {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translateY(12px) rotate(-3deg) scale(0.98);
+    }
+}
+
+/* Background floating organic graphic (Left, High) */
+.bg-flower-decor-left-high {
+    position: absolute;
+    top: 5%;
+    left: -30px;
+    width: 130px;
+    height: 130px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorLeftHigh 8.5s ease-in-out infinite;
+}
+
+@keyframes floatDecorLeftHigh {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-6px) rotate(-3deg);
+    }
+}
+
+/* Background floating organic graphic (Left, Mid-Low) */
+.bg-flower-decor-left-mid-low {
+    position: absolute;
+    top: 55%;
+    left: -40px;
+    width: 170px;
+    height: 170px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorLeftMidLow 9.5s ease-in-out infinite;
+}
+
+@keyframes floatDecorLeftMidLow {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(8px) rotate(3deg);
+    }
+}
+
+/* Background floating organic graphic (Right, Mid-High) */
+.bg-flower-decor-right-mid-high {
+    position: absolute;
+    top: 30%;
+    right: -35px;
+    width: 200px;
+    height: 200px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorRightMidHigh 8.2s ease-in-out infinite;
+}
+
+@keyframes floatDecorRightMidHigh {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(4deg);
+    }
+}
+
+/* Background floating organic graphic (Right, Low) */
+.bg-flower-decor-right-low {
+    position: absolute;
+    top: 92%;
+    right: -30px;
+    width: 140px;
+    height: 140px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorRightLow 7.8s ease-in-out infinite;
+}
+
+@keyframes floatDecorRightLow {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(7px) rotate(-4deg);
+    }
+}
+
+/* Background floating organic graphic (Bottom Right) */
+.bg-flower-decor-bottom-right {
+    position: absolute;
+    top: 96%;
+    right: -40px;
+    width: 220px;
+    height: 220px;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDecorBottomRight 11s ease-in-out infinite;
+}
+
+@keyframes floatDecorBottomRight {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(4deg);
+    }
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+p,
+.quote,
+.caption {
+    font-family: "Open Sans", sans-serif;
+}
+
+
+
+/* ==========================================================================
+   HEADER & NAVBAR (ABOVE THE FOLD)
+   ========================================================================== */
+.above-the-fold-section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.main-header {
+    background-color: transparent;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    padding-top: 20px;
+    z-index: 1000;
+    border-bottom: none;
+}
+
+.header-svgs-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.18)) url("#goo");
+}
+
+.header-bg-wave {
+    position: absolute;
+    top: -15px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: 135px;
+}
+
+.header-logo-blob {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 425px;
+    height: 155px;
+}
+
+@media (max-width: 767px) {
+    .header-logo-blob {
+        width: 320px;
+        height: 135px;
+    }
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 60px;
+    align-items: center;
+    direction: rtl;
+}
+
+/* Logo Area (Right-aligned, absolute to viewport) */
+/* Logo Area (Right-aligned, absolute to viewport) */
+.logo-area {
+    position: absolute;
+    right: 55px;
+    top: calc(50% + 26px);
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 12px 25px;
+    border-radius: 26px;
+    /* beautiful, clean, non-scribbled rounded bubble */
+    border: 2px solid transparent;
+    /* stable layout size reservation */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12), inset 0 0 10px rgba(255, 255, 255, 0.05);
+    z-index: 1001;
+    /* sit above background SVGs */
+    overflow: visible;
+    /* so borders can render clearly without clipping */
+    text-decoration: none;
+    /* ensure no link underlines */
+}
+
+/* GPU-Accelerated Borders to completely eliminate layout recalculations and flickering */
+.logo-area::before,
+.logo-area::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Initial state: dashed hand-drawn style outline */
+.logo-area::before {
+    border: 2px dashed rgba(255, 255, 255, 0.25);
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Hover state: beautiful continuous solid outline (hidden initially) */
+.logo-area::after {
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Hover transition interaction - 100% GPU accelerated, no white block flickering! */
+.logo-area:hover::before {
+    opacity: 0;
+}
+
+.logo-area:hover::after {
+    opacity: 1;
+}
+
+.logo-title {
+    font-family: "Playpen Sans Hebrew", cursive, sans-serif;
+    font-size: 30px;
+    /* adjusted slightly to sit beautifully in the sketchy bubble */
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    /* removed cyan glow */
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    /* ensure sits cleanly above borders */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo-area:hover .logo-title {
+    color: #FFFFFF;
+    /* do not change color when hovering/clicking */
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    /* no glow */
+}
+
+.logo-slogan {
+    font-family: "Rubik", sans-serif;
+    font-size: 11.5px;
+    /* adjusted slightly for perfect neat fit */
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 3px;
+    letter-spacing: 0.1px;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+    /* ensure sits cleanly above borders */
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-area:hover .logo-slogan {
+    color: rgba(255, 255, 255, 0.85);
+    /* do not change color when hovering/clicking */
+    opacity: 0.9;
+}
+
+/* Desktop Navigation (Left-aligned) */
+.desktop-nav {
+    display: block;
+    margin-right: 320px;
+    /* leaves exactly the same space for the logo as before! */
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-link {
+    font-family: "Rubik", sans-serif;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 6px 4px;
+    position: relative;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+    display: inline-block;
+}
+
+.nav-link:hover {
+    color: #FFE082;
+    /* soft pastel yellow-gold */
+    text-shadow: 0 0 8px rgba(255, 224, 130, 0.3);
+}
+
+.nav-link.active {
+    color: #FFB74D;
+    /* soft warm pastel orange */
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 183, 77, 0.4);
+}
+
+/* Wavy bottom divider curves shape */
+.header-wave-container {
+    width: 100%;
+    line-height: 0;
+    margin-bottom: -1px;
+}
+
+.header-wave-container svg {
+    display: block;
+    width: 100%;
+    height: 60px;
+}
+
+/* Mobile Hamburger button */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 110;
+}
+
+.hamburger-bar {
+    width: 100%;
+    height: 3px;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Navigation Overlay Drawer */
+.mobile-menu-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    z-index: 99999;
+    display: flex;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-drawer.active {
+    right: 0;
+}
+
+.mobile-menu-overlay {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+}
+
+.mobile-menu-content {
+    width: 280px;
+    background-color: var(--eggplant);
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 0 25px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    direction: rtl;
+}
+
+.mobile-menu-title {
+    font-family: "Playpen Sans Hebrew", cursive, sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #FFFFFF;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.close-menu-btn {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.mobile-nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: right;
+    direction: rtl;
+}
+
+.menu-link {
+    font-family: "Rubik", sans-serif;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    display: block;
+    padding: 10px 16px;
+    border-radius: 20px;
+    transition: all 0.25s ease;
+    margin-bottom: 5px;
+    border: 1px solid transparent;
+}
+
+.menu-link.active {
+    color: #FFB74D;
+    /* soft warm pastel orange */
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-link:hover {
+    color: #FFE082;
+    /* soft pastel yellow-gold */
+    background-color: rgba(255, 255, 255, 0.08);
+    padding-right: 22px;
+}
+
+
+
+/* ==========================================================================
+   BELOW THE FOLD & CONTENT AREA
+   ========================================================================== */
+.below-the-fold-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 40px 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.content-layout-container {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 40px;
+    align-items: stretch;
+    direction: rtl;
+}
+
+@media (min-width: 992px) {
+    .content-layout-container.reverse-layout {
+        flex-direction: row;
+    }
+}
+
+
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.main-footer {
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 30px 40px;
+    background-color: var(--bg-secondary);
+    text-align: center;
+    direction: rtl;
+    margin-top: 60px;
+    position: relative;
+    z-index: 50;
+}
+
+.main-footer p {
+    font-size: 14px;
+    color: var(--text-tertiary);
+}
+
+
+
+@media (max-width: 991px) {
+    .content-layout-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 16px;
+    }
+
+    .main-header {
+        padding-top: 15px;
+    }
+
+    .header-container {
+        padding: 0 20px;
+        position: relative;
+        min-height: 70px;
+    }
+
+    .logo-area {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 6px 15px;
+        border-radius: 40% 25% 40% 30% / 30% 40% 25% 40%;
+    }
+
+    .logo-title {
+        font-size: 22px;
+    }
+
+    .logo-slogan {
+        font-size: 10.5px;
+    }
+
+    /* Show mobile hamburger, hide desktop links */
+    .desktop-nav {
+        display: none;
+    }
+
+    .hamburger-btn {
+        display: flex;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+
+    /* Dashboard compact columns */
+    .below-the-fold-section {
+        padding: 10px 20px 40px;
+    }
+
+    .dashboard-container {
+        padding: 22px;
+        border-radius: 18px;
+    }
+
+    .dashboard-title {
+        font-size: 22px;
+    }
+
+    .dashboard-filter-pills {
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .filter-pill {
+        padding: 6px 14px;
+        font-size: 13px;
+    }
+
+    .dashboard-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+}
+
+/* ==========================================================================
+   NEW CUSTOM INTERACTIVE ELEMENTS & WIDGETS
+   ========================================================================== */
+
+/* Alternating background section */
+.bg-alt-section {
+    background-color: var(--bg-matte-grey);
+    border-radius: 30px;
+    padding: 60px 40px !important;
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.02), 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+/* Shared titles for sections */
+.section-title-wrapper {
+    margin-bottom: 45px;
+    text-align: center;
+    direction: rtl;
+}
+
+.section-main-title {
+    font-family: "Rubik", sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--eggplant);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+}
+
+.section-main-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
+    height: 4px;
+    background: linear-gradient(to left, var(--highlight-indigo), var(--highlight-blue));
+    border-radius: 10px;
+}
+
+.section-main-subtitle {
+    font-size: 17px;
+    color: var(--text-secondary);
+    margin-top: 12px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+
+
+@media (max-width: 991px) {
+    .bg-alt-section {
+        padding: 40px 20px !important;
+        margin-top: 30px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .section-main-title {
+        font-size: 27px;
+    }
+
+}

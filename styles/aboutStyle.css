@@ -1,0 +1,155 @@
+/* ==========================================================================
+   ABOUT PAGE SPECIFIC STYLES
+   ========================================================================== */
+
+/* ==========================================================================
+   SVG CHARACTER COLUMN
+   ========================================================================== */
+.character-container {
+    width: 300px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+}
+
+.girl-illustration {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.05));
+    transform-origin: bottom center;
+    animation: cuteSway 6s ease-in-out infinite;
+}
+
+@keyframes cuteSway {
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(0.8deg) scale(1.01);
+    }
+}
+
+
+
+
+@media (max-width: 991px) {
+    .character-container {
+        width: 260px;
+        order: 2;
+        margin-top: 20px;
+    }
+
+    .character-container.team-container {
+        width: 100%;
+        max-width: 400px;
+        margin-top: 30px;
+    }
+}
+
+}
+
+/* --------------------------------------------------------------------------
+   1. 4 Commandments Grid & Cards
+   -------------------------------------------------------------------------- */
+.commandments-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 35px;
+    direction: rtl;
+}
+
+.commandment-card {
+    background-color: var(--bg-secondary);
+    border-radius: 18px;
+    padding: 24px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+}
+
+.commandment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 5px;
+}
+
+.commandment-card.border-salmon::before {
+    background-color: var(--accent-salmon);
+}
+
+.commandment-card.border-indigo::before {
+    background-color: var(--highlight-indigo);
+}
+
+.commandment-card.border-blue::before {
+    background-color: var(--highlight-blue);
+}
+
+.commandment-card.border-yellow::before {
+    background-color: var(--highlight-yellow);
+}
+
+.commandment-num {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.05);
+    line-height: 1;
+    font-family: "Rubik", sans-serif;
+    transition: color 0.3s ease;
+}
+
+.commandment-name {
+    font-family: "Rubik", sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--eggplant);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.commandment-desc {
+    font-size: 15.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+/* Hover effects */
+.commandment-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(54, 34, 66, 0.08);
+    border-color: rgba(54, 34, 66, 0.08);
+}
+
+.commandment-card:hover .commandment-num {
+    color: rgba(179, 105, 228, 0.15);
+}
+
+
+
+@media (max-width: 991px) {
+    .commandments-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+}
