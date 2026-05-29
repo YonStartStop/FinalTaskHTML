@@ -879,3 +879,9 @@ p,
     }
 
 }
+
+@media (min-width: 992px) {
+    .nowrap-desktop {
+        white-space: nowrap;
+    }
+}
