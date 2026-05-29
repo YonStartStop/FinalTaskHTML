@@ -807,6 +807,9 @@
         padding-left: 360px; /* Increased to accommodate the much larger 220px semicircle + spacing */
         padding-right: 10px; /* Keeps text closer to the right edge */
     }
+    .nowrap-desktop {
+        white-space: nowrap;
+    }
 }
 
 /* Animation: Slide content reveals/rolls out from left to right (from semicircles towards the right edge) */
