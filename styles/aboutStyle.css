@@ -54,8 +54,6 @@
     }
 }
 
-}
-
 /* --------------------------------------------------------------------------
    1. 4 Commandments Grid & Cards
    -------------------------------------------------------------------------- */
@@ -146,10 +144,75 @@
 
 
 
-@media (max-width: 991px) {
-    .commandments-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
-
+/* --------------------------------------------------------------------------
+   2. Accordion Component Styles
+   -------------------------------------------------------------------------- */
+.commandment-card.accordion-item {
+    padding: 0 !important; /* Override inline padding and use padding inside header/content instead */
+    cursor: pointer;
+    user-select: none;
 }
+
+.accordion-header {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 22px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: right;
+    font-family: inherit;
+    color: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.accordion-header:focus-visible {
+    outline: 2px solid var(--highlight-indigo);
+    outline-offset: -4px;
+    border-radius: 18px;
+}
+
+.accordion-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.03);
+    color: var(--eggplant);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease;
+}
+
+.accordion-header:hover .accordion-icon {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.accordion-item.active .accordion-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.accordion-content-inner {
+    padding: 0 24px 22px 24px;
+}
+
+.accordion-header .commandment-name {
+    margin-bottom: 0;
+    font-size: 19px;
+}
+

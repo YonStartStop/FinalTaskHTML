@@ -572,4 +572,52 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // ==========================================
+    // ABOUT PAGE ACCORDION LOGIC
+    // ==========================================
+    const accordionHeaders = document.querySelectorAll('.about-accordion .accordion-header');
+    
+    if (accordionHeaders.length > 0) {
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.closest('.accordion-item');
+                const content = item.querySelector('.accordion-content');
+                const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+                // Close other accordion items
+                accordionHeaders.forEach(otherHeader => {
+                    if (otherHeader !== header) {
+                        const otherItem = otherHeader.closest('.accordion-item');
+                        const otherContent = otherItem.querySelector('.accordion-content');
+                        otherItem.classList.remove('active');
+                        otherHeader.setAttribute('aria-expanded', 'false');
+                        otherContent.style.maxHeight = '0';
+                    }
+                });
+
+                // Toggle the clicked one
+                if (isExpanded) {
+                    item.classList.remove('active');
+                    header.setAttribute('aria-expanded', 'false');
+                    content.style.maxHeight = '0';
+                } else {
+                    item.classList.add('active');
+                    header.setAttribute('aria-expanded', 'true');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // Recalculate max-height on window resize for active items
+        window.addEventListener('resize', () => {
+            accordionHeaders.forEach(header => {
+                if (header.getAttribute('aria-expanded') === 'true') {
+                    const item = header.closest('.accordion-item');
+                    const content = item.querySelector('.accordion-content');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+    }
 });
