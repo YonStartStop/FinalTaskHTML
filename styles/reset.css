@@ -25,7 +25,7 @@ time, mark, audio, video {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
-    font-family:Arial;
+    font-family: inherit;
 }
 
 ol, ul, li {
@@ -35,7 +35,7 @@ ol, ul, li {
     font-size: 100%;
     vertical-align: baseline;
     background: transparent;
-    font-family: Arial;
+    font-family: inherit;
 }
 
 body {
