@@ -856,9 +856,16 @@
     font-family: "Rubik", sans-serif;
     font-weight: 800;
     font-size: 13.5px;
-    padding: 5px 15px;
     border-radius: 20px;
     text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 28px;
+    box-sizing: border-box;
 }
 
 /* Slide 1 Badges and Texts */
