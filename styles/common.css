@@ -189,10 +189,12 @@ body::-webkit-scrollbar {
 }
 
 @keyframes floatDecorRightHigh {
+
     0%,
     100% {
         transform: translateY(0) rotate(0deg) scale(1);
     }
+
     50% {
         transform: translateY(-8px) rotate(4deg) scale(1.02);
     }
@@ -211,10 +213,12 @@ body::-webkit-scrollbar {
 }
 
 @keyframes floatDecorLeftLow {
+
     0%,
     100% {
         transform: translateY(0) rotate(0deg) scale(1);
     }
+
     50% {
         transform: translateY(12px) rotate(-3deg) scale(0.98);
     }
@@ -233,9 +237,12 @@ body::-webkit-scrollbar {
 }
 
 @keyframes floatDecorLeftHigh {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotate(0deg);
     }
+
     50% {
         transform: translateY(-6px) rotate(-3deg);
     }
@@ -254,9 +261,12 @@ body::-webkit-scrollbar {
 }
 
 @keyframes floatDecorLeftMidLow {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotate(0deg);
     }
+
     50% {
         transform: translateY(8px) rotate(3deg);
     }
@@ -275,9 +285,12 @@ body::-webkit-scrollbar {
 }
 
 @keyframes floatDecorRightMidHigh {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotate(0deg);
     }
+
     50% {
         transform: translateY(-9px) rotate(4deg);
     }
@@ -296,9 +309,12 @@ body::-webkit-scrollbar {
 }
 
 @keyframes floatDecorRightLow {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotate(0deg);
     }
+
     50% {
         transform: translateY(7px) rotate(-4deg);
     }
@@ -317,9 +333,12 @@ body::-webkit-scrollbar {
 }
 
 @keyframes floatDecorBottomRight {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotate(0deg);
     }
+
     50% {
         transform: translateY(-12px) rotate(4deg);
     }

@@ -28,11 +28,11 @@
     justify-content: space-between;
     gap: 60px;
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 15px auto 40px;
     padding: 0 40px;
     width: 100%;
     direction: rtl;
-    min-height: calc(100vh - 190px);
+    min-height: auto;
 }
 
 .layers-hero-text {
