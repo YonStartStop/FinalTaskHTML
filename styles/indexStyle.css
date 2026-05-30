@@ -148,17 +148,22 @@
     border-radius: 50px;
     text-decoration: none;
     box-shadow: 0 6px 20px rgba(54, 34, 66, 0.3);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
 }
 
 .hero-cta-btn:hover {
-    background-color: #FFFFFF;
-    color: var(--eggplant);
-    border-color: var(--eggplant);
+    background-color: var(--highlight-indigo);
+    color: #FFFFFF;
+    border-color: transparent;
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(54, 34, 66, 0.2);
+    box-shadow: 0 10px 25px rgba(179, 105, 228, 0.28);
 }
+
+.hero-cta-btn:active {
+    transform: translateY(-1px);
+}
+
 
 /* Chat bubble designs */
 .chat-bubble {
