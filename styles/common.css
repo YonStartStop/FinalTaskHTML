@@ -790,25 +790,6 @@ p,
         padding: 22px;
         border-radius: 18px;
     }
-
-    .dashboard-title {
-        font-size: 22px;
-    }
-
-    .dashboard-filter-pills {
-        gap: 8px;
-        margin-bottom: 20px;
-    }
-
-    .filter-pill {
-        padding: 6px 14px;
-        font-size: 13px;
-    }
-
-    .dashboard-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
 }
 
 }
