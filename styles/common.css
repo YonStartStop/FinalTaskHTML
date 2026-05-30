@@ -339,10 +339,13 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 135px; /* Fixed height matching the exact SVG wave graphics to prevent gooey filter clipping */
     z-index: -1;
     pointer-events: none;
     filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.18)) url("#goo");
+    transform: translate3d(0, 0, 0); /* Force GPU compositing layer isolation */
+    backface-visibility: hidden;
+    will-change: transform, filter;
 }
 
 .header-bg-wave {
@@ -361,7 +364,7 @@ p {
     height: 155px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
     .header-logo-blob {
         width: 320px;
         height: 135px;
@@ -384,7 +387,8 @@ p {
     position: absolute;
     right: 55px;
     top: calc(50% + 26px);
-    transform: translateY(-50%);
+    transform: translateY(-50%) translate3d(0, 0, 0); /* Force GPU compositing layer isolation */
+    will-change: transform;
     display: flex;
     flex-direction: column;
     text-align: right;
@@ -540,17 +544,23 @@ p {
 .hamburger-btn {
     display: none;
     flex-direction: column;
-    justify-content: space-between;
-    width: 26px;
-    height: 18px;
-    background: transparent;
-    border: none;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 42px;
+    height: 42px;
+    background: rgba(179, 105, 228, 0.08); /* Premium soft purple glassmorphism */
+    border: 2px dashed var(--highlight-indigo); /* Bubbly purple dashed border matching logo */
+    border-radius: 12px;
     cursor: pointer;
     z-index: 110;
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
 }
 
 .hamburger-bar {
-    width: 100%;
+    width: 20px;
     height: 3px;
     background-color: #FFFFFF;
     border-radius: 2px;
@@ -561,32 +571,52 @@ p {
 .mobile-menu-drawer {
     position: fixed;
     top: 0;
-    right: -100%;
+    left: 0;
     width: 100%;
     height: 100vh;
     z-index: 99999;
     display: flex;
-    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-direction: column-reverse; /* Menu content drops down at the top, overlay fills the bottom */
+    direction: ltr;
+    pointer-events: none; /* Ignore mouse events when menu is closed */
+    visibility: hidden; /* Safeguard to prevent closed dropdown from overlaying/blocking headers */
+    transition: visibility 0.4s;
 }
 
 .mobile-menu-drawer.active {
-    right: 0;
+    pointer-events: auto; /* Enable mouse interactions when active */
+    visibility: visible;
 }
 
 .mobile-menu-overlay {
     flex: 1;
-    background-color: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(4px);
+    background-color: transparent; /* No darkening, perfectly transparent background */
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mobile-menu-drawer.active .mobile-menu-overlay {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .mobile-menu-content {
-    width: 280px;
+    width: 100%;
     background-color: var(--eggplant);
-    height: 100%;
-    padding: 30px;
+    height: auto;
+    padding: 30px 30px 45px 30px; /* Luxurious padding with extra breathing room at the bottom curves */
+    border-bottom-left-radius: 32px; /* Bubbly, organic curved dropdown */
+    border-bottom-right-radius: 32px;
     display: flex;
     flex-direction: column;
-    box-shadow: -10px 0 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28); /* Drop shadow casting downwards */
+    transform: translateY(-100%); /* Stays hidden off-screen above the fold */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto;
+}
+
+.mobile-menu-drawer.active .mobile-menu-content {
+    transform: translateY(0); /* Slides down onto the screen */
 }
 
 .mobile-menu-header {
@@ -710,7 +740,7 @@ p {
 
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
     body {
         font-size: 16px;
     }
@@ -750,9 +780,19 @@ p {
     .hamburger-btn {
         display: flex;
         position: absolute;
-        left: 20px;
-        top: 50%;
-        transform: translateY(-50%);
+        left: 35px; /* Shifted to the right to sit in the deeper part of the wave */
+        top: 40%; /* Shifted higher up into the purple background */
+        transform: translateY(-50%) translate3d(0, 0, 0); /* Force GPU layer isolation on mobile */
+    }
+
+    .hamburger-btn:hover {
+        background: rgba(179, 105, 228, 0.16);
+        border-style: solid; /* Transition from dashed to solid on hover matching the logo outline */
+        transform: translateY(-50%) translate3d(0, 0, 0) scale(1.05);
+    }
+
+    .hamburger-btn:active {
+        transform: translateY(-50%) translate3d(0, 0, 0) scale(0.95); /* Satisfying spring active compression */
     }
 
 
