@@ -26,6 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
         menuOverlays.forEach(overlay => {
             overlay.addEventListener('click', () => toggleMenu(false));
         });
+
+        // Optimize mobile UX/accessibility: Close menu instantly on Escape key press
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                toggleMenu(false);
+            }
+        });
     }
 
     // ==========================================

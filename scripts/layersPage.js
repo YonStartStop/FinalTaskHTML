@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const layerNum = ring.getAttribute('data-layer');
                 const targetCard = document.querySelector(`.card-layer-${layerNum}`);
                 if (targetCard) {
-                    const offset = 100; // Account for the sticky header
+                    const header = document.querySelector('.main-header');
+                    const offset = header ? header.offsetHeight + 15 : 100; // Dynamically calculate offset based on sticky header height
                     const elementPosition = targetCard.getBoundingClientRect().top + window.scrollY;
                     const offsetPosition = elementPosition - offset;
                     
