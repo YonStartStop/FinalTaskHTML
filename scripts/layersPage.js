@@ -1,15 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ==========================================================================
-    // 1. CTA SMOOTH SCROLL & INTERACTIVE STACK LOGIC
-    // ==========================================================================
-    const ctaStartBtn = document.getElementById('cta-start-btn');
-    const quizSection = document.getElementById('summary-quiz-section');
-
-    if (ctaStartBtn && quizSection) {
-        ctaStartBtn.addEventListener('click', () => {
-            quizSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    }
 
     const ringsContainer = document.getElementById('layers-rings-container');
     const rings = document.querySelectorAll('.layer-ring');

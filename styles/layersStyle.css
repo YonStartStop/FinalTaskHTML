@@ -292,40 +292,40 @@
     opacity: 0.85;
 }
 
-/* ==========================================================================
-   CTA BUTTON STYLE
-   ========================================================================== */
-.intro-cta-wrapper {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-}
-
-.primary-cta-btn {
-    background-color: var(--eggplant);
-    color: #FFFFFF;
-    border: none;
-    font-family: "Rubik", sans-serif;
-    font-weight: 800;
-    font-size: 17px;
-    padding: 16px 36px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 20px rgba(54, 34, 66, 0.16);
+/* Instruction arrow and text wrapper */
+.instruction-arrow-wrapper {
     display: flex;
     align-items: center;
-    gap: 8px;
+    position: relative;
+    margin-top: 15px;
 }
 
-.primary-cta-btn:hover {
-    background-color: var(--highlight-indigo);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(179, 105, 228, 0.28);
+.rings-instruction {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--eggplant);
+    margin-bottom: 0 !important;
 }
 
-.primary-cta-btn:active {
-    transform: translateY(-1px);
+.interactive-arrow {
+    position: absolute;
+    right: 100%;
+    margin-right: 10px;
+    width: 140px;
+    height: auto;
+    stroke: var(--eggplant);
+    transform-origin: right center;
+    animation: arrowWiggle 1.1s ease-in-out 4; /* Run 4 times then stop */
+    pointer-events: none;
+}
+
+@keyframes arrowWiggle {
+    0%, 100% {
+        transform: translateX(0) scaleX(1);
+    }
+    50% {
+        transform: translateX(-15px) scaleX(1.1);
+    }
 }
 
 /* ==========================================================================
@@ -676,6 +676,10 @@
    RESPONSIVE OVERRIDES
    ========================================================================== */
 @media (max-width: 991px) {
+    .interactive-arrow {
+        display: none;
+    }
+
     .layers-hero-container {
         flex-direction: column;
         gap: 20px;
