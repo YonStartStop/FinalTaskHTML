@@ -20,23 +20,6 @@
     <!-- Thin Frame Border for Visual Focus -->
     <div class="global-frame"></div>
 
-    <!-- מעגל קונצנטרי מעופף דביק (Copy B - מופעל בגלילה) -->
-    <div class="floating-concentric-nav" aria-hidden="true">
-        <!-- שכבה 1 - חיצונית -->
-        <button class="concentric-circle layer-1-circle" aria-label="מעבר לשכבה 1 בסליידר" title="שכבה 1: העובדה היבשה">
-            <span class="circle-name">עובדה</span>
-        </button>
-        <!-- שכבה 2 - אמצעית -->
-        <button class="concentric-circle layer-2-circle" aria-label="מעבר לשכבה 2 בסליידר"
-            title="שכבה 2: רגש ונורמליזציה">
-            <span class="circle-name">רגש</span>
-        </button>
-        <!-- שכבה 3 - פנימית -->
-        <button class="concentric-circle layer-3-circle" aria-label="מעבר לשכבה 3 בסליידר" title="שכבה 3: עוגן וביטחון">
-            <span class="circle-name">עוגן</span>
-        </button>
-    </div>
-
     <!-- Soft Pastel Amorphous Background Graphics inside wrapper to prevent bottom overflow -->
     <div class="bg-decorations-container" aria-hidden="true">
         <!-- Soft Pastel Amorphous Background Graphic on Left (Mid) -->
@@ -110,18 +93,6 @@
             </svg>
         </div>
 
-        <!-- Soft Pastel Amorphous Background Graphic on Right (High) -->
-        <div class="bg-flower-decor-right-high">
-            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M100 20C120 20 135 40 145 60C155 80 160 110 150 135C140 160 115 170 95 175C75 180 55 175 40 155C25 135 20 105 25 80C30 55 55 35 75 25C85 20 85 20 100 20Z"
-                    fill="#FF8A71" opacity="0.08" />
-                <circle cx="85" cy="80" r="8" fill="#8B5CF6" opacity="0.06" />
-                <path d="M130 55C138 58 135 68 128 70C120 72 115 65 118 58C121 52 125 50 130 55Z" fill="#4687E2"
-                    opacity="0.06" />
-            </svg>
-        </div>
-
         <!-- Soft Pastel Amorphous Background Graphic on Left (Low) -->
         <div class="bg-flower-decor-left-low">
             <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -150,7 +121,6 @@
     <!-- Eggplant Wavy Header / Navbar -->
     <header class="main-header">
         <div class="header-svgs-bg">
-            <!-- SVG Gooey Filter Definition to merge overlapping SVGs organically -->
             <svg style="visibility: hidden; position: absolute;" width="0" height="0"
                 xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -218,140 +188,162 @@
     <!-- main content container for Content Page 1 -->
     <main class="main-page-content" style="padding-top: 70px; min-height: calc(100vh - 120px);">
 
-        <!-- סקשן מבוא עם העיגולים הקונצנטריים -->
-        <section id="layers-intro-section" class="below-the-fold-section" style="margin-top: 0 !important;">
-            <div class="layers-intro-layout">
-                <!-- טקסט מקדים מימין (RTL) -->
-                <div class="layers-intro-text">
-                    <h1 class="section-main-title" style="font-size: 38px;">חוק 3 השכבות</h1>
-                    <p class="intro-paragraph-highlight">
-                        <span class="nowrap-desktop">הילד שאל שאלה שהשאירה אתכם ללא מילים?</span>
-                        <br>
-                        <span class="nowrap-desktop">כדי ליישם את הדיברה השלישית ולדייק את התשובה שלכם, פיתחנו כלי תקשורתי פשוט ויעיל: חוק 3 השכבות.</span>
+        <!-- סקשן מבוא (Above the fold hero) -->
+        <section id="layers-intro-section" class="above-the-fold-section" style="margin-top: 0 !important;">
+            <div class="layers-hero-container">
+                <!-- עמודת תוכן טקסטואלי -->
+                <div class="layers-hero-text">
+                    <h1 class="hero-title"
+                        style="text-align: right; margin-top: 0; margin-bottom: 20px; font-size: 42px;">חוק 3 השכבות
+                    </h1>
+                    <p class="intro-paragraph-highlight"
+                        style="text-align: right; font-size: 22px; line-height: 1.5; margin-bottom: 20px; color: var(--eggplant); font-weight: 700;">
+                        הילד שאל שאלה שהשאירה אתכם ללא מילים?
                     </p>
-                    <p class="intro-paragraph">
-                        <span class="nowrap-desktop">חוק זה נועד למנוע מכם "להתפזר", להילחץ או להעמיס על הילד מידע רגשי וקוגניטיבי שמעבר ליכולת העיבוד שלו.</span>
-                        <br>
-                        <span class="nowrap-desktop">הוא מאפשר לכם לענות בדיוק במידה הנכונה – ולא חייבים לעבור את כל 3 השכבות.</span>
+                    <p class="intro-paragraph"
+                        style="text-align: right; font-size: 17px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 25px;">
+                        כדי ליישם את הדיברה השלישית ולדייק את התשובה שלכם, פיתחנו כלי תקשורתי פשוט ויעיל: <strong>חוק 3
+                            השכבות</strong>.
+                        הוא מונע מכם להתפזר, להילחץ או להעמיס מידע מעבר ליכולת העיבוד של הילד, ומאפשר לכם לענות בדיוק
+                        במידה הנכונה.
+                    </p>
+                    <p class="intro-paragraph"
+                        style="text-align: right; font-size: 15.5px; line-height: 1.7; color: var(--text-tertiary); margin-bottom: 30px;">
+                        אינכם חייבים לעבור את כל 3 השכבות. לחצו על הטבעות כדי להכיר את העקרונות של כל אחת מהן.
                     </p>
 
-                    <p class="intro-instruction" style="margin-bottom: 15px;">
-                        <span class="sparkle-icon" aria-hidden="true">✨</span> לחצו על אחת השכבות כדי להבין איפה אתם
-                        נמצאים עם הילד שלכם:
-                    </p>
-
-                    <!-- כרטיס הסבר מקדים דינמי שמופיע בלחיצה -->
-                    <div id="intro-preview-card" class="intro-preview-card" style="display: none;">
-                        <h3 id="preview-card-title" class="preview-card-title"></h3>
-                        <p id="preview-card-text" class="preview-card-text"></p>
-                        <button id="preview-card-scroll-btn" class="preview-card-scroll-btn">
-                            המשך להסבר המלא והמפורט בסליידר ↙
-                        </button>
+                    <!-- כפתור הנעה לפעולה -->
+                    <div class="intro-cta-wrapper" style="justify-content: flex-start;">
+                        <button id="cta-start-btn" class="primary-cta-btn">בואו נבחן את עצמנו ↙</button>
                     </div>
                 </div>
 
-                <!-- שלושה עיגולים קונצנטריים משמאל (RTL) -->
-                <div class="layers-circles-container">
-                    <div class="concentric-circles-wrapper" role="region" aria-label="איור אינטראקטיבי של 3 השכבות">
-                        <!-- שכבה 1 - חיצונית (הכי בסיסית) -->
-                        <button class="concentric-circle layer-1-circle" aria-label="שכבה 1: העובדה היבשה (התשובה למה)"
-                            title="שכבה 1: העובדה היבשה – מענה לשאלה 'מה קרה' בשפה פשוטה, ללא דרמה ובדיוק במידה שהילד ביקש.">
-                            <span class="circle-name">עובדה יבשה</span>
-                        </button>
-                        <!-- שכבה 2 - אמצעית -->
-                        <button class="concentric-circle layer-2-circle"
-                            aria-label="שכבה 2: הרגש והנורמליזציה (התשובה לאיך מרגישים)"
-                            title="שכבה 2: רגש ונורמליזציה – מענה לשאלה 'איך מרגישים'. נותנים לגיטימציה לרגש ומנרמלים אותו (למשל: 'זה באמת קצת מפחיד').">
-                            <span class="circle-name">רגש ונורמליזציה</span>
-                        </button>
-                        <!-- שכבה 3 - פנימית -->
-                        <button class="concentric-circle layer-3-circle"
-                            aria-label="שכבה 3: העוגן והביטחון (התשובה למה איתי)"
-                            title="שכבה 3: עוגן וביטחון – מענה לשאלה 'מה איתי' והחזרת הביטחון (למשל: 'אנחנו כאן איתך ושומרים עליך').">
-                            <span class="circle-name">עוגן וביטחון</span>
-                        </button>
+                <!-- עמודת איור / טבעות קונצנטריות -->
+                <div class="layers-hero-visual">
+                    <div class="layers-rings-container" id="layers-rings-container">
+                        <!-- Ring 3 (Outermost) -->
+                        <div class="layer-ring ring-3" data-layer="3">
+                            <svg class="ring-svg" viewBox="0 0 340 340">
+                                <defs>
+                                    <path id="ring3-text-path"
+                                        d="M170,170 m-135,0 a135,135 0 1,1 270,0 a135,135 0 1,1 -270,0" />
+                                </defs>
+                                <circle cx="170" cy="170" r="135" class="ring-track ring-track-3" />
+                                <text class="ring-label ring-label-3">
+                                    <textPath href="#ring3-text-path" startOffset="25%" text-anchor="middle">שכבה 3:
+                                        העוגן והביטחון</textPath>
+                                </text>
+                            </svg>
+                        </div>
+
+                        <!-- Ring 2 (Middle) -->
+                        <div class="layer-ring ring-2" data-layer="2">
+                            <svg class="ring-svg" viewBox="0 0 260 260">
+                                <defs>
+                                    <path id="ring2-text-path"
+                                        d="M130,130 m-100,0 a100,100 0 1,1 200,0 a100,100 0 1,1 -200,0" />
+                                </defs>
+                                <circle cx="130" cy="130" r="100" class="ring-track ring-track-2" />
+                                <text class="ring-label ring-label-2">
+                                    <textPath href="#ring2-text-path" startOffset="25%" text-anchor="middle">שכבה 2:
+                                        הרגש והנורמליזציה</textPath>
+                                </text>
+                            </svg>
+                        </div>
+
+                        <!-- Ring 1 (Innermost) -->
+                        <div class="layer-ring ring-1" data-layer="1">
+                            <svg class="ring-svg" viewBox="0 0 180 180">
+                                <defs>
+                                    <path id="ring1-text-path"
+                                        d="M90,90 m-65,0 a65,65 0 1,1 130,0 a65,65 0 1,1 -130,0" />
+                                </defs>
+                                <circle cx="90" cy="90" r="65" class="ring-track ring-track-1" />
+                                <text class="ring-label ring-label-1">
+                                    <textPath href="#ring1-text-path" startOffset="25%" text-anchor="middle">שכבה 1:
+                                        העובדה היבשה</textPath>
+                                </text>
+                            </svg>
+                        </div>
+
+                        <!-- Center core dot -->
+                        <div class="rings-core-dot"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- סקשן סליידר שכבות - רקע מלא וללא מסגרות -->
-        <section id="layers-slider-container" class="layers-slider-container">
-            <!-- חצי ניווט בצידי הסליידר -->
-            <button class="slider-arrow arrow-right" aria-label="לשכבה הקודמת"
-                aria-controls="layers-slider-wrapper">&gt;</button>
-            <button class="slider-arrow arrow-left" aria-label="לשכבה הבאה"
-                aria-controls="layers-slider-wrapper">&lt;</button>
+        <!-- סקשיין הרחבה על כל שכבה -->
+        <section class="layers-detail-section">
+            <h2 class="section-main-title">הכירו את 3 השכבות</h2>
 
-            <div class="slider-wrapper" id="layers-slider-wrapper">
-                <!-- שקף 1: שכבה 1 -->
-                <div class="slider-slide slide-layer-1" role="group" aria-label="שכבה 1 מתוך 3">
-                    <div class="slide-content-width">
-                        <div class="slide-badge-title-row">
-                            <span class="slide-layer-badge">שכבה 1</span>
-                            <h2 class="slide-title">שכבה 1: העובדה היבשה – מענה לשאלה ״מה קרה״</h2>
+            <div class="layers-detail-grid">
+
+                <!-- שכבה 1 -->
+                <div class="layer-detail-card card-layer-1">
+                    <div class="layer-detail-illustration">
+                        <img src="images/layer1-scene.png" alt="איור שכבה 1 – העובדה היבשה" />
+                    </div>
+                    <div class="layer-detail-content">
+                        <div class="layer-detail-badge">
+                            <span class="badge-num badge-1">1</span>
                         </div>
-                        <p class="slide-description">
-                            זוהי השכבה הבסיסית ביותר שבה אתם מספקים את המידע המדויק,<br>ללא פרשנות אישית, ללא דרמה ובשפה פשוטה.
+                        <h3 class="layer-detail-title">שכבה 1: העובדה היבשה</h3>
+                        <p class="layer-detail-subtitle">״מה קרה?״ – מענה עובדתי, פשוט וישיר</p>
+                        <p class="layer-detail-desc">
+                            השכבה הראשונה עוסקת במתן <strong>תשובה עובדתית</strong> לשאלה של הילד.
+                            המטרה היא לענות בשפה פשוטה, אובייקטיבית וללא דרמה רגשית —
+                            בדיוק במידה שתואמת את הסקרנות המיידית של הילד.
+                            אין צורך להרחיב מעבר למה שנשאל. תשובה קצרה, מדויקת ומותאמת לגיל
+                            נותנת לילד את התחושה שהוא מקבל מענה אמיתי, בלי להציף אותו במידע מיותר.
                         </p>
-                        <div class="slide-details-grid">
-                            <div class="slide-detail-column">
-                                <span class="slide-detail-label">המטרה:</span>
-                                <p class="slide-detail-text">לענות על הסקרנות האינטלקטואלית של הילד.</p>
-                            </div>
-                            <div class="slide-detail-column">
-                                <span class="slide-detail-label">הכלל המוביל:</span>
-                                <p class="slide-detail-text">אם הילד הפסיק לשאול או חזר לעיסוקיו – עצרתם בזמן.<br>זה הסימן שהשכבה הזו סיפקה אותו כרגע.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <!-- שקף 2: שכבה 2 -->
-                <div class="slider-slide slide-layer-2" role="group" aria-label="שכבה 2 מתוך 3">
-                    <div class="slide-content-width">
-                        <div class="slide-badge-title-row">
-                            <span class="slide-layer-badge">שכבה 2</span>
-                            <h2 class="slide-title nowrap-desktop">שכבה 2: הרגש והנורמליזציה – מענה לשאלה ״איך מרגישים״</h2>
+                <!-- שכבה 2 -->
+                <div class="layer-detail-card card-layer-2">
+                    <div class="layer-detail-illustration">
+                        <img src="images/layer2-scene.png" alt="איור שכבה 2 – הרגש והנורמליזציה" />
+                    </div>
+                    <div class="layer-detail-content">
+                        <div class="layer-detail-badge">
+                            <span class="badge-num badge-2">2</span>
                         </div>
-                        <p class="slide-description">
-                            אם הילד ממשיך לשאול או נראה מוטרד, עוברים לשכבה הבאה.<br>כאן אתם מעניקים לגיטימציה לרגשות, מנרמלים את החוויה של הילד ומסבירים את התחושות סביב הנושא.
+                        <h3 class="layer-detail-title">שכבה 2: הרגש והנורמליזציה</h3>
+                        <p class="layer-detail-subtitle">״איך מרגישים?״ – מתן לגיטימציה ונרמול</p>
+                        <p class="layer-detail-desc">
+                            השכבה השנייה עוסקת ב<strong>עולם הרגשי</strong> של הילד.
+                            כאן אנחנו נותנים לגיטימציה מלאה לרגשות — גם אם הם מורכבים או מפתיעים.
+                            המטרה היא לנרמל את החוויה הרגשית בעזרת שיתוף רגשי מקשר:
+                            ״גם אני לפעמים מרגיש/ה ככה.״
+                            זה מעביר לילד מסר חד וברור שהוא לא לבד, שהרגש שלו תקין ושיש מבוגר
+                            שמבין אותו ומחזיק עבורו את המרחב הרגשי.
                         </p>
-                        <div class="slide-details-grid">
-                            <div class="slide-detail-column">
-                                <span class="slide-detail-label">המטרה:</span>
-                                <p class="slide-detail-text">לבנות אינטימיות ולקשר את המידע לחוויה אנושית ומקרבת.</p>
-                            </div>
-                            <div class="slide-detail-column">
-                                <span class="slide-detail-label">הכלל המוביל:</span>
-                                <p class="slide-detail-text">השתמשו במשפטי ״אני״ ו-״אנחנו״.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <!-- שקף 3: שכבה 3 -->
-                <div class="slider-slide slide-layer-3" role="group" aria-label="שכבה 3 מתוך 3">
-                    <div class="slide-content-width">
-                        <div class="slide-badge-title-row">
-                            <span class="slide-layer-badge">שכבה 3</span>
-                            <h2 class="slide-title">שכבה 3: העוגן והביטחון – מענה לשאלה ״מה איתי״</h2>
+                <!-- שכבה 3 -->
+                <div class="layer-detail-card card-layer-3">
+                    <div class="layer-detail-illustration">
+                        <img src="images/layer3-scene.png" alt="איור שכבה 3 – העוגן והביטחון" />
+                    </div>
+                    <div class="layer-detail-content">
+                        <div class="layer-detail-badge">
+                            <span class="badge-num badge-3">3</span>
                         </div>
-                        <p class="slide-description">
-                            זוהי השכבה החשובה ביותר, הנועדת להרגיע את החרדה הקיומית של הילד.<br>מאחורי כל שאלה קשה, הילד שואל את עצמו בתת-מודע: ״האם אני בטוח? מה זה אומר עלי?״.<br>בשכבה הזו אנחנו עונים על כך במפורש.
+                        <h3 class="layer-detail-title">שכבה 3: העוגן והביטחון</h3>
+                        <p class="layer-detail-subtitle">״מה איתי?״ – החזרת תחושת היציבות</p>
+                        <p class="layer-detail-desc">
+                            השכבה השלישית עוסקת ב<strong>ביטחון ויציבות</strong>.
+                            אחרי שעסקנו בעובדה וברגש, הילד צריך לדעת שהוא בטוח — עכשיו ובעתיד.
+                            כאן אנחנו שומרים על השגרה, מחזירים את תחושת הסדר ונותנים הבטחה מוצקה:
+                            ״אני כאן, ואנחנו ביחד.״
+                            העוגן הזה הוא שנותן לילד את הכוח לחזור לשגרה שלו עם תחושת ביטחון
+                            ושייכות, גם כשהמציאות סביבו מורכבת.
                         </p>
-                        <div class="slide-details-grid">
-                            <div class="slide-detail-column">
-                                <span class="slide-detail-label">המטרה:</span>
-                                <p class="slide-detail-text">לספק יציבות וודאות, ולהזכיר לילד שהקשר שלכם<br>איתו יציב ואיתן.</p>
-                            </div>
-                            <div class="slide-detail-column">
-                                <span class="slide-detail-label">הכלל המוביל:</span>
-                                <p class="slide-detail-text">הבטחה לביטחון נוכחי ועתידי.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
 

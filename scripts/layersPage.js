@@ -1,194 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
-    // 1. SLIDER LOGIC
+    // 1. CTA SMOOTH SCROLL & INTERACTIVE STACK LOGIC
     // ==========================================================================
-    const sliderWrapper = document.querySelector('.slider-wrapper');
-    const slides = document.querySelectorAll('.slider-slide');
-    const arrowLeft = document.querySelector('.slider-arrow.arrow-left');
-    const arrowRight = document.querySelector('.slider-arrow.arrow-right');
-    const introCircles = document.querySelectorAll('.layers-circles-container .concentric-circle');
-    const floatingCircles = document.querySelectorAll('.floating-concentric-nav .concentric-circle');
-    const floatingNav = document.querySelector('.floating-concentric-nav');
+    const ctaStartBtn = document.getElementById('cta-start-btn');
+    const quizSection = document.getElementById('summary-quiz-section');
 
-    // Preview card elements
-    const introPreviewCard = document.getElementById('intro-preview-card');
-    const previewCardTitle = document.getElementById('preview-card-title');
-    const previewCardText = document.getElementById('preview-card-text');
-    const previewCardScrollBtn = document.getElementById('preview-card-scroll-btn');
-
-    // Previews data
-    const previewsData = [
-        {
-            title: "שכבה 1: העובדה היבשה – מענה לשאלה ״מה קרה״",
-            text: "מתמקדת במתן מידע מדויק, אובייקטיבי ונקי מדרמה רגשית, המותאם לרמת ההבנה של הילד. הכלל המוביל: אם הילד קיבל את התשובה והמשיך לעיסוקיו – עצרתם בזמן ואין צורך להמשיך לשכבות הבאות.",
-            bg: "var(--layer-1-color)",
-            color: "var(--layer-1-text)",
-            borderColor: "var(--layer-1-text)"
-        },
-        {
-            title: "שכבה 2: הרגש והנורמליזציה – מענה לשאלה ״איך מרגישים״",
-            text: "מעניקה לגיטימציה מלאה לרגשות של הילד ומספקת נורמליזציה (הבנה שזה טבעי להרגיש כך). השתמשו בה כאשר הילד נראה מוטרד, לחוץ או ממשיך לשאול שאלות המשקפות רגש.",
-            bg: "var(--layer-2-color)",
-            color: "var(--layer-2-text)",
-            borderColor: "var(--layer-2-text)"
-        },
-        {
-            title: "שכבה 3: העוגן והביטחון – מענה לשאלה ״מה איתי״",
-            text: "שכבה קריטית להרגעת החרדה הקיומית של הילד לגבי המתרחש סביבו. היא מציעה נוכחות פיזית יציבה (״אנחנו כאן איתך״), שמירה על שגרה והבטחה לביטחון נוכחי ועתידי.",
-            bg: "var(--layer-3-color)",
-            color: "var(--layer-3-text)",
-            borderColor: "var(--layer-3-text)"
-        }
-    ];
-
-    let activeIndex = 0;
-    const maxIndex = slides.length - 1;
-
-    const updateSlider = (index) => {
-        activeIndex = Math.max(0, Math.min(index, maxIndex));
-
-        // Translate the flex wrapper (RTL logic)
-        // Slide 0: 0, Slide 1: 100vw, Slide 2: 200vw
-        sliderWrapper.style.transform = `translateX(${activeIndex * 100}vw)`;
-
-        // Update aria-hidden and active class for animations
-        slides.forEach((slide, idx) => {
-            if (idx === activeIndex) {
-                slide.removeAttribute('aria-hidden');
-                slide.classList.add('active-slide');
-            } else {
-                slide.setAttribute('aria-hidden', 'true');
-                slide.classList.remove('active-slide');
-            }
-        });
-
-        // Update active class classes on floating concentric navigation
-        if (floatingNav) {
-            floatingNav.className = 'floating-concentric-nav'; // reset classes
-            if (document.body.classList.contains('sticky-active')) {
-                floatingNav.classList.add('active');
-            }
-            floatingNav.classList.add(`active-slide-${activeIndex}`);
-        }
-
-        // Enable/Disable navigation arrows
-        if (arrowLeft) arrowLeft.disabled = (activeIndex === 0);
-        if (arrowRight) arrowRight.disabled = (activeIndex === maxIndex);
-        
-        // Update opacity/appearance of arrows for visual feedback
-        if (arrowLeft) arrowLeft.style.opacity = (activeIndex === 0) ? '0.3' : '1';
-        if (arrowRight) arrowRight.style.opacity = (activeIndex === maxIndex) ? '0.3' : '1';
-    };
-
-    // Arrow controls
-    if (arrowLeft) {
-        arrowLeft.addEventListener('click', () => {
-            if (activeIndex > 0) {
-                updateSlider(activeIndex - 1);
-            }
+    if (ctaStartBtn && quizSection) {
+        ctaStartBtn.addEventListener('click', () => {
+            quizSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     }
 
-    if (arrowRight) {
-        arrowRight.addEventListener('click', () => {
-            if (activeIndex < maxIndex) {
-                updateSlider(activeIndex + 1);
-            }
-        });
-    }
+    const ringsContainer = document.getElementById('layers-rings-container');
+    const rings = document.querySelectorAll('.layer-ring');
 
-    // Scroll button inside preview card
-    if (previewCardScrollBtn) {
-        previewCardScrollBtn.addEventListener('click', () => {
-            const sliderContainer = document.getElementById('layers-slider-container');
-            if (sliderContainer) {
-                sliderContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        });
-    }
-
-    // Circles click controls
-    const handleCircleClick = (circle, idx) => {
-        // Move slider to clicked layer index (so slider matches when parent scrolls down)
-        updateSlider(idx);
-        
-        // Show preliminary explanation in the preview card
-        if (introPreviewCard && previewCardTitle && previewCardText) {
-            const data = previewsData[idx];
-            previewCardTitle.textContent = data.title;
-            previewCardText.textContent = data.text;
-            
-            // Set dynamic themed styles matching the circle's layer color
-            introPreviewCard.style.backgroundColor = data.bg;
-            introPreviewCard.style.color = data.color;
-            introPreviewCard.style.borderColor = data.borderColor;
-            
-            // Show card with fade-in animation
-            introPreviewCard.style.display = 'block';
-            introPreviewCard.classList.remove('animate');
-            void introPreviewCard.offsetWidth; // trigger reflow
-            introPreviewCard.classList.add('animate');
-        }
-    };
-
-    introCircles.forEach((circle, idx) => {
-        circle.addEventListener('click', () => {
-            // Index matches: Layer 1 is 0, Layer 2 is 1, Layer 3 is 2
-            handleCircleClick(circle, idx);
-        });
-    });
-
-    floatingCircles.forEach((circle, idx) => {
-        circle.addEventListener('click', () => {
-            // Index matches: Layer 1 is 0, Layer 2 is 1, Layer 3 is 2
-            updateSlider(idx);
-        });
-    });
-
-    // Initialize slider state
-    updateSlider(0);
-
-    // ==========================================================================
-    // 2. CONCENTRIC CIRCLES FLOATING SCROLL ANIMATION
-    // ==========================================================================
-    const sliderContainer = document.getElementById('layers-slider-container');
-    const introCirclesWrapper = document.querySelector('.layers-circles-container .concentric-circles-wrapper');
-
-    if (sliderContainer && introCirclesWrapper && floatingNav) {
-        const observerOptions = {
-            root: null,
-            threshold: 0.15 // trigger when 15% of the slider is visible
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Slider is visible: trigger sticky floating circles
-                    document.body.classList.add('sticky-active');
-                    floatingNav.classList.add('active');
-                    floatingNav.classList.add(`active-slide-${activeIndex}`);
-                    introCirclesWrapper.classList.add('hidden');
-                } else {
-                    // Slider is NOT visible (user scrolled back up to intro or down to footer/quiz)
-                    // Let's check if scroll position is above the slider to restore circles in intro
-                    const rect = sliderContainer.getBoundingClientRect();
-                    if (rect.top > window.innerHeight / 2) {
-                        document.body.classList.remove('sticky-active');
-                        floatingNav.classList.remove('active');
-                        introCirclesWrapper.classList.remove('hidden');
-                    } else {
-                        // User scrolled down to quiz section, hide the sticky nav too
-                        floatingNav.classList.remove('active');
-                    }
-                }
+    if (ringsContainer && rings.length > 0) {
+        rings.forEach(ring => {
+            ring.addEventListener('click', () => {
+                // Remove active from all rings
+                rings.forEach(r => r.classList.remove('active-ring'));
+                // Add active to clicked ring
+                ring.classList.add('active-ring');
             });
-        }, observerOptions);
-
-        observer.observe(sliderContainer);
+        });
     }
 
     // ==========================================================================
-    // 3. SUMMARY QUIZ LOGIC
+    // 2. SUMMARY QUIZ LOGIC
     // ==========================================================================
     const quizData = [
         {
