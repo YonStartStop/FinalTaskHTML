@@ -21,6 +21,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 rings.forEach(r => r.classList.remove('active-ring'));
                 // Add active to clicked ring
                 ring.classList.add('active-ring');
+
+                // Smooth scroll to corresponding detail card
+                const layerNum = ring.getAttribute('data-layer');
+                const targetCard = document.querySelector(`.card-layer-${layerNum}`);
+                if (targetCard) {
+                    const offset = 100; // Account for the sticky header
+                    const elementPosition = targetCard.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - offset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     }
