@@ -63,10 +63,7 @@
 }
 
 .tool-title {
-    font-family: "Rubik", sans-serif;
-    font-size: 21px;
     font-weight: 800;
-    color: var(--eggplant);
     margin-bottom: 12px;
 }
 
@@ -411,7 +408,6 @@
 }
 
 .details-title {
-    font-family: "Rubik", sans-serif;
     font-size: 27px;
     font-weight: 700;
     color: #000000;
@@ -420,7 +416,6 @@
 }
 
 .details-author {
-    font-family: "Rubik", sans-serif;
     font-size: 24px;
     color: #6b6b6b;
     margin-bottom: 20px;

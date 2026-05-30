@@ -80,7 +80,7 @@ html::-webkit-scrollbar {
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    font-family: "Open Sans", sans-serif;
+    font-family: "Rubik", sans-serif;
     font-size: 18px;
     font-weight: 400;
     min-height: 100vh;
@@ -332,7 +332,53 @@ h3,
 p,
 .quote,
 .caption {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Rubik", sans-serif;
+}
+
+h1 {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--eggplant);
+    line-height: 1.25;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+}
+
+/* Gradient Underline under all H1 headings */
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
+    height: 4px;
+    background: linear-gradient(to left, var(--highlight-indigo), var(--highlight-blue));
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 29px;
+    font-weight: 700;
+    color: var(--eggplant);
+    line-height: 1.35;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--eggplant);
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.7;
 }
 
 

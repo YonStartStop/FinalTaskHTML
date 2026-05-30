@@ -42,6 +42,10 @@
     text-align: right;
 }
 
+.layers-hero-text .hero-title {
+    align-self: flex-start;
+}
+
 .layers-hero-visual {
     flex: 1;
     display: flex;
@@ -53,22 +57,26 @@
 }
 
 .section-main-title {
-    font-family: "Rubik", sans-serif;
-    font-weight: 850;
-    color: var(--eggplant);
-    text-align: right;
+    text-align: center;
+    /* inherits H2 size and Rubik font from common.css */
 }
 
 .intro-paragraph-highlight {
-    font-family: "Rubik", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
     color: var(--eggplant);
+    line-height: 1.5;
     text-align: right;
 }
 
 .intro-paragraph {
-    font-family: "Rubik", sans-serif;
-    color: var(--text-secondary);
     text-align: right;
+    /* inherits p size and Rubik font from common.css */
+}
+
+.intro-paragraph-secondary {
+    font-size: 16px;
+    color: var(--text-tertiary);
 }
 
 /* ==========================================================================
@@ -354,10 +362,7 @@
 }
 
 .quiz-question-title {
-    font-family: "Rubik", sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--eggplant);
+    /* inherits H3 size and Rubik font from common.css */
     line-height: 1.4;
 }
 
@@ -532,7 +537,7 @@
 .layers-detail-section .section-main-title {
     text-align: center;
     margin-bottom: 50px;
-    font-size: 32px;
+    /* inherits H2 size (29px) from common.css */
 }
 
 .layers-detail-grid {
@@ -640,16 +645,12 @@
 }
 
 .layer-detail-title {
-    font-family: "Rubik", sans-serif;
-    font-weight: 850;
-    font-size: 24px;
-    color: var(--eggplant);
+    /* inherits H3 size (21px) and font from common.css */
     margin-bottom: 16px;
     line-height: 1.35;
 }
 
 .layer-detail-subtitle {
-    font-family: "Rubik", sans-serif;
     font-weight: 600;
     font-size: 16px;
     color: var(--text-tertiary);
@@ -658,9 +659,7 @@
 }
 
 .layer-detail-desc {
-    font-family: "Rubik", sans-serif;
-    font-size: 16px;
-    color: var(--text-secondary);
+    /* inherits paragraph size (18px) and font from common.css */
     line-height: 1.75;
 }
 

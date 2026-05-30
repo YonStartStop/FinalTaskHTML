@@ -16,18 +16,17 @@
     padding: 0 85px;
 }
 
-/* Hero Title styling */
 .hero-title {
-    font-family: "Rubik", sans-serif;
-    font-size: 48px;
-    font-weight: 900;
-    color: var(--eggplant);
-    text-align: center;
     margin-top: 65px;
     margin-bottom: 45px;
     position: relative;
     z-index: 10;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.hero-title::after {
+    display: none !important;
 }
 
 /* Mobile parents container (hidden on desktop) */

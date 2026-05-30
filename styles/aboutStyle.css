@@ -105,15 +105,11 @@
     font-weight: 900;
     color: rgba(0, 0, 0, 0.05);
     line-height: 1;
-    font-family: "Rubik", sans-serif;
     transition: color 0.3s ease;
 }
 
 .commandment-name {
-    font-family: "Rubik", sans-serif;
-    font-size: 21px;
     font-weight: 800;
-    color: var(--eggplant);
     margin-bottom: 10px;
     position: relative;
     z-index: 2;
