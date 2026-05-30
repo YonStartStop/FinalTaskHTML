@@ -128,6 +128,25 @@ body::-webkit-scrollbar {
     z-index: 9999;
 }
 
+/* Reusable keyframe animations for background elements to prevent bloat */
+@keyframes floatUp {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translateY(-8px) rotate(3deg) scale(1.01);
+    }
+}
+
+@keyframes floatDown {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translateY(8px) rotate(-3deg) scale(0.99);
+    }
+}
+
 /* Background floating organic graphic (Left) */
 .bg-flower-decor {
     position: absolute;
@@ -137,19 +156,7 @@ body::-webkit-scrollbar {
     height: 250px;
     pointer-events: none;
     z-index: 0;
-    animation: floatDecor 8s ease-in-out infinite;
-}
-
-@keyframes floatDecor {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-10px) rotate(3deg);
-    }
+    animation: floatUp 8s ease-in-out infinite;
 }
 
 /* Background floating organic graphic (Right) */
@@ -161,19 +168,7 @@ body::-webkit-scrollbar {
     height: 250px;
     pointer-events: none;
     z-index: 0;
-    animation: floatDecorRight 9s ease-in-out infinite;
-}
-
-@keyframes floatDecorRight {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(10px) rotate(-4deg);
-    }
+    animation: floatDown 9s ease-in-out infinite;
 }
 
 /* Background floating organic graphic (Right, High) */
@@ -185,19 +180,7 @@ body::-webkit-scrollbar {
     height: 150px;
     pointer-events: none;
     z-index: 0;
-    animation: floatDecorRightHigh 7s ease-in-out infinite;
-}
-
-@keyframes floatDecorRightHigh {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg) scale(1);
-    }
-
-    50% {
-        transform: translateY(-8px) rotate(4deg) scale(1.02);
-    }
+    animation: floatUp 7s ease-in-out infinite;
 }
 
 /* Background floating organic graphic (Left, Low) */
@@ -209,19 +192,7 @@ body::-webkit-scrollbar {
     height: 180px;
     pointer-events: none;
     z-index: 0;
-    animation: floatDecorLeftLow 10s ease-in-out infinite;
-}
-
-@keyframes floatDecorLeftLow {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg) scale(1);
-    }
-
-    50% {
-        transform: translateY(12px) rotate(-3deg) scale(0.98);
-    }
+    animation: floatDown 10s ease-in-out infinite;
 }
 
 /* Background floating organic graphic (Left, High) */
@@ -233,19 +204,7 @@ body::-webkit-scrollbar {
     height: 130px;
     pointer-events: none;
     z-index: 0;
-    animation: floatDecorLeftHigh 8.5s ease-in-out infinite;
-}
-
-@keyframes floatDecorLeftHigh {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-6px) rotate(-3deg);
-    }
+    animation: floatUp 8.5s ease-in-out infinite;
 }
 
 /* Background floating organic graphic (Left, Mid-Low) */
@@ -257,19 +216,7 @@ body::-webkit-scrollbar {
     height: 170px;
     pointer-events: none;
     z-index: 0;
-    animation: floatDecorLeftMidLow 9.5s ease-in-out infinite;
-}
-
-@keyframes floatDecorLeftMidLow {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(8px) rotate(3deg);
-    }
+    animation: floatDown 9.5s ease-in-out infinite;
 }
 
 /* Background floating organic graphic (Right, Mid-High) */
@@ -281,19 +228,7 @@ body::-webkit-scrollbar {
     height: 200px;
     pointer-events: none;
     z-index: 0;
-    animation: floatDecorRightMidHigh 8.2s ease-in-out infinite;
-}
-
-@keyframes floatDecorRightMidHigh {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-9px) rotate(4deg);
-    }
+    animation: floatUp 8.2s ease-in-out infinite;
 }
 
 /* Background floating organic graphic (Right, Low) */
@@ -305,19 +240,7 @@ body::-webkit-scrollbar {
     height: 140px;
     pointer-events: none;
     z-index: 0;
-    animation: floatDecorRightLow 7.8s ease-in-out infinite;
-}
-
-@keyframes floatDecorRightLow {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(7px) rotate(-4deg);
-    }
+    animation: floatDown 7.8s ease-in-out infinite;
 }
 
 /* Background floating organic graphic (Bottom Right) */
@@ -329,19 +252,7 @@ body::-webkit-scrollbar {
     height: 220px;
     pointer-events: none;
     z-index: 0;
-    animation: floatDecorBottomRight 11s ease-in-out infinite;
-}
-
-@keyframes floatDecorBottomRight {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-12px) rotate(4deg);
-    }
+    animation: floatUp 11s ease-in-out infinite;
 }
 
 /* Headings */
@@ -468,7 +379,6 @@ p {
     direction: rtl;
 }
 
-/* Logo Area (Right-aligned, absolute to viewport) */
 /* Logo Area (Right-aligned, absolute to viewport) */
 .logo-area {
     position: absolute;
@@ -855,8 +765,6 @@ p {
         padding: 22px;
         border-radius: 18px;
     }
-}
-
 }
 
 /* ==========================================================================
