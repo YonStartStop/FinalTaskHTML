@@ -192,15 +192,26 @@
 
 
 
+/* ==========================================================================
    3. Parenting Tools Grid
-   -------------------------------------------------------------------------- */
+   ========================================================================== */
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
     margin-top: 30px;
     direction: rtl;
 }
+
+/* Keep tool cards compact and centered on desktop view (using Bootstrap lg breakpoint) */
+@media (min-width: 992px) {
+    .tools-grid {
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 
 .tool-card {
     background-color: var(--bg-secondary);
@@ -211,6 +222,8 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
 }
 
 .tool-card:hover {
@@ -219,9 +232,21 @@
     border-color: rgba(70, 135, 226, 0.1);
 }
 
+.tool-card:hover .tool-icon {
+    transform: scale(1.1) rotate(-3deg);
+    opacity: 0.35;
+}
+
 .tool-icon {
-    font-size: 40px;
-    margin-bottom: 15px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 80px;
+    opacity: 0.22;
+    pointer-events: none;
+    line-height: 1;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease;
+    z-index: 1;
 }
 
 .tool-title {
@@ -748,12 +773,12 @@
     }
 }
 
-/* --------------------------------------------------------------------------
-
+/* ==========================================================================
+   Media Queries & Responsiveness
+   ========================================================================== */
 
 @media (max-width: 991px) {
     .tools-grid {
-        grid-template-columns: 1fr;
         gap: 20px;
     }
 
