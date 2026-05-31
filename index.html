@@ -17,6 +17,18 @@
 </head>
 
 <body>
+    <!-- SVG Gooey Filter Definition (Parsed first to prevent FOUC / layout glitches) -->
+    <svg style="position: absolute; width: 0; height: 0; opacity: 0; pointer-events: none;" width="0" height="0"
+        xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                    result="goo" />
+            </filter>
+        </defs>
+    </svg>
+
     <!-- Thin Frame Border for Visual Focus -->
     <div class="global-frame"></div>
 
@@ -126,17 +138,6 @@
         <!-- New Bubbly Background SVGs -->
         <!-- Bubbly & Wavy Header Background with organic liquid blend -->
         <div class="header-svgs-bg">
-            <!-- Highly refined SVG gooey filter to round out the intersection smoothly -->
-            <svg style="visibility: hidden; position: absolute;" width="0" height="0"
-                xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <filter id="goo">
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
-                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
-                            result="goo" />
-                    </filter>
-                </defs>
-            </svg>
             <!-- 1: Stretching wave across the top -->
             <svg class="header-bg-wave" viewBox="0 0 1440 120" preserveAspectRatio="none"
                 xmlns="http://www.w3.org/2000/svg">
