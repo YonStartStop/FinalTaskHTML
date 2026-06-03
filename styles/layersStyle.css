@@ -127,6 +127,7 @@
         filter 0.35s ease;
     animation: ringPulseIn 0.7s ease both;
     border-radius: 50%;
+    pointer-events: none; /* Ignore clicks on transparent margins/corners of the div */
 }
 
 .layer-ring:nth-child(1) {
@@ -181,6 +182,7 @@
     width: 100%;
     height: 100%;
     overflow: visible;
+    pointer-events: none; /* Ignore clicks on transparent SVG layout spacing */
 }
 
 /* Filled circles styling */
@@ -189,6 +191,7 @@
         stroke 0.35s ease,
         stroke-width 0.35s ease,
         filter 0.35s ease;
+    pointer-events: auto; /* Capture clicks only on the actual circle shape */
 }
 
 .ring-fill-3 {

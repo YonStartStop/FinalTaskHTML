@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         rings.forEach(ring => {
             ring.addEventListener('click', () => {
                 // Remove active from all rings
-                rings.forEach(r => r.classList.remove('active-ring'));
+                rings.forEach(otherRing => otherRing.classList.remove('active-ring'));
                 // Add active to clicked ring
                 ring.classList.add('active-ring');
 
@@ -15,15 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const layerNum = ring.getAttribute('data-layer');
                 const targetCard = document.querySelector(`.card-layer-${layerNum}`);
                 if (targetCard) {
-                    const header = document.querySelector('.main-header');
-                    const offset = header ? header.offsetHeight + 15 : 100; // Dynamically calculate offset based on sticky header height
+                    const mainHeader = document.querySelector('.main-header');
+                    const offset = mainHeader ? mainHeader.offsetHeight + 15 : 100; // Dynamically calculate offset based on sticky header height
                     const elementPosition = targetCard.getBoundingClientRect().top + window.scrollY;
                     const offsetPosition = elementPosition - offset;
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+                    window.smoothScrollTo(offsetPosition, 700);
                 }
             });
 
@@ -82,116 +79,116 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    let currentQuestionIdx = 0;
+    let currentQuestionIndex = 0;
     let quizScore = 0;
     let hasSelected = false;
 
     const quizBodyContainer = document.getElementById('quiz-body-container');
     const quizResultContainer = document.getElementById('quiz-result-container');
-    const quizStepEl = document.getElementById('quiz-step');
-    const quizTitleEl = document.getElementById('quiz-title');
-    const quizScenarioEl = document.getElementById('quiz-scenario');
+    const quizStepElement = document.getElementById('quiz-step');
+    const quizTitleElement = document.getElementById('quiz-title');
+    const quizScenarioElement = document.getElementById('quiz-scenario');
     const quizOptionsContainer = document.getElementById('quiz-options-container');
-    const quizSubmitBtn = document.getElementById('quiz-submit-btn');
-    const quizFeedbackEl = document.getElementById('quiz-feedback');
+    const quizSubmitButton = document.getElementById('quiz-submit-btn');
+    const quizFeedbackElement = document.getElementById('quiz-feedback');
     const quizResultIcon = document.getElementById('quiz-result-icon');
     const quizResultScoreCount = document.getElementById('quiz-result-score-count');
     const quizResultBadge = document.getElementById('quiz-result-badge');
-    const quizRestartBtn = document.getElementById('quiz-restart-btn');
+    const quizRestartButton = document.getElementById('quiz-restart-btn');
 
-    const loadQuestion = (idx) => {
+    const loadQuestion = (questionIndex) => {
         if (!quizBodyContainer) return;
 
         hasSelected = false;
-        if (quizFeedbackEl) {
-            quizFeedbackEl.style.display = 'none';
-            quizFeedbackEl.className = 'quiz-feedback-box';
+        if (quizFeedbackElement) {
+            quizFeedbackElement.style.display = 'none';
+            quizFeedbackElement.className = 'quiz-feedback-box';
         }
 
-        const data = quizData[idx];
+        const currentQuestionData = quizData[questionIndex];
 
-        if (quizStepEl) quizStepEl.textContent = data.step;
-        if (quizTitleEl) quizTitleEl.textContent = data.question;
-        if (quizScenarioEl) quizScenarioEl.textContent = data.scenario;
+        if (quizStepElement) quizStepElement.textContent = currentQuestionData.step;
+        if (quizTitleElement) quizTitleElement.textContent = currentQuestionData.question;
+        if (quizScenarioElement) quizScenarioElement.textContent = currentQuestionData.scenario;
 
         if (quizOptionsContainer) {
             quizOptionsContainer.innerHTML = '';
-            data.options.forEach((optText, optionIdx) => {
-                const btn = document.createElement('button');
-                btn.className = 'quiz-option-btn';
-                btn.innerHTML = optText;
-                btn.setAttribute('data-index', optionIdx);
+            currentQuestionData.options.forEach((optionText, optionIndex) => {
+                const optionButton = document.createElement('button');
+                optionButton.className = 'quiz-option-btn';
+                optionButton.innerHTML = optionText;
+                optionButton.setAttribute('data-index', optionIndex);
 
-                btn.addEventListener('click', () => {
+                optionButton.addEventListener('click', () => {
                     if (hasSelected) return; // disable selection after verify
 
                     // Toggle selected styling
-                    const siblings = quizOptionsContainer.querySelectorAll('.quiz-option-btn');
-                    siblings.forEach(s => s.classList.remove('selected'));
-                    btn.classList.add('selected');
+                    const siblingButtons = quizOptionsContainer.querySelectorAll('.quiz-option-btn');
+                    siblingButtons.forEach(siblingButton => siblingButton.classList.remove('selected'));
+                    optionButton.classList.add('selected');
 
-                    if (quizSubmitBtn) {
-                        quizSubmitBtn.disabled = false;
+                    if (quizSubmitButton) {
+                        quizSubmitButton.disabled = false;
                     }
                 });
 
-                quizOptionsContainer.appendChild(btn);
+                quizOptionsContainer.appendChild(optionButton);
             });
         }
 
-        if (quizSubmitBtn) {
-            quizSubmitBtn.textContent = 'בדוק תשובה';
-            quizSubmitBtn.disabled = true;
+        if (quizSubmitButton) {
+            quizSubmitButton.textContent = 'בדוק תשובה';
+            quizSubmitButton.disabled = true;
         }
     };
 
-    if (quizSubmitBtn) {
-        quizSubmitBtn.addEventListener('click', () => {
-            const data = quizData[currentQuestionIdx];
+    if (quizSubmitButton) {
+        quizSubmitButton.addEventListener('click', () => {
+            const currentQuestionData = quizData[currentQuestionIndex];
 
             if (!hasSelected) {
                 // Verification state
-                const selectedBtn = quizOptionsContainer.querySelector('.quiz-option-btn.selected');
-                if (!selectedBtn) return;
+                const selectedButton = quizOptionsContainer.querySelector('.quiz-option-btn.selected');
+                if (!selectedButton) return;
 
-                const selectedIdx = parseInt(selectedBtn.getAttribute('data-index'));
+                const selectedIndex = parseInt(selectedButton.getAttribute('data-index'));
                 hasSelected = true;
 
                 // Highlight correct/incorrect options
                 const allButtons = quizOptionsContainer.querySelectorAll('.quiz-option-btn');
-                allButtons.forEach((btn, idx) => {
-                    btn.classList.remove('selected');
-                    if (idx === data.correctIndex) {
-                        btn.classList.add('correct-choice');
-                    } else if (idx === selectedIdx) {
-                        btn.classList.add('incorrect-choice');
+                allButtons.forEach((optionButton, buttonIndex) => {
+                    optionButton.classList.remove('selected');
+                    if (buttonIndex === currentQuestionData.correctIndex) {
+                        optionButton.classList.add('correct-choice');
+                    } else if (buttonIndex === selectedIndex) {
+                        optionButton.classList.add('incorrect-choice');
                     }
                 });
 
                 // Display feedback details
-                if (quizFeedbackEl) {
-                    quizFeedbackEl.style.display = 'block';
-                    if (selectedIdx === data.correctIndex) {
+                if (quizFeedbackElement) {
+                    quizFeedbackElement.style.display = 'block';
+                    if (selectedIndex === currentQuestionData.correctIndex) {
                         quizScore++;
-                        quizFeedbackEl.classList.add('correct');
-                        quizFeedbackEl.innerHTML = `<strong>תשובה נכונה! 🎉</strong><br>${data.feedbackCorrect}`;
+                        quizFeedbackElement.classList.add('correct');
+                        quizFeedbackElement.innerHTML = `<strong>תשובה נכונה! 🎉</strong><br>${currentQuestionData.feedbackCorrect}`;
                     } else {
-                        quizFeedbackEl.classList.add('incorrect');
-                        quizFeedbackEl.innerHTML = `<strong>תשובה לא נכונה.</strong><br>${data.feedbackIncorrect}`;
+                        quizFeedbackElement.classList.add('incorrect');
+                        quizFeedbackElement.innerHTML = `<strong>תשובה לא נכונה.</strong><br>${currentQuestionData.feedbackIncorrect}`;
                     }
                 }
 
                 // Change submit button to next question or show results
-                if (currentQuestionIdx === quizData.length - 1) {
-                    quizSubmitBtn.textContent = 'הצג תוצאות';
+                if (currentQuestionIndex === quizData.length - 1) {
+                    quizSubmitButton.textContent = 'הצג תוצאות';
                 } else {
-                    quizSubmitBtn.textContent = 'לשאלה הבאה';
+                    quizSubmitButton.textContent = 'לשאלה הבאה';
                 }
             } else {
                 // Next question state
-                if (currentQuestionIdx < quizData.length - 1) {
-                    currentQuestionIdx++;
-                    loadQuestion(currentQuestionIdx);
+                if (currentQuestionIndex < quizData.length - 1) {
+                    currentQuestionIndex++;
+                    loadQuestion(currentQuestionIndex);
                 } else {
                     // Final results screen
                     showResults();
@@ -222,9 +219,9 @@ document.addEventListener('DOMContentLoaded', () => {
         quizResultContainer.style.display = 'flex';
     };
 
-    if (quizRestartBtn) {
-        quizRestartBtn.addEventListener('click', () => {
-            currentQuestionIdx = 0;
+    if (quizRestartButton) {
+        quizRestartButton.addEventListener('click', () => {
+            currentQuestionIndex = 0;
             quizScore = 0;
 
             // Hide results, show questions

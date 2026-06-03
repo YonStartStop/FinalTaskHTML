@@ -96,23 +96,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (bookshelfBooks.length > 0 && showcaseSpot) {
         // Setup image fallbacks and initial cover image sources for each book
         bookshelfBooks.forEach(book => {
-            const img = book.querySelector('.cover-image-real');
-            const fallback = book.querySelector('.cover-content-fallback');
-            const coverImgUrl = book.getAttribute('data-cover-img');
+            const coverImageElement = book.querySelector('.cover-image-real');
+            const fallbackElement = book.querySelector('.cover-content-fallback');
+            const coverImageUrl = book.getAttribute('data-cover-img');
 
-            if (img) {
-                img.onerror = () => {
-                    img.style.display = 'none';
-                    if (fallback) fallback.style.display = 'flex';
+            if (coverImageElement) {
+                coverImageElement.onerror = () => {
+                    coverImageElement.style.display = 'none';
+                    if (fallbackElement) fallbackElement.style.display = 'flex';
                 };
 
-                if (coverImgUrl && coverImgUrl.trim() !== '') {
-                    img.src = coverImgUrl;
-                    img.style.display = 'block';
-                    if (fallback) fallback.style.display = 'none';
+                if (coverImageUrl && coverImageUrl.trim() !== '') {
+                    coverImageElement.src = coverImageUrl;
+                    coverImageElement.style.display = 'block';
+                    if (fallbackElement) fallbackElement.style.display = 'none';
                 } else {
-                    img.style.display = 'none';
-                    if (fallback) fallback.style.display = 'flex';
+                    coverImageElement.style.display = 'none';
+                    if (fallbackElement) fallbackElement.style.display = 'flex';
                 }
             }
         });
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (book.classList.contains('active')) return;
 
                 // 1. Toggle active state
-                bookshelfBooks.forEach(b => b.classList.remove('active'));
+                bookshelfBooks.forEach(otherBook => otherBook.classList.remove('active'));
                 book.classList.add('active');
 
                 // 2. Calculate and trigger flying translate
@@ -148,60 +148,60 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (detailsWhyText) detailsWhyText.textContent = why;
 
                         const buttons = [
-                            { el: detailsBtn1, prefix: 'btn1' },
-                            { el: detailsBtn2, prefix: 'btn2' },
-                            { el: detailsBtn3, prefix: 'btn3' }
+                            { element: detailsBtn1, prefix: 'btn1' },
+                            { element: detailsBtn2, prefix: 'btn2' },
+                            { element: detailsBtn3, prefix: 'btn3' }
                         ];
 
-                        buttons.forEach(btnInfo => {
-                            const btn = btnInfo.el;
-                            if (!btn) return;
+                        buttons.forEach(buttonInfo => {
+                            const buttonElement = buttonInfo.element;
+                            if (!buttonElement) return;
 
-                            const url = book.getAttribute(`data-${btnInfo.prefix}-url`);
-                            if (url && url.trim() !== '') {
-                                btn.style.display = 'block';
-                                btn.href = url;
+                            const buttonUrl = book.getAttribute(`data-${buttonInfo.prefix}-url`);
+                            if (buttonUrl && buttonUrl.trim() !== '') {
+                                buttonElement.style.display = 'block';
+                                buttonElement.href = buttonUrl;
 
-                                const label = book.getAttribute(`data-${btnInfo.prefix}-label`) || '';
-                                const priceVal = book.getAttribute(`data-${btnInfo.prefix}-price`) || '';
-                                const bgClass = book.getAttribute(`data-${btnInfo.prefix}-class`) || '';
+                                const buttonLabel = book.getAttribute(`data-${buttonInfo.prefix}-label`) || '';
+                                const buttonPriceValue = book.getAttribute(`data-${buttonInfo.prefix}-price`) || '';
+                                const buttonBackgroundClass = book.getAttribute(`data-${buttonInfo.prefix}-class`) || '';
 
-                                const priceEl = btn.querySelector('.buy-button-price');
-                                const labelEl = btn.querySelector('.buy-button-label');
+                                const priceElement = buttonElement.querySelector('.buy-button-price');
+                                const labelElement = buttonElement.querySelector('.buy-button-label');
 
-                                if (priceEl) {
-                                    if (priceVal && priceVal.trim() !== '' && priceVal !== 'אין מחיר' && priceVal !== 'אין מחיר כרגע') {
-                                        priceEl.style.display = 'block';
-                                        priceEl.textContent = priceVal;
-                                        if (priceVal.length > 5) {
-                                            priceEl.style.fontSize = '13px';
-                                            priceEl.style.top = '4px';
+                                if (priceElement) {
+                                    if (buttonPriceValue && buttonPriceValue.trim() !== '' && buttonPriceValue !== 'אין מחיר' && buttonPriceValue !== 'אין מחיר כרגע') {
+                                        priceElement.style.display = 'block';
+                                        priceElement.textContent = buttonPriceValue;
+                                        if (buttonPriceValue.length > 5) {
+                                            priceElement.style.fontSize = '13px';
+                                            priceElement.style.top = '4px';
                                         } else {
-                                            priceEl.style.fontSize = '';
-                                            priceEl.style.top = '';
+                                            priceElement.style.fontSize = '';
+                                            priceElement.style.top = '';
                                         }
-                                        if (labelEl) labelEl.style.top = '24px';
+                                        if (labelElement) labelElement.style.top = '24px';
                                     } else {
-                                        priceEl.style.display = 'none';
-                                        if (labelEl) labelEl.style.top = '15px';
+                                        priceElement.style.display = 'none';
+                                        if (labelElement) labelElement.style.top = '15px';
                                     }
                                 }
 
-                                if (labelEl) {
-                                    labelEl.textContent = label;
+                                if (labelElement) {
+                                    labelElement.textContent = buttonLabel;
                                 }
 
                                 // Remove any existing bg- classes and add the correct one
-                                btn.className.split(' ').forEach(className => {
+                                buttonElement.className.split(' ').forEach(className => {
                                     if (className.startsWith('bg-')) {
-                                        btn.classList.remove(className);
+                                        buttonElement.classList.remove(className);
                                     }
                                 });
-                                if (bgClass) {
-                                    btn.classList.add(bgClass);
+                                if (buttonBackgroundClass) {
+                                    buttonElement.classList.add(buttonBackgroundClass);
                                 }
                             } else {
-                                btn.style.display = 'none';
+                                buttonElement.style.display = 'none';
                             }
                         });
 
@@ -279,6 +279,36 @@ document.addEventListener('DOMContentLoaded', () => {
     updateActiveNav();
 
     // ==========================================
+    // COMMON SMOOTH SCROLL HELPER
+    // ==========================================
+    const easeInOutSine = (scrollProgress) => -(Math.cos(Math.PI * scrollProgress) - 1) / 2;
+
+    window.smoothScrollTo = (targetPosition, duration = 700, onComplete) => {
+        const startPosition = window.scrollY || window.pageYOffset || 0;
+        const distance = targetPosition - startPosition;
+        let startTimestamp = null;
+
+        document.documentElement.style.scrollBehavior = 'auto';
+
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const elapsed = timestamp - startTimestamp;
+            const currentProgress = Math.min(elapsed / duration, 1);
+            const easeProgress = easeInOutSine(currentProgress);
+
+            window.scrollTo(0, startPosition + distance * easeProgress);
+
+            if (currentProgress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                document.documentElement.style.scrollBehavior = '';
+                if (onComplete) onComplete();
+            }
+        };
+        window.requestAnimationFrame(step);
+    };
+
+    // ==========================================
     // RELOAD & HASH SCROLL MANAGEMENT
     // ==========================================
     const isReload = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0] && performance.getEntriesByType('navigation')[0].type === 'reload') || (performance.navigation && performance.navigation.type === 1);
@@ -299,10 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const offset = 130; // accounts for the sticky header
                 const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
                 const offsetPosition = elementPosition - offset;
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                window.smoothScrollTo(offsetPosition, 700);
             }, 100);
         }
     }
@@ -327,36 +354,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (targetElement) {
                     const offset = 130; // accounts for the sticky header
                     const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-                    const offsetPosition = elementPosition - offset;
+                    const targetPosition = elementPosition - offset;
 
-                    const startPosition = window.scrollY;
-                    const distance = offsetPosition - startPosition;
-                    const duration = 700; // 0.7s maximum duration
-                    let startTimestamp = null;
-
-                    document.documentElement.style.scrollBehavior = 'auto';
-
-                    const easeInOutSine = (t) => {
-                        return -(Math.cos(Math.PI * t) - 1) / 2;
-                    };
-
-                    const step = (timestamp) => {
-                        if (!startTimestamp) startTimestamp = timestamp;
-                        const elapsed = timestamp - startTimestamp;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const easeProgress = easeInOutSine(progress);
-
-                        window.scrollTo(0, startPosition + distance * easeProgress);
-
-                        if (progress < 1) {
-                            window.requestAnimationFrame(step);
-                        } else {
-                            document.documentElement.style.scrollBehavior = '';
-                            history.pushState(null, null, '#lego-principles');
-                            updateActiveNav();
-                        }
-                    };
-                    window.requestAnimationFrame(step);
+                    window.smoothScrollTo(targetPosition, 700, () => {
+                        history.pushState(null, null, '#lego-principles');
+                        updateActiveNav();
+                    });
                 }
             }
         });
@@ -371,41 +374,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const isHomePage = !!document.getElementById('lego-principles');
             if (isHomePage) {
                 e.preventDefault();
-
-                const startPosition = window.scrollY;
-                const distance = -startPosition;
-                const duration = 700; // 0.7s maximum duration
-                let startTimestamp = null;
-
-                document.documentElement.style.scrollBehavior = 'auto';
-
-                const easeInOutSine = (t) => {
-                    return -(Math.cos(Math.PI * t) - 1) / 2;
-                };
-
-                const step = (timestamp) => {
-                    if (!startTimestamp) startTimestamp = timestamp;
-                    const elapsed = timestamp - startTimestamp;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const easeProgress = easeInOutSine(progress);
-
-                    window.scrollTo(0, startPosition + distance * easeProgress);
-
-                    if (progress < 1) {
-                        window.requestAnimationFrame(step);
-                    } else {
-                        document.documentElement.style.scrollBehavior = '';
-                        if (window.location.hash) {
-                            history.replaceState(null, document.title, window.location.pathname + window.location.search);
-                        }
+                window.smoothScrollTo(0, 700, () => {
+                    if (window.location.hash) {
+                        history.replaceState(null, document.title, window.location.pathname + window.location.search);
                     }
-                };
-                window.requestAnimationFrame(step);
+                });
             }
         });
     }
-
-
 
     // ==========================================
     // CUSTOM GENTLE SMOOTH SCROLL FOR CTA BUTTON
@@ -420,42 +396,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetElement) {
                 const offset = 40; // Reduced from 130 to scroll further down
                 const elementPosition = targetElement.getBoundingClientRect().top + (window.scrollY || window.pageYOffset);
-                const offsetPosition = elementPosition - offset;
+                const targetPosition = elementPosition - offset;
 
-                const startPosition = window.scrollY || window.pageYOffset;
-                const distance = offsetPosition - startPosition;
-                const duration = 700; // exactly 0.7 seconds maximum duration
-                let startTimestamp = null;
-
-                // Temporarily disable global CSS smooth scroll to prevent rendering conflicts and stutter
-                document.documentElement.style.scrollBehavior = 'auto';
-
-                // Sinusoidal ease-in-out for an extremely organic, calm acceleration and deceleration (no abrupt braking)
-                const easeInOutSine = (t) => {
-                    return -(Math.cos(Math.PI * t) - 1) / 2;
-                };
-
-                const step = (timestamp) => {
-                    if (!startTimestamp) startTimestamp = timestamp;
-                    const elapsed = timestamp - startTimestamp;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const easeProgress = easeInOutSine(progress);
-
-                    window.scrollTo(0, startPosition + distance * easeProgress);
-
-                    if (progress < 1) {
-                        window.requestAnimationFrame(step);
-                    } else {
-                        // Restore original CSS scroll behavior
-                        document.documentElement.style.scrollBehavior = '';
-
-                        // After scroll completes, update location hash without triggering jump scroll
-                        history.pushState(null, null, targetId);
-                        updateActiveNav();
-                    }
-                };
-
-                window.requestAnimationFrame(step);
+                window.smoothScrollTo(targetPosition, 700, () => {
+                    history.pushState(null, null, targetId);
+                    updateActiveNav();
+                });
             }
         });
     }
@@ -493,18 +439,18 @@ document.addEventListener('DOMContentLoaded', () => {
         legoBricks.forEach(brick => {
             brick.addEventListener('click', () => {
                 const brickId = brick.getAttribute('data-brick');
-                const data = legoData[brickId];
+                const selectedBrickData = legoData[brickId];
 
                 if (brick.classList.contains('active')) return;
 
                 // 1. Update brick active classes
-                legoBricks.forEach(b => b.classList.remove('active'));
+                legoBricks.forEach(otherBrick => otherBrick.classList.remove('active'));
                 brick.classList.add('active');
 
                 // 2. Update tower and section active states (for spacing and header color transitions)
-                for (let i = 1; i <= 4; i++) {
-                    legoTower.classList.remove(`active-${i}`);
-                    if (legoSection) legoSection.classList.remove(`active-${i}`);
+                for (let brickIndex = 1; brickIndex <= 4; brickIndex++) {
+                    legoTower.classList.remove(`active-${brickIndex}`);
+                    if (legoSection) legoSection.classList.remove(`active-${brickIndex}`);
                 }
                 legoTower.classList.add(`active-${brickId}`);
                 if (legoSection) legoSection.classList.add(`active-${brickId}`);
@@ -514,8 +460,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 legoTextContainer.style.transform = 'translateY(8px)';
 
                 setTimeout(() => {
-                    if (legoTextTitle) legoTextTitle.innerHTML = data.title;
-                    if (legoTextDesc) legoTextDesc.innerHTML = data.desc;
+                    if (legoTextTitle) legoTextTitle.innerHTML = selectedBrickData.title;
+                    if (legoTextDesc) legoTextDesc.innerHTML = selectedBrickData.desc;
 
                     legoTextContainer.style.opacity = '1';
                     legoTextContainer.style.transform = 'translateY(0)';
@@ -530,43 +476,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const accordionHeaders = document.querySelectorAll('.about-accordion .accordion-header');
 
     if (accordionHeaders.length > 0) {
-        accordionHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.closest('.accordion-item');
-                const content = item.querySelector('.accordion-content');
-                const isExpanded = header.getAttribute('aria-expanded') === 'true';
+        accordionHeaders.forEach(accordionHeader => {
+            accordionHeader.addEventListener('click', () => {
+                const accordionItem = accordionHeader.closest('.accordion-item');
+                const accordionContent = accordionItem.querySelector('.accordion-content');
+                const isExpanded = accordionHeader.getAttribute('aria-expanded') === 'true';
 
                 // Close other accordion items
-                accordionHeaders.forEach(otherHeader => {
-                    if (otherHeader !== header) {
-                        const otherItem = otherHeader.closest('.accordion-item');
-                        const otherContent = otherItem.querySelector('.accordion-content');
-                        otherItem.classList.remove('active');
-                        otherHeader.setAttribute('aria-expanded', 'false');
-                        otherContent.style.maxHeight = '0';
+                accordionHeaders.forEach(otherAccordionHeader => {
+                    if (otherAccordionHeader !== accordionHeader) {
+                        const otherAccordionItem = otherAccordionHeader.closest('.accordion-item');
+                        const otherAccordionContent = otherAccordionItem.querySelector('.accordion-content');
+                        otherAccordionItem.classList.remove('active');
+                        otherAccordionHeader.setAttribute('aria-expanded', 'false');
+                        otherAccordionContent.style.maxHeight = '0';
                     }
                 });
 
                 // Toggle the clicked one
                 if (isExpanded) {
-                    item.classList.remove('active');
-                    header.setAttribute('aria-expanded', 'false');
-                    content.style.maxHeight = '0';
+                    accordionItem.classList.remove('active');
+                    accordionHeader.setAttribute('aria-expanded', 'false');
+                    accordionContent.style.maxHeight = '0';
                 } else {
-                    item.classList.add('active');
-                    header.setAttribute('aria-expanded', 'true');
-                    content.style.maxHeight = content.scrollHeight + 'px';
+                    accordionItem.classList.add('active');
+                    accordionHeader.setAttribute('aria-expanded', 'true');
+                    accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
                 }
             });
         });
 
         // Recalculate max-height on window resize for active items
         window.addEventListener('resize', () => {
-            accordionHeaders.forEach(header => {
-                if (header.getAttribute('aria-expanded') === 'true') {
-                    const item = header.closest('.accordion-item');
-                    const content = item.querySelector('.accordion-content');
-                    content.style.maxHeight = content.scrollHeight + 'px';
+            accordionHeaders.forEach(accordionHeader => {
+                if (accordionHeader.getAttribute('aria-expanded') === 'true') {
+                    const accordionItem = accordionHeader.closest('.accordion-item');
+                    const accordionContent = accordionItem.querySelector('.accordion-content');
+                    accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
                 }
             });
         });
