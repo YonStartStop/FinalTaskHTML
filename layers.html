@@ -278,7 +278,7 @@
                 <!-- שכבה 1 -->
                 <div class="layer-detail-card card-layer-1">
                     <div class="layer-detail-illustration">
-                        <img src="images/layer1-scene.png" alt="איור שכבה 1 – העובדה היבשה" />
+                        <img src="images/layer1-scene.png" alt="" />
                     </div>
                     <div class="layer-detail-content">
                         <div class="layer-detail-badge">
@@ -299,7 +299,7 @@
                 <!-- שכבה 2 -->
                 <div class="layer-detail-card card-layer-2">
                     <div class="layer-detail-illustration">
-                        <img src="images/layer2-scene.png" alt="איור שכבה 2 – הרגש והנורמליזציה" />
+                        <img src="images/layer2-scene.png" alt="" />
                     </div>
                     <div class="layer-detail-content">
                         <div class="layer-detail-badge">
@@ -321,7 +321,7 @@
                 <!-- שכבה 3 -->
                 <div class="layer-detail-card card-layer-3">
                     <div class="layer-detail-illustration">
-                        <img src="images/layer3-scene.png" alt="איור שכבה 3 – העוגן והביטחון" />
+                        <img src="images/layer3-scene.png" alt="" />
                     </div>
                     <div class="layer-detail-content">
                         <div class="layer-detail-badge">
@@ -350,22 +350,25 @@
                 <p class="section-main-subtitle">בואו נראה אם למדתם כיצד ליישם את חוק 3 השכבות מול הילדים:</p>
             </div>
 
-            <div class="quiz-container-flat" id="quiz-widget-inner">
+            <form id="quiz-form" class="quiz-container-flat">
                 <!-- גוף השאלון -->
                 <div id="quiz-body-container">
-                    <div class="quiz-header">
-                        <span class="quiz-step-indicator" id="quiz-step">שאלת תרגול</span>
-                        <h3 class="quiz-question-title" id="quiz-title">טוען שאלה...</h3>
-                    </div>
-                    <div class="quiz-question-scenario" id="quiz-scenario">טוען תיאור מצב...</div>
-                    <div class="quiz-options-list" id="quiz-options-container">
-                        <!-- אפשרויות בחירה דינמיות -->
-                    </div>
+                    <fieldset class="quiz-fieldset" style="border: none; padding: 0; margin: 0;">
+                        <legend class="visually-hidden">שאלון מסכם: בחנו את עצמכם</legend>
+                        <div class="quiz-header">
+                            <span class="quiz-step-indicator" id="quiz-step">שאלת תרגול</span>
+                            <h3 class="quiz-question-title" id="quiz-title">טוען שאלה...</h3>
+                        </div>
+                        <div class="quiz-question-scenario" id="quiz-scenario">טוען תיאור מצב...</div>
+                        <div class="quiz-options-list" role="radiogroup" aria-labelledby="quiz-title" id="quiz-options-container">
+                            <!-- אפשרויות בחירה דינמיות -->
+                        </div>
+                    </fieldset>
 
-                    <div id="quiz-feedback" class="quiz-feedback-box" style="display: none;"></div>
+                    <div id="quiz-feedback" class="quiz-feedback-box" style="display: none;" role="alert"></div>
 
                     <div class="quiz-action-btn-row">
-                        <button id="quiz-submit-btn" class="quiz-submit-next-btn" disabled>בדוק תשובה</button>
+                        <button type="submit" id="quiz-submit-btn" class="quiz-submit-next-btn" disabled>בדוק תשובה</button>
                     </div>
                 </div>
 
@@ -380,9 +383,9 @@
                         style="background-color: #E6F6ED; border-right: 4px solid #2ECC71; color: #1E6B3F; padding: 15px 25px; border-radius: 12px; margin-top: 10px;">
                         תג נרכש: <strong id="quiz-result-badge">הורה קשוב ומדויק! ⚓</strong>
                     </div>
-                    <button id="quiz-restart-btn" class="quiz-restart-btn">התחל מחדש 🔄</button>
+                    <button type="button" id="quiz-restart-btn" class="quiz-restart-btn">התחל מחדש 🔄</button>
                 </div>
-            </div>
+            </form>
         </section>
 
     </main>

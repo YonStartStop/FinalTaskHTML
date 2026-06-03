@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let quizScore = 0;
     let hasSelected = false;
 
+    const quizForm = document.getElementById('quiz-form');
     const quizBodyContainer = document.getElementById('quiz-body-container');
     const quizResultContainer = document.getElementById('quiz-result-container');
     const quizStepElement = document.getElementById('quiz-step');
@@ -114,25 +115,37 @@ document.addEventListener('DOMContentLoaded', () => {
         if (quizOptionsContainer) {
             quizOptionsContainer.innerHTML = '';
             currentQuestionData.options.forEach((optionText, optionIndex) => {
-                const optionButton = document.createElement('button');
-                optionButton.className = 'quiz-option-btn';
-                optionButton.innerHTML = optionText;
-                optionButton.setAttribute('data-index', optionIndex);
+                const optionLabel = document.createElement('label');
+                optionLabel.className = 'quiz-option-btn';
+                optionLabel.setAttribute('for', `option-${optionIndex}`);
 
-                optionButton.addEventListener('click', () => {
+                const radioInput = document.createElement('input');
+                radioInput.type = 'radio';
+                radioInput.name = 'quiz-option';
+                radioInput.id = `option-${optionIndex}`;
+                radioInput.value = optionIndex;
+                radioInput.className = 'quiz-option-radio visually-hidden';
+
+                radioInput.addEventListener('change', () => {
                     if (hasSelected) return; // disable selection after verify
 
                     // Toggle selected styling
-                    const siblingButtons = quizOptionsContainer.querySelectorAll('.quiz-option-btn');
-                    siblingButtons.forEach(siblingButton => siblingButton.classList.remove('selected'));
-                    optionButton.classList.add('selected');
+                    const siblingLabels = quizOptionsContainer.querySelectorAll('.quiz-option-btn');
+                    siblingLabels.forEach(siblingLabel => siblingLabel.classList.remove('selected'));
+                    optionLabel.classList.add('selected');
 
                     if (quizSubmitButton) {
                         quizSubmitButton.disabled = false;
                     }
                 });
 
-                quizOptionsContainer.appendChild(optionButton);
+                const textSpan = document.createElement('span');
+                textSpan.className = 'quiz-option-text';
+                textSpan.innerHTML = optionText;
+
+                optionLabel.appendChild(radioInput);
+                optionLabel.appendChild(textSpan);
+                quizOptionsContainer.appendChild(optionLabel);
             });
         }
 
@@ -142,26 +155,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    if (quizSubmitButton) {
-        quizSubmitButton.addEventListener('click', () => {
+    if (quizForm) {
+        quizForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
             const currentQuestionData = quizData[currentQuestionIndex];
 
             if (!hasSelected) {
                 // Verification state
-                const selectedButton = quizOptionsContainer.querySelector('.quiz-option-btn.selected');
-                if (!selectedButton) return;
+                const selectedRadio = quizOptionsContainer.querySelector('.quiz-option-radio:checked');
+                if (!selectedRadio) return;
 
-                const selectedIndex = parseInt(selectedButton.getAttribute('data-index'));
+                const selectedIndex = parseInt(selectedRadio.value);
                 hasSelected = true;
 
+                // Disable all radio buttons
+                const allRadios = quizOptionsContainer.querySelectorAll('.quiz-option-radio');
+                allRadios.forEach(radio => radio.disabled = true);
+
                 // Highlight correct/incorrect options
-                const allButtons = quizOptionsContainer.querySelectorAll('.quiz-option-btn');
-                allButtons.forEach((optionButton, buttonIndex) => {
-                    optionButton.classList.remove('selected');
-                    if (buttonIndex === currentQuestionData.correctIndex) {
-                        optionButton.classList.add('correct-choice');
-                    } else if (buttonIndex === selectedIndex) {
-                        optionButton.classList.add('incorrect-choice');
+                const allLabels = quizOptionsContainer.querySelectorAll('.quiz-option-btn');
+                allLabels.forEach((optionLabel, labelIndex) => {
+                    optionLabel.classList.remove('selected');
+                    if (labelIndex === currentQuestionData.correctIndex) {
+                        optionLabel.classList.add('correct-choice');
+                    } else if (labelIndex === selectedIndex) {
+                        optionLabel.classList.add('incorrect-choice');
                     }
                 });
 
@@ -176,6 +195,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         quizFeedbackElement.classList.add('incorrect');
                         quizFeedbackElement.innerHTML = `<strong>תשובה לא נכונה.</strong><br>${currentQuestionData.feedbackIncorrect}`;
                     }
+
+                    // Accessibility: Shift focus to the feedback box so screen readers read it
+                    quizFeedbackElement.setAttribute('tabindex', '-1');
+                    quizFeedbackElement.focus();
                 }
 
                 // Change submit button to next question or show results
@@ -189,6 +212,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (currentQuestionIndex < quizData.length - 1) {
                     currentQuestionIndex++;
                     loadQuestion(currentQuestionIndex);
+
+                    // Accessibility: Focus on the new question title
+                    if (quizTitleElement) {
+                        quizTitleElement.setAttribute('tabindex', '-1');
+                        quizTitleElement.focus();
+                    }
                 } else {
                     // Final results screen
                     showResults();
@@ -217,6 +246,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Hide questions, show results
         quizBodyContainer.style.display = 'none';
         quizResultContainer.style.display = 'flex';
+
+        // Focus the results view for screen readers
+        quizResultContainer.setAttribute('tabindex', '-1');
+        quizResultContainer.focus();
     };
 
     if (quizRestartButton) {
@@ -229,6 +262,12 @@ document.addEventListener('DOMContentLoaded', () => {
             quizBodyContainer.style.display = 'block';
 
             loadQuestion(0);
+
+            // Focus the first question title
+            if (quizTitleElement) {
+                quizTitleElement.setAttribute('tabindex', '-1');
+                quizTitleElement.focus();
+            }
         });
     }
 
