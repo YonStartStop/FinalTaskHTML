@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (detailsAuthor) detailsAuthor.textContent = author;
                         if (detailsSummary) detailsSummary.textContent = summary;
                         if (detailsWhyText) detailsWhyText.textContent = why;
-                        
+
                         const buttons = [
                             { el: detailsBtn1, prefix: 'btn1' },
                             { el: detailsBtn2, prefix: 'btn2' },
@@ -217,6 +217,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     }, 250);
                 }
             });
+
+            // Keyboard interaction support (Space/Enter)
+            book.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    book.click();
+                }
+            });
         });
 
         // Initial setup on load (Book 1 is already marked active, make it fly to center)
@@ -238,9 +246,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateActiveNav = () => {
         const path = window.location.pathname;
-        
+
         let currentPage = 'home';
-        
+
         if (path.includes('layers.html')) {
             currentPage = 'layers';
         } else if (path.includes('tools.html')) {
@@ -274,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // RELOAD & HASH SCROLL MANAGEMENT
     // ==========================================
     const isReload = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0] && performance.getEntriesByType('navigation')[0].type === 'reload') || (performance.navigation && performance.navigation.type === 1);
-    
+
     if (isReload) {
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
@@ -308,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const isHomePage = !!document.getElementById('lego-principles');
             if (isHomePage) {
                 e.preventDefault();
-                
+
                 // Close mobile navigation drawer if active
                 if (mobileMenu && mobileMenu.classList.contains('active')) {
                     mobileMenu.classList.remove('active');
@@ -320,26 +328,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     const offset = 130; // accounts for the sticky header
                     const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
                     const offsetPosition = elementPosition - offset;
-                    
+
                     const startPosition = window.scrollY;
                     const distance = offsetPosition - startPosition;
                     const duration = 700; // 0.7s maximum duration
                     let startTimestamp = null;
-                    
+
                     document.documentElement.style.scrollBehavior = 'auto';
-                    
+
                     const easeInOutSine = (t) => {
                         return -(Math.cos(Math.PI * t) - 1) / 2;
                     };
-                    
+
                     const step = (timestamp) => {
                         if (!startTimestamp) startTimestamp = timestamp;
                         const elapsed = timestamp - startTimestamp;
                         const progress = Math.min(elapsed / duration, 1);
                         const easeProgress = easeInOutSine(progress);
-                        
+
                         window.scrollTo(0, startPosition + distance * easeProgress);
-                        
+
                         if (progress < 1) {
                             window.requestAnimationFrame(step);
                         } else {
@@ -363,26 +371,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const isHomePage = !!document.getElementById('lego-principles');
             if (isHomePage) {
                 e.preventDefault();
-                
+
                 const startPosition = window.scrollY;
                 const distance = -startPosition;
                 const duration = 700; // 0.7s maximum duration
                 let startTimestamp = null;
-                
+
                 document.documentElement.style.scrollBehavior = 'auto';
-                
+
                 const easeInOutSine = (t) => {
                     return -(Math.cos(Math.PI * t) - 1) / 2;
                 };
-                
+
                 const step = (timestamp) => {
                     if (!startTimestamp) startTimestamp = timestamp;
                     const elapsed = timestamp - startTimestamp;
                     const progress = Math.min(elapsed / duration, 1);
                     const easeProgress = easeInOutSine(progress);
-                    
+
                     window.scrollTo(0, startPosition + distance * easeProgress);
-                    
+
                     if (progress < 1) {
                         window.requestAnimationFrame(step);
                     } else {
@@ -408,45 +416,45 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = heroCtaBtn.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            
+
             if (targetElement) {
                 const offset = 40; // Reduced from 130 to scroll further down
                 const elementPosition = targetElement.getBoundingClientRect().top + (window.scrollY || window.pageYOffset);
                 const offsetPosition = elementPosition - offset;
-                
+
                 const startPosition = window.scrollY || window.pageYOffset;
                 const distance = offsetPosition - startPosition;
                 const duration = 700; // exactly 0.7 seconds maximum duration
                 let startTimestamp = null;
-                
+
                 // Temporarily disable global CSS smooth scroll to prevent rendering conflicts and stutter
                 document.documentElement.style.scrollBehavior = 'auto';
-                
+
                 // Sinusoidal ease-in-out for an extremely organic, calm acceleration and deceleration (no abrupt braking)
                 const easeInOutSine = (t) => {
                     return -(Math.cos(Math.PI * t) - 1) / 2;
                 };
-                
+
                 const step = (timestamp) => {
                     if (!startTimestamp) startTimestamp = timestamp;
                     const elapsed = timestamp - startTimestamp;
                     const progress = Math.min(elapsed / duration, 1);
                     const easeProgress = easeInOutSine(progress);
-                    
+
                     window.scrollTo(0, startPosition + distance * easeProgress);
-                    
+
                     if (progress < 1) {
                         window.requestAnimationFrame(step);
                     } else {
                         // Restore original CSS scroll behavior
                         document.documentElement.style.scrollBehavior = '';
-                        
+
                         // After scroll completes, update location hash without triggering jump scroll
                         history.pushState(null, null, targetId);
                         updateActiveNav();
                     }
                 };
-                
+
                 window.requestAnimationFrame(step);
             }
         });
@@ -520,7 +528,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ABOUT PAGE ACCORDION LOGIC
     // ==========================================
     const accordionHeaders = document.querySelectorAll('.about-accordion .accordion-header');
-    
+
     if (accordionHeaders.length > 0) {
         accordionHeaders.forEach(header => {
             header.addEventListener('click', () => {

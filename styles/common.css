@@ -880,3 +880,29 @@ p {
         white-space: nowrap;
     }
 }
+
+/* ==========================================================================
+   8. KEYBOARD ACCESSIBILITY FOCUS STYLES (WCAG)
+   ========================================================================== */
+:focus-visible {
+    outline: 3px solid var(--highlight-blue);
+    outline-offset: 4px;
+}
+
+/* Specific styling for elements in the dark header/navigation block & mobile drawer */
+.nav-link:focus-visible,
+.logo-area:focus-visible,
+.hamburger-btn:focus-visible,
+.menu-link:focus-visible,
+.close-menu-btn:focus-visible {
+    outline: 3px solid #FFE082;
+    outline-offset: 4px;
+}
+
+.logo-area:focus-visible {
+    border-radius: 26px;
+}
+
+.hamburger-btn:focus-visible {
+    border-radius: 12px;
+}

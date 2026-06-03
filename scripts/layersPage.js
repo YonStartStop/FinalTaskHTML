@@ -19,11 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     const offset = header ? header.offsetHeight + 15 : 100; // Dynamically calculate offset based on sticky header height
                     const elementPosition = targetCard.getBoundingClientRect().top + window.scrollY;
                     const offsetPosition = elementPosition - offset;
-                    
+
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: 'smooth'
                     });
+                }
+            });
+
+            // Keyboard navigation interaction
+            ring.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    ring.click();
                 }
             });
         });
@@ -93,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loadQuestion = (idx) => {
         if (!quizBodyContainer) return;
-        
+
         hasSelected = false;
         if (quizFeedbackEl) {
             quizFeedbackEl.style.display = 'none';
