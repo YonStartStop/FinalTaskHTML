@@ -219,21 +219,21 @@
                         onsubmit="event.preventDefault(); alert('הודעתכם נשלחה בהצלחה! נחזור אליכם בהקדם.'); this.reset();"
                         style="position: relative; z-index: 2;">
                         <div class="form-group">
-                            <label for="contact-name" class="form-label">שם מלא:</label>
+                            <label for="contact-name" class="form-label">שם מלא: <span class="required-asterisk">*</span></label>
                             <input type="text" id="contact-name" class="form-control" placeholder="ישראל ישראלי"
                                 required />
                             <small class="form-helper-text">כי אנחנו אוהבים לפנות אליכם בחיוך ובאופן אישי 😊</small>
                         </div>
 
                         <div class="form-group">
-                            <label for="contact-email" class="form-label">כתובת אימייל:</label>
+                            <label for="contact-email" class="form-label">כתובת אימייל: <span class="required-asterisk">*</span></label>
                             <input type="email" id="contact-email" class="form-control" placeholder="israel@gmail.com"
                                 required />
                             <small class="form-helper-text">מבטיחים לשלוח רק תשובה מפורטת, בלי ספאם כלל! 📧</small>
                         </div>
 
                         <div class="form-group">
-                            <label for="contact-subject-select" class="form-label">נושא הפנייה:</label>
+                            <label for="contact-subject-select" class="form-label">נושא הפנייה: <span class="required-asterisk">*</span></label>
                             <select id="contact-subject-select" class="form-control form-select" required>
                                 <option value="" disabled selected hidden>במה נוכל לעזור לכם היום?</option>
                                 <option value="עזרה בניסוח תשובה">🧒 אני צריך/ה עזרה בניסוח תשובה לשאלה מורכבת של ילד/ה
@@ -246,7 +246,7 @@
 
 
                         <div class="form-group">
-                            <label for="contact-message" class="form-label">תוכן הפנייה / שאלת הילד:</label>
+                            <label for="contact-message" class="form-label">תוכן הפנייה / שאלת הילד: <span class="required-asterisk">*</span></label>
                             <textarea id="contact-message" class="form-control" rows="5"
                                 placeholder="כאן תוכלו לכתוב את שאלת הילד המלאה, הרקע שגרם לה, וכל מה שחשוב שנדע..."
                                 style="resize: vertical; min-height: 110px;" required></textarea>

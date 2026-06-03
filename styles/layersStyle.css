@@ -750,10 +750,6 @@
         margin-bottom: 15px !important;
     }
 
-    .layers-hero-text p:last-of-type {
-        display: none;
-    }
-
     .layers-character-scene {
         max-width: 320px;
     }
