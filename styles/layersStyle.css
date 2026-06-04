@@ -404,6 +404,8 @@
 }
 
 .quiz-option-btn {
+    display: block;
+    width: 100%;
     background-color: #FFFFFF;
     border: 2px solid rgba(0, 0, 0, 0.06);
     border-radius: 12px;
@@ -423,7 +425,10 @@
     border-color: rgba(0, 0, 0, 0.15);
 }
 
-.quiz-option-btn:focus-visible {
+.quiz-option-btn:focus-visible,
+.quiz-option-btn:has(.quiz-option-radio:focus-visible) {
+    outline: 3px solid var(--highlight-blue);
+    outline-offset: 4px;
     border-color: var(--eggplant);
     background-color: var(--bg-primary);
 }

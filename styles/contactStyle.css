@@ -108,7 +108,8 @@
     /* ensures the link's border-radius inherits cleanly */
 }
 
-.contact-info-item:hover {
+.contact-info-item:hover,
+.contact-info-item:has(.contact-info-link:focus-visible) {
     transform: translateY(-2px);
     border-color: var(--highlight-blue);
     box-shadow: 0 8px 18px rgba(70, 135, 226, 0.08);
@@ -122,6 +123,13 @@
     padding: 14px 18px;
     text-decoration: none;
     color: inherit;
+    outline: none;
+}
+
+.contact-info-link:focus-visible {
+    outline: 3px solid var(--highlight-blue);
+    outline-offset: -4px;
+    border-radius: 14px;
 }
 
 .contact-info-icon {
@@ -140,7 +148,8 @@
     transition: all 0.3s ease;
 }
 
-.contact-info-item:hover .contact-info-icon {
+.contact-info-item:hover .contact-info-icon,
+.contact-info-item:has(.contact-info-link:focus-visible) .contact-info-icon {
     transform: scale(1.1) rotate(5deg);
     background-color: var(--eggplant);
     color: #FFFFFF;
